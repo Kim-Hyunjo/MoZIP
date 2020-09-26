@@ -1,1 +1,0 @@
-practicing for django restframework
