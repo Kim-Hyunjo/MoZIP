@@ -18,13 +18,23 @@ from django.urls import path,include
 from rest_framework import routers
 from mozip1.views import UserViewSet, ClubViewSet
 
+#jwoo
+from mozip1.views import ListPost
+
 router = routers.DefaultRouter()
 router.register(r'users',UserViewSet)
 router.register(r'clubs', ClubViewSet)
+
+#jwoo
+router.register(r'listpost', ListPost)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test1/', include(router.urls)),
     path('test2/', include(router.urls)),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')), #login,logout 추가
+
+
+    #jwoo
+    path('api/', include(router.urls)),
 ]
