@@ -1,11 +1,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import List from "../components/List";
-import { User } from "../interfaces";
 import { Test } from "../interfaces/test";
-import { sampleUserData } from "../utils/sample-data";
-import Axios from "axios";
 import { useEffect, useState } from "react";
 import { httpClient } from "../http/HttpClient";
 import { IHttpClientRequestParameters } from "../http/IHttpClientRequestParameters";
@@ -22,18 +18,17 @@ const getTestProps = ({}: Props) => {
     //   setTodo1(r.data);
     //   console.log(todo1);
     // });
-    // const getParameter: IHttpClientRequestParameters<string[]> = {
-    //   url: "https://skhu-pwk.firebaseio.com/todo1.json",
-    //   requiresToken: false,
-    // };
-    httpClient
-      .get<string[]>({
-        url: "todo1.json",
-        requiresToken: false,
-      })
-      .then((r) => {
-        setTodo1(r);
-      });
+
+    console.log("axios_test");
+
+    const getParameter: IHttpClientRequestParameters<string[]> = {
+      url: "todo1.json",
+      requiresToken: false,
+    };
+
+    httpClient.get<string[]>(getParameter).then((r) => {
+      setTodo1(r);
+    });
   };
 
   const bt = () => {
