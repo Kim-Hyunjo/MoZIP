@@ -26,6 +26,14 @@ const getTestProps = ({}: Props) => {
     //   url: "https://skhu-pwk.firebaseio.com/todo1.json",
     //   requiresToken: false,
     // };
+    httpClient
+      .get<string[]>({
+        url: "todo1.json",
+        requiresToken: false,
+      })
+      .then((r) => {
+        setTodo1(r);
+      });
   };
 
   const bt = () => {
