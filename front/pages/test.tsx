@@ -19,7 +19,7 @@ const getTestProps = ({}: Props) => {
     //   console.log(todo1);
     // });
 
-    console.log("axios_test");
+    console.log("httpClient");
 
     const getParameter: IHttpClientRequestParameters<string[]> = {
       url: "todo1.json",
