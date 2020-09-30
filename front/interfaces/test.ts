@@ -1,5 +1,5 @@
 export type Test = {
-    name: string
-    project: string
-    date: string
+    id: number
+    title: string
+    content: string
 }
