@@ -55,7 +55,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <hr />
       <a href="#">이용약관</a>{' '}|{' '}
       <a href="#">개인정보 처리방침</a>{' '}|{' '}
-      <a href="#">고객센터</a>{' '}|{' '}
+      <a href="#">고객센터</a>
 
       <div>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus dolore beatae saepe odit laudantium. Ullam non, impedit, excepturi quisquam fugiat qui nobis dolores, ipsam voluptates iusto quos debitis eos! Illo?
