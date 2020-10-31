@@ -16,7 +16,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     </Head>
     <header>
       <nav>
-        <Link href="/">
+        {/* <Link href="/">
           <a>Home</a>
         </Link>{' '}
         |{' '}
@@ -27,13 +27,39 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         <Link href="/users">
           <a>Users List</a>
         </Link>{' '}
-        | <a href="/api/users">Users API</a>
+        |{' '}
+        <Link href="/test">
+          <a>test</a>
+        </Link>{' '}
+        | <a href="/api/users">Users API</a> */}
+
+        <Link href="/">
+          <a>About</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/about">
+          <a>Recruit</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/users">
+          <a>List</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/test">
+          <a>My Page</a>
+        </Link>{' '}
       </nav>
     </header>
     {children}
     <footer>
       <hr />
-      <span>I'm here to stay (Footer)</span>
+      <a href="#">이용약관</a>{' '}|{' '}
+      <a href="#">개인정보 처리방침</a>{' '}|{' '}
+      <a href="#">고객센터</a>{' '}|{' '}
+
+      <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus dolore beatae saepe odit laudantium. Ullam non, impedit, excepturi quisquam fugiat qui nobis dolores, ipsam voluptates iusto quos debitis eos! Illo?
+      </div>
     </footer>
   </div>
 )
