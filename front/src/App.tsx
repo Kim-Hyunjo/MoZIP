@@ -6,7 +6,15 @@ import Home from './Test/home';
 import RedirectTest from './Test/RedirectTest';
 import Test from './Test/Test';
 import TestList from './Test/TestList';
-
+import ListPage1 from './pages/ListPage1';
+import ListPage2 from './pages/ListPage2';
+import ListPage3 from './pages/ListPage3';
+import ListPage4 from './pages/ListPage4';
+import ListPage5 from './pages/ListPage5';
+import ListPage6 from './pages/ListPage6';
+import ListPage7 from './pages/ListPage7';
+import detailPage1 from './pages/detailPage1';
+import SelfIntroduction from './pages/SelfIntroduction';
 function App() {
   return (
     <Router>
@@ -33,7 +41,17 @@ function App() {
           <Route path="/intro" render={() => <h3>소개</h3>} />
           <Route path="/posts" component={TestList} />
           <Route path="/rt" component={RedirectTest} /> {/* 리다이렉트 방법*/}
+          <Route exact path="/list/전체" component={ListPage1}/>
+  <Route exact path="/list/학술" component={ListPage2}/>
+  <Route exact path="/list/예술" component={ListPage3}/>
+  <Route exact path="/list/친목" component={ListPage4}/>
+  <Route exact path="/list/스포츠" component={ListPage5}/>
+  <Route exact path="/list/여행" component={ListPage6}/>
+  <Route exact path="/list/봉사" component={ListPage7}/>
+  <Route exact path="/list/학술/1" component={detailPage1}/>
+  <Route exact path="/자기소개함" component={SelfIntroduction} />
           <Route component={NotFound} />
+              
         </Switch>
         <hr />
         <footer>
