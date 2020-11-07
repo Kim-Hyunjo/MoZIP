@@ -6,13 +6,20 @@ import Home from './Test/home';
 import RedirectTest from './Test/RedirectTest';
 import Test from './Test/Test';
 import TestList from './Test/TestList';
-import ListPage1 from './pages/ListPage1';
-import ListPage2 from './pages/ListPage2';
-import ListPage3 from './pages/ListPage3';
-import ListPage4 from './pages/ListPage4';
-import ListPage5 from './pages/ListPage5';
-import ListPage6 from './pages/ListPage6';
-import ListPage7 from './pages/ListPage7';
+import ListAll from './pages/list/ListAll';
+import ListAcademy from './pages/list/ListAcademy';
+import ListArt from './pages/list/ListArt';
+import ListNetworking from './pages/list/ListNetworking';
+import ListSports from './pages/list/ListSports';
+import ListTravel from './pages/list/ListTravel';
+import ListReligion from './pages/list/ListReligion';
+import ListVolunteer from './pages/list/ListVolunteer';
+import ListETC from './pages/list/ListETC';
+
+import login from './pages/login';
+import sginup from './pages/signup';
+import mypage from './pages/mypage';
+
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 function App() {
@@ -27,8 +34,8 @@ function App() {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/intro">Intro</Link></li> */}
                 {/* NavLink를 이용하면 다이나믹 스타일 적용가능 */}
-                <li><NavLink exact to="/">My Page</NavLink></li>
-                <li><NavLink exact to="/">List</NavLink></li>
+                <li><NavLink exact to="/mypage">My Page</NavLink></li>
+                <li><NavLink exact to="/list">List</NavLink></li>
                 <li><NavLink exact to="/intro">Guide</NavLink></li>
                 <li><NavLink exact={true} to="/home">Home</NavLink></li>
               </ul>
@@ -38,19 +45,24 @@ function App() {
         <hr />
         <h1>여기는 바디</h1>
         <Switch>
-          <Route path="/" render={() => <h3>Index</h3>} />
           <Route exact={true} path="/home" component={Home} />
-          <Route path="/intro" render={() => <h3>소개</h3>} />
-          <Route path="/posts" component={TestList} />
-          <Route path="/rt" component={RedirectTest} /> {/* 리다이렉트 방법*/}
-          <Route exact path="/list/전체" component={ListPage1}/>
-          <Route exact path="/list/학술" component={ListPage2}/>
-          <Route exact path="/list/예술" component={ListPage3}/>
-          <Route exact path="/list/친목" component={ListPage4}/>
-          <Route exact path="/list/스포츠" component={ListPage5}/>
-          <Route exact path="/list/여행" component={ListPage6}/>
-          <Route exact path="/list/봉사" component={ListPage7}/>
+          <Route exact path="/" render={() => <h3>Index</h3>} />
+          <Route exact path="/intro" render={() => <h3>소개</h3>} />
+          <Route exact path="/posts" component={TestList} />
+          <Route exact path="/rt" component={RedirectTest} /> {/* 리다이렉트 방법*/}
+          <Route exact path="/list" component={ListAll}/>
+          <Route exact path="/list/academy" component={ListAcademy}/>
+          <Route exact path="/list/art" component={ListArt}/>
+          <Route exact path="/list/networking" component={ListNetworking}/>
+          <Route exact path="/list/sports" component={ListSports}/>
+          <Route exact path="/list/travel" component={ListTravel}/>
+          <Route exact path="/list/religion" component={ListReligion}/>
+          <Route exact path="/list/volunteer" component={ListVolunteer}/>
+          <Route exact path="/list/etc" component={ListETC}/>
           <Route exact path="/list/학술/1" component={detailPage1}/>
+          
+          <Route exact path="/mypage" component={mypage} />
+
           <Route exact path="/자기소개함" component={SelfIntroduction} />
           <Route component={NotFound} />
         </Switch>
