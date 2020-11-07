@@ -1,5 +1,45 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Arial";
+  list-style-type: none;
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
+}
+
+header {
+  margin: 0px auto;
+  width: 100%;
+  height: 200px;
+  background-color: #b2cff7;
+}
+
+#list {
+  height: 70px;
+}
+#list ul li {
+  color: black;
+  position: relative;
+  transform: translate(0%, 100%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 180px;
+  height: 52px;
+  float: right;
+  text-align: center;
+  line-height: 52px;
+  font-size: 20px;
+}
+
+a {
+  color: black;
+}
+
+a.active {
+  text-decoration: none;
+  color: #0c5ac6;
 }
 
 .App-logo {
