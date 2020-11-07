@@ -20,7 +20,8 @@ const mypage = () => {
         거주지 : {personalInfo.address}<br></br>
         <button>수정하기</button>
       </div>
-      <button>자기소개함 관리</button>
+      <Link to="./mypage/introduction"><button>자기소개함 관리</button></Link>
+      
       <div id="applyCurrent">
         나의 지원 현황
         <ul id="small box">
