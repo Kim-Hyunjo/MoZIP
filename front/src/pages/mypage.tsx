@@ -57,7 +57,27 @@ const mypage = () => {
         거주지 : {personalInfo.address}<br></br>
         <button>수정하기</button>
       </div>
+<<<<<<< HEAD
       <button>자기소개함 관리</button>
+=======
+      <Link to="./mypage/introduction"><button>자기소개함 관리</button></Link>
+      
+      <div id="applyCurrent">
+        나의 지원 현황
+        <ul id="small box">
+          <li>
+            {personalApplyCurrent[0].name} <br></br>
+            {personalApplyCurrent[0].introduction}<br></br>
+            <button>최종 결과 확인</button>
+          </li>
+          <li>
+            {personalApplyCurrent[1].name} <br></br>
+            {personalApplyCurrent[1].introduction}<br></br>
+            <button>지원서 수정하기</button>
+          </li>
+        </ul>
+      </div>
+>>>>>>> develop
       <div id="applyHistory">
         <ul id="small box">
           <li>

@@ -63,7 +63,7 @@ function App() {
           
           <Route exact path="/mypage" component={mypage} />
 
-          <Route exact path="/자기소개함" component={SelfIntroduction} />
+          <Route exact path="/mypage/introduction" component={SelfIntroduction} />
           <Route component={NotFound} />
         </Switch>
         <hr />
