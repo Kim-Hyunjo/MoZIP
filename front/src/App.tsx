@@ -31,14 +31,27 @@ function App() {
         <header>
           <nav>
             <div id = "list">
-              <ul>
-                {/* <li><Link to="/">Index</Link></li>
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/intro">Intro</Link></li> */}
+              <ul className = "menu">
                 {/* NavLink를 이용하면 다이나믹 스타일 적용가능 */}
-                <li><NavLink exact to="/mypage">My Page</NavLink></li>
-                <li><NavLink exact to="/list">List</NavLink></li>
-                <li><NavLink exact to="/intro">Guide</NavLink></li>
+                <li><NavLink exact to="/mypage">My Page</NavLink>
+                  <ul className ="sub">
+                    <li><NavLink exact to="/">지원 이력</NavLink></li>
+                    <li><NavLink exact to="/">자기소개서함</NavLink></li>
+                  </ul>
+                </li>
+                <li><NavLink exact to="/list">List</NavLink>
+                  <ul className ="sub">
+                    <li><NavLink exact to="/list">전체 동아리</NavLink></li>
+                    <li><NavLink exact to="/">동아리 추가 개설</NavLink></li>
+                  </ul>
+                </li>
+                <li><NavLink exact to="/intro">Guide</NavLink>
+                  <ul className ="sub">
+                    <li><NavLink exact to="/">동아리 개설</NavLink></li>
+                    <li><NavLink exact to="/">동아리 운영</NavLink></li>
+                    <li><NavLink exact to="/">자기소개서함이란</NavLink></li>
+                  </ul>
+                </li>
                 <li><NavLink exact={true} to="/home">Home</NavLink></li>
               </ul>
             </div>
