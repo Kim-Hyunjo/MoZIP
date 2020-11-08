@@ -28,7 +28,7 @@ return(
             </label>
         </div>  
         <div>
-            <ul>
+            <ul id = "horizontal_list">
                 <li><Link to="/list">전체</Link></li>
                 <li><Link to="/list/academy">학술</Link></li>
                 <li><Link to="/list/art">예술</Link></li>
@@ -41,12 +41,14 @@ return(
             </ul>
         </div>
 
-        <div>
-        {학술.map((item)=> {
-            return(
-                <li style={{marginRight:'10px'}}><Link to="/list/academy"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-            )
-        })}
+        <div className ="club_list">
+            <ul id = "horizontal_club_list">
+                {학술.map((item)=> {
+                    return(
+                        <li style={{marginRight:'10px'}}><Link to="/list/academy"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                    )
+                 })}
+            </ul>
         </div>
     </div>
     </>
