@@ -13,6 +13,7 @@ import RedirectTest from './Test/RedirectTest';
 import Test from './Test/Test';
 import TestList from './Test/TestList';
 import ListAll from './pages/list/ListAll';
+import List from './pages/list/List';
 import ListAcademy from './pages/list/ListAcademy';
 import ListArt from './pages/list/ListArt';
 import ListNetworking from './pages/list/ListNetworking';
@@ -101,8 +102,8 @@ function App() {
             <Route exact path="/posts" component={TestList} />
             <Route exact path="/rt" component={RedirectTest} />{' '}
             {/* 리다이렉트 방법*/}
-            <Route exact path="/list" component={ListAll} />
-            <Route exact path="/list/academy" component={ListAcademy} />
+            <Route exact path="/list" component={List} />
+            {/* <Route exact path="/list/academy" component={ListAcademy} />
             <Route exact path="/list/art" component={ListArt} />
             <Route exact path="/list/networking" component={ListNetworking} />
             <Route exact path="/list/sports" component={ListSports} />
@@ -110,7 +111,7 @@ function App() {
             <Route exact path="/list/religion" component={ListReligion} />
             <Route exact path="/list/volunteer" component={ListVolunteer} />
             <Route exact path="/list/etc" component={ListETC} />
-            <Route exact path="/list/학술/1" component={detailPage1} />
+            <Route exact path="/list/학술/1" component={detailPage1} /> */}
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
