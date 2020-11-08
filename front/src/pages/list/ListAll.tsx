@@ -34,8 +34,8 @@ const handlerSubject =  (e:any) =>{
 
 
 return(
-       <>
-         <div>
+    <div>
+        <div>
             <h2>전체 동아리 목록</h2>
             <p>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</p>
             <div>
@@ -46,72 +46,67 @@ return(
                             <option key={index} value={item.name}>
                                 {item.name}
                             </option>
-
                         )
                     })}            
                 </select>
             </label>
-        </div> 
-        <div>
-            <ul>
-                <li><Link to="/list">전체</Link></li>
-                <li><Link to="/list/academy">학술</Link></li>
-                <li><Link to="/list/art">예술</Link></li>
-                <li><Link to="/list/networking">친목</Link></li>
-                <li><Link to="/list/sports">스포츠</Link></li>
-                <li><Link to="/list/travel">여행</Link></li>
-                <li><Link to="/list/religion">종교</Link></li>
-                <li><Link to="/list/volunteer">봉사</Link></li>
-                <li><Link to="/list/etc">기타</Link></li>
-            </ul>
+            </div> 
+            <div>
+                <ul id = "horizontal_list">
+                    <li><Link to="/list">전체</Link></li>
+                    <li><Link to="/list/academy">학술</Link></li>
+                    <li><Link to="/list/art">예술</Link></li>
+                    <li><Link to="/list/networking">친목</Link></li>
+                    <li><Link to="/list/sports">스포츠</Link></li>
+                    <li><Link to="/list/travel">여행</Link></li>
+                    <li><Link to="/list/religion">종교</Link></li>
+                    <li><Link to="/list/volunteer">봉사</Link></li>
+                    <li><Link to="/list/etc">기타</Link></li>
+                </ul>
+            </div>
+            <div className="club_list">
+                <ul id = "horizontal_club_list">
+                    {학술.map((item,index)=> {
+                    return(
+                        
+                        <li><Link to="/list/학술/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                    
+                        )
+                    })}
+                    {예술.map((item)=> {
+                    return(
+                        <li><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                        )
+                    })}
+                    {친목.map((item)=> {
+                    return(
+                        <li><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                        )
+                    })}
+                    {스포츠.map((item)=> {
+                    return(
+                        <li><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                        )
+                    })}
+                    {여행.map((item)=> {
+                    return(
+                        <li><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                        )
+                    })}
+                    {종교.map((item)=> {
+                    return(
+                        <li><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                        )
+                    })}
+                    {봉사.map((item)=> {
+                    return(
+                        <li><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
+                        )
+                    })}
+                </ul>
+            </div>
         </div>
     </div>
-   
-    <div>
-        <ul >
-                {학술.map((item,index)=> {
-                      
-                return(
-                    
-                    <li style={{marginRight:'10px'}}><Link to="/list/학술/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                  
-                    )
-                })}
-                {예술.map((item)=> {
-                return(
-                    <li style={{marginRight:'10px'}}><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                    )
-                })}
-                {친목.map((item)=> {
-                return(
-                    <li style={{marginRight:'10px'}}><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                    )
-                })}
-                {스포츠.map((item)=> {
-                return(
-                     <li style={{marginRight:'10px'}}><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                    )
-                })}
-                {여행.map((item)=> {
-                return(
-                     <li style={{marginRight:'10px'}}><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                    )
-                })}
-                {종교.map((item)=> {
-                return(
-                    <li style={{marginRight:'10px'}}><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                    )
-                })}
-                {봉사.map((item)=> {
-                return(
-                    <li style={{marginRight:'10px'}}><Link to="/list/전체/1"><h3>{item.name}</h3><p>{item.introduction}</p></Link></li>
-                    )
-                })}
-           
-         </ul>
-    </div>
-    
-    </>
     )
     
 }
