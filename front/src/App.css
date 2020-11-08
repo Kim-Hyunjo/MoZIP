@@ -2,12 +2,9 @@
   margin: 0px;
   padding: 0px;
   font-family: "Arial";
+  font-size: 16px;
   list-style-type: none;
   text-decoration: none;
-}
-
-.App {
-  text-align: center;
 }
 
 header {
@@ -15,6 +12,55 @@ header {
   width: 100%;
   height: 200px;
   background-color: #b2cff7;
+  position: fixed;
+}
+
+#horizontal_list {
+  padding: 20px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 128px;
+}
+
+#horizontal_list li {
+  width: 128px;
+  height: 128px;
+  float: left;
+  border: solid;
+  border-width: 2px 1px;
+}
+
+.club_list {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#horizontal_club_list li {
+  padding: 20px;
+  clear: both;
+  border: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #0c5ac6;
+  height: 108px;
+}
+
+#horizontal_club_list li h3 {
+  color: #0c5ac6;
+  font-size: 28px;
+}
+#horizontal_club_list li p {
+  padding: 8px;
+}
+
+.body {
+  padding-top: 200px;
+  margin: 80px 240px;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 0px 0px 10px 0px;
 }
 
 #list {
@@ -25,7 +71,7 @@ header {
   color: black;
   text-align: center;
   line-height: 52px;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 a {
@@ -57,6 +103,7 @@ a.active {
   display: block;
   width: 100%;
   height: 100%;
+  font-size: 20px;
 }
 
 .menu li:hover a {
@@ -68,7 +115,8 @@ a.active {
 }
 
 .sub {
-  position: absolute;
+  position: relative;
+  transform: translate(0, -52px);
   width: 100%;
   display: none;
   box-sizing: border-box;
