@@ -19,6 +19,7 @@ import ListETC from './pages/list/ListETC';
 import login from './pages/login';
 import sginup from './pages/signup';
 import mypage from './pages/mypage';
+import myPageEdit from './pages/myPageEdit';
 import mypageStatus from './pages/mypageStatus';
 
 import detailPage1 from './pages/detailPage1';
@@ -63,6 +64,7 @@ function App() {
           <Route exact path="/list/학술/1" component={detailPage1}/>
           
           <Route exact path="/mypage" component={mypage} />
+          <Route exact path="/mypage/edit" component={myPageEdit} />
           <Route exact path="/mypage/status" component={mypageStatus} />
 
           <Route exact path="/mypage/introduction" component={SelfIntroduction} />

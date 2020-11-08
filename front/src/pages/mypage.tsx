@@ -18,7 +18,7 @@ const mypage = () => {
         전화번호 : {personalInfo.phoneNum} <br></br>
         이메일 : {personalInfo.email} <br></br>
         거주지 : {personalInfo.address}<br></br>
-        <button>수정하기</button>
+        <Link to="./mypage/edit"><button>수정하기</button></Link>
       </div>
       <button>자기소개함 관리</button>
       <div id="applyCurrent">
