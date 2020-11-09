@@ -65,6 +65,7 @@ h2 {
 }
 
 .middle_title {
+  float: left;
   font-size: 28px;
   margin: 20px 0px 10px 5px;
 }
@@ -168,7 +169,7 @@ a.active {
 }
 
 .horizontal_scroll {
-  padding: 20px;
+  padding: 10px 20px 30px 20px;
   height: 260px;
   width: 1080px;
   white-space: nowrap;
@@ -176,6 +177,7 @@ a.active {
 }
 
 .warning {
+  min-width: 70%;
   font-size: 14px;
   margin-left: 450px;
   margin-top: 45px;
@@ -184,8 +186,8 @@ a.active {
 }
 
 .word_button {
-  position: absolute;
-  transform: translate(200%, -160%);
+  position: relative;
+  transform: translate(3%, 160%);
   text-decoration: underline;
 }
 

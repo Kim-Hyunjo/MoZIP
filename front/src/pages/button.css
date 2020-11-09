@@ -35,3 +35,7 @@
   color: white;
   font-size: 22px;
 }
+
+.plus_button {
+  position: relative;
+}
