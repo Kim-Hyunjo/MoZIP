@@ -1,0 +1,55 @@
+.big_namecard {
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #0c59c3;
+  margin-left: 152px;
+  margin-bottom: 32px;
+  padding: 20px;
+  width: 720px;
+  height: 280px;
+}
+
+.big_namecard .right_side {
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 200%;
+  transform: translate(35%, 0%);
+}
+
+.big_namecard .right_side .name {
+  font-size: 25px;
+  margin: 8px 0px;
+}
+
+.big_namecard .button {
+  float: right;
+  transform: translate(-35%, -50%);
+}
+
+.my_first_namecard {
+  width: 1080px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.my_first_namecard li {
+  display: inline-block;
+  padding: 20px;
+  width: 160px;
+  height: 216px;
+  margin-right: 5px;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: #e8f2ff;
+  background-color: #e8f2ff;
+}
+
+.my_first_namecard li .club_name {
+  overflow-x: scroll;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.small_namecard li .club_intro {
+  overflow-x: scroll;
+}
