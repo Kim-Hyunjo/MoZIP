@@ -1,0 +1,33 @@
+ul #horizontal_list{
+    justify-content: center;
+}
+
+#horizontal_list li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(0,0,0,0.36);
+    font-size: 16px;
+    font-weight: 700;
+    flex-direction: column;
+    cursor: pointer;
+}
+#horizontal_list li:hover{
+    color: rgb(0,0,0);
+
+}
+li .border {
+    width: 100%;
+    height: 8%;
+    background: #fff;
+}
+li:hover .border {
+    background: #0C4EA8;
+}
+li:active .border {
+    background: #093E86;
+}
+#list_name li:active .border {
+    background: #0C5AC6;
+}
