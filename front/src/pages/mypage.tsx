@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route,Link } from 'react-router-dom';
 import React, {  useState } from "react";
+import "./namecard.css";
+import "./button.css";
 
 const mypage = () => { 
   const personalInfo = {name: "최우영", sort:"직장인", school:"테이브대학교", major:"서핑학과", grade:"3", state:"재학", birth: "2020.11.07", phoneNum: "010-0000-0000", email: "tave@naver.com", address:"서울시 강남구"};
@@ -10,35 +12,66 @@ const mypage = () => {
   
   return(
     <div>
-      <div id="namecard">
-        {personalInfo.name} <br></br>
-        학교 및 학과 : {personalInfo.school} {personalInfo.major}<br></br>
-        학년 : {personalInfo.grade}학년 {personalInfo.state}중 <br></br>
-        생년월일 : {personalInfo.birth} <br></br>
-        전화번호 : {personalInfo.phoneNum} <br></br>
-        이메일 : {personalInfo.email} <br></br>
-        거주지 : {personalInfo.address}<br></br>
-        <Link to="./mypage/edit"><button>수정하기</button></Link>
+      <h2>My page</h2>
+      <div className = "warning">*본인 확인을 위해 사진 포함 모든 정보를 등록해주셔야 동아리 지원이 가능합니다.</div>
+      <div className ="big_namecard">
+        <div className ="right_side">
+          <div className = "name">{personalInfo.name}</div>
+          분류 : {personalInfo.sort} <br></br>
+          학교 및 학과 : {personalInfo.school} {personalInfo.major}<br></br>
+          학년 : {personalInfo.grade}학년 {personalInfo.state}중 <br></br>
+          생년월일 : {personalInfo.birth} <br></br>
+          전화번호 : {personalInfo.phoneNum} <br></br>
+          이메일 : {personalInfo.email} <br></br>
+          거주지 : {personalInfo.address}<br></br>
+        </div>
+        <div className = "button">
+          <Link to="./mypage/edit"><button id ='button1'>수정하기</button></Link>
+        </div>
       </div>
-      <button>자기소개함 관리</button>
+      <div className = "button_center">
+        <button id = 'button10'>자기소개함 관리</button>
+      </div>
       <div id="applyCurrent">
-        나의 지원 현황
-        <ul id="small box">
-          <li>
-            {personalApplyCurrent[0].name} <br></br>
-            {personalApplyCurrent[0].introduction}<br></br>
-            <button>최종 결과 확인</button>
-          </li>
-          <li>
-            {personalApplyCurrent[1].name} <br></br>
-            {personalApplyCurrent[1].introduction}<br></br>
-            <button>지원서 수정하기</button>
-          </li>
-        </ul>
+        <div className ="middle_title">나의 지원 현황</div>
+        <div className = "horizontal_scroll">
+          <ul className="my_first_namecard">
+            <li>
+              <div className = "club_name">{personalApplyCurrent[0].name}</div>
+              <div className = "club_intro">{personalApplyCurrent[0].introduction}</div>
+              <button id = "button2">최종 결과 확인</button>
+            </li>
+            <li>
+              <div className = "club_name">{personalApplyCurrent[0].name}</div>
+              <div className = "club_intro">{personalApplyCurrent[0].introduction}</div>
+              <button id = "button2">최종 결과 확인</button>
+            </li>
+            <li>
+              <div className = "club_name">{personalApplyCurrent[0].name}</div>
+              <div className = "club_intro">{personalApplyCurrent[0].introduction}</div>
+              <button id = "button2">최종 결과 확인</button>
+            </li>
+            <li>
+              <div className = "club_name">{personalApplyCurrent[0].name}</div>
+              <div className = "club_intro">{personalApplyCurrent[0].introduction}</div>
+              <button id = "button2">최종 결과 확인</button>
+            </li>
+            <li>
+              <div className = "club_name">{personalApplyCurrent[0].name}</div>
+              <div className = "club_intro">{personalApplyCurrent[0].introduction}</div>
+              <button id = "button2">최종 결과 확인</button>
+            </li>
+            <li>
+              <div className = "club_name">{personalApplyCurrent[0].name}</div>
+              <div className = "club_intro">{personalApplyCurrent[0].introduction}</div>
+              <button id = "button2">최종 결과 확인</button>
+            </li>
+          </ul>
+        </div>
       </div>
       <div id="applyHistory">
-        My 동아리
-        <div>
+      <div className ="middle_title">My 동아리</div>
+        <div className="word_button">
           <Link to="./mypage/status">자세히 보기</Link>
         </div>
         <ul id="small box">
