@@ -26,30 +26,38 @@
   transform: translate(-35%, -50%);
 }
 
-.my_first_namecard {
+.small_namecard {
   width: 1080px;
   white-space: nowrap;
   overflow-x: scroll;
 }
 
-.my_first_namecard li {
+.small_namecard li {
   display: inline-block;
   padding: 20px;
   width: 160px;
   height: 216px;
-  margin-right: 5px;
+  margin-right: 10px;
   border: 1px solid;
   border-radius: 15px;
   border-color: #e8f2ff;
   background-color: #e8f2ff;
 }
 
-.my_first_namecard li .club_name {
+.small_namecard li .club_name {
   overflow-x: scroll;
   font-size: 22px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .small_namecard li .club_intro {
   overflow-x: scroll;
+}
+
+.small_namecard li .club_position {
+  font-size: 14px;
+  float: right;
+  color: #093e86;
+  transform: translate(0%, 35%);
+  margin-left: 16px;
 }
