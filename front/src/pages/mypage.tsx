@@ -29,7 +29,7 @@ const mypage = () => {
           <Link to="./mypage/edit"><button id ='button1'>수정하기</button></Link>
         </div>
       </div>
-      <div className = "button_center">
+      <div className = "mypageStorageButton">
         <button id = 'button10'>자기소개함 관리</button>
       </div>
       <div id="applyCurrent">

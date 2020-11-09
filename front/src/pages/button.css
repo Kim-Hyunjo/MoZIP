@@ -23,8 +23,19 @@
   transform: translate(0%, 400%);
   margin-left: 9px;
 }
+
+#button3 {
+  width: 120px;
+  height: 36px;
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #0c59c3;
+  background-color: #0c59c3;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: white;
+}
+
 #button10 {
-  margin-left: 352px;
   width: 320px;
   height: 64px;
   border: 1px solid;
@@ -36,6 +47,10 @@
   font-size: 22px;
 }
 
-.plus_button {
-  position: relative;
+.mypageStorageButton {
+  margin-left: 352px;
+}
+
+.mypageEditButton {
+  margin-left: 760px;
 }

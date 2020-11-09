@@ -194,3 +194,14 @@ a.active {
 .word_button a {
   color: #0c5ac6;
 }
+
+.mypageEdit {
+  position: relative;
+  width: 160px;
+  height: 24px;
+  padding-left: 10px;
+  margin-left: 10px;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 10px;
+}
