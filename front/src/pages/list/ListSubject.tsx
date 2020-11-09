@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import "./tab.css";
 
 const ListSubject = (props: RouteComponentProps<{ subject: string }>) => {
   return (
