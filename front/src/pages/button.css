@@ -1,0 +1,56 @@
+#button1 {
+  width: 80px;
+  height: 32px;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #0c59c3;
+  background-color: white;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  float: right;
+  transform: translate(-35%, -50%);
+  color: #0c59c3;
+}
+
+#button2 {
+  width: 148px;
+  height: 32px;
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #0c59c3;
+  background-color: #0c59c3;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: white;
+  transform: translate(0%, 400%);
+  margin-left: 9px;
+}
+
+#button3 {
+  width: 120px;
+  height: 36px;
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #0c59c3;
+  background-color: #0c59c3;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: white;
+}
+
+#button10 {
+  width: 320px;
+  height: 64px;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: #0c59c3;
+  background-color: #0c59c3;
+  box-shadow: 4px 4px 10px #d6d6d6;
+  color: white;
+  font-size: 22px;
+}
+
+.mypageStorageButton {
+  margin-left: 352px;
+}
+
+.mypageEditButton {
+  margin-left: 760px;
+}

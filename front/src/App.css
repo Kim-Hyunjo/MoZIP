@@ -1,13 +1,14 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "Arial";
+  font-family: 'Arial';
   font-size: 16px;
   list-style-type: none;
   text-decoration: none;
 }
 
 header {
+  z-index: 1;
   margin: 0px auto;
   width: 100%;
   height: 200px;
@@ -61,6 +62,12 @@ header {
 h2 {
   font-size: 40px;
   margin: 0px 0px 10px 0px;
+}
+
+.middle_title {
+  float: left;
+  font-size: 28px;
+  margin: 20px 0px 10px 5px;
 }
 
 #list {
@@ -159,4 +166,42 @@ a.active {
   to {
     transform: rotate(360deg);
   }
+}
+
+.horizontal_scroll {
+  padding: 10px 20px 30px 20px;
+  height: 260px;
+  width: 1080px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.warning {
+  min-width: 70%;
+  font-size: 14px;
+  margin-left: 450px;
+  margin-top: 45px;
+  margin-bottom: 7px;
+  color: red;
+}
+
+.word_button {
+  position: relative;
+  transform: translate(3%, 160%);
+  text-decoration: underline;
+}
+
+.word_button a {
+  color: #0c5ac6;
+}
+
+.mypageEdit {
+  position: relative;
+  width: 160px;
+  height: 24px;
+  padding-left: 10px;
+  margin-left: 10px;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 10px;
 }
