@@ -22,6 +22,12 @@ import ListTravel from './pages/list/ListTravel';
 import ListReligion from './pages/list/ListReligion';
 import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
+import Apply from './pages/list/academy/Apply';
+import Apply2 from './pages/list/academy/Apply2';
+import Apply3 from './pages/list/academy/Apply3';
+import Apply4 from './pages/list/academy/Apply4';
+import Apply5 from './pages/list/academy/Apply5';
+
 import ListApplySuccess from './pages/list/ListApplySuccess';
 import ListApplyFail from './pages/list/ListApplyFail';
 import login from './pages/login/login';
@@ -130,6 +136,33 @@ function App() {
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
+            <Route exact path="/about/Use" component={Use}></Route>
+            <Route exact path="/circle/Open" component={Open}></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply"
+              component={Apply}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply2"
+              component={Apply2}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply3"
+              component={Apply3}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply4"
+              component={Apply4}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply5"
+              component={Apply5}
+            ></Route>
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
             <Route
