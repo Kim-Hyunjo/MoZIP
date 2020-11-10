@@ -29,7 +29,7 @@ const myPageNotice = () => {
         </div>
       </div>
     </div>
-    <button className="button_medium3">확인</button>
+    <button className="button_medium3 btn_inmiddle">확인</button>
     </div>
   );
 };
