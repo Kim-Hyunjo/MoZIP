@@ -46,8 +46,9 @@ const mypageStatus = () => {
       </h3>
       <div>
         <div className="gray_namecard">
+        <div className="stage_gray_namecard">모집 중</div>
           <div className="title_gray_namecard">4차 산업 혁명 동아리 Tave 6기 모집</div>
-
+          
           <div className="info_gray_namecard">
             <div className="subject_gray_namecard">모집 인원</div>
              0명
@@ -71,6 +72,7 @@ const mypageStatus = () => {
         
       </div>
       <div className="gray_namecard">
+      <div className="stage_gray_namecard">서류 진행 중</div>
           <div className="title_gray_namecard">다른 동아리 4기 모집</div>
 
           <div className="info_gray_namecard">
@@ -94,6 +96,7 @@ const mypageStatus = () => {
         
         </div>
         <div className="gray_namecard">
+        <div className="stage_gray_namecard">면접 진행 중</div>
           <div className="title_gray_namecard">또 다른 동아리 20기 모집</div>
 
           <div className="info_gray_namecard">

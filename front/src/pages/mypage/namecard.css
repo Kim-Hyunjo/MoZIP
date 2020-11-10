@@ -90,7 +90,7 @@
 
 .title_gray_namecard{
   color:#0c5ac6;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -104,4 +104,10 @@
   display: inline-flex;
   margin-bottom: 2px;
   
+}
+.stage_gray_namecard{
+  float: right;
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: 8px;
 }
