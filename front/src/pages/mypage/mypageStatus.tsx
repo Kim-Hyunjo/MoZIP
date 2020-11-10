@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import React, { useState } from 'react';
+import './button.css';
+import './h3lines.css';
+import './namecard.css';
 
 const mypageStatus = () => {
   const personalClublist = [
@@ -17,9 +20,10 @@ const mypageStatus = () => {
 
   return (
     <div>
-      <div id="namecard">동아리 모집 현황</div>
-      <div>동아리별 부원 모집 과정 현황을 확인해보세요.</div>
-      <hr />
+      <div id="namecard"><h2>동아리 모집 현황</h2></div>
+      <h3>
+        <div>동아리별 부원 모집 과정 현황을 확인해보세요.</div>
+        <br />
       <div>
         동아리 모집 단계는 총 <span>4단계</span>입니다.
       </div>
@@ -39,43 +43,80 @@ const mypageStatus = () => {
         <span>4. 회비 입금 대기</span>: 최종 합격을 발표한 후 Mo:ZIP에 아직 합격
         회원들을 등록하지 않은 단계입니다.
       </div>
-      <hr />
+      </h3>
       <div>
-        <div>
-          <div>4차 산업 혁명 동아리 Tave 6기 모집</div>
-          모집 인원 : 0명 <br></br>
-          모집 지역 : 서울, 경기 <br></br>
-          참여 대상 : 대학생, 직장인, <br></br>
-          일반인 모임 시간 : 미정 <br></br>
+        <div className="gray_namecard">
+          <div className="title_gray_namecard">4차 산업 혁명 동아리 Tave 6기 모집</div>
+
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모집 인원</div>
+             0명
+          </div> <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모집 지역</div> 
+            서울, 경기
+          </div> <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">참여 대상원</div> 
+            대학생, 직장인, 일반인
+          </div>  <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모임 시간</div> 
+            미정 
+          </div> <br></br>
+          
+          <button className="button_medium3 btn_ingray_namecard">지원 현황 확인</button>
+        
         </div>
-        <div>
-          <button>지원 현황 확인</button>
-        </div>
+        
       </div>
-      <div>
-        <div>
-          <div>4차 산업 혁명 동아리 Tave 6기 모집</div>
-          모집 인원 : 0명 <br></br>
-          모집 지역 : 서울, 경기 <br></br>
-          참여 대상 : 대학생, 직장인, <br></br>
-          일반인 모임 시간 : 미정 <br></br>
+      <div className="gray_namecard">
+          <div className="title_gray_namecard">다른 동아리 4기 모집</div>
+
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모집 인원</div>
+             20명
+          </div> <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모집 지역</div> 
+            부산
+          </div> <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">참여 대상원</div> 
+            대학생, 직장인, 일반인
+          </div>  <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모임 시간</div> 
+            미정 
+          </div> <br></br>
+          
+          <button className="button_medium3 btn_ingray_namecard">지원자 정보</button>
+        
         </div>
-        <div>
-          <button>지원 현황 확인</button>
+        <div className="gray_namecard">
+          <div className="title_gray_namecard">또 다른 동아리 20기 모집</div>
+
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모집 인원</div>
+             0명
+          </div> <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모집 지역</div> 
+            서울
+          </div> <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">참여 대상원</div> 
+            대학생, 직장인, 일반인
+          </div>  <br></br>
+          <div className="info_gray_namecard">
+            <div className="subject_gray_namecard">모임 시간</div> 
+            미정 
+          </div> <br></br>
+          
+          <button className="button_medium3 btn_ingray_namecard">면접 상세</button>
+        
         </div>
-      </div>
-      <div>
-        <div>
-          <div>4차 산업 혁명 동아리 Tave 6기 모집</div>
-          모집 인원 : 0명 <br></br>
-          모집 지역 : 서울, 경기 <br></br>
-          참여 대상 : 대학생, 직장인, <br></br>
-          일반인 모임 시간 : 미정 <br></br>
-        </div>
-        <div>
-          <button>지원 현황 확인</button>
-        </div>
-      </div>
+      
     </div>
   );
 };
