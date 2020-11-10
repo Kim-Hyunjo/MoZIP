@@ -54,3 +54,8 @@
 .mypageEditButton {
   margin-left: 760px;
 }
+
+.submitButton {
+  margin-top: 30px;
+  float: right;
+}
