@@ -26,6 +26,20 @@
   transform: translate(-35%, -50%);
 }
 
+.big_namecard .head_info {
+  margin: 35px 0px;
+  text-align: center;
+  font-size: 40px;
+  color: #0c5ac6;
+}
+
+.big_namecard .body_info {
+  text-align: center;
+  line-height: 36px;
+  font-size: 18px;
+  margin-top: 35px;
+}
+
 .small_namecard {
   width: 1080px;
   white-space: nowrap;

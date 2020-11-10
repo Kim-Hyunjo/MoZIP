@@ -22,7 +22,8 @@ import ListTravel from './pages/list/ListTravel';
 import ListReligion from './pages/list/ListReligion';
 import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
-
+import ListApplySuccess from './pages/list/ListApplySuccess';
+import ListApplyFail from './pages/list/ListApplyFail';
 import login from './pages/login/login';
 import sginup from './pages/login/signup';
 import mypage from './pages/mypage/mypage';
@@ -104,6 +105,12 @@ function App() {
             <Route exact path="/rt" component={RedirectTest} />{' '}
             {/* 리다이렉트 방법*/}
             <Route exact path="/list" component={List} />
+            <Route
+              exact
+              path="/list/apply/success"
+              component={ListApplySuccess}
+            />
+            <Route exact path="/list/apply/fail" component={ListApplyFail} />
             {/* <Route exact path="/list/academy" component={ListAcademy} />
             <Route exact path="/list/art" component={ListArt} />
             <Route exact path="/list/networking" component={ListNetworking} />
@@ -121,8 +128,6 @@ function App() {
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
-            <Route exact path="/about/Use" component={Use}></Route>
-            <Route exact path="/circle/Open" component={Open}></Route>
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
             <Route
