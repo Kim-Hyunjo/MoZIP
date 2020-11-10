@@ -47,6 +47,7 @@
   font-size: 22px;
 }
 
+.buttonnotice
 .mypageStorageButton {
   margin-left: 362px;
 }
@@ -58,4 +59,19 @@
 .submitButton {
   margin-top: 30px;
   float: right;
+}
+
+/*used in mypageNotice*/
+
+.button_medium3 {
+  background: #0C5AC6;
+  border: none;
+  border-radius: 29px;
+  font-size: 16px;
+  display: block;
+  margin: 20px auto;
+  padding: 8px;
+  width: 80px;
+  color: #fff;
+  
 }
