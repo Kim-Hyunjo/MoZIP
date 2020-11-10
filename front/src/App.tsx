@@ -23,7 +23,6 @@ import ListReligion from './pages/list/ListReligion';
 import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
 
-<<<<<<< HEAD
 import login from './pages/login/login';
 import sginup from './pages/login/signup';
 import mypage from './pages/mypage/mypage';
@@ -31,15 +30,6 @@ import myPageEdit from './pages/mypage/myPageEdit';
 import mypageStatus from './pages/mypage/mypageStatus';
 import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
-=======
-import login from './pages/login';
-import sginup from './pages/signup';
-import mypage from './pages/mypage';
-import myPageEdit from './pages/myPageEdit';
-import mypageStatus from './pages/mypageStatus';
-import Use from './pages/about/Use'
-import Open from './pages/circle/Open'
->>>>>>> b3c9c852284900d735786fb1b416b2ee9bee8662
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 function App() {
@@ -126,19 +116,13 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
-<<<<<<< HEAD
-=======
-            <Route exact path="/mypage/introduction" component={SelfIntroduction} />
-            <Route exact path="/about/Use" component ={Use}></Route>
-            <Route exact path="/circle/Open" component ={Open}></Route>
-
->>>>>>> b3c9c852284900d735786fb1b416b2ee9bee8662
             <Route
               exact
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
-<<<<<<< HEAD
+            <Route exact path="/about/Use" component={Use}></Route>
+            <Route exact path="/circle/Open" component={Open}></Route>
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
             <Route
@@ -146,8 +130,6 @@ function App() {
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
-=======
->>>>>>> b3c9c852284900d735786fb1b416b2ee9bee8662
             <Route component={NotFound} />
           </Switch>
         </div>
