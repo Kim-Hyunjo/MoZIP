@@ -21,10 +21,10 @@ import sginup from './pages/signup';
 import mypage from './pages/mypage';
 import myPageEdit from './pages/myPageEdit';
 import mypageStatus from './pages/mypageStatus';
-
+import Use from './pages/about/Use'
+import Open from './pages/circle/Open'
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
-
 function App() {
   return (
     <Router>
@@ -77,6 +77,10 @@ function App() {
             <Route exact path="/mypage/status" component={mypageStatus} />
 
             <Route exact path="/mypage/introduction" component={SelfIntroduction} />
+            <Route exact path="/about/Use" component ={Use}></Route>
+            <Route exact path="/circle/Open" component ={Open}></Route>
+
+            
             <Route component={NotFound} />
           </Switch>
         </div>
