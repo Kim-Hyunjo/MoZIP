@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 // import {Typography, Button , Form, message, Input, Icon} from 'antd'
 import Dropzone from 'react-dropzone'
+import './circle.css';
 
 const Open = () => {
 
@@ -63,16 +64,18 @@ const Open = () => {
     return (
         <div>
             <div>
-            <h2>동아리 개설하기</h2>
-            <p><span>MOZIP에 동아리를 등록하려면 운영자의 승인이 있어야합니다.
-                아래의 양식을 채워 제출하시면 확인 후 등록해드리겠습니다.
-                등록은 3~5일 정도 소요 될 예정입니다.</span></p>
+                <h2>동아리 개설하기</h2>
+                <p className="inform"><span>
+                    MOZIP에 동아리를 등록하려면 운영자의 승인이 있어야합니다.<br></br>
+                    아래의 양식을 채워 제출하시면 확인 후 등록해드리겠습니다.<br></br>
+                    등록은 3~5일 정도 소요 될 예정입니다.
+                </span></p>
             </div>
 
         <div>
         <form onSubmit={handleSubmit} method="post" noValidate>
            
-            <div className="파일업로드">
+            <div className="upload_pic">
                 <Dropzone 
                 onDrop={onDrop}
                 multiple = {false}
@@ -80,7 +83,7 @@ const Open = () => {
                 }>
                     {({getRootProps, getInputProps}) =>(
                         <div style={{
-                            width:'300px', height:'240px', border: '1px solid lightgray', display:'flex',
+                            width:'240px', height:'240px', border: '1px solid lightgray', display:'flex',
                             alignItems:"center", justifyContent:"center"
                         }}{...getRootProps()}>
                             <input {...getInputProps()}/>
@@ -88,25 +91,27 @@ const Open = () => {
                     )}
                 </Dropzone>
             </div>
-            <div className="동아리명">
-                <label htmlFor="firstName">동아리명 :</label>
-                <input type="text" className="" placeholder="동아리이름을 입력하세요" name= "동아리명" onChange={nameChange} value={name}
-                />
+            <div className = "club_info">
+                <div className="동아리명">
+                    <label htmlFor="firstName">동아리명 :</label>
+                    <input type="text" className="" placeholder="동아리이름을 입력하세요" name= "동아리명" onChange={nameChange} value={name}
+                    />
+                </div>
+                <div className="한 줄 소개">
+                    <label htmlFor="firstName">한 줄 소개 :</label>
+                    <input type="text" className="" placeholder="동아리에 대한 짧은 소개를 입력하세요." name= "한 줄 소개"  onChange={shortIntroductionChange} value={shortIntroduction}
+                    />
+                </div>
+                <div className="창립일자">
+                    <label htmlFor="firstName">창립일자 :</label>
+                    <input type="date" className=""  name= "년" max="2001-01-01"min="1979-12-31"  onChange={dateChange} value={date}
+                    />
+                </div>
+                <div className="대표 연락처">
+                    <label htmlFor="firstName">대표 연락처 :</label>
+                    <input type="text" placeholder="이메일/전화번호/카카오 아이디 모두 가능" onChange={phoneChange} value={phone}/>
+                </div> 
             </div>
-            <div className="한 줄 소개">
-                <label htmlFor="firstName">한 줄 소개 :</label>
-                <input type="text" className="" placeholder="동아리에 대한 짧은 소개를 입력하세요." name= "한 줄 소개"  onChange={shortIntroductionChange} value={shortIntroduction}
-                />
-            </div>
-            <div className="창립일자">
-                <label htmlFor="firstName">창립일자 :</label>
-                <input type="date" className=""  name= "년" max="2001-01-01"min="1979-12-31"  onChange={dateChange} value={date}
-                />
-            </div>
-            <div className="대표 연락처">
-                <label htmlFor="firstName">대표 연락처 :</label>
-                <input type="text" placeholder="이메일/전화번호/카카오 아이디 모두 가능" onChange={phoneChange} value={phone}/>
-            </div> 
             <div><h3>상세 소개:</h3>
             <label htmlFor=""></label>
                 <textarea name="상세소개" id="" cols={100} rows={20} onChange={onIntroductionChange}  value={introduction}></textarea>
