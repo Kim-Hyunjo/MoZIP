@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // import {Typography, Button , Form, message, Input, Icon} from 'antd'
 import Dropzone from 'react-dropzone';
+import './circle.css';
 
 const Open = () => {
   const [name, setname] = useState('');
