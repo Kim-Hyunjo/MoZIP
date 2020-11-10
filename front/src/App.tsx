@@ -40,6 +40,7 @@ import Open from './pages/circle/Open';
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 import myPageNotice from './pages/mypage/myPageNotice';
+import myPageIntroduction from './pages/mypage/myPageIntroduction';
 function App() {
   return (
     <Router>
@@ -60,7 +61,7 @@ function App() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="/mypage/introduction">
                         자기소개서함
                       </NavLink>
                     </li>
@@ -131,6 +132,11 @@ function App() {
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
             <Route exact path="/mypage/notice" component={myPageNotice} />
+            <Route
+              exact
+              path="/mypage/introduction"
+              component={myPageIntroduction}
+            />
             <Route
               exact
               path="/mypage/introduction"

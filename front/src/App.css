@@ -205,3 +205,18 @@ a.active {
   border-color: #707070;
   border-radius: 10px;
 }
+
+.clubRecruitNotice {
+  padding-top: 30px;
+  margin-left: 30px;
+  width: 900px;
+  clear: both;
+  white-space: pre-wrap;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.noticeConsent {
+  margin-left: 30px;
+  margin-top: 10px;
+}
