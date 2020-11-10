@@ -33,6 +33,7 @@ import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
+import myPageNotice from './pages/mypage/myPageNotice';
 function App() {
   return (
     <Router>
@@ -123,6 +124,7 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
+            <Route exact path="/mypage/notice" component={myPageNotice} />
             <Route
               exact
               path="/mypage/introduction"
