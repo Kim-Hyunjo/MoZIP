@@ -22,17 +22,19 @@ import ListTravel from './pages/list/ListTravel';
 import ListReligion from './pages/list/ListReligion';
 import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
+import Apply from './pages/list/academy/Apply';
+import Apply2 from './pages/list/academy/Apply2';
+import Apply3 from './pages/list/academy/Apply3';
+import Apply4 from './pages/list/academy/Apply4';
+import Apply5 from './pages/list/academy/Apply5';
 
 import login from './pages/login';
 import sginup from './pages/signup';
 import mypage from './pages/mypage';
 import myPageEdit from './pages/myPageEdit';
 import mypageStatus from './pages/mypageStatus';
-<<<<<<< HEAD
 import Use from './pages/about/Use'
 import Open from './pages/circle/Open'
-=======
->>>>>>> develop
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 function App() {
@@ -119,20 +121,21 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
-<<<<<<< HEAD
 
             <Route exact path="/mypage/introduction" component={SelfIntroduction} />
             <Route exact path="/about/Use" component ={Use}></Route>
             <Route exact path="/circle/Open" component ={Open}></Route>
-
+            <Route exact path="/list/academy/{circleID}/apply" component ={Apply}></Route>
+            <Route exact path="/list/academy/{circleID}/apply2" component ={Apply2}></Route>
+            <Route exact path="/list/academy/{circleID}/apply3" component ={Apply3}></Route>
+            <Route exact path="/list/academy/{circleID}/apply4" component ={Apply4}></Route>
+            <Route exact path="/list/academy/{circleID}/apply5" component ={Apply5}></Route>
             
-=======
             <Route
               exact
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
->>>>>>> develop
             <Route component={NotFound} />
           </Switch>
         </div>

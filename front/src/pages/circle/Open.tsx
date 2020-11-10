@@ -5,30 +5,30 @@ import Dropzone from 'react-dropzone'
 
 const Open = () => {
 
-    const [name, setname] = useState('')
-    const [shortIntroduction, setshortIntroduction] = useState('')
-    const [date, setdate] = useState('2000-01-01')
-    const [phone, setphone] = useState('')
-    const [introduction, setintroduction] = useState('')
+    const [name, setname] = useState<string>('')
+    const [shortIntroduction, setshortIntroduction] = useState<string>('')
+    const [date, setdate] = useState<string>('2000-01-01')
+    const [phone, setphone] = useState<string>('')
+    const [introduction, setintroduction] = useState<string>('')
 
  
-    const nameChange:any =(e:Event):any =>{
+    const nameChange:any =(e:Event):void =>{
         setname((e.currentTarget as any).value)
     }
-    const shortIntroductionChange:any =(e:Event):any =>{
+    const shortIntroductionChange:any =(e:Event):void =>{
         setshortIntroduction((e.currentTarget as any).value)
     }
-    const dateChange:any =(e:Event):any =>{
+    const dateChange:any =(e:Event):void =>{
         setdate((e.currentTarget as any).value)
     }
-    const phoneChange:any =(e:Event):any =>{
+    const phoneChange:any =(e:Event):void =>{
         setphone((e.currentTarget as any).value)
     }
-    const onIntroductionChange:any =(e:Event):any =>{
+    const onIntroductionChange:any =(e:Event):void =>{
         setintroduction((e.currentTarget as any).value)
     }
 
-    const onDrop = (files:any):any =>{
+    const onDrop = (files:any):void =>{
         let formData = new FormData;
         const config:any = {
             header: {'content-type': 'multipart/form-data'}
@@ -58,6 +58,7 @@ const Open = () => {
         })
         .catch(error =>{
             console.log(error)
+            
         })
     }
     return (

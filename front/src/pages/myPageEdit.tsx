@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route,Link } from 'react-router-dom';
 import React, {  useState } from "react";
-import Select from 'react-select';
 import "./namecard.css";
 
 const myPageEdit = () => { 
