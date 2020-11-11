@@ -53,8 +53,6 @@
   background-color: #9fb0c7;
   box-shadow: 2px 2px 5px #d6d6d6;
   color: white;
-  position: absolute;
-  left: 70%;
 }
 
 #button10 {
@@ -80,6 +78,10 @@
 .submitButton {
   margin-top: 30px;
   float: right;
+}
+
+.detailButton {
+  margin-left: 500px;
 }
 
 /*used in mypageNotice*/
@@ -114,12 +116,15 @@
 }
 
 .next {
-  position: absolute;
-  left: 70%;
+  margin-top: 20px;
+  width: 840px;
+}
+.next button {
+  float: right;
 }
 
 .apply2Buttons {
-  width: 100%;
+  width: 680px;
   padding: 30px 10px 0px 10px;
 }
 .apply2Buttons #button1 {

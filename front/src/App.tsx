@@ -24,7 +24,7 @@ import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
 import Apply from './pages/list/apply/Apply';
 import Apply2 from './pages/list/apply/Apply2';
-import Apply5 from './pages/list/apply/Apply5';
+import CircleDetail from './pages/circle/CircleDetail';
 
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
 import ListApplyFail from './pages/list/apply/ListApplyFail';
@@ -130,7 +130,7 @@ function App() {
             <Route exact path="/list/academy/{circleID}/apply/fail" component={ListApplyFail} />
             <Route exact path="/list/academy/{circleID}/apply" component ={Apply}></Route>
             <Route exact path="/list/academy/{circleID}/apply2" component ={Apply2}></Route>
-            <Route exact path="/list/academy/{circleID}/apply5" component ={Apply5}></Route>
+            <Route exact path="/list/academy/{circleID}" component ={CircleDetail}></Route>
             
             <Route
               exact
