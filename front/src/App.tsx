@@ -39,6 +39,8 @@ import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
+import myPageNotice from './pages/mypage/myPageNotice';
+import myPageIntroduction from './pages/mypage/myPageIntroduction';
 function App() {
   return (
     <Router>
@@ -59,7 +61,7 @@ function App() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="/mypage/introduction">
                         자기소개서함
                       </NavLink>
                     </li>
@@ -129,6 +131,7 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
+<<<<<<< HEAD
 
             <Route exact path="/mypage/introduction" component={SelfIntroduction} />
             <Route exact path="/about/Use" component ={Use}></Route>
@@ -139,11 +142,49 @@ function App() {
             <Route exact path="/list/academy/{circleID}/apply4" component ={Apply4}></Route>
             <Route exact path="/list/academy/{circleID}/apply5" component ={Apply5}></Route>
             
+=======
+            <Route exact path="/mypage/notice" component={myPageNotice} />
+            <Route
+              exact
+              path="/mypage/introduction"
+              component={myPageIntroduction}
+            />
+>>>>>>> develop
             <Route
               exact
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
+<<<<<<< HEAD
+=======
+            <Route exact path="/about/Use" component={Use}></Route>
+            <Route exact path="/circle/Open" component={Open}></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply"
+              component={Apply}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply2"
+              component={Apply2}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply3"
+              component={Apply3}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply4"
+              component={Apply4}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply5"
+              component={Apply5}
+            ></Route>
+>>>>>>> develop
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
             <Route

@@ -75,3 +75,39 @@
   transform: translate(0%, 35%);
   margin-left: 16px;
 }
+
+/**/
+.gray_namecard{
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: #707070;
+  padding: 20px;
+  width: 800px;
+  height: 180px;
+  display: block;
+  margin: 40px auto;
+}
+
+.title_gray_namecard{
+  color:#0c5ac6;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.subject_gray_namecard{
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.info_gray_namecard{
+  display: inline-flex;
+  margin-bottom: 2px;
+  
+}
+.stage_gray_namecard{
+  float: right;
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: 8px;
+}

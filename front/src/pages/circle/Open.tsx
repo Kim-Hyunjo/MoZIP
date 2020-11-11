@@ -7,6 +7,7 @@ import './circle.css';
 const Open = () => {
   
 
+<<<<<<< HEAD
     const [name, setname] = useState<string>('')
     const [shortIntroduction, setshortIntroduction] = useState<string>('')
     const [date, setdate] = useState<string>('2000-01-01')
@@ -14,6 +15,8 @@ const Open = () => {
     const [introduction, setintroduction] = useState<string>('')
 
  
+=======
+>>>>>>> develop
   const nameChange: any = (e: Event): any => {
     setname((e.currentTarget as any).value);
   };
@@ -81,6 +84,7 @@ const Open = () => {
         </p>
       </div>
 
+<<<<<<< HEAD
       <div>
         <form onSubmit={handleSubmit} method="post" noValidate>
           <div className="파일업로드">
@@ -166,6 +170,91 @@ const Open = () => {
           <button type="submit">제출</button>
         </form>
       </div>
+=======
+      <form onSubmit={handleSubmit} method="post" noValidate>
+        <div className="파일업로드">
+          <Dropzone onDrop={onDrop} multiple={false} maxSize={100000000}>
+            {({ getRootProps, getInputProps }) => (
+              <div
+                style={{
+                  width: '300px',
+                  height: '240px',
+                  border: '1px solid lightgray',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                {...getRootProps()}
+              >
+                <input {...getInputProps()} />
+              </div>
+            )}
+          </Dropzone>
+        </div>
+        <div className="동아리명">
+          <label htmlFor="firstName">동아리명 :</label>
+          <input
+            type="text"
+            className=""
+            placeholder="동아리이름을 입력하세요"
+            name="동아리명"
+            onChange={nameChange}
+            value={name}
+          />
+        </div>
+        <div className="한 줄 소개">
+          <label htmlFor="firstName">한 줄 소개 :</label>
+          <input
+            type="text"
+            className=""
+            placeholder="동아리에 대한 짧은 소개를 입력하세요."
+            name="한 줄 소개"
+            onChange={shortIntroductionChange}
+            value={shortIntroduction}
+          />
+        </div>
+        <div className="창립일자">
+          <label htmlFor="firstName">창립일자 :</label>
+          <input
+            type="date"
+            className=""
+            name="년"
+            max="2001-01-01"
+            min="1979-12-31"
+            onChange={dateChange}
+            value={date}
+          />
+        </div>
+        <div className="대표 연락처">
+          <label htmlFor="firstName">대표 연락처 :</label>
+          <input
+            type="text"
+            placeholder="이메일/전화번호/카카오 아이디 모두 가능"
+            onChange={phoneChange}
+            value={phone}
+          />
+        </div>
+        <div>
+          <h3>상세 소개:</h3>
+          <label htmlFor=""></label>
+          <textarea
+            name="상세소개"
+            id=""
+            cols={100}
+            rows={20}
+            onChange={onIntroductionChange}
+            value={introduction}
+          ></textarea>
+        </div>
+        <div className="태그선택">
+          <label htmlFor=""></label>
+          <select name="태그선택" id="태그선택">
+            <option value="미선택">미선택</option>
+          </select>
+        </div>
+        <button type="submit">제출</button>
+      </form>
+>>>>>>> develop
     </div>
   );
 };

@@ -7,7 +7,7 @@ import {
 import React, { useState } from 'react';
 import ListAcademy from './ListAcademy';
 import ListSubject from './ListSubject';
-import "./tab.css";
+import './tab.css';
 
 const List = (props: RouteComponentProps<{}>) => {
   const [subject, setSubject] = useState<string>('전체');
@@ -158,13 +158,11 @@ const List = (props: RouteComponentProps<{}>) => {
                           console.log(item.name);
                         }}
                       >
-                        
                         <li>
-                          <div className = "border top_border"></div>
+                          <div className="border top_border"></div>
                           {item.name}
-                          <div className = "border bottom_border"></div>
+                          <div className="border bottom_border"></div>
                         </li>
-                        
                       </Link>
                     );
                   })}

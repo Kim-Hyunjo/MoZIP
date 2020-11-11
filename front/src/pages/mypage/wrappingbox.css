@@ -1,0 +1,13 @@
+.box {
+    background: #fff;
+    border-radius: 36px;
+    border: 1px solid #0C5AC6;
+    text-align: center;
+    padding: 32px;
+    width: 680px;
+    display: block;
+    margin: 48px 20px auto;
+}
+.writing{
+  font-size: 16px;
+}
