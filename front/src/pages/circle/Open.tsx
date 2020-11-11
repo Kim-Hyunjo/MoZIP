@@ -5,13 +5,8 @@ import Dropzone from 'react-dropzone';
 import './circle.css';
 
 const Open = () => {
-  const [name, setname] = useState('');
-  const [shortIntroduction, setshortIntroduction] = useState('');
-  const [date, setdate] = useState('2000-01-01');
-  const [phone, setphone] = useState('');
-  const [introduction, setintroduction] = useState('');
+  
 
-<<<<<<< HEAD
     const [name, setname] = useState<string>('')
     const [shortIntroduction, setshortIntroduction] = useState<string>('')
     const [date, setdate] = useState<string>('2000-01-01')
@@ -19,66 +14,6 @@ const Open = () => {
     const [introduction, setintroduction] = useState<string>('')
 
  
-    const nameChange:any =(e:Event):void =>{
-        setname((e.currentTarget as any).value)
-    }
-    const shortIntroductionChange:any =(e:Event):void =>{
-        setshortIntroduction((e.currentTarget as any).value)
-    }
-    const dateChange:any =(e:Event):void =>{
-        setdate((e.currentTarget as any).value)
-    }
-    const phoneChange:any =(e:Event):void =>{
-        setphone((e.currentTarget as any).value)
-    }
-    const onIntroductionChange:any =(e:Event):void =>{
-        setintroduction((e.currentTarget as any).value)
-    }
-
-    const onDrop = (files:any):void =>{
-        let formData = new FormData;
-        const config:any = {
-            header: {'content-type': 'multipart/form-data'}
-        }
-        formData.append("file", files[0])
-        axios.post("/",formData,config)
-        .then((r:any) =>{
-            if(r.data.success){
-                console.log(r.data)
-            }else{
-                alert('업로드실패')
-            }
-        })
-    }
-
-    const handleSubmit:any =  (e:Event) =>{
-        e.preventDefault();
-        console.log(name, shortIntroduction, date,phone,introduction)
-        axios.post("https://skhu-pwk.firebaseio.com/todo1.json", {name, shortIntroduction, date,phone,introduction}).then
-        ((r)=>{
-            console.log(r)
-            setname('')
-            setshortIntroduction('')
-            setdate('')
-            setphone('')
-            setintroduction("")
-        })
-        .catch(error =>{
-            console.log(error)
-            
-        })
-    }
-    return (
-        <div>
-            <div>
-            <h2>동아리 개설하기</h2>
-            <p><span>MOZIP에 동아리를 등록하려면 운영자의 승인이 있어야합니다.
-                아래의 양식을 채워 제출하시면 확인 후 등록해드리겠습니다.
-                등록은 3~5일 정도 소요 될 예정입니다.</span></p>
-            </div>
-
-        <div>
-=======
   const nameChange: any = (e: Event): any => {
     setname((e.currentTarget as any).value);
   };
@@ -147,7 +82,6 @@ const Open = () => {
       </div>
 
       <div>
->>>>>>> develop
         <form onSubmit={handleSubmit} method="post" noValidate>
           <div className="파일업로드">
             <Dropzone onDrop={onDrop} multiple={false} maxSize={100000000}>

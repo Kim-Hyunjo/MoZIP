@@ -1,6 +1,34 @@
-import React from 'react'
-
+import { Button } from 'antd';
+import React,{useState} from 'react'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch,
+    NavLink,
+  } from 'react-router-dom';
 const Apply = () => {
+    const [notification, setNotification]:any = useState<boolean>(false)
+    const [checkError, setCheckError] = useState('')
+    const checkHandler:any = (e:Event)=>{
+        setNotification((e.target as any).checked)
+       
+    }
+    // const onSubmit :any = (e:Event) =>{
+    //     e.preventDefault();
+    // }
+    const renderSubmit = () =>{
+        if(notification){
+            return(
+                <Link to='/list/academy/{circleID}/apply5'><button type="submit" >다음</button></Link>
+            )
+        }
+        return(
+            <button type="submit"disabled>다음</button>
+        )
+    }
+
+   
     return (
         <div>
             <div><h2>Tave 지원하기</h2></div>
@@ -17,12 +45,13 @@ const Apply = () => {
                     ※ 기타 문의 사항 : 플러스 친구 추가 후 문의( http://pf.kakao.com/_abcdef )</p>
             </div>
             <div>
+            {/* <form onSubmit={onSubmit} > */}
             <form>
                 <label htmlFor=""></label>
-                <input type="checkbox" name="agreement" value="notification"/>
+                <input type="checkbox" name="agreement" checked= {notification} onChange={checkHandler}/>
                 <span>본 공지사항을 모두 읽었으며 동의합니다.</span>
             </form>
-            <button type="submit">다음</button>
+            {renderSubmit()}           
             </div>
         </div>
     )
