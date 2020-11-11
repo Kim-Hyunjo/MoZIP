@@ -41,14 +41,13 @@ const Apply = () => {
                 <div className="clubRecruitNotice">{clubRecruitInfo[0].notice}</div>
             </div>
             <div>
-            {/* <form onSubmit={onSubmit} > */}
-            <form className="noticeConsent">
-                <label htmlFor=""></label>
-                <input type="checkbox" name="agreement" checked= {notification} onChange={checkHandler}/>
-                <span>본 공지사항을 모두 읽었으며 동의합니다.</span>
-            </form>
-            <div className="next"> {renderSubmit()}</div>
-                 
+                {/* <form onSubmit={onSubmit} > */}
+                <form className="noticeConsent">
+                    <label htmlFor=""></label>
+                    <input type="checkbox" name="agreement" checked= {notification} onChange={checkHandler}/>
+                    <span>본 공지사항을 모두 읽었으며 동의합니다.</span>
+                </form>
+                <div className="next">{renderSubmit()}</div>
             </div>
         </div>
     )

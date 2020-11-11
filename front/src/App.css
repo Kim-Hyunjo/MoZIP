@@ -70,6 +70,12 @@ h2 {
   margin: 20px 0px 10px 5px;
 }
 
+.small_title {
+  width: 100%;
+  font-size: 23px;
+  margin: 20px 0px 10px 5px;
+}
+
 #list {
   height: 70px;
   margin: 0 auto;

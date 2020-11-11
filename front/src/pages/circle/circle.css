@@ -5,3 +5,77 @@
 .upload_pic {
   float: left;
 }
+
+.circle_header {
+  margin-bottom: 50px;
+}
+
+.openDate {
+  margin-left: 15px;
+  line-height: 30px;
+}
+.hashtag {
+  margin-left: 15px;
+  line-height: 30px;
+  color: #0c5ac6;
+}
+
+.circle_detail {
+  width: 800px;
+}
+
+.circle_review {
+  width: 740px;
+  min-height: 70px;
+  height: auto;
+  overflow: auto;
+
+  margin: 20px 0px;
+  padding: 20px 30px;
+
+  border: 2px solid #e1eeff;
+  background-color: #e1eeff;
+  border-radius: 30px;
+}
+
+.circle_review .reviewDate {
+  font-size: 12px;
+  margin-top: 15px;
+  float: right;
+}
+.circle_review .reviewDetail {
+  width: 740px;
+  height: auto;
+  overflow: auto;
+  line-height: 24px;
+}
+.circle_review .reviewer {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.FAQ_question {
+  width: 620px;
+  height: auto;
+  overflow: auto;
+
+  margin: 20px 0px;
+  padding: 20px 30px;
+
+  border: 2px solid #e1eeff;
+  background-color: #e1eeff;
+  border-radius: 30px;
+}
+
+.FAQ_answer {
+  width: 620px;
+  height: auto;
+  overflow: auto;
+
+  margin: 20px 0px 20px 120px;
+  padding: 20px 30px;
+
+  border: 2px solid #b2cff7;
+  background-color: #b2cff7;
+  border-radius: 30px;
+}
