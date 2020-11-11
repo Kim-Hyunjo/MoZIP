@@ -39,6 +39,9 @@ import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 import myPageNotice from './pages/mypage/myPageNotice';
 import myPageIntroduction from './pages/mypage/myPageIntroduction';
+import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
+import CircleOpenApproval from './pages/circle/CircleOpenApproval';
+import CircleOpenReject from './pages/circle/CircleOpenReject';
 function App() {
   return (
     <Router>
@@ -72,11 +75,11 @@ function App() {
                 </li>
                 <li>
                   <NavLink exact to="/intro">
-                    Guide
+                    Recruit
                   </NavLink>
                   <ul className="sub">
                     <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="circle/open">
                         동아리 개설
                       </NavLink>
                     </li>
@@ -122,16 +125,54 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
-            <Route exact path="/mypage/introduction" component={SelfIntroduction} />
-            <Route exact path="/about/Use" component ={Use}></Route>
-            <Route exact path="/circle/Open" component ={Open}></Route>
+            <Route
+              exact
+              path="/mypage/introduction"
+              component={SelfIntroduction}
+            />
+            <Route exact path="/about/use" component={Use}></Route>
+            <Route exact path="/circle/open" component={Open}></Route>
+            <Route
+              exact
+              path="/circle/open/success"
+              component={CircleOpenSuccess}
+            ></Route>
+            <Route
+              exact
+              path="/circle/open/approval"
+              component={CircleOpenApproval}
+            ></Route>
+            <Route
+              exact
+              path="/circle/open/reject"
+              component={CircleOpenReject}
+            ></Route>
             <Route exact path="/list" component={List} />
-            <Route exact path="/list/academy/{circleID}/apply/success" component={ListApplySuccess} />
-            <Route exact path="/list/academy/{circleID}/apply/fail" component={ListApplyFail} />
-            <Route exact path="/list/academy/{circleID}/apply" component ={Apply}></Route>
-            <Route exact path="/list/academy/{circleID}/apply2" component ={Apply2}></Route>
-            <Route exact path="/list/academy/{circleID}" component ={CircleDetail}></Route>
-            
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply/success"
+              component={ListApplySuccess}
+            />
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply/fail"
+              component={ListApplyFail}
+            />
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply"
+              component={Apply}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/apply2"
+              component={Apply2}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}"
+              component={CircleDetail}
+            ></Route>
             <Route
               exact
               path="/mypage/introduction"

@@ -1,23 +1,18 @@
-
 import React, { Component } from 'react';
 import IntroductionInfo from './IntroductionInfo';
 
 class IntroductionInfoList extends Component<any> {
   static defaultProps = {
-    data: []
-  }
+    data: [],
+  };
 
   render() {
-    const  data  = this.props;
-    const list = data.map(
-      (info:any) => (<IntroductionInfoList key={info.id} info={info}/>)
-    );
+    const data = this.props;
+    const list = data.map((info: any) => (
+      <IntroductionInfoList key={info.id} info={info} />
+    ));
 
-    return (
-      <div>
-        {list}    
-      </div>
-    );
+    return <div>{list}</div>;
   }
 }
 

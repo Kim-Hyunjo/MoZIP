@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import {Typography, Button , Form, message, Input, Icon} from 'antd'
 import Dropzone from 'react-dropzone';
 import './circle.css';
 
 const Open = () => {
-  
-    const [name, setname] = useState<string>('')
-    const [shortIntroduction, setshortIntroduction] = useState<string>('')
-    const [date, setdate] = useState<string>('2000-01-01')
-    const [phone, setphone] = useState<string>('')
-    const [introduction, setintroduction] = useState<string>('')
+  const [name, setname] = useState<string>('');
+  const [shortIntroduction, setshortIntroduction] = useState<string>('');
+  const [date, setdate] = useState<string>('2000-01-01');
+  const [phone, setphone] = useState<string>('');
+  const [introduction, setintroduction] = useState<string>('');
 
   const nameChange: any = (e: Event): any => {
     setname((e.currentTarget as any).value);
@@ -160,7 +160,9 @@ const Open = () => {
               <option value="미선택">미선택</option>
             </select>
           </div>
-          <button type="submit">제출</button>
+          <Link to="/circle/open/success">
+            <button type="submit">제출</button>
+          </Link>
         </form>
       </div>
     </div>
