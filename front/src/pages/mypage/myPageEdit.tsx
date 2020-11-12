@@ -135,7 +135,7 @@ const myPageEdit = () => {
         </div>
         <div className="mypageEditButton">
           {/* <Link to="/mypage"> */}
-          <button onClick={handleClickOpen}>확인</button>
+          <button id="button4" onClick={handleClickOpen}>완료</button>
           {/* </Link> */}
         </div>
       </div>
@@ -146,7 +146,7 @@ const myPageEdit = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {'저장하고 수정을 완료하시겠습니까?'}
+          {'저장하시겠습니까?'}
         </DialogTitle>
 
         <DialogActions>
