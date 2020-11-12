@@ -1,7 +1,10 @@
-ul #horizontal_list{
+
+#horizontal_list{
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
-
+    
 #horizontal_list li{
     height: 100%;
     display: flex;
@@ -31,3 +34,4 @@ li:active .border {
 #list_name li:active .border {
     background: #0C5AC6;
 }
+
