@@ -15,15 +15,24 @@ header {
   background-color: #b2cff7;
   position: fixed;
 }
-
+#list-name {
+  float: right;
+}
+.category_name {
+  font-size: 32px;
+  margin-left: 24px;
+  margin-top: 24px;
+  font-weight: 600;
+  color: #0c5ac6;
+}
 #horizontal_list {
   padding: 20px 0px;
-  margin-left: auto;
-  margin-right: auto;
   height: 128px;
+  margin: 8px 20px auto;
+  text-align: center;
+  display:inline-block; 
 }
-
-#horizontal_list li {
+#horizontal_list  li {
   width: 128px;
   height: 128px;
   float: left;
@@ -32,9 +41,8 @@ header {
 }
 
 .club_list {
-  width: 1080px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 20px auto;
 }
 
 #horizontal_club_list li {
@@ -43,7 +51,9 @@ header {
   border: solid;
   border-width: 0px 0px 1px 0px;
   border-color: #0c5ac6;
-  height: 108px;
+  height: 100px;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 #horizontal_club_list li h3 {
@@ -51,7 +61,8 @@ header {
   font-size: 28px;
 }
 #horizontal_club_list li p {
-  padding: 8px;
+  margin: -24px 32px;
+  font-size: 20px;
 }
 
 .body {

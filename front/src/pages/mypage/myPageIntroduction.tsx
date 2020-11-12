@@ -12,6 +12,8 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import './layout.css';
+import './button.css';
 
 const myPageIntroduction = () => {
   const questionList = [
@@ -66,20 +68,22 @@ const myPageIntroduction = () => {
     <div>
       <div>자기소개함</div>
       <div>자기소개서 질문과 답변을 미리 준비해보세요.</div>
-      <button onClick={handleClickOpen}>직접 추가</button>
-      <div>
-        <label>
-          <select
-            id="list-name"
-            // defaultValue={subject}
-            // value={subject}
-            // onChange={(e) => setSubject(e.target.value)}
-            // onBlur={(e) => setSubject(e.target.value)}
-          >
-            <option>최신순</option>
-            <option>인기순</option>
-          </select>
-        </label>
+      <div className="flexthem">
+        <button className="button_medium3 " onClick={handleClickOpen}>직접 추가</button>
+        <div>
+          <label>
+            <select
+              id="list-name"
+              // defaultValue={subject}
+              // value={subject}
+              // onChange={(e) => setSubject(e.target.value)}
+              // onBlur={(e) => setSubject(e.target.value)}
+            >
+              <option>최신순</option>
+              <option>인기순</option>
+            </select>
+          </label>
+        </div>
       </div>
       <div>
         <div>

@@ -140,8 +140,7 @@ const List = (props: RouteComponentProps<{}>) => {
           </select>
         </label>
       </div>
-      <div>
-        <div>{subject}</div>
+      <div >
         <ul id="horizontal_list">
           {test.map((item) => {
             return (
@@ -158,6 +157,7 @@ const List = (props: RouteComponentProps<{}>) => {
             );
           })}
         </ul>
+        <div className="category_name">{subject}</div>
       </div>
 
       {/* <h1>{props.match.params.subject}</h1> */}

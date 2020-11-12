@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 
+
 const Circle = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
 ) => {
@@ -13,7 +14,7 @@ const Circle = (
         <div className="hashtag">#학술</div>
         <div className="detailButton">
           <Link to={`${props.match.url}/detail`}>
-            <button id="button4">모집 상세</button>
+            <button id="button8">모집 상세</button>
           </Link>
         </div>
       </div>
