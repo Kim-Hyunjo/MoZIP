@@ -1,5 +1,13 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import React, { useState } from 'react';
+
+import Button from '@material-ui/core/Button';
+import { Dialog } from '@material-ui/core';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import { DialogContentText } from '@material-ui/core';
+import { DialogTitle } from '@material-ui/core';
+
 import './namecard.css';
 
 const myPageEdit = () => {
@@ -19,6 +27,18 @@ const myPageEdit = () => {
     { name: '~내가 지원한 동아리~', introduction: '~동아리의 상세설명~' },
     { name: '~내가 지원한 동아리2~', introduction: '~동아리의 상세설명2~' },
   ];
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <h2>개인정보 수정</h2>
@@ -114,11 +134,35 @@ const myPageEdit = () => {
           </div>
         </div>
         <div className="mypageEditButton">
-          <Link to="/mypage">
-            <button id="button3">완료</button>
-          </Link>
+          {/* <Link to="/mypage"> */}
+          <button onClick={handleClickOpen}>확인</button>
+          {/* </Link> */}
         </div>
       </div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {'저장하고 수정을 완료하시겠습니까?'}
+        </DialogTitle>
+
+        <DialogActions>
+          <Link to="/mypage">
+            <Button onClick={handleClose} color="primary" autoFocus>
+              예
+            </Button>
+          </Link>
+          {/* <Button onClick={handleClose} color="primary" autoFocus>
+            예
+          </Button> */}
+          <Button onClick={handleClose} color="primary">
+            아니오
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
