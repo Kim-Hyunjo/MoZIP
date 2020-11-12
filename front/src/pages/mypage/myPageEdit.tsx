@@ -146,8 +146,14 @@ const myPageEdit = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {'저장하시겠습니까?'}
+          수정 완료
         </DialogTitle>
+
+        <DialogContent>
+          <DialogContentText id='alert-dialog-description'>
+            저장하시겠습니까?
+          </DialogContentText>
+        </DialogContent>
 
         <DialogActions>
           <Link to="/mypage">
