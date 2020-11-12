@@ -34,10 +34,10 @@ import mypage from './pages/mypage/mypage';
 import myPageEdit from './pages/mypage/myPageEdit';
 import mypageStatus from './pages/mypage/mypageStatus';
 import Use from './pages/about/Use';
-import Open from './pages/circle/Open';
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 import myPageNotice from './pages/mypage/myPageNotice';
+import Open from './pages/circle/Open';
 import myPageIntroduction from './pages/mypage/myPageIntroduction';
 import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
@@ -180,11 +180,11 @@ function App() {
             />
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
-            <Route
+            {/* <Route
               exact
               path="/mypage/introduction"
               component={SelfIntroduction}
-            />
+            /> */}
             <Route component={NotFound} />
           </Switch>
         </div>
