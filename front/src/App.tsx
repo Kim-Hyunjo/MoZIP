@@ -22,25 +22,28 @@ import ListTravel from './pages/list/ListTravel';
 import ListReligion from './pages/list/ListReligion';
 import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
-import Apply from './pages/list/academy/Apply';
-import Apply2 from './pages/list/academy/Apply2';
-import Apply3 from './pages/list/academy/Apply3';
-import Apply4 from './pages/list/academy/Apply4';
-import Apply5 from './pages/list/academy/Apply5';
+import Apply from './pages/list/apply/Apply';
+import Apply2 from './pages/list/apply/Apply2';
+import Circle from './pages/circle/Circle';
+import CircleDetail from './pages/circle/CircleDetail';
 
-import ListApplySuccess from './pages/list/ListApplySuccess';
-import ListApplyFail from './pages/list/ListApplyFail';
+import ListApplySuccess from './pages/list/apply/ListApplySuccess';
+import ListApplyFail from './pages/list/apply/ListApplyFail';
 import login from './pages/login/login';
 import sginup from './pages/login/signup';
 import mypage from './pages/mypage/mypage';
 import myPageEdit from './pages/mypage/myPageEdit';
 import mypageStatus from './pages/mypage/mypageStatus';
 import Use from './pages/about/Use';
-import Open from './pages/circle/Open';
 import detailPage1 from './pages/detailPage1';
 import SelfIntroduction from './pages/SelfIntroduction';
 import myPageNotice from './pages/mypage/myPageNotice';
+import Open from './pages/circle/Open';
 import myPageIntroduction from './pages/mypage/myPageIntroduction';
+import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
+import CircleOpenApproval from './pages/circle/CircleOpenApproval';
+import CircleOpenReject from './pages/circle/CircleOpenReject';
+import ListSubject from './pages/list/ListSubject';
 function App() {
   return (
     <Router>
@@ -74,11 +77,11 @@ function App() {
                 </li>
                 <li>
                   <NavLink exact to="/intro">
-                    Guide
+                    Recruit
                   </NavLink>
                   <ul className="sub">
                     <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="circle/open">
                         동아리 개설
                       </NavLink>
                     </li>
@@ -112,13 +115,6 @@ function App() {
             <Route exact path="/posts" component={TestList} />
             <Route exact path="/rt" component={RedirectTest} />{' '}
             {/* 리다이렉트 방법*/}
-            <Route exact path="/list" component={List} />
-            <Route
-              exact
-              path="/list/apply/success"
-              component={ListApplySuccess}
-            />
-            <Route exact path="/list/apply/fail" component={ListApplyFail} />
             {/* <Route exact path="/list/academy" component={ListAcademy} />
             <Route exact path="/list/art" component={ListArt} />
             <Route exact path="/list/networking" component={ListNetworking} />
@@ -131,6 +127,7 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
+<<<<<<< HEAD
             <Route exact path="/mypage/introduction" component={SelfIntroduction} />
             <Route exact path="/about/Use" component ={Use}></Route>
             <Route exact path="/circle/Open" component ={Open}></Route>
@@ -140,11 +137,77 @@ function App() {
             <Route exact path="/list/academy/{circleID}/apply4" component ={Apply4}></Route>
             <Route exact path="/list/academy/{circleID}/apply5" component ={Apply5}></Route>
             <Route exact path="/mypage/notice" component={myPageNotice} />
+=======
+>>>>>>> develop
+            <Route
+              exact
+              path="/mypage/:circle_id/notice"
+              component={mypageStatus}
+            />
+<<<<<<< HEAD
+=======
             <Route
               exact
               path="/mypage/introduction"
-              component={myPageIntroduction}
+              component={SelfIntroduction}
             />
+            <Route exact path="/about/use" component={Use}></Route>
+            <Route exact path="/circle/open" component={Open}></Route>
+            <Route
+              exact
+              path="/circle/open/success"
+              component={CircleOpenSuccess}
+            ></Route>
+            <Route
+              exact
+              path="/circle/open/approval"
+              component={CircleOpenApproval}
+            ></Route>
+            <Route
+              exact
+              path="/circle/open/reject"
+              component={CircleOpenReject}
+            ></Route>
+            {/* <Route exact path="/list/:subject" component={ListSubject} /> */}
+            <Route exact path="/list" component={List} />
+            <Route
+              exact
+              path="/list/:subject/:circle_id"
+              component={Circle}
+            ></Route>
+            <Route
+              exact
+              path="/list/:subject/:circle_id/apply/success"
+              component={ListApplySuccess}
+            />
+            <Route
+              exact
+              path="/list/:subject/:circle_id/apply/fail"
+              component={ListApplyFail}
+            />
+            <Route
+              exact
+              path="/list/:subject/:circle_id/apply"
+              component={Apply}
+            ></Route>
+            <Route
+              exact
+              path="/list/:subject/:circle_id/apply2"
+              component={Apply2}
+            ></Route>
+            <Route
+              exact
+              path="/list/:subject/:circle_id/detail"
+              component={CircleDetail}
+            ></Route>
+            <Route exact path="/about/Use" component={Use}></Route>
+            <Route exact path="/circle/Open" component={Open}></Route>
+            {/* <Route
+              exact
+              path="/mypage/introduction"
+              component={SelfIntroduction}
+            /> */}
+>>>>>>> develop
             <Route component={NotFound} />
           </Switch>
         </div>

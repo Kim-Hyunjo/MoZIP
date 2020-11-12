@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import {Typography, Button , Form, message, Input, Icon} from 'antd'
 import Dropzone from 'react-dropzone';
 import './circle.css';
 
 const Open = () => {
-  
+  const [name, setname] = useState<string>('');
+  const [shortIntroduction, setshortIntroduction] = useState<string>('');
+  const [date, setdate] = useState<string>('2000-01-01');
+  const [phone, setphone] = useState<string>('');
+  const [introduction, setintroduction] = useState<string>('');
 
+<<<<<<< HEAD
     const [name, setname] = useState<string>('')
     const [shortIntroduction, setshortIntroduction] = useState<string>('')
     const [date, setdate] = useState<string>('2000-01-01')
@@ -14,6 +20,8 @@ const Open = () => {
     const [introduction, setintroduction] = useState<string>('')
 
  
+=======
+>>>>>>> develop
   const nameChange: any = (e: Event): any => {
     setname((e.currentTarget as any).value);
   };
@@ -80,7 +88,10 @@ const Open = () => {
           </span>
         </p>
       </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
       <div>
         <form onSubmit={handleSubmit} method="post" noValidate>
           <div className="파일업로드">
@@ -163,10 +174,15 @@ const Open = () => {
               <option value="미선택">미선택</option>
             </select>
           </div>
-          <button type="submit">제출</button>
+          <Link to="/circle/open/success">
+            <button type="submit">제출</button>
+          </Link>
         </form>
       </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
     </div>
   );
 };

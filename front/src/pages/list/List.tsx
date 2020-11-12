@@ -10,30 +10,29 @@ import ListSubject from './ListSubject';
 import './tab.css';
 
 const List = (props: RouteComponentProps<{}>) => {
-  const [subject, setSubject] = useState<string>('전체');
+  const [subject, setSubject] = useState<string>('all');
   const test = [
-    { name: '전체' },
-    { name: '학술' },
-    { name: '예술' },
-    { name: '친목' },
-    { name: '스포츠' },
-    { name: '여행' },
-    { name: '종교' },
-    { name: '봉사' },
+    { name: 'all' },
+    { name: 'academy' },
+    { name: 'art' },
+    { name: 'networking' },
+    { name: 'sports' },
+    { name: 'trip' },
+    { name: 'religion' },
+    { name: 'volunteer' },
+    { name: 'etc' },
   ];
-
   const 학술 = [
-    { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '1', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '2', name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '3', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '4', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '5', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '6', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '7', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '8', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
+    { id: '9', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
   ];
-
   const 예술 = [
     { name: '예술', introduction: '국내 최초 4차 산업혁명동아리' },
     { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
@@ -119,57 +118,65 @@ const List = (props: RouteComponentProps<{}>) => {
   ];
 
   return (
-    <Router>
+    <div>
+      <h2>전체 동아리 목록</h2>
+      <p>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</p>
       <div>
-        <Route
-          path={`${props.match.url}`}
-          render={() => (
-            <div>
-              <h2>전체 동아리 목록</h2>
-              <p>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</p>
-              <div>
-                <label>
-                  <select
-                    id="list-name"
-                    defaultValue={subject}
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    onBlur={(e) => setSubject(e.target.value)}
-                  >
-                    {test.map((item, index) => {
-                      return (
-                        <option key={index} value={item.name}>
-                          {item.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </label>
-              </div>
-              <div>
-                <div>{subject}</div>
-                <ul id="horizontal_list">
-                  {test.map((item) => {
-                    return (
-                      <Link
-                        to={`${props.match.url}/${item.name}`}
-                        onClick={() => {
-                          setSubject(item.name);
-                          console.log(item.name);
-                        }}
-                      >
-                        <li>
-                          <div className="border top_border"></div>
-                          {item.name}
-                          <div className="border bottom_border"></div>
-                        </li>
-                      </Link>
-                    );
-                  })}
-                </ul>
-              </div>
-              <div className="club_list">
-                {/* <ul id="horizontal_club_list">
+        <label>
+          <select
+            id="list-name"
+            defaultValue={subject}
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            onBlur={(e) => setSubject(e.target.value)}
+          >
+            {test.map((item, index) => {
+              return (
+                <option key={index} value={item.name}>
+                  {item.name}
+                </option>
+              );
+            })}
+          </select>
+        </label>
+      </div>
+      <div>
+        <div>{subject}</div>
+        <ul id="horizontal_list">
+          {test.map((item) => {
+            return (
+              <li
+                onClick={() => {
+                  setSubject(item.name);
+                  console.log(item.name);
+                }}
+              >
+                <div className="border top_border"></div>
+                {item.name}
+                <div className="border bottom_border"></div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {/* <h1>{props.match.params.subject}</h1> */}
+      <div className="club_list">
+        <ul id="horizontal_club_list">
+          {학술.map((item, index) => {
+            return (
+              <li>
+                <Link to={`${props.match.url}/${subject}/${item.id}`}>
+                  <h3>{item.name}</h3>
+                  <p>{item.introduction}</p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      {/* <div className="club_list">
+                <ul id="horizontal_club_list">
                   {학술.map((item, index) => {
                     return (
                       <li>
@@ -180,14 +187,11 @@ const List = (props: RouteComponentProps<{}>) => {
                       </li>
                     );
                   })}
-                </ul> */}
-              </div>
-            </div>
-          )}
-        ></Route>
-        <Route path={`${props.match.url}/:subject`} component={ListSubject} />
-      </div>
-    </Router>
+                </ul>
+              </div> */}
+
+      {/* <Route path="/list/:subject" component={ListSubject} /> */}
+    </div>
   );
 };
 

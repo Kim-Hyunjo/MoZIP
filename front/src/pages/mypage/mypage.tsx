@@ -77,7 +77,7 @@ const mypage = () => {
           거주지 : {personalInfo.address}
           <br></br>
         </div>
-        <div className="button">
+        <div className="inMyinform">
           <Link to="./mypage/edit">
             <button id="button1">수정하기</button>
           </Link>

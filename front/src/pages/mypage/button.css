@@ -6,8 +6,6 @@
   border-color: #0c59c3;
   background-color: white;
   box-shadow: 2px 2px 5px #d6d6d6;
-  float: right;
-  transform: translate(-35%, -50%);
   color: #0c59c3;
 }
 
@@ -35,6 +33,28 @@
   color: white;
 }
 
+#button4 {
+  width: 80px;
+  height: 32px;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #0c59c3;
+  background-color: #0c59c3;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: white;
+}
+
+#button4:disabled {
+  width: 80px;
+  height: 36px;
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #0c59c3;
+  background-color: #9fb0c7;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: white;
+}
+
 #button10 {
   width: 320px;
   height: 64px;
@@ -47,7 +67,6 @@
   font-size: 22px;
 }
 
-.buttonnotice
 .mypageStorageButton {
   margin-left: 362px;
 }
@@ -61,10 +80,14 @@
   float: right;
 }
 
+.detailButton {
+  margin-left: 500px;
+}
+
 /*used in mypageNotice*/
 
 .button_medium3 {
-  background: #0C5AC6;
+  background: #0c5ac6;
   border: none;
   border-radius: 20px;
   font-size: 16px;
@@ -85,4 +108,28 @@
 .btn_ingray_namecard {
   display: block;
   margin: 8px 28px 28px 640px;
+}
+
+.inMyinform {
+  float: right;
+  transform: translate(-35%, -50%);
+}
+
+.next {
+  margin-top: 20px;
+  width: 840px;
+}
+.next button {
+  float: right;
+}
+
+.apply2Buttons {
+  width: 680px;
+  padding: 30px 10px 0px 10px;
+}
+.apply2Buttons #button1 {
+  margin-right: 10px;
+}
+.apply2Buttons #button4 {
+  float: right;
 }
