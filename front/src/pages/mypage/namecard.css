@@ -40,6 +40,11 @@
   margin-top: 35px;
 }
 
+.big_namecard .body_info span {
+  color: 0c5ac6;
+  font-size: 18px;
+}
+
 .small_namecard {
   width: 1080px;
   white-space: nowrap;
@@ -77,7 +82,7 @@
 }
 
 /**/
-.gray_namecard{
+.gray_namecard {
   border: 1px solid;
   border-radius: 20px;
   border-color: #707070;
@@ -88,24 +93,23 @@
   margin: 40px auto;
 }
 
-.title_gray_namecard{
-  color:#0c5ac6;
+.title_gray_namecard {
+  color: #0c5ac6;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-.subject_gray_namecard{
+.subject_gray_namecard {
   font-weight: 600;
   margin-right: 8px;
 }
 
-.info_gray_namecard{
+.info_gray_namecard {
   display: inline-flex;
   margin-bottom: 2px;
-  
 }
-.stage_gray_namecard{
+.stage_gray_namecard {
   float: right;
   font-size: 24px;
   font-weight: 700;

@@ -4,16 +4,13 @@ import React, { useState } from 'react';
 const CircleOpenApproval = () => {
   return (
     <div>
-      <div>
-        <h2>동아리가 승인되었습니다!</h2>
-        <div>동아리를 등록해주셔서 감사합니다.</div>
-        <div>
-          <span>아래 공지사항을 필독해주시고</span> 바로 활동을 시작해보세요.
+      <div className="big_namecard">
+        <div className="head_info">동아리가 승인되었습니다!</div>
+        <div className="body_info">동아리를 등록해주셔서 감사합니다.<br/>
+          <span>아래 공지사항을 필독해주시고</span> 바로 활동을 시작해보세요.<br/>
+          등록한 동아리는 MyPage &#45;&#62; My 동아리에서 확인 가능합니다.<br/>
+          동아리 모집 공고를 작성해서 부원 모집을 시작해보세요!<br/>
         </div>
-        <div>
-          등록한 동아리는 MyPage &#45;&#62; My 동아리에서 확인 가능합니다.
-        </div>
-        <div>동아리 모집 공고를 작성해서 부원 모집을 시작해보세요!</div>
       </div>
 
       <br />
