@@ -1,15 +1,24 @@
 import React from 'react';
+import { RouteComponentProps, Link } from 'react-router-dom';
 
-const CircleDetail = () => {
+const CircleDetail = (
+  props: RouteComponentProps<{ subject: string; circle_id: string }>,
+) => {
   return (
     <div>
+      {/* <h2>{props.match.params.subject}</h2>
+      <h2>{props.match.params.circle_id}</h2> */}
       <h2>4차 산업혁명 동아리 Tave 6기 모집 (~7/18)</h2>
       <div>모집인원: {'0명'}</div>
       <div>모임지역: {'서울, 경기'}</div>
       <div>참여대상: {'대학생, 직장인, 일반인'}</div>
       <div>모임시작: {'미정'}</div>
       <button>동아리 메인페이지</button>
-      <button>동아리 지원하기</button>
+      <Link
+        to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}
+      >
+        <button>동아리 지원하기!</button>
+      </Link>
       <img></img>
       <div>
         <div>
@@ -34,7 +43,12 @@ const CircleDetail = () => {
         </div>
         <div>▼ 컨퍼런스 자료 : https://blog.naver.com/t-ave/221994568807</div>
       </div>
-      <button>동아리 지원하기!</button>
+
+      <Link
+        to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}
+      >
+        <button>동아리 지원하기!</button>
+      </Link>
       <div>
         <h2>QnA {'개수'}</h2>
         <div>

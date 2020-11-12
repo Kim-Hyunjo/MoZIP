@@ -129,6 +129,11 @@ function App() {
             <Route exact path="/mypage/status" component={mypageStatus} />
             <Route
               exact
+              path="/mypage/:circle_id/notice"
+              component={mypageStatus}
+            />
+            <Route
+              exact
               path="/mypage/introduction"
               component={SelfIntroduction}
             />
@@ -149,8 +154,13 @@ function App() {
               path="/circle/open/reject"
               component={CircleOpenReject}
             ></Route>
+            {/* <Route exact path="/list/:subject" component={ListSubject} /> */}
             <Route exact path="/list" component={List} />
-            <Route path="/list/:subject" component={ListSubject} />
+            <Route
+              exact
+              path="/list/:subject/:circle_id"
+              component={Circle}
+            ></Route>
             <Route
               exact
               path="/list/:subject/:circle_id/apply/success"
@@ -173,19 +183,9 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/list/:subject/:circle_id"
-              component={Circle}
-            ></Route>
-            <Route
-              exact
               path="/list/:subject/:circle_id/detail"
               component={CircleDetail}
             ></Route>
-            <Route
-              exact
-              path="/mypage/introduction"
-              component={SelfIntroduction}
-            />
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
             {/* <Route

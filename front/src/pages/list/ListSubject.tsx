@@ -5,6 +5,7 @@ import {
   Link,
   RouteComponentProps,
 } from 'react-router-dom';
+import Circle from '../circle/Circle';
 import './tab.css';
 
 const ListSubject = (props: RouteComponentProps<{ subject: string }>) => {
@@ -37,6 +38,8 @@ const ListSubject = (props: RouteComponentProps<{ subject: string }>) => {
           })}
         </ul>
       </div>
+
+      <Route exact path="/list/:subject/:circle_id" component={Circle}></Route>
     </div>
   );
 };
