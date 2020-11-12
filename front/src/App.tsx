@@ -24,6 +24,7 @@ import ListVolunteer from './pages/list/ListVolunteer';
 import ListETC from './pages/list/ListETC';
 import Apply from './pages/list/apply/Apply';
 import Apply2 from './pages/list/apply/Apply2';
+import Circle from './pages/circle/Circle';
 import CircleDetail from './pages/circle/CircleDetail';
 
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
@@ -171,6 +172,11 @@ function App() {
             <Route
               exact
               path="/list/academy/{circleID}"
+              component={Circle}
+            ></Route>
+            <Route
+              exact
+              path="/list/academy/{circleID}/detail"
               component={CircleDetail}
             ></Route>
             <Route
