@@ -43,6 +43,7 @@ import myPageIntroduction from './pages/mypage/myPageIntroduction';
 import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
 import CircleOpenReject from './pages/circle/CircleOpenReject';
+import ListSubject from './pages/list/ListSubject';
 function App() {
   return (
     <Router>
@@ -149,34 +150,35 @@ function App() {
               component={CircleOpenReject}
             ></Route>
             <Route exact path="/list" component={List} />
+            <Route path="/list/:subject" component={ListSubject} />
             <Route
               exact
-              path="/list/academy/{circleID}/apply/success"
+              path="/list/:subject/:circle_id/apply/success"
               component={ListApplySuccess}
             />
             <Route
               exact
-              path="/list/academy/{circleID}/apply/fail"
+              path="/list/:subject/:circle_id/apply/fail"
               component={ListApplyFail}
             />
             <Route
               exact
-              path="/list/academy/{circleID}/apply"
+              path="/list/:subject/:circle_id/apply"
               component={Apply}
             ></Route>
             <Route
               exact
-              path="/list/academy/{circleID}/apply2"
+              path="/list/:subject/:circle_id/apply2"
               component={Apply2}
             ></Route>
             <Route
               exact
-              path="/list/academy/{circleID}"
+              path="/list/:subject/:circle_id"
               component={Circle}
             ></Route>
             <Route
               exact
-              path="/list/academy/{circleID}/detail"
+              path="/list/:subject/:circle_id/detail"
               component={CircleDetail}
             ></Route>
             <Route

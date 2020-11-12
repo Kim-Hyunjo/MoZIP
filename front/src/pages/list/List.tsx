@@ -10,16 +10,16 @@ import ListSubject from './ListSubject';
 import './tab.css';
 
 const List = (props: RouteComponentProps<{}>) => {
-  const [subject, setSubject] = useState<string>('전체');
+  const [subject, setSubject] = useState<string>('all');
   const test = [
-    { name: '전체' },
-    { name: '학술' },
-    { name: '예술' },
-    { name: '친목' },
-    { name: '스포츠' },
-    { name: '여행' },
-    { name: '종교' },
-    { name: '봉사' },
+    { name: 'all' },
+    { name: 'academy' },
+    { name: 'art' },
+    { name: 'amity' },
+    { name: 'sports' },
+    { name: 'trip' },
+    { name: 'religion' },
+    { name: 'volunteer' },
   ];
 
   const 학술 = [
@@ -168,8 +168,8 @@ const List = (props: RouteComponentProps<{}>) => {
                   })}
                 </ul>
               </div>
-              <div className="club_list">
-                {/* <ul id="horizontal_club_list">
+              {/* <div className="club_list">
+                <ul id="horizontal_club_list">
                   {학술.map((item, index) => {
                     return (
                       <li>
@@ -180,8 +180,8 @@ const List = (props: RouteComponentProps<{}>) => {
                       </li>
                     );
                   })}
-                </ul> */}
-              </div>
+                </ul>
+              </div> */}
             </div>
           )}
         ></Route>
