@@ -127,25 +127,15 @@ function App() {
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
-<<<<<<< HEAD
             <Route exact path="/mypage/introduction" component={SelfIntroduction} />
             <Route exact path="/about/Use" component ={Use}></Route>
             <Route exact path="/circle/Open" component ={Open}></Route>
-            <Route exact path="/list/academy/{circleID}/apply" component ={Apply}></Route>
-            <Route exact path="/list/academy/{circleID}/apply2" component ={Apply2}></Route>
-            <Route exact path="/list/academy/{circleID}/apply3" component ={Apply3}></Route>
-            <Route exact path="/list/academy/{circleID}/apply4" component ={Apply4}></Route>
-            <Route exact path="/list/academy/{circleID}/apply5" component ={Apply5}></Route>
             <Route exact path="/mypage/notice" component={myPageNotice} />
-=======
->>>>>>> develop
             <Route
               exact
               path="/mypage/:circle_id/notice"
               component={mypageStatus}
             />
-<<<<<<< HEAD
-=======
             <Route
               exact
               path="/mypage/introduction"
@@ -207,7 +197,6 @@ function App() {
               path="/mypage/introduction"
               component={SelfIntroduction}
             /> */}
->>>>>>> develop
             <Route component={NotFound} />
           </Switch>
         </div>
