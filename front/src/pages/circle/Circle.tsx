@@ -6,7 +6,7 @@ const Circle = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
 ) => {
   return (
-    <div>
+    <div id="wrapper">
       <div className="circle_header">
         <h2>Tave</h2>
         <div className="small_title">국내 최초 4차 산업 혁명 동아리</div>

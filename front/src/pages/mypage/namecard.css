@@ -2,8 +2,7 @@
   border: 2px solid;
   border-radius: 20px;
   border-color: #0c59c3;
-  margin-left: 152px;
-  margin-bottom: 32px;
+  margin: 0 auto;
   padding: 20px;
   width: 720px;
   height: 280px;
@@ -41,14 +40,21 @@
 }
 
 .big_namecard .body_info span {
-  color: 0c5ac6;
+  color: #0c5ac6;
   font-size: 18px;
 }
 
+.displayingcards{
+  flex-direction: column;
+  
+  display: inline-block;
+}
+
 .small_namecard {
-  width: 1080px;
+  width: 1200px;
   white-space: nowrap;
-  overflow-x: scroll;
+  
+  display: inline-block;
 }
 
 .small_namecard li {
@@ -64,13 +70,13 @@
 }
 
 .small_namecard li .club_name {
-  overflow-x: scroll;
   font-size: 22px;
   margin-bottom: 8px;
+  overflow-x: visible;
 }
 
 .small_namecard li .club_intro {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .small_namecard li .club_position {
@@ -80,6 +86,7 @@
   transform: translate(0%, 35%);
   margin-left: 16px;
 }
+
 
 /**/
 .gray_namecard {

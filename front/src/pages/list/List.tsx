@@ -121,6 +121,7 @@ const List = (props: RouteComponentProps<{}>) => {
     <div>
       <h2>전체 동아리 목록</h2>
       <p>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</p>
+      <div className="wrapper">
       <div>
         <label>
           <select
@@ -174,6 +175,7 @@ const List = (props: RouteComponentProps<{}>) => {
             );
           })}
         </ul>
+      </div>
       </div>
       {/* <div className="club_list">
                 <ul id="horizontal_club_list">

@@ -14,6 +14,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import './layout.css';
 import './button.css';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const myPageIntroduction = () => {
   const questionList = [
@@ -65,15 +66,15 @@ const myPageIntroduction = () => {
   };
 
   return (
-    <div>
-      <div>자기소개함</div>
-      <div>자기소개서 질문과 답변을 미리 준비해보세요.</div>
+    <div className="introduction_wrapper">
+      <h2>자기소개함</h2>
+      <h3>자기소개서 질문과 답변을 미리 준비해보세요.</h3>
       <div className="flexthem">
-        <button className="button_medium3 " onClick={handleClickOpen}>직접 추가</button>
+        
         <div>
           <label>
             <select
-              id="list-name"
+              id="list-name_intro"
               // defaultValue={subject}
               // value={subject}
               // onChange={(e) => setSubject(e.target.value)}
@@ -84,16 +85,30 @@ const myPageIntroduction = () => {
             </select>
           </label>
         </div>
+        <button id="button3_intro" onClick={handleClickOpen}>직접 추가</button>
       </div>
       <div>
         <div>
           {questionList.map((item) => {
             return (
-              <div key={item.index}>
-                <div>{item.title}</div>
-                <input type="text"></input>
-                <button>수정하기</button>
-                <button>삭제하기</button>
+              <div  key={item.index}>
+                <div className="introduction_question">{item.title}</div>
+                {/* <input className="input" type="text"></input> */}
+                <div className="introduction_answer">
+                  <div className="input">
+                <TextField
+                id="outlined-multiline-static"
+                multiline
+                rows={6}
+                
+                placeholder="질문에 대한 답안을 작성해주세요."
+                variant="outlined"
+                fullWidth
+                />
+                </div>
+                
+                <div className="introduction_buttons"><button id="button1_blue" >수정하기</button>
+                <button id="button1_red" >삭제하기</button></div></div>
               </div>
             );
           })}
