@@ -1,5 +1,8 @@
 import React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 
 const CircleDetail = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
@@ -8,19 +11,24 @@ const CircleDetail = (
     <div>
       {/* <h2>{props.match.params.subject}</h2>
       <h2>{props.match.params.circle_id}</h2> */}
-      <h2>4차 산업혁명 동아리 Tave 6기 모집 (~7/18)</h2>
-      <div>모집인원: {'0명'}</div>
-      <div>모임지역: {'서울, 경기'}</div>
-      <div>참여대상: {'대학생, 직장인, 일반인'}</div>
-      <div>모임시작: {'미정'}</div>
-      <button>동아리 메인페이지</button>
-      <Link
-        to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}
-      >
-        <button>동아리 지원하기!</button>
-      </Link>
+      <div className="circle_header">
+        <h2>4차 산업혁명 동아리 Tave 6기 모집 (~7/18)</h2>
+        <div className="recruitDetail">
+          <div>모집인원: {'0명'}</div>
+          <div>모임지역: {'서울, 경기'}</div>
+          <div>참여대상: {'대학생, 직장인, 일반인'}</div>
+          <div>모임시작: {'미정'}</div>
+        </div>
+        <div className ="recruitDetailButton">
+          <Link to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}>
+            <button id ="button5B">동아리 지원하기!</button>
+          </Link>
+          <button id="button5W">동아리 메인페이지</button>
+        </div>
       <img></img>
-      <div>
+      </div>
+      
+      <div className="circle_detail">
         <div>
           안녕하세요! 제 4차 산업혁명 연구 동아리 TAVE에서 6기 회원을
           모집합니다.커리큘럼은 4차산업혁명 관련 세션과 스터디 그리고
@@ -47,50 +55,61 @@ const CircleDetail = (
       <Link
         to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}
       >
-        <button>동아리 지원하기!</button>
+        <div className="applyButton"><button id="button10">동아리 지원하기!</button></div>
       </Link>
       <div>
-        <h2>QnA {'개수'}</h2>
-        <div>
-          <div>
-            <div>{'미래테이비'}</div>
-            <div>{'날짜'}</div>
-            <div>{'다음모집은 언제쯤인가요?'}</div>
-            <button hidden={true}>답글</button>
-            <button>신고</button>
+        <div className="small_title">QnA {'개수'}</div>
+        <div className="Qu_List">
+          <div className="question">
+            <div className="questioner">{'미래테이비'}</div>
+            <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
+            <div className="questionDate">{'날짜'}</div>
+            <button id="button0" hidden={true}>답글</button>
+            <button id="button0">신고</button>
           </div>
-          <div>
-            <div>{'최우영(회장)'}</div>
-            <div>{'날짜'}</div>
-            <div>
+          <div className="answer">
+            <div className="questioner">{'최우영(회장)'}</div>
+            <div className="questionDetail">
               {
                 '안녕하세요 문의주셔서 감사합니다. 다음 7기 모집은 21년 1월로 예정하고 있습니다.'
               }
             </div>
-            <button hidden={false}>답글</button>
-            <button>신고</button>
+            <div className="questionDate">{'날짜'}</div>
+            <button id="button0" hidden={false}>답글</button>
+            <button id="button0">신고</button>
           </div>
-          <div>
-            <div>{'미래테이비'}</div>
-            <div>{'날짜'}</div>
-            <div>{'다음모집은 언제쯤인가요?'}</div>
-            <button hidden={true}>답글</button>
-            <button>신고</button>
+          <div className="question">
+            <div className="questioner">{'미래테이비'}</div>
+            <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
+            <div className="questionDate">{'날짜'}</div>
+            <button id="button0" hidden={true}>답글</button>
+            <button id="button0">신고</button>
           </div>
-          <div>
-            <div>{'최우영(회장)'}</div>
-            <div>{'날짜'}</div>
-            <div>
+          <div className="answer">
+            <div className="questioner">{'최우영(회장)'}</div>
+            <div className="questionDetail">
               {
                 '안녕하세요 문의주셔서 감사합니다. 다음 7기 모집은 21년 1월로 예정하고 있습니다.'
               }
             </div>
-            <button hidden={false}>답글</button>
-            <button>신고</button>
+            <div className="questionDate">{'날짜'}</div>
+            <button id="button0" hidden={false}>답글</button>
+            <button id="button0">신고</button>
           </div>
         </div>
-        <input type="text"></input>
-        <button>입력</button>
+        <div className="questionWrite">
+            <TextField
+            id="outlined-multiline-static"
+            label="댓글 작성"
+            multiline
+            rows={4}
+            
+            placeholder="동아리에 궁금한 점을 입력해주세요."
+            variant="outlined"
+            fullWidth
+          />
+          <button id="button4">입력</button>
+        </div>
       </div>
     </div>
   );
