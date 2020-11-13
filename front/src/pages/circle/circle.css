@@ -47,7 +47,7 @@
 .circle_review .reviewDetail {
   width: 740px;
   height: auto;
-  overflow: auto;
+  /*overflow: auto;*/
   line-height: 24px;
 }
 .circle_review .reviewer {
@@ -58,7 +58,7 @@
 .FAQ_question {
   width: 620px;
   height: auto;
-  overflow: auto;
+  /*overflow: auto;*/
 
   margin: 20px 0px;
   padding: 20px 30px;
@@ -71,7 +71,7 @@
 .FAQ_answer {
   width: 620px;
   height: auto;
-  overflow: auto;
+  /*overflow: auto;*/
 
   margin: 20px 0px 20px 120px;
   padding: 20px 30px;
@@ -89,38 +89,36 @@
 .question {
   width: 620px;
   height: auto;
-  overflow: auto;
+  /*overflow: auto;*/
 
   margin: 20px 0px;
   padding: 20px 30px;
 
-  border: 2px solid #e1eeff;
   background-color: #e1eeff;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .answer {
   width: 620px;
   height: auto;
-  overflow: auto;
+  /*overflow: auto;*/
 
   margin: 20px 0px 20px 120px;
   padding: 20px 30px;
 
-  border: 2px solid #b2cff7;
   background-color: #b2cff7;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .Qu_List .questionDate {
   font-size: 12px;
-  margin-top: 15px;
+  margin-top: -48px;
   float: right;
 }
 .Qu_List .questionDetail {
   width: 740px;
   height: auto;
-  overflow: auto;
+  /*overflow: auto;*/
   line-height: 24px;
 }
 .Qu_List #button0 {
@@ -135,4 +133,7 @@
 .questionWrite #button4 {
   margin-top: 10px;
   float: right;
+}
+.movetoright {
+  margin-left: 86%;
 }

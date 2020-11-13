@@ -64,8 +64,8 @@ const CircleDetail = (
             <div className="questioner">{'미래테이비'}</div>
             <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
             <div className="questionDate">{'날짜'}</div>
-            <button id="button0" hidden={true}>답글</button>
-            <button id="button0">신고</button>
+            <div className="movetoright"><button id="button0"  hidden={true}>답글</button>
+            <button id="button0" >신고</button></div>
           </div>
           <div className="answer">
             <div className="questioner">{'최우영(회장)'}</div>
@@ -75,15 +75,15 @@ const CircleDetail = (
               }
             </div>
             <div className="questionDate">{'날짜'}</div>
-            <button id="button0" hidden={false}>답글</button>
-            <button id="button0">신고</button>
+            <div className="movetoright"><button id="button0" hidden={false}>답글</button>
+            <button id="button0">신고</button></div>
           </div>
           <div className="question">
             <div className="questioner">{'미래테이비'}</div>
             <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
             <div className="questionDate">{'날짜'}</div>
-            <button id="button0" hidden={true}>답글</button>
-            <button id="button0">신고</button>
+            <div className="movetoright"><button id="button0" hidden={true}>답글</button>
+            <button id="button0">신고</button></div>
           </div>
           <div className="answer">
             <div className="questioner">{'최우영(회장)'}</div>
@@ -93,8 +93,8 @@ const CircleDetail = (
               }
             </div>
             <div className="questionDate">{'날짜'}</div>
-            <button id="button0" hidden={false}>답글</button>
-            <button id="button0">신고</button>
+            <div className="movetoright"><button id="button0" hidden={false}>답글</button>
+            <button id="button0">신고</button></div>
           </div>
         </div>
         <div className="questionWrite">

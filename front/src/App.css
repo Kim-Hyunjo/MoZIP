@@ -15,12 +15,23 @@ header {
   background-color: #b2cff7;
   position: fixed;
 }
+.body #wrapper {
+  position: relative;
+  margin: 0 auto;
+}
 #list-name {
-  float: right;
+  position: relative;
+  margin: 0px 0px 0px 1100px;
+}
+#list-name_intro {
+  display:inline-flex;
+  margin: 0px 20px 0px 20px;
 }
 .category_name {
-  font-size: 32px;
-  margin-left: 24px;
+  
+  position: relative;
+  font-size: 40px;
+  margin-left: 56px;
   margin-top: 24px;
   font-weight: 600;
   color: #0c5ac6;
@@ -68,6 +79,12 @@ header {
 .body {
   padding-top: 200px;
   margin: 80px 240px;
+  min-width: 1300px;
+  /*가운데 정렬을 위해 추가했습니다.*/
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: center;
+  justify-content: center;
 }
 
 h2 {
@@ -77,6 +94,8 @@ h2 {
 
 .middle_title {
   float: left;
+  
+  flex-direction: column;
   font-size: 28px;
   margin: 20px 0px 10px 5px;
 }
@@ -184,7 +203,6 @@ a.active {
     transform: rotate(360deg);
   }
 }
-
 .horizontal_scroll {
   padding: 10px 20px 30px 20px;
   height: 260px;
@@ -196,7 +214,7 @@ a.active {
 .warning {
   min-width: 70%;
   font-size: 14px;
-  margin-left: 450px;
+  margin-left: 520px;
   margin-top: 45px;
   margin-bottom: 7px;
   color: red;
