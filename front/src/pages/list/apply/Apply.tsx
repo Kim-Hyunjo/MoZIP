@@ -55,7 +55,7 @@ const Apply = (
             checked={notification}
             onChange={checkHandler}
           />
-          <span>본 공지사항을 모두 읽었으며 동의합니다.</span>
+          <span> 본 공지사항을 모두 읽었으며 동의합니다.</span>
         </form>
         <div className="next">{renderSubmit()}</div>
       </div>
