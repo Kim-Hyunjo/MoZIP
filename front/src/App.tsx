@@ -10,40 +10,24 @@ import './App.css';
 import NotFound from './error/NotFound';
 import Home from './Test/home';
 import RedirectTest from './Test/RedirectTest';
-import Test from './Test/Test';
 import TestList from './Test/TestList';
-import ListAll from './pages/list/ListAll';
 import List from './pages/list/List';
-import ListAcademy from './pages/list/ListAcademy';
-import ListArt from './pages/list/ListArt';
-import ListNetworking from './pages/list/ListNetworking';
-import ListSports from './pages/list/ListSports';
-import ListTravel from './pages/list/ListTravel';
-import ListReligion from './pages/list/ListReligion';
-import ListVolunteer from './pages/list/ListVolunteer';
-import ListETC from './pages/list/ListETC';
 import Apply from './pages/list/apply/Apply';
 import Apply2 from './pages/list/apply/Apply2';
 import Circle from './pages/circle/Circle';
 import CircleDetail from './pages/circle/CircleDetail';
-
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
 import ListApplyFail from './pages/list/apply/ListApplyFail';
-import login from './pages/login/login';
-import sginup from './pages/login/signup';
 import mypage from './pages/mypage/mypage';
 import myPageEdit from './pages/mypage/myPageEdit';
 import mypageStatus from './pages/mypage/mypageStatus';
 import Use from './pages/about/Use';
-import detailPage1 from './pages/detailPage1';
-import SelfIntroduction from './pages/SelfIntroduction';
-import myPageNotice from './pages/mypage/myPageNotice';
 import Open from './pages/circle/Open';
 import myPageIntroduction from './pages/mypage/myPageIntroduction';
 import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
 import CircleOpenReject from './pages/circle/CircleOpenReject';
-import ListSubject from './pages/list/ListSubject';
+
 function App() {
   return (
     <Router>
@@ -113,24 +97,11 @@ function App() {
             <Route exact path="/" render={() => <h3>Index</h3>} />
             <Route exact path="/intro" render={() => <h3>소개</h3>} />
             <Route exact path="/posts" component={TestList} />
-            <Route exact path="/rt" component={RedirectTest} />{' '}
-            {/* 리다이렉트 방법*/}
-            {/* <Route exact path="/list/academy" component={ListAcademy} />
-            <Route exact path="/list/art" component={ListArt} />
-            <Route exact path="/list/networking" component={ListNetworking} />
-            <Route exact path="/list/sports" component={ListSports} />
-            <Route exact path="/list/travel" component={ListTravel} />
-            <Route exact path="/list/religion" component={ListReligion} />
-            <Route exact path="/list/volunteer" component={ListVolunteer} />
-            <Route exact path="/list/etc" component={ListETC} />
-            <Route exact path="/list/학술/1" component={detailPage1} /> */}
+            <Route exact path="/rt" component={RedirectTest} />
+            {/* mypage */}
             <Route exact path="/mypage" component={mypage} />
             <Route exact path="/mypage/edit" component={myPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
-            <Route exact path="/mypage/introduction" component={SelfIntroduction} />
-            <Route exact path="/about/Use" component ={Use}></Route>
-            <Route exact path="/circle/Open" component ={Open}></Route>
-            <Route exact path="/mypage/notice" component={myPageNotice} />
             <Route
               exact
               path="/mypage/:circle_id/notice"
@@ -139,9 +110,10 @@ function App() {
             <Route
               exact
               path="/mypage/introduction"
-              component={SelfIntroduction}
+              component={myPageIntroduction}
             />
             <Route exact path="/about/use" component={Use}></Route>
+            {/* circle */}
             <Route exact path="/circle/open" component={Open}></Route>
             <Route
               exact
@@ -158,7 +130,7 @@ function App() {
               path="/circle/open/reject"
               component={CircleOpenReject}
             ></Route>
-            {/* <Route exact path="/list/:subject" component={ListSubject} /> */}
+            {/* list */}
             <Route exact path="/list" component={List} />
             <Route
               exact
