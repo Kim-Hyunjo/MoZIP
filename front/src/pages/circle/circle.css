@@ -22,6 +22,7 @@
 
 .circle_detail {
   width: 800px;
+  line-height: 28px;
 }
 
 .circle_review {
@@ -78,4 +79,60 @@
   border: 2px solid #b2cff7;
   background-color: #b2cff7;
   border-radius: 30px;
+}
+
+.recruitDetail {
+  margin-left: 15px;
+  line-height: 30px;
+}
+
+.question {
+  width: 620px;
+  height: auto;
+  overflow: auto;
+
+  margin: 20px 0px;
+  padding: 20px 30px;
+
+  border: 2px solid #e1eeff;
+  background-color: #e1eeff;
+  border-radius: 30px;
+}
+
+.answer {
+  width: 620px;
+  height: auto;
+  overflow: auto;
+
+  margin: 20px 0px 20px 120px;
+  padding: 20px 30px;
+
+  border: 2px solid #b2cff7;
+  background-color: #b2cff7;
+  border-radius: 30px;
+}
+
+.Qu_List .questionDate {
+  font-size: 12px;
+  margin-top: 15px;
+  float: right;
+}
+.Qu_List .questionDetail {
+  width: 740px;
+  height: auto;
+  overflow: auto;
+  line-height: 24px;
+}
+.Qu_List #button0 {
+  margin-top: 10px;
+  margin-right: 3px;
+}
+
+.questionWrite {
+  padding-top: 20px;
+  width: 800px;
+}
+.questionWrite #button4 {
+  margin-top: 10px;
+  float: right;
 }

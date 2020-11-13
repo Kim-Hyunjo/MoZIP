@@ -1,3 +1,14 @@
+#button0 {
+  width: 35px;
+  height: 25px;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #c7c7c7;
+  background-color: #c7c7c7;
+  color: #444343;
+  font-size: 13px;
+}
+
 #button1 {
   width: 80px;
   height: 32px;
@@ -55,6 +66,27 @@
   color: #0c59c3;
 }
 
+#button5B {
+  width: 135px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #0c59c3;
+  background-color: #0c59c3;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: white;
+}
+#button5W {
+  width: 135px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #0c59c3;
+  background-color: white;
+  box-shadow: 2px 2px 5px #d6d6d6;
+  color: #0c59c3;
+}
+
 #button8 {
   background: #0c5ac6;
   border: none;
@@ -85,6 +117,11 @@
   margin-left: 362px;
 }
 
+.applyButton {
+  margin-left: 240px;
+  padding: 40px;
+}
+
 .mypageEditButton {
   margin-left: 760px;
 }
@@ -96,6 +133,20 @@
 
 .detailButton {
   margin-left: 500px;
+}
+
+.recruitDetailButton {
+  width: 800px;
+  transform: translate(0%, -40%);
+}
+
+.recruitDetailButton #button5B {
+  float: right;
+}
+
+.recruitDetailButton #button5W {
+  float: right;
+  margin-right: 10px;
 }
 
 /*used in mypageNotice*/
