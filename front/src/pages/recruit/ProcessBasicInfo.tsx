@@ -3,51 +3,53 @@ import React, { useState } from 'react';
 
 const ProcessBasicInfo = () => {
   return (
-    <div>
+    <div className="recruit_wrapper">
       <h2>동아리 모집 상세 작성</h2>
-      <div>동아리 모집 공고에 대한 세부적인 내용을 작성해주세요.</div>
+      <h3>동아리 모집 공고에 대한 세부적인 내용을 작성해주세요.</h3>
       <div>
-        <div>간단한 모집 정보</div>
-        <div>
-          <span>모집 인원</span>
+        <div className="semititle">간단한 모집 정보</div>
+        <div className="simple_recruit_info">
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">모집 인원</div>
           <input type="text"></input>
         </div>
-        <div>
-          <span>모임 지역</span>
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">모임 지역</div>
           <input type="text"></input>
         </div>
-        <div>
-          <span>참여 대상</span>
-          <label>
-            <input type="checkbox" name="Python" value="대학생" />
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">참여 대상</div>
+          <label className="recruit_choice">
+            <input className="recruit_box" type="checkbox" name="Python" value="대학생" />
             대학생
           </label>
-          <label>
+          <label className="recruit_choice">
             <input type="checkbox" name="Python" value="일반인" />
             일반인
           </label>
-          <label>
+          <label className="recruit_choice">
             <input type="checkbox" name="Python" value="직장인" />
             직장인
           </label>
         </div>
-        <div>
-          <span>모임 시간</span>
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">모임 시간</div>
           <input type="text"></input>
         </div>
-        <div>
-          <span>대표 페이지</span>
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">대표 페이지</div>
           <input type="text"></input>
         </div>
+      </div>
       </div>
       <div>
         <div>상세 내용</div>
         <div>
-          <span>제목</span>
+          <div>제목</div>
           <textarea placeholder="제목을 입력해주세요."></textarea>
         </div>
         <div>
-          <span>내용</span>
+          <div>내용</div>
           <textarea
             placeholder="내용을 입력해주세요.
 
