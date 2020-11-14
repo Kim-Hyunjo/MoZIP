@@ -131,4 +131,26 @@ urlpatterns = [
     path('mypage/introduction/', include(router.urls)),
     path('mypage/{circleID}/notice/', include(router.urls)),
     
+    #recruit
+    path('/recruit/selection', include(router.urls)),
+    path('recruit/process/basicinfo', include(router.urls)),
+    path('recruit/process/noticeinfo', include(router.urls)),
+    path('recruit/process/form', include(router.urls)),
+    path('recruit/process/applicants', include(router.urls)),
+    path('recruit/resume', include(router.urls)),
+    path('recruit/resume/<str:memberId>', include(router.urls)),
+
+    #guide
+    path('guide/selfintroduction', include(router.urls)),
+    path('guide/sregistration', include(router.urls)),
+    path('guide/operation', include(router.urls)),
+
+    #circle
+    path('circle/open', include(router.urls)),
+    path('circle/open/success', include(router.urls)),
+    path('circle/open/fail', include(router.urls)),
+    path('circle/open/approval', include(router.urls)),
+    path('circle/open/reject', include(router.urls)),
+
+    
 ]
