@@ -18,7 +18,6 @@ from django.urls import path,include
 from rest_framework import routers
 from mozip1.views import UserViewSet, ClubViewSet
 
-#jwoo
 from mozip1.views import ListPost
 
 router = routers.DefaultRouter()
