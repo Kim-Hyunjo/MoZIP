@@ -37,4 +37,100 @@ urlpatterns = [
 
     #jwoo
     path('api/', include(router.urls)),
+
+    #mozip
+    #list
+    path('list/all/', include(router.urls)),
+    path('list/academy/', include(router.urls)),
+    path('list/art/', include(router.urls)),
+    path('list/networking/', include(router.urls)),
+    path('list/sports/', include(router.urls)),
+    path('list/travel/', include(router.urls)),
+    path('list/religion/', include(router.urls)),
+    path('list/volunteer/', include(router.urls)),
+    path('list/etc/', include(router.urls)),
+
+    path('list/academy/{circleID}/', include(router.urls)),
+    path('list/academy/{circleID}/detail/', include(router.urls)),
+    path('list/academy/{circleID}/apply/', include(router.urls)),
+    path('list/academy/{circleID}/apply/success/', include(router.urls)),
+    path('list/academy/{circleID}/apply/fail/', include(router.urls)),
+    path('list/academy/{circleID}/joinus/', include(router.urls)),
+    path('list/academy/{circleID}/members/', include(router.urls)),
+    path('list/academy/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/art/{circleID}/', include(router.urls)),
+    path('list/art/{circleID}/detail/', include(router.urls)),
+    path('list/art/{circleID}/apply/', include(router.urls)),
+    path('list/art/{circleID}/apply/success/', include(router.urls)),
+    path('list/art/{circleID}/apply/fail/', include(router.urls)),
+    path('list/art/{circleID}/joinus/', include(router.urls)),
+    path('list/art/{circleID}/members/', include(router.urls)),
+    path('list/art/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/networking/{circleID}/', include(router.urls)),
+    path('list/networking/{circleID}/detail/', include(router.urls)),
+    path('list/networking/{circleID}/apply/', include(router.urls)),
+    path('list/networking/{circleID}/apply/success/', include(router.urls)),
+    path('list/networking/{circleID}/apply/fail/', include(router.urls)),
+    path('list/networking/{circleID}/joinus/', include(router.urls)),
+    path('list/networking/{circleID}/members/', include(router.urls)),
+    path('list/networking/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/sports/{circleID}/', include(router.urls)),
+    path('list/sports/{circleID}/detail/', include(router.urls)),
+    path('list/sports/{circleID}/apply/', include(router.urls)),
+    path('list/sports/{circleID}/apply/success/', include(router.urls)),
+    path('list/sports/{circleID}/apply/fail/', include(router.urls)),
+    path('list/sports/{circleID}/joinus/', include(router.urls)),
+    path('list/sports/{circleID}/members/', include(router.urls)),
+    path('list/sports/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/travel/{circleID}/', include(router.urls)),
+    path('list/travel/{circleID}/detail/', include(router.urls)),
+    path('list/travel/{circleID}/apply/', include(router.urls)),
+    path('list/travel/{circleID}/apply/success/', include(router.urls)),
+    path('list/travel/{circleID}/apply/fail/', include(router.urls)),
+    path('list/travel/{circleID}/joinus/', include(router.urls)),
+    path('list/travel/{circleID}/members/', include(router.urls)),
+    path('list/travel/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/religion/{circleID}/', include(router.urls)),
+    path('list/religion/{circleID}/detail/', include(router.urls)),
+    path('list/religion/{circleID}/apply/', include(router.urls)),
+    path('list/religion/{circleID}/apply/success/', include(router.urls)),
+    path('list/religion/{circleID}/apply/fail/', include(router.urls)),
+    path('list/religion/{circleID}/joinus/', include(router.urls)),
+    path('list/religion/{circleID}/members/', include(router.urls)),
+    path('list/religion/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/volunteer/{circleID}/', include(router.urls)),
+    path('list/volunteer/{circleID}/detail/', include(router.urls)),
+    path('list/volunteer/{circleID}/apply/', include(router.urls)),
+    path('list/volunteer/{circleID}/apply/success/', include(router.urls)),
+    path('list/volunteer/{circleID}/apply/fail/', include(router.urls)),
+    path('list/volunteer/{circleID}/joinus/', include(router.urls)),
+    path('list/volunteer/{circleID}/members/', include(router.urls)),
+    path('list/volunteer/{circleID}/members/edit/', include(router.urls)),
+
+    path('list/etc/{circleID}/', include(router.urls)),
+    path('list/etc/{circleID}/detail/', include(router.urls)),
+    path('list/etc/{circleID}/apply/', include(router.urls)),
+    path('list/etc/{circleID}/apply/success/', include(router.urls)),
+    path('list/etc/{circleID}/apply/fail/', include(router.urls)),
+    path('list/etc/{circleID}/joinus/', include(router.urls)),
+    path('list/etc/{circleID}/members/', include(router.urls)),
+    path('list/etc/{circleID}/members/edit/', include(router.urls)),
+
+    #login,signup
+    path('login/', include(router.urls)),
+    path('signup/', include(router.urls)),
+
+    #mypage
+    path('mypage/', include(router.urls)),
+    path('mypage/edit/', include(router.urls)),
+    path('mypage/status/', include(router.urls)),
+    path('mypage/introduction/', include(router.urls)),
+    path('mypage/{circleID}/notice/', include(router.urls)),
+    
 ]

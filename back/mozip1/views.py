@@ -21,3 +21,6 @@ class ClubViewSet(viewsets.ModelViewSet):
 class ListPost(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+    
+    
