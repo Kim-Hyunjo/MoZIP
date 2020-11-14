@@ -24,8 +24,6 @@ from mozip1.views import ListPost
 router = routers.DefaultRouter()
 router.register(r'users',UserViewSet)
 router.register(r'clubs', ClubViewSet)
-
-#jwoo
 router.register(r'listpost', ListPost)
 
 urlpatterns = [
@@ -133,4 +131,40 @@ urlpatterns = [
     path('mypage/introduction/', include(router.urls)),
     path('mypage/{circleID}/notice/', include(router.urls)),
     
+    #recruit
+    path('/recruit/selection', include(router.urls)),
+    path('recruit/process/basicinfo', include(router.urls)),
+    path('recruit/process/noticeinfo', include(router.urls)),
+    path('recruit/process/form', include(router.urls)),
+    path('recruit/process/applicants', include(router.urls)),
+    path('recruit/resume', include(router.urls)),
+    path('recruit/resume/{memberID}', include(router.urls)),
+    path('recruit/schedule/management', include(router.urls)),
+    path('recruit/schedule/management/staff', include(router.urls)),
+    path('recruit/schedule/management/detail', include(router.urls)),
+    path('recruit/interview', include(router.urls)),
+    path('recruit/interview/commonquestion', include(router.urls)),
+    path('recruit/interview/detail/{}', include(router.urls)),
+    path('recruit/interview/record', include(router.urls)),
+    path('recruit/interview/postprocessing/all', include(router.urls)),
+    path('recruit/interview/postprocessing/yet', include(router.urls)),
+    path('recruit/interview/postprocessing/pass', include(router.urls)),
+    path('recruit/interview/postprocessing/nonpass', include(router.urls)),
+    path('recruit/interview/postprocessing/keep', include(router.urls)),
+    path('recruit/interview/postprocessing/notice', include(router.urls)),
+    path('recruit/interview/postprocessing/detail', include(router.urls)),
+    path('recruit/interview/finalprocessing', include(router.urls)),
+
+    #guide
+    path('guide/selfintroduction', include(router.urls)),
+    path('guide/sregistration', include(router.urls)),
+    path('guide/operation', include(router.urls)),
+
+    #circle
+    path('circle/open', include(router.urls)),
+    path('circle/open/success', include(router.urls)),
+    path('circle/open/fail', include(router.urls)),
+    path('circle/open/approval', include(router.urls)),
+    path('circle/open/reject', include(router.urls)),
+
 ]
