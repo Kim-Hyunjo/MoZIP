@@ -1,7 +1,55 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const ProcessForm = () => {
+  const [openMultiChoice, setOpenMultiChoice] = React.useState(false);
+  const handleClickOpenMutliChoice = () => {
+    setOpenMultiChoice(true);
+  };
+  const handleCloseMutliChoice = () => {
+    setOpenMultiChoice(false);
+  };
+
+  const [openShortAnswer, setOpenShortAnswer] = React.useState(false);
+  const handleClickOpenShortAnswer = () => {
+    setOpenShortAnswer(true);
+  };
+  const handleCloseShortAnswer = () => {
+    setOpenShortAnswer(false);
+  };
+
+  const [openLongAnswer, setOpenLongAnswer] = React.useState(false);
+  const handleClickOpenLongAnswer = () => {
+    setOpenLongAnswer(true);
+  };
+  const handleCloseLongAnswer = () => {
+    setOpenLongAnswer(false);
+  };
+
+  const [valueSingleOrMulti, setValueSingleOrMulti] = React.useState('single');
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValueSingleOrMulti((event.target as HTMLInputElement).value);
+  };
+
+  const MulList = [
+    { id: 1, question: '선지1' },
+    { id: 2, question: '선지2' },
+    { id: 3, question: '선지3' },
+  ];
+
   return (
     <div>
       <h2>자기소개서 양식 작성</h2>
@@ -24,15 +72,15 @@ const ProcessForm = () => {
       </div>
 
       <div>
-        <button>
+        <button onClick={handleClickOpenMutliChoice}>
           <div>객관식</div>
           <div>질문 추가</div>
         </button>
-        <button>
+        <button onClick={handleClickOpenShortAnswer}>
           <div>단답형</div>
           <div>질문 추가</div>
         </button>
-        <button>
+        <button onClick={handleClickOpenLongAnswer}>
           <div>서술형</div>
           <div>질문 추가</div>
         </button>
@@ -165,6 +213,119 @@ const ProcessForm = () => {
 
       <button>임시저장</button>
       <button>제출하기</button>
+
+      <Dialog
+        open={openMultiChoice}
+        onClose={handleCloseMutliChoice}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">객관식 질문 추가하기</DialogTitle>
+        <DialogContent>
+          <TextField
+            placeholder="질문을 입력하세요."
+            autoFocus
+            margin="dense"
+            id="name"
+            label="질문 입력하기"
+            type="text"
+            fullWidth
+          />
+          <div>
+            <FormLabel component="legend">단일/복수 선택</FormLabel>
+            <div>단일 선택형: 하나의 선지만 선택이 가능합니다.</div>
+            <div>복수 선택형: 여러 개의 선지 선택이 가능합니다.</div>
+          </div>
+          <RadioGroup
+            aria-label="gender"
+            name="gender1"
+            value={valueSingleOrMulti}
+            onChange={handleChange}
+          >
+            <FormControlLabel value="single" control={<Radio />} label="단일" />
+            <FormControlLabel value="multi" control={<Radio />} label="복수" />
+          </RadioGroup>
+          <div>
+            <FormLabel component="legend">선지 입력</FormLabel>
+            <div>질문에 대한 선지를 작성해주세요.</div>
+          </div>
+          <div>
+            <input type="text" placeholder="선지를 입력하세요."></input>
+            <button>입력</button>
+          </div>
+          <div>
+            {MulList.map((item) => {
+              return (
+                <div key={item.id}>
+                  {item.question}
+                  <button>삭제</button>
+                </div>
+              );
+            })}
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseMutliChoice} color="primary">
+            닫기
+          </Button>
+          <Button onClick={handleCloseMutliChoice} color="primary">
+            저장
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={openShortAnswer}
+        onClose={handleCloseShortAnswer}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">단답형 질문 추가하기</DialogTitle>
+        <DialogContent>
+          <TextField
+            placeholder="질문을 입력하세요."
+            autoFocus
+            margin="dense"
+            id="name"
+            label="질문 입력하기"
+            type="text"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseShortAnswer} color="primary">
+            닫기
+          </Button>
+          <Button onClick={handleCloseShortAnswer} color="primary">
+            저장
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={openLongAnswer}
+        onClose={handleCloseLongAnswer}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">서술형 질문 추가하기</DialogTitle>
+        <DialogContent>
+          <TextField
+            placeholder="질문을 입력하세요."
+            autoFocus
+            margin="dense"
+            id="name"
+            label="질문 입력하기"
+            type="text"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseLongAnswer} color="primary">
+            닫기
+          </Button>
+          <Button onClick={handleCloseLongAnswer} color="primary">
+            저장
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
