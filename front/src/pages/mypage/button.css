@@ -165,6 +165,23 @@
   font-size: 22px;
 }
 
+#button_plus {
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: #0c59c3;
+  color: #0c59c3;
+  background-color: white;
+}
+#button_x {
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 15px;
+  background-color: white;
+}
+
 .mypageStorageButton {
   margin: 30px auto;
   display: flex;
