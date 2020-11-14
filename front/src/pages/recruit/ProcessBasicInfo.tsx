@@ -71,7 +71,10 @@ https://blog.naver.com/t-ave/221994568807
         <div>카드뉴스 추가</div>
       </div>
       <button>저장</button>
-      <button>공지 작성하기</button>
+      <Link to="/recruit/process/noticeinfo">
+        <button>공지 작성하기</button>
+      </Link>
+      {/* <button>공지 작성하기</button> */}
     </div>
   );
 };

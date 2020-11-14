@@ -33,6 +33,9 @@ ex.
 
       <button>저장</button>
       <button>자기소개서 작성</button>
+      <Link to="/recruit/process/form">
+        <button>공지 작성하기</button>
+      </Link>
     </div>
   );
 };
