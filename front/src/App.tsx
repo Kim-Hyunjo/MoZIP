@@ -27,6 +27,8 @@ import myPageIntroduction from './pages/mypage/myPageIntroduction';
 import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
 import CircleOpenReject from './pages/circle/CircleOpenReject';
+import ProcessBasicInfo from './pages/recruit/ProcessBasicInfo';
+import Selection from './pages/recruit/Selection';
 
 function App() {
   return (
@@ -169,6 +171,23 @@ function App() {
               path="/mypage/introduction"
               component={SelfIntroduction}
             /> */}
+            {/* Recruit */}
+            <Route
+              exact
+              path="/recruit/selection"
+              component={Selection}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/process/basicinfo"
+              component={ProcessBasicInfo}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/process/basicinfo"
+              component={ProcessBasicInfo}
+            ></Route>
+            {/* NotFount */}
             <Route component={NotFound} />
           </Switch>
         </div>
