@@ -6,7 +6,6 @@ const Selection = () => {
   return (
     <div>
       <h2>모집 전형 선택하기</h2>
-      <div>부원 모집 전형을 선택해주세요.</div>
       <h3>부원 모집 전형을 선택해주세요.</h3>
       <div className="centeralign">
         <button id="button10">서류 + 면접 전형</button>

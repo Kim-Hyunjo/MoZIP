@@ -11,11 +11,11 @@ const ProcessBasicInfo = () => {
         <div className="simple_recruit_info">
         <div className="recruit_fillin">
           <div className="recruit_fillin_category">모집 인원</div>
-          <input type="text"></input>
+          <input className="recruit_write recruit_write1" type="text"></input>
         </div>
         <div className="recruit_fillin">
           <div className="recruit_fillin_category">모임 지역</div>
-          <input type="text"></input>
+          <input className="recruit_write recruit_write2" type="text"></input>
         </div>
         <div className="recruit_fillin">
           <div className="recruit_fillin_category">참여 대상</div>
@@ -34,23 +34,23 @@ const ProcessBasicInfo = () => {
         </div>
         <div className="recruit_fillin">
           <div className="recruit_fillin_category">모임 시간</div>
-          <input type="text"></input>
+          <input className="recruit_write" type="text"></input>
         </div>
         <div className="recruit_fillin">
           <div className="recruit_fillin_category">대표 페이지</div>
-          <input type="text"></input>
+          <input className="recruit_write recruit_write3" type="text"></input>
         </div>
       </div>
       </div>
-      <div>
-        <div>상세 내용</div>
-        <div>
-          <div>제목</div>
-          <textarea placeholder="제목을 입력해주세요."></textarea>
+      <div >
+        <div className="semititle semititle2">상세 내용</div>
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">제목</div>
+          <textarea className="recruit_essay recruit_essay1" placeholder="제목을 입력해주세요."></textarea>
         </div>
-        <div>
-          <div>내용</div>
-          <textarea
+        <div className="recruit_fillin">
+          <div className="recruit_fillin_category">내용</div>
+          <textarea className="recruit_essay recruit_essay2"
             placeholder="내용을 입력해주세요.
 
 ex. 
@@ -67,16 +67,18 @@ https://blog.naver.com/t-ave/221994568807
         </div>
       </div>
       <div>
-        <div>포스터 추가</div>
+        <div className="semititle">포스터 추가</div>
       </div>
       <div>
-        <div>카드뉴스 추가</div>
+        <div className="semititle">카드뉴스 추가</div>
       </div>
-      <button>저장</button>
-      <Link to="/recruit/process/noticeinfo">
-        <button>공지 작성하기</button>
-      </Link>
-      {/* <button>공지 작성하기</button> */}
+      <div className="recruit_buttons1">
+        <button id="button6B" className="recruit_button1">저장</button>
+       <Link to="/recruit/process/noticeinfo">
+        <button id="button6W" className="recruit_button1">공지 작성하기</button>
+       </Link>
+        {/* <button>공지 작성하기</button> */}
+      </div>
     </div>
   );
 };
