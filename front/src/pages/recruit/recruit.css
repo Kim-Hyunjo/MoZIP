@@ -9,7 +9,20 @@
     font-weight: 600;
     margin: 12px;
 }
-
+.additional_top_space{
+    margin-top: 48px;
+}
+.smalltitle{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 12px;
+    margin-left: 20px;
+    margin-bottom: 4px;
+}
+.givemargin{
+    margin: 12px;
+    margin-top: 4px;
+}
 
 /*for selection*/
 .explanation {
@@ -24,11 +37,26 @@
 }
 .recruit_fillin {
     display: flex;
+    margin-bottom: 8px;
 }
 .recruit_fillin_category {
-    margin: 2px;
     margin-right: 16px;
     font-size: 20px;
+    text-align: right;
+    width: 110px;
+}
+.recruit_write{
+    width: 400px;
+    
+}
+.recruit_write1 {
+    width: 100px;
+}
+.recruit_write2 {
+    width: 200px;
+}
+.recruit_write3 {
+    width: 500px;
 }
 .recruit_choice {
     font-size: 18px;
@@ -38,4 +66,121 @@
 }
 .recruit_box {
     width: 20px;
+}
+.semititle2 {
+    margin-top: 40px;
+}
+.recruit_essay {
+    width: 1000px;
+    height: 20px;
+    padding: 8px;
+}
+.recruit_essay2 {
+    height: 300px;
+}
+.recruit_buttons1 {
+    float: right;
+    margin-top: 12px;
+}
+.recruit_button1{
+    margin: 6px;
+}
+
+/*processnoticeinfo*/
+.explain_notice {
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+/*processform*/
+.explain_notice_bold {
+    font-weight: 600;
+    font-size: 20px;
+}
+.buttons_typechoice {
+    text-align: center;
+    margin-top: -12px;
+    margin-bottom: 32px;
+}
+.buttons_7B {
+    margin: 20px;
+}
+.font_7B_1 {
+    font-size: 28px;
+}
+.font_7B_2 {
+    font-size: 18px;
+}
+.recruit_question {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-left: 28px;
+}
+
+.recruit_question_number {
+    font-size: 24px;
+    margin: 8px;
+    margin-left: 12px;
+    font-weight: 600;
+}
+.recruit_question_type {
+    font-size: 24px;
+    margin: 8px;
+    color: #0C5AC6;
+    font-weight: 600;
+}
+.recruit_question_content {
+    font-size: 20px;
+    margin: 8px;
+    width: 60%;
+}
+.buttons_6{
+    margin: 4px;
+}
+.privacylist {
+    margin-left: 32px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+.explain_notice_move1 {
+    margin-bottom: 20px;
+    margin-top: -4px;
+    margin-left: -14px;
+}
+.explain_notice_move2 {
+    margin-bottom: 20px;
+    margin-top: -4px;
+    margin-left: 20px;
+}
+.privacylist input {
+    width: 28px;
+    height: 16px;
+    margin: 8px;
+}
+.privacylist label {
+    font-size: 20px;
+}
+.recruit_interview_slots{
+    margin-left: 32px;
+}
+.recruit_interview_slots2{
+    display: flex;
+    margin-left: 32px;
+    align-items: center;
+}
+.wave{
+    font-size: 20px;
+    padding: 10px;
+}
+.putin_interview_slots{
+    width: 200px;
+    height: 32px;
+}
+.recruit_choosetime{
+    margin-left: 32px;
+    width: 80px;
+    height: 32px;
+    text-align: center;
+    margin: 20px;
 }
