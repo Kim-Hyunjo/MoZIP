@@ -1,3 +1,7 @@
+.apply_wrapper {
+  width: 1400px;
+}
+
 .apply_questions {
   position: relative;
   display: block;
@@ -8,14 +12,21 @@
 .question_box {
   padding: 15px;
 }
-.question {
-  margin-bottom: 10px;
+.applyquestion {
+  margin-bottom: 12px;
+}
+.applyquestion label{
+  font-weight: 600;
+  font-size: 24px;
 }
 .question_box input {
   margin-left: 15px;
   margin-bottom: 5px;
 }
-
+.essay{
+  padding: 12px;
+  font-size: 28px;
+}
 .question_box input[type='date'] {
   width: 140px;
 }
@@ -32,7 +43,7 @@
 }
 
 .resumeList {
-  position: fixed;
+  position: sticky;
   top: 300px;
   left: 1000px;
 

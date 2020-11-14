@@ -96,7 +96,7 @@
 }
 
 #button5B {
-  width: 135px;
+  width: 160px;
   height: 40px;
   border: 1px solid;
   border-radius: 10px;
@@ -106,7 +106,7 @@
   color: white;
 }
 #button5W {
-  width: 135px;
+  width: 160px;
   height: 40px;
   border: 1px solid;
   border-radius: 10px;
@@ -150,7 +150,9 @@
 }
 
 .applyButton {
-  margin-left: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 40px;
 }
 
@@ -169,7 +171,8 @@
 
 .recruitDetailButton {
   width: 800px;
-  transform: translate(0%, -40%);
+  float: right;
+  margin-top: -40px;
 }
 
 .recruitDetailButton #button5B {
@@ -178,7 +181,7 @@
 
 .recruitDetailButton #button5W {
   float: right;
-  margin-right: 10px;
+  margin-right: 16px;
 }
 
 

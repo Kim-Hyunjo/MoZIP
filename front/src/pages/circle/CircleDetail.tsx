@@ -57,14 +57,14 @@ const CircleDetail = (
       >
         <div className="applyButton"><button id="button10">동아리 지원하기!</button></div>
       </Link>
-      <div>
+      <div className="centeralign_wrapper">
         <div className="small_title">QnA {'개수'}</div>
         <div className="Qu_List">
           <div className="question">
             <div className="questioner">{'미래테이비'}</div>
             <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
             <div className="questionDate">{'날짜'}</div>
-            <div className="movetoright"><button id="button0"  hidden={true}>답글</button>
+            <div className="movetoright"><button className="movemoreright" id="button0"  hidden={true}>답글</button>
             <button id="button0" >신고</button></div>
           </div>
           <div className="answer">
@@ -82,7 +82,7 @@ const CircleDetail = (
             <div className="questioner">{'미래테이비'}</div>
             <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
             <div className="questionDate">{'날짜'}</div>
-            <div className="movetoright"><button id="button0" hidden={true}>답글</button>
+            <div className="movetoright"><button className="movemoreright" id="button0" hidden={true}>답글</button>
             <button id="button0">신고</button></div>
           </div>
           <div className="answer">

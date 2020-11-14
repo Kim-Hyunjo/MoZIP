@@ -75,7 +75,7 @@ const Apply2 = ({ history }: any) => {
   };
 
   return (
-    <div>
+    <div className="apply_wrapper">
       <div>
         <h2>Tave 지원하기</h2>
       </div>
@@ -84,27 +84,27 @@ const Apply2 = ({ history }: any) => {
         <form action="">
           <div className="apply_questions">
             <div className="question_box">
-              <div className="question">
+              <div className="applyquestion">
                 <label htmlFor="">TAVE에 지원한 동기를 알려주세요.</label>
               </div>
               <div>
-                <textarea name="" id="" cols={80} rows={5}></textarea>
+                <textarea className="essay" name="" id="" cols={80} rows={5}></textarea>
               </div>
             </div>
 
             <div className="question_box">
-              <div className="question">
+              <div className="applyquestion">
                 <label htmlFor="">
                   4차 산업 혁명에 관심을 가지게 된 계기를 알려주세요.
                 </label>
               </div>
               <div>
-                <textarea name="" id="" cols={80} rows={5}></textarea>
+                <textarea className="essay" name="" id="" cols={80} rows={5}></textarea>
               </div>
             </div>
 
             <div className="question_box">
-              <div className="question">
+              <div className="applyquestion">
                 <label htmlFor="">다룰 수 있는 언어를 선택해주세요.</label>
               </div>
               <div>
@@ -123,7 +123,7 @@ const Apply2 = ({ history }: any) => {
             </div>
 
             <div className="question_box">
-              <div className="question">
+              <div className="applyquestion">
                 <label htmlFor="">면접 가능 시간을 선택해 주세요.</label>
               </div>
               <div>

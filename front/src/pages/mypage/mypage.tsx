@@ -86,7 +86,7 @@ const mypage = () => {
       <div className="mypageStorageButton">
         <button id="button10">자기소개함 관리</button>
       </div>
-      <div id="applyCurrent">
+      <div id="applyCurrent" className="small_section">
         <div className="middle_title">나의 지원 현황</div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
@@ -135,11 +135,11 @@ const mypage = () => {
           </ul>
         </div>
       </div>
-      <div id="myClub">
-        <div className="middle_title">My 동아리</div>
+      <div id="myClub" className="small_section">
+        <div className="small_wrap"><div className="middle_title">My 동아리</div>
         <div className="word_button">
-          <Link to="./mypage/status">자세히 보기</Link>
-        </div>
+        <Link to="./mypage/status">자세히 보기</Link>
+        </div></div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
             <li>
@@ -163,11 +163,11 @@ const mypage = () => {
           </ul>
         </div>
       </div>
-      <div id="openRequest">
-        <div className="middle_title">개설 요청한 동아리</div>
+      <div id="openRequest" className="small_section">
+        <div className="small_wrap"><div className="middle_title">개설 요청한 동아리</div>
         <div className="word_button">
-          <Link to="./">동아리 개설하기</Link>
-        </div>
+        <Link to="./">동아리 개설하기</Link>
+        </div></div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
             <li>
@@ -191,7 +191,7 @@ const mypage = () => {
           </ul>
         </div>
       </div>
-      <div id="applyHistory">
+      <div id="applyHistory" className="small_section">
         <div className="middle_title">나의 지원 이력</div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
