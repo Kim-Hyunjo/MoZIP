@@ -1,0 +1,205 @@
+.resume {
+  width: 1000px;
+  float: left;
+}
+.resume #button4 {
+  margin-left: 900px;
+}
+
+.stateBox {
+  margin-top: 15px;
+  align-items: center;
+  width: 1000px;
+  height: 800px;
+  border: 1px solid;
+  border-color: #707070;
+}
+
+.states li {
+  float: left;
+  width: 198px;
+  height: 61px;
+  text-align: center;
+  border: solid;
+  border-width: 0px 0.5px 1.5px 0.5px;
+  border-color: #707070;
+}
+.states li .stateName {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 60px;
+}
+
+.stateUsers {
+  font-size: 24px;
+  margin-top: 60px;
+  padding: 30px;
+}
+.horizontal_people_list li {
+  padding: 10px 20px;
+  clear: both;
+  border: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #0c5ac6;
+  height: 50px;
+  width: 800px;
+  margin: 0 auto;
+  line-height: 50px;
+  font-size: 20px;
+}
+.horizontal_people_list li .personalName {
+  margin: 0px 20px;
+  color: black;
+  font-size: 24px;
+}
+.horizontal_people_list li .personalTime {
+  margin: 0px 5px;
+  color: #707070;
+  font-size: 18px;
+}
+.horizontal_people_list li .rightSide {
+  float: right;
+}
+.horizontal_people_list li .personalScore {
+  margin: 0px 40px;
+  color: #707070;
+  font-size: 20px;
+}
+.horizontal_people_list li #skip {
+  margin: 0px 30px 0px 0px;
+  color: #d9ab00;
+  font-size: 20px;
+}
+
+.changeButtons {
+  width: 1000px;
+  text-align: center;
+  color: #818181;
+  margin-top: 40px;
+}
+.changeButton3 {
+  margin-top: 20px;
+}
+.changeButton3 #skipButt {
+  margin-right: 10px;
+}
+.changeButton3 #outButt {
+  margin-right: 10px;
+}
+.resume .small_title {
+  margin-left: 40px;
+  font-size: 18px;
+}
+.resume .title {
+  margin-left: 40px;
+  font-size: 24px;
+}
+
+.resume .personScore {
+  margin-left: 770px;
+  color: #0c5ac6;
+  font-size: 24px;
+  font-weight: 550;
+}
+.resume .big_namecard {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  height: auto;
+  padding: 40px;
+}
+.small_gray_namecard .resumeQuestion {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.small_gray_namecard .resumeAnswer {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.small_gray_namecard input {
+  margin: 5px 20px 0px 30px;
+  text-align: center;
+  width: 50px;
+  height: 30px;
+}
+.small_gray_namecard #button4 {
+  margin-left: 0px;
+}
+.setting {
+  margin: 20px 0px;
+  width: 500px;
+  float: left;
+  line-height: 30px;
+}
+.setting label {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.setting .interviewDate {
+  margin-left: 50px;
+}
+.setting input[type='select'] {
+  width: 40px;
+  margin-left: 10px;
+}
+.setting input[type='checkbox'] {
+  margin-right: 10px;
+}
+.extraInform {
+  margin-top: 10px;
+  margin-left: 60px;
+  line-height: 150%;
+}
+.tiny_name {
+  padding: 5px;
+  font-size: 22px;
+}
+.tiny_status {
+  transform: translate(68%, -150%);
+}
+.resume #buttonSelect {
+  transform: translate(170%, -20%);
+}
+.tiny_gray_namecard p {
+  font-size: 15px;
+  transform: translate(8%, -50%);
+}
+.resume .tiny_gray_namecard {
+  float: left;
+  margin: 10px 5px;
+}
+.adminList {
+  width: 1000px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.twoButtons {
+  clear: both;
+}
+.twoButtons #button1 {
+  float: right;
+  margin-right: 10px;
+}
+.twoButtons #button1_blue {
+  float: right;
+}
+.width1000 {
+  width: 1000px;
+}
+.resume #button10 {
+  margin-top: 90px;
+  transform: translate(107%, 0%);
+}
+.resume .result {
+  margin-top: 30px;
+}
+.resume .result p {
+  margin-left: 40px;
+  color: #707070;
+}
+.resume #button_red {
+  width: 320px;
+  height: 64px;
+  font-size: 22px;
+  margin-top: 50px;
+}
