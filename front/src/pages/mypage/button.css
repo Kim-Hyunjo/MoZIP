@@ -272,3 +272,60 @@
 .apply2Buttons #button4 {
   float: right;
 }
+
+#skipButt {
+  width: 88px;
+  height: 36px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #d9ab00;
+  background: #d9ab00;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+  color: white;
+}
+#inButt {
+  width: 88px;
+  height: 36px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #00a116;
+  background: #00a116;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+  color: white;
+}
+#outButt {
+  width: 88px;
+  height: 36px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #c60c0c;
+  background: #c60c0c;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+  color: white;
+}
+
+#button_red {
+  background: white;
+  border: 1px solid #c60c0c;
+  border-radius: 9px;
+  font-size: 16px;
+  display: block;
+  margin: 20px auto;
+  padding: 8px;
+  width: 140px;
+  height: 40px;
+  color: #c60c0c;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+  font-weight: 500;
+}
+
+#buttonSelect {
+  width: 72px;
+  height: 28px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #0c59c3;
+  background: white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+  color: #0c59c3;
+}
