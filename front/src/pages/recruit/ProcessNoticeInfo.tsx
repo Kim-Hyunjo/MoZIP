@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
-const NoticeInfo = () => {
+const ProcessNoticeInfo = () => {
   return (
     <div>
       <h2>지원자를 위한 공지사항 작성</h2>
@@ -37,4 +37,4 @@ ex.
   );
 };
 
-export default NoticeInfo;
+export default ProcessNoticeInfo;

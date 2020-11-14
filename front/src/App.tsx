@@ -28,7 +28,9 @@ import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
 import CircleOpenReject from './pages/circle/CircleOpenReject';
 import ProcessBasicInfo from './pages/recruit/ProcessBasicInfo';
+import ProcessForm from './pages/recruit/ProcessForm';
 import Selection from './pages/recruit/Selection';
+import ProcessNoticeInfo from './pages/recruit/ProcessNoticeInfo';
 
 function App() {
   return (
@@ -184,8 +186,13 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/recruit/process/basicinfo"
-              component={ProcessBasicInfo}
+              path="/recruit/process/noticeinfo"
+              component={ProcessNoticeInfo}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/process/form"
+              component={ProcessForm}
             ></Route>
             {/* NotFount */}
             <Route component={NotFound} />
