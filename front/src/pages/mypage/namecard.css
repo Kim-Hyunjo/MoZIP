@@ -44,24 +44,24 @@
   font-size: 18px;
 }
 
-.displayingcards{
+.displayingcards {
   flex-direction: column;
-  
+
   display: inline-block;
 }
 
-.small_section{
-  display:flex;
+.small_section {
+  display: flex;
   flex-direction: column;
-}c
-.small_section .small_wrap{
-  display:flex;
+}
+c .small_section .small_wrap {
+  display: flex;
   flex-direction: row;
 }
 .small_namecard {
   width: 1200px;
   white-space: nowrap;
-  
+
   display: inline-block;
 }
 
@@ -81,13 +81,13 @@
   font-size: 22px;
   margin-bottom: 8px;
   overflow-x: hidden;
-  
+
   height: auto;
 }
 
 .small_namecard li .club_intro {
   /*overflow-x: auto;*/
-  
+
   overflow-x: hidden;
 }
 
@@ -98,7 +98,6 @@
   transform: translate(0%, 35%);
   margin-left: 16px;
 }
-
 
 /**/
 .gray_namecard {
@@ -133,4 +132,32 @@
   font-size: 24px;
   font-weight: 700;
   margin-right: 8px;
+}
+
+.user_namecard {
+  display: inline-block;
+  padding: 20px;
+  width: 160px;
+  height: 180px;
+  margin: 5px 10px 20px 10px;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: #707070;
+  text-align: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+}
+.user_namecard_edit {
+  display: inline-block;
+  padding: 20px;
+  width: 160px;
+  height: 180px;
+  margin: 5px 10px 20px 10px;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: #707070;
+  text-align: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+}
+.user_namecard_edit #button_x {
+  transform: translate(380%, -230%);
 }
