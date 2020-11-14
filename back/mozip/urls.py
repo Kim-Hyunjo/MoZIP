@@ -16,19 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from rest_framework import routers
-from mozip1.views import UserViewSet, ClubViewSet
+from mozip1.views import *
 
-from mozip1.views import ListPost
+#jwoo
 
 router = routers.DefaultRouter()
 router.register(r'users',UserViewSet)
 router.register(r'clubs', ClubViewSet)
-router.register(r'listpost', ListPost)
+
+#jwoo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test1/', include(router.urls)),
-    path('test2/', include(router.urls)),
+    path('test2/', UserListView.as_view()),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')), #login,logout 추가
 
 
@@ -37,8 +38,8 @@ urlpatterns = [
 
     #mozip
     #list
-    path('list/all/', include(router.urls)),
-    path('list/academy/', include(router.urls)),
+    path('list/all/', ClubListAllView.as_view()),
+    path('list/academy/', ClubListAcademyView.as_view()),
     path('list/art/', include(router.urls)),
     path('list/networking/', include(router.urls)),
     path('list/sports/', include(router.urls)),
@@ -47,7 +48,7 @@ urlpatterns = [
     path('list/volunteer/', include(router.urls)),
     path('list/etc/', include(router.urls)),
 
-    path('list/academy/{circleID}/', include(router.urls)),
+    path('list/academy/{cc_id}/', ClubJustDetailView.as_view()),
     path('list/academy/{circleID}/detail/', include(router.urls)),
     path('list/academy/{circleID}/apply/', include(router.urls)),
     path('list/academy/{circleID}/apply/success/', include(router.urls)),
@@ -130,40 +131,4 @@ urlpatterns = [
     path('mypage/introduction/', include(router.urls)),
     path('mypage/{circleID}/notice/', include(router.urls)),
     
-    #recruit
-    path('/recruit/selection', include(router.urls)),
-    path('recruit/process/basicinfo', include(router.urls)),
-    path('recruit/process/noticeinfo', include(router.urls)),
-    path('recruit/process/form', include(router.urls)),
-    path('recruit/process/applicants', include(router.urls)),
-    path('recruit/resume', include(router.urls)),
-    path('recruit/resume/{memberID}', include(router.urls)),
-    path('recruit/schedule/management', include(router.urls)),
-    path('recruit/schedule/management/staff', include(router.urls)),
-    path('recruit/schedule/management/detail', include(router.urls)),
-    path('recruit/interview', include(router.urls)),
-    path('recruit/interview/commonquestion', include(router.urls)),
-    path('recruit/interview/detail/{}', include(router.urls)),
-    path('recruit/interview/record', include(router.urls)),
-    path('recruit/interview/postprocessing/all', include(router.urls)),
-    path('recruit/interview/postprocessing/yet', include(router.urls)),
-    path('recruit/interview/postprocessing/pass', include(router.urls)),
-    path('recruit/interview/postprocessing/nonpass', include(router.urls)),
-    path('recruit/interview/postprocessing/keep', include(router.urls)),
-    path('recruit/interview/postprocessing/notice', include(router.urls)),
-    path('recruit/interview/postprocessing/detail', include(router.urls)),
-    path('recruit/interview/finalprocessing', include(router.urls)),
-
-    #guide
-    path('guide/selfintroduction', include(router.urls)),
-    path('guide/sregistration', include(router.urls)),
-    path('guide/operation', include(router.urls)),
-
-    #circle
-    path('circle/open', include(router.urls)),
-    path('circle/open/success', include(router.urls)),
-    path('circle/open/fail', include(router.urls)),
-    path('circle/open/approval', include(router.urls)),
-    path('circle/open/reject', include(router.urls)),
-
 ]
