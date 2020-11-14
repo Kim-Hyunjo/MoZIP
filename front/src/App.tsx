@@ -39,6 +39,7 @@ import Resume2 from './pages/recruit/Resume2';
 import Resume3 from './pages/recruit/Resume3';
 import Schedule1 from './pages/recruit/Schedule1';
 import Interview from './pages/recruit/Interview';
+import InterviewCommonQuestion from './pages/recruit/InterviewCommonQuestion';
 
 function App() {
   return (
@@ -232,6 +233,11 @@ function App() {
               exact
               path="/recruit/interview"
               component={Interview}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/interview/commonquestion"
+              component={InterviewCommonQuestion}
             ></Route>
             {/* NotFount */}
             <Route component={NotFound} />
