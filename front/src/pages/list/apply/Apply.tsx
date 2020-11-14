@@ -20,11 +20,11 @@ const Apply = () => {
         if(notification){
             return(
 
-                <Link to='/list/academy/{circleID}/apply2'><button type="submit" >다음</button></Link>
+                <Link to='/list/academy/{circleID}/apply2'><button id="button1" type="submit" >다음</button></Link>
             )
         }
         return(
-            <button type="submit"disabled>다음</button>
+            <button type="submit" id="button1" disabled>다음</button>
         )
     }
 

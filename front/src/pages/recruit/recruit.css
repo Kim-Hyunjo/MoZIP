@@ -1,0 +1,41 @@
+.recruit_wrapper{
+    width: 1000px;
+}
+.centeralign {
+    text-align: center;
+}
+.semititle{
+    font-size: 28px;
+    font-weight: 600;
+    margin: 12px;
+}
+
+
+/*for selection*/
+.explanation {
+    margin: 10px;
+    margin-bottom: 28px;
+    font-size:16px;
+}
+
+/*for processbasicinfo*/
+.simple_recruit_info{
+    margin-left: 4%;
+}
+.recruit_fillin {
+    display: flex;
+}
+.recruit_fillin_category {
+    margin: 2px;
+    margin-right: 16px;
+    font-size: 20px;
+}
+.recruit_choice {
+    font-size: 18px;
+    margin-right: 12px;
+    margin-left: 4px;
+    align-items: center;
+}
+.recruit_box {
+    width: 20px;
+}

@@ -150,7 +150,7 @@
 
 .photoUpload {
   width: 160px;
-  margin-left: 10px;
+  margin: 16px;
   text-align: center;
   float: left;
 }
@@ -161,11 +161,15 @@
 .openSelection {
   transform: translate(2%, 0%);
   line-height: 200%;
-  width: 430px;
+  width: 900px;
 }
 .openSelection input {
   float: right;
   height: 24px;
+  width: 600px;
+}
+.openSelection .firstName{
+  width: auto;
 }
 .openSelection .동아리명 {
   padding-top: 20px;
@@ -173,9 +177,11 @@
 .openDetail {
   clear: both;
   margin-top: 75px;
+  margin-left: 12px;
 }
 .tagSelect {
   margin-top: 10px;
+  margin-left: 12px;
 }
 
 /* circle open approval*/
