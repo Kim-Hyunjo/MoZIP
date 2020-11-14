@@ -223,17 +223,17 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/recruit/resume2"
+              path="/recruit/resume/:member_id"
               component={Resume2}
             ></Route>
             <Route
               exact
-              path="/recruit/resume3"
+              path="/recruit/schedule/management"
               component={Resume3}
             ></Route>
             <Route
               exact
-              path="/recruit/schedule/management/staff"
+              path="/recruit/schedule/management/staff" 
               component={Schedule1}
             ></Route>
             {/* NotFount */}
