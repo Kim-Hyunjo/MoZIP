@@ -24,11 +24,10 @@ header {
   margin: 0px 0px 0px 1100px;
 }
 #list-name_intro {
-  display:inline-flex;
+  display: inline-flex;
   margin: 0px 20px 0px 20px;
 }
 .category_name {
-  
   position: relative;
   font-size: 40px;
   margin-left: 56px;
@@ -41,9 +40,9 @@ header {
   height: 128px;
   margin: 8px 20px auto;
   text-align: center;
-  display:inline-block; 
+  display: inline-block;
 }
-#horizontal_list  li {
+#horizontal_list li {
   width: 128px;
   height: 128px;
   float: left;
@@ -94,7 +93,7 @@ h2 {
 
 .middle_title {
   float: left;
-  
+
   flex-direction: column;
   font-size: 28px;
   margin: 20px 0px 10px 5px;
@@ -278,4 +277,8 @@ a.active {
 }
 .MuiDialog-root .MuiTypography-colorTextSecondary {
   color: black;
+}
+
+.red {
+  color: red;
 }

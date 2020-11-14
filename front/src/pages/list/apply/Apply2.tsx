@@ -47,15 +47,7 @@ const Apply2 = ({ history }: any) => {
     history.goBack();
   };
 
-  useEffect(() => {
-    console.log(history);
-    const unblock = history.block(
-      '뒤로가실 경우 작성한 내용은 저장되지 않습니다.',
-    );
-    return () => {
-      unblock();
-    };
-  }, [history]);
+
 
   const renderSubmit = () => {
     if (agreement) {
@@ -88,7 +80,7 @@ const Apply2 = ({ history }: any) => {
                 <label htmlFor="">TAVE에 지원한 동기를 알려주세요.</label>
               </div>
               <div>
-                <textarea className="essay" name="" id="" cols={80} rows={5}></textarea>
+               <textarea name="" id="" cols={80}rows={5} onChange={handleChange1} value={motivation}></textarea>
               </div>
             </div>
 
@@ -99,7 +91,7 @@ const Apply2 = ({ history }: any) => {
                 </label>
               </div>
               <div>
-                <textarea className="essay" name="" id="" cols={80} rows={5}></textarea>
+                <textarea name="" id="" cols={80} rows={5}></textarea>
               </div>
             </div>
 
@@ -109,15 +101,13 @@ const Apply2 = ({ history }: any) => {
               </div>
               <div>
                 <div className="applyCheckbox">
-                  <input type="checkbox" name="Python" value="Python" />
-                  Python
+                <input type="checkbox" checked={language1} onChange={checkLangChange1} name="Python" value="Python"/><span>Python</span>
                 </div>
                 <div className="applyCheckbox">
-                  <input type="checkbox" name="C" value="C" />C
+                <input type="checkbox" checked={language2} onChange={checkLangChange2} name="C" value="C"/><span>C</span>
                 </div>
                 <div className="applyCheckbox">
-                  <input type="checkbox" name="Java" value="Java" />
-                  Java
+                <input type="checkbox" checked={language3} onChange={checkLangChange3} name="Java" value="Java"/><span>Java</span>
                 </div>
               </div>
             </div>
@@ -129,40 +119,13 @@ const Apply2 = ({ history }: any) => {
               <div>
                 {/* 날짜는 back에서 받아온 데이터로 교체 */}
                 <div>
-                  <input
-                    type="checkbox"
-                    checked={date1}
-                    onChange={checkDateChange1}
-                    name="first"
-                    value="2020년 7월 18일 수요일"
-                  />
-                  <strong>2020년 7월 18일 수요일</strong>
-                  <input type="select" maxLength={2} /> 시 ~
-                  <input type="select" maxLength={2} /> 시
+                <input type="checkbox" checked={date1} onChange={checkDateChange1} name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} />시~<input type="select"maxLength={2} />시
                 </div>
                 <div>
-                  <input
-                    type="checkbox"
-                    checked={date2}
-                    onChange={checkDateChange2}
-                    name="second"
-                    value="2020년 7월 19일 목요일"
-                  />
-                  <strong>2020년 7월 19일 목요일</strong>
-                  <input type="select" maxLength={2} /> 시 ~
-                  <input type="select" maxLength={2} /> 시
+                <input type="checkbox" checked={date2} onChange={checkDateChange2} name="second" value="2020년 7월 19일 목요일"/><strong>2020년 7월 19일 목요일</strong><input type="select"maxLength={2} />시~<input type="select"maxLength={2} />시
                 </div>
                 <div>
-                  <input
-                    type="checkbox"
-                    checked={date3}
-                    onChange={checkDateChange3}
-                    name="third"
-                    value="2020년 7월 20일 금요일"
-                  />
-                  <strong>2020년 7월 20일 금요일</strong>
-                  <input type="select" maxLength={2} /> 시 ~
-                  <input type="select" maxLength={2} /> 시
+                <input type="checkbox" checked={date3} onChange={checkDateChange3} name="third" value="2020년 7월 20일 금요일"/><strong>2020년 7월 20일 금요일</strong><input type="select"maxLength={2}/>시~<input type="select"maxLength={2} />시
                 </div>
               </div>
             </div>
@@ -170,16 +133,7 @@ const Apply2 = ({ history }: any) => {
             <div>
               <form className="noticeConsent">
                 <label htmlFor=""></label>
-                <input
-                  type="checkbox"
-                  checked={agreement}
-                  onChange={checkHandler}
-                />
-                <span>
-                  {' '}
-                  해당 동아리에서 이름, 사진, 생년월일, 전화번호를 열람하는 것에
-                  동의합니다.
-                </span>
+                <input type="checkbox" checked={agreement} onChange={checkHandler}/><span>해당 동아리에서 이름, 사진, 생년월일, 전화번호를 열람하는 것에 동의합니다.</span>
               </form>
             </div>
           </div>
@@ -187,7 +141,7 @@ const Apply2 = ({ history }: any) => {
         <div className="apply2Buttons">
           {/* <Link to="/list/:subject/:circle_id/apply"> */}
           <button id="button1" type="button" onClick={goBack}>
-            이전 (삭제하는게 어떨까 고견 묻습니다)
+            이전 
           </button>
           {/* </Link> */}
           <button id="button1" type="button">
