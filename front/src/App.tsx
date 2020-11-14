@@ -211,16 +211,12 @@ function App() {
               path="/recruit/process/form"
               component={ProcessForm}
             ></Route>
-             <Route
+            <Route
               exact
               path="/recruit/applicants"
               component={Applicants}
             ></Route>
-             <Route
-              exact
-              path="/recruit/resume"
-              component={Resume}
-            ></Route>
+            <Route exact path="/recruit/resume" component={Resume}></Route>
             <Route
               exact
               path="/recruit/resume/:member_id"
@@ -233,7 +229,7 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/recruit/schedule/management/staff" 
+              path="/recruit/schedule/management/staff"
               component={Schedule1}
             ></Route>
             {/* NotFount */}
