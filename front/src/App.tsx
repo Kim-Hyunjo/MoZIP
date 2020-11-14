@@ -33,6 +33,11 @@ import ProcessBasicInfo from './pages/recruit/ProcessBasicInfo';
 import ProcessForm from './pages/recruit/ProcessForm';
 import Selection from './pages/recruit/Selection';
 import ProcessNoticeInfo from './pages/recruit/ProcessNoticeInfo';
+import Applicants from './pages/recruit/Applicants';
+import Resume from './pages/recruit/Resume';
+import Resume2 from './pages/recruit/Resume2';
+import Resume3 from './pages/recruit/Resume3';
+import Schedule1 from './pages/recruit/Schedule1';
 
 function App() {
   return (
@@ -205,6 +210,31 @@ function App() {
               exact
               path="/recruit/process/form"
               component={ProcessForm}
+            ></Route>
+             <Route
+              exact
+              path="/recruit/applicants"
+              component={Applicants}
+            ></Route>
+             <Route
+              exact
+              path="/recruit/resume"
+              component={Resume}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/resume2"
+              component={Resume2}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/resume3"
+              component={Resume3}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/schedule/management/staff"
+              component={Schedule1}
             ></Route>
             {/* NotFount */}
             <Route component={NotFound} />

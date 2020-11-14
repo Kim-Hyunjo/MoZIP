@@ -1,13 +1,36 @@
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React from 'react'
 
-const ProcessBasicInfo = () => {
-  return (
-    <div>
-      <h2>동아리 모집 상세 작성</h2>
-      <div>동아리 모집 공고에 대한 세부적인 내용을 작성해주세요.</div>
-    </div>
-  );
-};
+const Applicants = () => {
+    return (
+        <div>
+            <h2> 지원자 현황</h2>
+            <div>
+                <h3>총 160명</h3>
+               
+                <button>통계보기</button>
+                <ul>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
 
-export default ProcessBasicInfo;
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                </ul>
+            </div>
+        </div>
+    )
+}
+
+export default Applicants
