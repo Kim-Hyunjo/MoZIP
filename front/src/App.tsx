@@ -27,6 +27,8 @@ import myPageIntroduction from './pages/mypage/myPageIntroduction';
 import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
 import CircleOpenReject from './pages/circle/CircleOpenReject';
+import CircleMembersEdit from './pages/circle/CircleMembersEdit';
+import CircleMembers from './pages/circle/CircleMembers';
 import ProcessBasicInfo from './pages/recruit/ProcessBasicInfo';
 import ProcessForm from './pages/recruit/ProcessForm';
 import Selection from './pages/recruit/Selection';
@@ -133,6 +135,16 @@ function App() {
               exact
               path="/circle/open/reject"
               component={CircleOpenReject}
+            ></Route>
+            <Route
+              exact
+              path="/circle/members"
+              component={CircleMembers}
+            ></Route>
+            <Route
+              exact
+              path="/circle/members/edit"
+              component={CircleMembersEdit}
             ></Route>
             {/* list */}
             <Route exact path="/list" component={List} />
