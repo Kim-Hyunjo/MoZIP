@@ -1,7 +1,6 @@
 .apply_wrapper {
-  width: 1400px;
+  width: 1300px;
 }
-
 .apply_questions {
   position: relative;
   display: block;
@@ -25,7 +24,7 @@
 }
 .essay{
   padding: 12px;
-  font-size: 28px;
+  font-size: 20px;
 }
 .question_box input[type='date'] {
   width: 140px;
@@ -35,24 +34,24 @@
 }
 .question_box input[type='checkbox'] {
   margin-right: 5px;
+  
 }
 
 .applyCheckbox {
   margin-left: 15px;
   margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .resumeList {
-  position: sticky;
-  top: 300px;
-  left: 1000px;
-
+  position: fixed;
+  transform: translate(420%, -250%);
   border: 2px solid;
   border-color: #0c59c3;
   border-radius: 10px;
 
   padding: 30px 15px;
-  width: 120px;
+  width: 200px;
 }
 
 .resumeList_header {

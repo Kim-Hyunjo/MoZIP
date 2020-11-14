@@ -71,6 +71,7 @@ const Apply2 = ({ history }: any) => {
       <div>
         <h2>Tave 지원하기</h2>
       </div>
+      <div className="whole_resume">
       <div>
         <div className="middle_title">지원서</div>
         <form action="">
@@ -80,7 +81,7 @@ const Apply2 = ({ history }: any) => {
                 <label htmlFor="">TAVE에 지원한 동기를 알려주세요.</label>
               </div>
               <div>
-               <textarea name="" id="" cols={80}rows={5} onChange={handleChange1} value={motivation}></textarea>
+               <textarea className="essay" name="" id="" cols={80}rows={5} onChange={handleChange1} value={motivation}></textarea>
               </div>
             </div>
 
@@ -91,7 +92,7 @@ const Apply2 = ({ history }: any) => {
                 </label>
               </div>
               <div>
-                <textarea name="" id="" cols={80} rows={5}></textarea>
+                <textarea className="essay" name="" id="" cols={80} rows={5}></textarea>
               </div>
             </div>
 
@@ -101,13 +102,13 @@ const Apply2 = ({ history }: any) => {
               </div>
               <div>
                 <div className="applyCheckbox">
-                <input type="checkbox" checked={language1} onChange={checkLangChange1} name="Python" value="Python"/><span>Python</span>
+                <input type="checkbox" checked={language1} onChange={checkLangChange1} name="Python" value="Python"/>Python
                 </div>
                 <div className="applyCheckbox">
-                <input type="checkbox" checked={language2} onChange={checkLangChange2} name="C" value="C"/><span>C</span>
+                <input type="checkbox" checked={language2} onChange={checkLangChange2} name="C" value="C"/>C
                 </div>
                 <div className="applyCheckbox">
-                <input type="checkbox" checked={language3} onChange={checkLangChange3} name="Java" value="Java"/><span>Java</span>
+                <input type="checkbox" checked={language3} onChange={checkLangChange3} name="Java" value="Java"/>Java
                 </div>
               </div>
             </div>
@@ -166,6 +167,7 @@ const Apply2 = ({ history }: any) => {
             지원 동기를 말씀해주세요<p>복사하기</p>
           </li>
         </ul>
+      </div>
       </div>
     </div>
   );

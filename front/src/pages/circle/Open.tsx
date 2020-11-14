@@ -153,7 +153,7 @@ const Open = () => {
             <textarea
               name="상세소개"
               id=""
-              cols={100}
+              cols={110}
               rows={20}
               onChange={onIntroductionChange}
               value={introduction}
