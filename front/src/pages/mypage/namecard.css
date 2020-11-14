@@ -50,6 +50,14 @@
   display: inline-block;
 }
 
+.small_section{
+  display:flex;
+  flex-direction: column;
+}c
+.small_section .small_wrap{
+  display:flex;
+  flex-direction: row;
+}
 .small_namecard {
   width: 1200px;
   white-space: nowrap;
@@ -72,11 +80,15 @@
 .small_namecard li .club_name {
   font-size: 22px;
   margin-bottom: 8px;
-  overflow-x: visible;
+  overflow-x: hidden;
+  
+  height: auto;
 }
 
 .small_namecard li .club_intro {
-  overflow-x: auto;
+  /*overflow-x: auto;*/
+  
+  overflow-x: hidden;
 }
 
 .small_namecard li .club_position {

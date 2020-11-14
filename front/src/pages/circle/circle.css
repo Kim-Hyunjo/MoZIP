@@ -1,3 +1,11 @@
+.section_wrapper {
+  transform: translate(7%, 0%);
+  margin-top: 44px;
+}
+.centeralign_wrapper {
+  transform: translate(10%, 0%);
+  margin-top: 44px;
+}
 .inform {
   margin-left: 10px;
 }
@@ -7,7 +15,7 @@
 }
 
 .circle_header {
-  margin-bottom: 50px;
+  margin-bottom: 8px;
 }
 
 .openDate {
@@ -21,7 +29,7 @@
 }
 
 .circle_detail {
-  width: 800px;
+  width: 1000px;
   line-height: 28px;
 }
 
@@ -85,7 +93,9 @@
   margin-left: 15px;
   line-height: 30px;
 }
-
+.Qu_List{
+  width: 740px;
+}
 .question {
   width: 620px;
   height: auto;
@@ -116,7 +126,7 @@
   float: right;
 }
 .Qu_List .questionDetail {
-  width: 740px;
+  width: auto;
   height: auto;
   /*overflow: auto;*/
   line-height: 24px;
@@ -135,5 +145,8 @@
   float: right;
 }
 .movetoright {
-  margin-left: 86%;
+  transform: translate(90%, 10%);
+}
+.movetoright .movemoreright {
+  transform: translate(99%, 10%);
 }
