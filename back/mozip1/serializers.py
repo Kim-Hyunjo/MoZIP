@@ -6,7 +6,9 @@ from .models import Club, Post
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['group_choice', 'group', 'name', 'education', 'grader_choice', 'grader', 
+        'states_choice', 'states', 'birthday', 'telephone', 'email', 'address', 'self_image',
+        'date', 'user_id']
 
 class ClubSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
