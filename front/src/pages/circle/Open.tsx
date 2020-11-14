@@ -71,79 +71,84 @@ const Open = () => {
       <div>
         <h2>동아리 개설하기</h2>
         <p>
-          <span>
-            MOZIP에 동아리를 등록하려면 운영자의 승인이 있어야합니다. 아래의
-            양식을 채워 제출하시면 확인 후 등록해드리겠습니다. 등록은 3~5일 정도
-            소요 될 예정입니다.
-          </span>
+          <div className="recruitDetail">
+            MOZIP에 동아리를 등록하려면 운영자의 승인이 있어야합니다. <br></br>
+            아래의 양식을 채워 제출하시면 확인 후 등록해드리겠습니다.<br></br>
+            등록은 3~5일 정도 소요 될 예정입니다.
+          </div>
         </p>
       </div>
       <div>
         <form onSubmit={handleSubmit} method="post" noValidate>
-          <div className="파일업로드">
-            <Dropzone onDrop={onDrop} multiple={false} maxSize={100000000}>
-              {({ getRootProps, getInputProps }) => (
-                <div
-                  style={{
-                    width: '300px',
-                    height: '240px',
-                    border: '1px solid lightgray',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                  {...getRootProps()}
-                >
-                  <input {...getInputProps()} />
-                </div>
-              )}
-            </Dropzone>
+          <div className="photoUpload">
+            <div className = "photoDrop">
+              <Dropzone onDrop={onDrop} multiple={false} maxSize={100000000}>
+                {({ getRootProps, getInputProps }) => (
+                  <div
+                    style={{
+                      width: '150px',
+                      height: '150px',
+                      border: '1px solid lightgray',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                    {...getRootProps()}
+                  >
+                    <input {...getInputProps()} />
+                  </div>
+                )}
+              </Dropzone>
+            </div>
+            대표 사진 등록하기
           </div>
-          <div className="동아리명">
-            <label htmlFor="firstName">동아리명 :</label>
-            <input
-              type="text"
-              className=""
-              placeholder="동아리이름을 입력하세요"
-              name="동아리명"
-              onChange={nameChange}
-              value={name}
-            />
+          <div className = "openSelection">
+            <div className="동아리명">
+              <label htmlFor="firstName">동아리명 :</label>
+              <input
+                type="text"
+                className=""
+                placeholder="동아리이름을 입력하세요"
+                name="동아리명"
+                onChange={nameChange}
+                value={name}
+              />
+            </div>
+            <div className="한 줄 소개">
+              <label htmlFor="firstName">한 줄 소개 :</label>
+              <input
+                type="text"
+                className=""
+                placeholder="동아리에 대한 짧은 소개를 입력하세요."
+                name="한 줄 소개"
+                onChange={shortIntroductionChange}
+                value={shortIntroduction}
+              />
+            </div>
+            <div className="창립일자">
+              <label htmlFor="firstName">창립일자 :</label>
+              <input
+                type="date"
+                className=""
+                name="년"
+                max="2001-01-01"
+                min="1979-12-31"
+                onChange={dateChange}
+                value={date}
+              />
+            </div>
+            <div className="대표 연락처">
+              <label htmlFor="firstName">대표 연락처 :</label>
+              <input
+                type="text"
+                placeholder="이메일/전화번호/카카오 아이디 모두 가능"
+                onChange={phoneChange}
+                value={phone}
+              />
+            </div>
           </div>
-          <div className="한 줄 소개">
-            <label htmlFor="firstName">한 줄 소개 :</label>
-            <input
-              type="text"
-              className=""
-              placeholder="동아리에 대한 짧은 소개를 입력하세요."
-              name="한 줄 소개"
-              onChange={shortIntroductionChange}
-              value={shortIntroduction}
-            />
-          </div>
-          <div className="창립일자">
-            <label htmlFor="firstName">창립일자 :</label>
-            <input
-              type="date"
-              className=""
-              name="년"
-              max="2001-01-01"
-              min="1979-12-31"
-              onChange={dateChange}
-              value={date}
-            />
-          </div>
-          <div className="대표 연락처">
-            <label htmlFor="firstName">대표 연락처 :</label>
-            <input
-              type="text"
-              placeholder="이메일/전화번호/카카오 아이디 모두 가능"
-              onChange={phoneChange}
-              value={phone}
-            />
-          </div>
-          <div>
-            <h3>상세 소개:</h3>
+          <div className="openDetail">
+            <div className="small_title">상세 소개:</div>
             <label htmlFor=""></label>
             <textarea
               name="상세소개"
@@ -154,15 +159,17 @@ const Open = () => {
               value={introduction}
             ></textarea>
           </div>
-          <div className="태그선택">
+          <div className="tagSelect">
             <label htmlFor=""></label>
             <select name="태그선택" id="태그선택">
               <option value="미선택">미선택</option>
             </select>
           </div>
-          <Link to="/circle/open/success">
-            <button type="submit">제출</button>
-          </Link>
+          <div className="submitButton">
+            <Link to="/circle/open/success">
+              <button id="button4" type="submit">제출</button>
+            </Link>
+          </div>
         </form>
       </div>
     </div>
