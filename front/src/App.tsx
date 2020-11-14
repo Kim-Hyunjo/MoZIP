@@ -38,6 +38,7 @@ import Resume from './pages/recruit/Resume';
 import Resume2 from './pages/recruit/Resume2';
 import Resume3 from './pages/recruit/Resume3';
 import Schedule1 from './pages/recruit/Schedule1';
+import Interview from './pages/recruit/Interview';
 
 function App() {
   return (
@@ -185,11 +186,6 @@ function App() {
             ></Route>
             <Route exact path="/about/Use" component={Use}></Route>
             <Route exact path="/circle/Open" component={Open}></Route>
-            {/* <Route
-              exact
-              path="/mypage/introduction"
-              component={SelfIntroduction}
-            /> */}
             {/* Recruit */}
             <Route
               exact
@@ -231,6 +227,11 @@ function App() {
               exact
               path="/recruit/schedule/management/staff"
               component={Schedule1}
+            ></Route>
+            <Route
+              exact
+              path="/recruit/interview"
+              component={Interview}
             ></Route>
             {/* NotFount */}
             <Route component={NotFound} />
