@@ -3,19 +3,19 @@ import React, { useState } from 'react';
 
 const ProcessNoticeInfo = () => {
   return (
-    <div>
+    <div className="recruit_wrapper">
       <h2>지원자를 위한 공지사항 작성</h2>
-      <div>지원서 작성을 통해 부원 모집을 시작해보세요.</div>
+      <h3>지원서 작성을 통해 부원 모집을 시작해보세요.</h3>
 
-      <div>
+      <div className="explain_notice">
         <div>지원서는 공지와 자기소개서로 이루어져 있습니다.</div>
         <div>먼저 공지를 작성해주십시오.</div>
         <div>공지사항이 없을 시 공란으로 남겨주십시오.</div>
       </div>
 
-      <div>
-        <span>공지사항</span>
-        <textarea
+      <div className="recruit_fillin">
+        <div className="recruit_fillin_category">공지사항</div>
+        <textarea className="recruit_essay recruit_essay2"
           placeholder="내용을 입력해주세요.
 
 ex. 
@@ -31,11 +31,13 @@ ex.
         ></textarea>
       </div>
 
-      <button>저장</button>
-      <button>자기소개서 작성</button>
-      <Link to="/recruit/process/form">
-        <button>공지 작성하기</button>
-      </Link>
+      <div className="recruit_buttons1">
+        <button id="button6B" className="recruit_button1">저장</button>
+         
+         <Link to="/recruit/process/form">
+         <button id="button6W" className="recruit_button1">자기소개서 작성하기</button>
+         </Link>
+      </div>
     </div>
   );
 };
