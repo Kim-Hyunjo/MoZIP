@@ -2,31 +2,30 @@ import React from 'react'
 
 const Applicants = () => {
     return (
-        <div>
+        <div className="applicants">
             <h2> 지원자 현황</h2>
             <div>
-                <h3>총 160명</h3>
+                <div className="memberNum">총 160명</div>
                
-                <button>통계보기</button>
-                <ul>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                <button id = "button4">통계보기</button>
+                <ul className="user_namecard_list">
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
 
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
 
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
-                    <li><h3>최우영</h3><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
+                    <li className="user_namecard"><div className="user_name">최우영</div><span>프로필 사진</span></li>
                 </ul>
             </div>
         </div>
