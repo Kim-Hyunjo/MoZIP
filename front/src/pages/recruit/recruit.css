@@ -204,6 +204,50 @@
 .schedule {
   width: 1000px;
 }
+.scheduleAll {
+  clear: both;
+  width: 800px;
+  height: 60px;
+  margin: 40px auto;
+  border: 1px solid #707070;
+  border-radius: 15px;
+  padding: 25px;
+}
+.scheduleDay {
+  float: left;
+  width: 140px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 530;
+}
+.scheduleDay span {
+  font-size: 18px;
+  line-height: 250%;
+}
+
+.interviewDayInform {
+  width: 400px;
+  float: left;
+}
+.interviewDayInform {
+  width: 400px;
+  float: left;
+}
+.interviewDayInform .tiny_gray_namecard {
+  border-color: #b2cff7;
+  width: 200px;
+  padding: 25px;
+}
+.interviewDayInform span {
+  font-size: 30px;
+  margin-left: 80px;
+}
+.interviewDayInform #button1 {
+  margin-left: 80px;
+}
+.intervieweeInform {
+  width: 600px;
+}
 
 /*interview*/
 .interview {
@@ -268,8 +312,13 @@
   margin-left: 10px;
 }
 .interviewQuestion #button_x {
-  transform: translate(320%, -310%);
+  transform: translate(350%, -310%);
+  border-color: red;
+  color: red;
 }
 .interview #button4 {
   transform: translate(580%, 30%);
+}
+.interviewQuestion #button1 {
+  transform: translate(0%, -60%);
 }

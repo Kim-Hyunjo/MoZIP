@@ -33,7 +33,7 @@ const InterviewCommonQuestion = () => {
   const interviewFormList = questions.map((item, index) => {
     return (
       <div className="interviewQuestion" key={index}>
-        <div className="small_title">질문{index + 1}</div>
+        <div className="small_title">질문 {index + 1}.</div>
         <input type="text" value={item.question}></input>
         <div className="maxScore">
           최대 부여 점수
@@ -87,54 +87,55 @@ const InterviewCommonQuestion = () => {
 
       <div>
         <div>
-          <div className="interviewQuestionList">{interviewFormList}</div>
-          <div className="interviewQuestion">
-            <div className="small_title">질문 추가</div>
-            <input
-              type="text"
-              value={question}
-              onChange={(e) => {
-                setQuestion(e.target.value);
-              }}
-            ></input>
-            <div className="maxScore">
-              최대 부여 점수
-              <select
-                itemType="number"
-                value={score}
+          <div className="interviewQuestionList">{interviewFormList}
+            <div className="interviewQuestion">
+              <div className="small_title">추가 질문</div>
+              <input
+                type="text"
+                value={question}
                 onChange={(e) => {
-                  setScore((e.target.value as any) as number);
+                  setQuestion(e.target.value);
+                }}
+              ></input>
+              <div className="maxScore">
+                최대 부여 점수
+                <select
+                  itemType="number"
+                  value={score}
+                  onChange={(e) => {
+                    setScore((e.target.value as any) as number);
+                  }}
+                >
+                  {scoreList.map((item2) => {
+                    return (
+                      <option key={item2} value={item2}>
+                        {item2}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <button
+                id = "button1"
+                onClick={(e) => {
+                  let q: Question[] = Object.assign([], questions);
+                  let info: Question = {
+                    id: count,
+                    question: question,
+                    maxScore: score,
+                  };
+                  q.push(info);
+                  let id = count + 1;
+                  setCount(id);
+                  setQuestion('');
+                  setScore(10);
+                  setQuestions(q);
+                  console.log(questions);
                 }}
               >
-                {scoreList.map((item2) => {
-                  return (
-                    <option key={item2} value={item2}>
-                      {item2}
-                    </option>
-                  );
-                })}
-              </select>
+                질문 추가
+              </button>
             </div>
-            <button
-              className="maxScore"
-              onClick={(e) => {
-                let q: Question[] = Object.assign([], questions);
-                let info: Question = {
-                  id: count,
-                  question: question,
-                  maxScore: score,
-                };
-                q.push(info);
-                let id = count + 1;
-                setCount(id);
-                setQuestion('');
-                setScore(10);
-                setQuestions(q);
-                console.log(questions);
-              }}
-            >
-              질문 추가
-            </button>
           </div>
         </div>
         <button id="button4">저장</button>
