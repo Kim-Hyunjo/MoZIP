@@ -8,10 +8,10 @@ interface Question {
 }
 
 const InterviewCommonQuestion = () => {
-  let questionCount = 0;
+  // var questionCount = 3;
 
   const [questions, setQuestions] = useState<Question[]>([
-    { id: 0, question: '간단한 자기소개 부탁드립니다.', maxScore: 10 },
+    { id: 0, question: '간단한 자기소개 부탁드립니다.', maxScore: 9 },
     {
       id: 1,
       question: 'TAVE를 통해 무엇을 얻어가고 싶은지, 왜 지원했는지?',
@@ -20,13 +20,15 @@ const InterviewCommonQuestion = () => {
     {
       id: 2,
       question: '프론트엔드와 백엔드의 차이는 무엇인가요?',
-      maxScore: 10,
+      maxScore: 5,
     },
   ]);
 
-  const scoreList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [count, setCount] = useState<number>(3);
+  const [score, setScore] = useState<number>(10);
+  const [question, setQuestion] = useState<string>('');
 
-  const handleClickRemove = () => {}; // 삭제
+  const scoreList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const interviewFormList = questions.map((item, index) => {
     return (
@@ -37,17 +39,20 @@ const InterviewCommonQuestion = () => {
           최대 부여 점수
           <select
             itemType="number"
-            defaultValue={10}
             value={item.maxScore}
             onChange={(e) => {
-              //   setScore(e.target.value as any);
-              item.maxScore = (e.target.value as unknown) as number;
+              let q: Question[] = Object.assign([], questions);
+              q.map((info) => {
+                if (info.id === item.id) {
+                  q[info.id].maxScore = (e.target.value as unknown) as number;
+                }
+              });
+              setQuestions(q);
             }}
-            // onBlur={(e) => setScore((e.target.value as any) as number)}
           >
             {scoreList.map((item2) => {
               return (
-                <option key={index} value={item2}>
+                <option key={item2} value={item2}>
                   {item2}
                 </option>
               );
@@ -55,7 +60,22 @@ const InterviewCommonQuestion = () => {
           </select>
         </div>
 
-        <button id="button_x" onClick={handleClickRemove}>x</button>
+        <button
+          id="button_x"
+          onClick={() => {
+            // let q: Question[] = Object.assign([], questions);
+            // q.filter((info) => info.id !== item.id);
+            let q: Question[] = [];
+            questions.map((info) => {
+              if (info.id !== item.id) {
+                q.push(info);
+              }
+            });
+            setQuestions(q);
+          }}
+        >
+          x
+        </button>
       </div>
     );
   });
@@ -66,9 +86,59 @@ const InterviewCommonQuestion = () => {
       <h4>면접시에 물어볼 기본 질문지를 작성해보세요.</h4>
 
       <div>
-        <div className="interviewQuestionList">{interviewFormList}</div>
+        <div>
+          <div className="interviewQuestionList">{interviewFormList}</div>
+          <div className="interviewQuestion">
+            <div className="small_title">질문 추가</div>
+            <input
+              type="text"
+              value={question}
+              onChange={(e) => {
+                setQuestion(e.target.value);
+              }}
+            ></input>
+            <div className="maxScore">
+              최대 부여 점수
+              <select
+                itemType="number"
+                value={score}
+                onChange={(e) => {
+                  setScore((e.target.value as any) as number);
+                }}
+              >
+                {scoreList.map((item2) => {
+                  return (
+                    <option key={item2} value={item2}>
+                      {item2}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <button
+              className="maxScore"
+              onClick={(e) => {
+                let q: Question[] = Object.assign([], questions);
+                let info: Question = {
+                  id: count,
+                  question: question,
+                  maxScore: score,
+                };
+                q.push(info);
+                let id = count + 1;
+                setCount(id);
+                setQuestion('');
+                setScore(10);
+                setQuestions(q);
+                console.log(questions);
+              }}
+            >
+              질문 추가
+            </button>
+          </div>
+        </div>
+        <button id="button4">저장</button>
       </div>
-      <button id="button4">저장</button>
     </div>
   );
 };

@@ -235,6 +235,11 @@ function App() {
               path="/recruit/interview"
               component={Interview}
             ></Route>
+            <Route
+              exact
+              path="/recruit/interview/commonquestion"
+              component={InterviewCommonQuestion}
+            ></Route>
             {/* NotFount */}
             <Route component={NotFound} />
           </Switch>
