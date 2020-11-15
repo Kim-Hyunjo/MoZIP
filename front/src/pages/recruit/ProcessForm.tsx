@@ -269,8 +269,8 @@ const ProcessForm = () => {
       </div>
 
       <div className="recruit_bottombuttons">
-        <button id="button5W" className="recruit_bottombutton">임시저장</button>
-        <button id="button5B" className="recruit_bottombutton">제출하기</button>
+        <button id="button5W" >임시저장</button>
+        <button id="button5B" >제출하기</button>
       </div>
 
       <Dialog 
