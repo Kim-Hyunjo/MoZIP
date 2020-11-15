@@ -9,31 +9,34 @@ const Schedule2 = () => {
     const appply2 = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
     const appply3 = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
     return (
-        <div>
+        <div className="schedule">
             <div>
                 <h2>면접 일정 관리하기</h2>
-                <p>면접 일정을 수정 및 정리해보세요.</p>
+                <h4>면접 일정을 수정 및 정리해보세요.</h4>
 
-                <h3>면접 일정</h3>
+                <div className="middle_title">면접 일정</div>
                 <div>
-                    <ul>
+                    <ul className ="scheduleAll">
                         {schedule.map((info)=>{
                             return(
-                                <li>{info.date}<span>{info.count}</span></li>
+                                <li className="scheduleDay">{info.date}<br></br><span>{info.count}</span></li>
                             )
                         })}
                     </ul>
                 </div>
                 <form action="">
                 <div>
-                    <div><strong>{day[0].day}</strong>
-                    <button>수정하기</button>
-                    <p>{day[0].date}
-                    {day[0].time}
-                    {day[0].site}
-                    {day[0].total}</p>
+                    <div className="interviewDayInform">
+                        <span>{day[0].day}</span>
+                        <button id="button1">수정하기</button>
+                        <div className="tiny_gray_namecard">
+                            날짜 : {day[0].date}<br></br>
+                            시간 : {day[0].time}<br></br>
+                            위치 : {day[0].site}<br></br>
+                            인원 : {day[0].total}<br></br>
+                        </div>
                     </div>
-                    <div>
+                    <div className="intervieweeInform">
                         <h3>1조 대상자</h3>
                         <span>총 16명</span>
                         <button>수정하기</button>
