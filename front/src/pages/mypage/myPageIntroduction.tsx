@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
@@ -16,46 +17,53 @@ import './layout.css';
 import './button.css';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
+interface Question {
+  id: number;
+  title: string;
+  content: string;
+}
+
 const myPageIntroduction = () => {
-  const questionList = [
-    { index: 0, title: '지원 동기/이유' },
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [questions, setQuestions] = useState<Question[]>([
+    { id: 0, title: '지원 동기/이유', content: '' },
     {
-      index: 1,
+      id: 1,
       title:
         '대학 입학 후 현재까지 한 활동과 느낀점을 중심으로 자신을 소개해주세요.',
+      content: '',
     },
-    { index: 2, title: '자기 소개(성격)', content: '' },
-    { index: 3, title: '취미/특기/관심사', content: '' },
-    { index: 4, title: '동아리 활동과 관련하여 지금까지 한 활동', content: '' },
+    { id: 2, title: '자기 소개(성격)', content: '' },
+    { id: 3, title: '취미/특기/관심사', content: '' },
+    { id: 4, title: '동아리 활동과 관련하여 지금까지 한 활동', content: '' },
     {
-      index: 5,
+      id: 5,
       title: '단체 생활을 한 경험, 느낀점, 단체에서의 역할',
       content: '',
     },
     {
-      index: 6,
+      id: 6,
       title: '타인과 갈등 발생했던 상황에서 성공/실패한 경험 느낀점',
       content: '',
     },
-    { index: 7, title: '공모전/대회 경력', content: '' },
-    { index: 8, title: '자신에게 가장 의미 있었던 경험', content: '' },
-    { index: 9, title: '동아리에서 하고 싶은 활동', content: '' },
-    { index: 10, title: '동아리 활동을 통해 얻고 싶은 점', content: '' },
-    { index: 11, title: '본인이 동아리에 도움이 될 수 있는 점', content: '' },
-    { index: 12, title: '동아리에서 본인을 뽑아야 하는 이유', content: '' },
-    { index: 13, title: '향후 학업 계획', content: '' },
-    { index: 14, title: '각오', content: '' },
-  ];
+    { id: 7, title: '공모전/대회 경력', content: '' },
+    { id: 8, title: '자신에게 가장 의미 있었던 경험', content: '' },
+    { id: 9, title: '동아리에서 하고 싶은 활동', content: '' },
+    { id: 10, title: '동아리 활동을 통해 얻고 싶은 점', content: '' },
+    { id: 11, title: '본인이 동아리에 도움이 될 수 있는 점', content: '' },
+    { id: 12, title: '동아리에서 본인을 뽑아야 하는 이유', content: '' },
+    { id: 13, title: '향후 학업 계획', content: '' },
+    { id: 14, title: '각오', content: '' },
+  ]);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [value, setValue] = React.useState('female');
+  const [count, setCount] = useState<number>(15);
+  const [value, setValue] = useState('long');
+  const [title, setTitle] = useState<string>('');
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
   };
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [open, setOpen] = useState<boolean>(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -65,12 +73,75 @@ const myPageIntroduction = () => {
     setOpen(false);
   };
 
+  const handleChangeQuestion = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setTitle((e.target as HTMLInputElement).value);
+  };
+
+  const handleSave = () => {
+    setOpen(false);
+    let question: Question = {
+      id: count,
+      title: title,
+      content: '',
+    };
+    let q: Question[] = Object.assign([], questions);
+    q.push(question);
+    setCount(count + 1);
+    setTitle('');
+    setQuestions(q);
+  };
+
+  const questionFormList = questions.map((item) => {
+    return (
+      <div key={item.id}>
+        <div className="introduction_question">{item.title}</div>
+        <div className="introduction_answer">
+          <div className="input">
+            <TextField
+              id="outlined-multiline-static"
+              multiline
+              rows={6}
+              placeholder="질문에 대한 답안을 작성해주세요."
+              variant="outlined"
+              value={item.content}
+              onChange={(
+                e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+              ) => {
+                let question: Question;
+              }}
+              fullWidth
+            />
+          </div>
+
+          <div className="introduction_buttons">
+            <button id="button1_blue">수정하기</button>
+            <button
+              id="button1_red"
+              onClick={() => {
+                let q: Question[] = [];
+                questions.map((info) => {
+                  if (info.id !== item.id) {
+                    q.push(info);
+                  }
+                });
+                setQuestions(q);
+              }}
+            >
+              삭제하기
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div className="introduction_wrapper">
       <h2>자기소개함</h2>
       <h3>자기소개서 질문과 답변을 미리 준비해보세요.</h3>
       <div className="flexthem">
-        
         <div>
           <label>
             <select
@@ -85,34 +156,12 @@ const myPageIntroduction = () => {
             </select>
           </label>
         </div>
-        <button id="button3_intro" onClick={handleClickOpen}>직접 추가</button>
+        <button id="button3_intro" onClick={handleClickOpen}>
+          직접 추가
+        </button>
       </div>
       <div>
-        <div>
-          {questionList.map((item) => {
-            return (
-              <div  key={item.index}>
-                <div className="introduction_question">{item.title}</div>
-                {/* <input className="input" type="text"></input> */}
-                <div className="introduction_answer">
-                  <div className="input">
-                <TextField
-                id="outlined-multiline-static"
-                multiline
-                rows={6}
-                
-                placeholder="질문에 대한 답안을 작성해주세요."
-                variant="outlined"
-                fullWidth
-                />
-                </div>
-                
-                <div className="introduction_buttons"><button id="button1_blue" >수정하기</button>
-                <button id="button1_red" >삭제하기</button></div></div>
-              </div>
-            );
-          })}
-        </div>
+        <div>{questionFormList}</div>
       </div>
       <Dialog
         open={open}
@@ -127,20 +176,31 @@ const myPageIntroduction = () => {
           <FormControl component="fieldset">
             <RadioGroup
               aria-label="gender"
-              name="gender1"
+              name="kind"
               value={value}
               onChange={handleChange}
             >
-              <FormControlLabel value="서술" control={<Radio />} label="서술" />
-              <FormControlLabel value="단답" control={<Radio />} label="단답" />
+              <FormControlLabel
+                value="long"
+                control={<Radio />}
+                label="서술"
+                defaultChecked
+              />
+              <FormControlLabel
+                value="short"
+                control={<Radio />}
+                label="단답"
+              />
             </RadioGroup>
           </FormControl>
           <TextField
             autoFocus
+            name="question"
             margin="dense"
             id="name"
             label="질문을 작성해주세요."
-            type="email"
+            type="text"
+            onChange={handleChangeQuestion}
             fullWidth
           />
         </DialogContent>
@@ -148,7 +208,7 @@ const myPageIntroduction = () => {
           <Button onClick={handleClose} color="primary">
             취소
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button type="submit" onClick={handleSave} color="primary">
             저장
           </Button>
         </DialogActions>
