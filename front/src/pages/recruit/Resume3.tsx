@@ -1,6 +1,19 @@
 import React from 'react'
 
 const Resume3 = () => {
+    const manager = [{name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
+    {name:'최우영', select:'선택완료',timeSelect:'시간선택'}]
+    const division = [{group:'1조',date:'7월 10일', time:'오후 4~7시',total:'12'},{group:'2조',date:'7월 10일', time:'오후 4~7시',total:'12'},{group:'3조',date:'7월 10일', time:'오후 4~7시',total:'12'},{group:'4조',date:'7월 10일', time:'오후 4~7시',total:'12'},]
     return (
         <div className="resume">
             <div>
@@ -31,51 +44,15 @@ const Resume3 = () => {
                     </div>
                     <div>
                         <ul className="adminList">
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">최우영</div>
-                                <div className="tiny_status">선택완료</div>
-                                <button id="buttonSelect">시간선택</button>
-                            </li>
+                            {manager.map((info)=>{
+                                return(
+                                    <li className="tiny_gray_namecard">
+                                     <div className="tiny_name">{info.name}</div>
+                                    <div className="tiny_status">{info.select}</div>
+                                    <button id="buttonSelect">{info.timeSelect}</button>
+                                </li>
+                                )
+                            })}
                         </ul>
                     </div>
                     <div className="twoButtons">
@@ -86,37 +63,16 @@ const Resume3 = () => {
                 </div>
                 <div>
                     <div className="title">면접 조 결과</div>
-                    <ul className="adminList">
-                        <li className="tiny_gray_namecard">
-                            <div className="tiny_name">1조</div>
-                            <div className="tiny_status">총 12명</div>
-                            <p>7월 10일<br></br> 오후 4시 ~ 7시 </p>
-                        </li>
-                        <li className="tiny_gray_namecard">
-                            <div className="tiny_name">1조</div>
-                            <div className="tiny_status">총 12명</div>
-                            <p>7월 10일<br></br> 오후 4시 ~ 7시 </p>
-                        </li>
-                        <li className="tiny_gray_namecard">
-                            <div className="tiny_name">1조</div>
-                            <div className="tiny_status">총 12명</div>
-                            <p>7월 10일<br></br> 오후 4시 ~ 7시 </p>
-                        </li>
-                        <li className="tiny_gray_namecard">
-                            <div className="tiny_name">1조</div>
-                            <div className="tiny_status">총 12명</div>
-                            <p>7월 10일<br></br> 오후 4시 ~ 7시 </p>
-                        </li>
-                        <li className="tiny_gray_namecard">
-                            <div className="tiny_name">1조</div>
-                            <div className="tiny_status">총 12명</div>
-                            <p>7월 10일<br></br> 오후 4시 ~ 7시 </p>
-                        </li>
-                        <li className="tiny_gray_namecard">
-                            <div className="tiny_name">1조</div>
-                            <div className="tiny_status">총 12명</div>
-                            <p>7월 10일<br></br> 오후 4시 ~ 7시 </p>
-                        </li>
+                    <ul>
+                        {division.map((info)=>{
+                            <li className="tiny_gray_namecard">
+                             <div className="tiny_name">{info.group}</div>
+                             <div className="tiny_status">총 {info.total}명</div>
+                             <p>{info.date}<br></br>{info.time}
+                             </p>
+                         </li>
+                        })}
+                        
                     </ul>
                     <div className="twoButtons">
                         <button id="button1_blue">임시저장</button>

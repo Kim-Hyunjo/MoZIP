@@ -2,6 +2,17 @@ import React from 'react';
 import './resume.css';
 
 const Resume = () => {
+    const candidateStatus = [
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+]
     return (
         <div className="resume">
             <h2>지원자 목록</h2>
@@ -19,61 +30,23 @@ const Resume = () => {
 
                         <div className="stateUsers">총 100명</div>
                         <ul className = "horizontal_people_list">
-                            <li>
+                            {candidateStatus.map((info)=>{
+                                return(
+                                    <li>
                                 <label htmlFor=""></label>
                                 <input type="checkbox"/>
-                                <span className="personalName">한채은</span>
-                                <span className="personalTime">1조 13:00</span>
+                                <span className="personalName">{info.name} </span>
+                                <span className="personalTime">{info.group}{info.time}</span>
                                 <div className="rightSide">
-                                    <span className="personalScore"> 점수 :10점</span>
-                                    <strong id="skip">보류</strong>   
+                                    <span className="personalScore"> 점수 :{info.score}</span>
+                                    <strong id="skip">{info.status}</strong>   
                                     <button id ="button1">상세보기</button>
                                 </div>
                             </li>
-                            <li>
-                                <label htmlFor=""></label>
-                                <input type="checkbox"/>
-                                <span className="personalName">한채은</span>
-                                <span className="personalTime">1조 13:00</span>
-                                <div className="rightSide">
-                                    <span className="personalScore"> 점수 :10점</span>
-                                    <strong id="skip">보류</strong>   
-                                    <button id ="button1">상세보기</button>
-                                </div>
-                            </li>
-                            <li>
-                                <label htmlFor=""></label>
-                                <input type="checkbox"/>
-                                <span className="personalName">한채은</span>
-                                <span className="personalTime">1조 13:00</span>
-                                <div className="rightSide">
-                                    <span className="personalScore"> 점수 :10점</span>
-                                    <strong id="skip">보류</strong>   
-                                    <button id ="button1">상세보기</button>
-                                </div>
-                            </li>
-                            <li>
-                                <label htmlFor=""></label>
-                                <input type="checkbox"/>
-                                <span className="personalName">한채은</span>
-                                <span className="personalTime">1조 13:00</span>
-                                <div className="rightSide">
-                                    <span className="personalScore"> 점수 :10점</span>
-                                    <strong id="skip">보류</strong>   
-                                    <button id ="button1">상세보기</button>
-                                </div>
-                            </li>
-                            <li>
-                                <label htmlFor=""></label>
-                                <input type="checkbox"/>
-                                <span className="personalName">한채은</span>
-                                <span className="personalTime">1조 13:00</span>
-                                <div className="rightSide">
-                                    <span className="personalScore"> 점수 :10점</span>
-                                    <strong id="skip">보류</strong>   
-                                    <button id ="button1">상세보기</button>
-                                </div>
-                            </li>
+                                    
+                                )
+                            })}
+                            
                         </ul>
                         <div className = "changeButtons">
                             *선택한 후 아래 버튼을 누르면 해당 인원이 이동합니다.
@@ -82,13 +55,17 @@ const Resume = () => {
                                 <button id="outButt">불합격</button>
                                 <button id="inButt">합격</button>
                             </div>
+                  
                         </div>
                     </div>
                     
                 </form>
                 <div><button id="button_red">면접 일정 관리</button></div>
+                <div><button>면접 일정 관리 </button></div>
+
         </div>
     )
 }
 
 export default Resume
+    
