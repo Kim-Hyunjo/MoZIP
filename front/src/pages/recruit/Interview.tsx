@@ -34,33 +34,44 @@ const Interview = () => {
       time: '4~7',
       school: '동국대학교',
     },
+    {
+      id: 5,
+      when: '5',
+      personnel: '1',
+      date: '7월 10일',
+      time: '4~7',
+      school: '동국대학교',
+    },
   ];
 
   const interviewFormList = interviewList.map((item) => {
     return (
-      <div key={item.id}>
+      <div className="tiny_gray_namecard" key={item.id}>
         <div>
-          <span>{item.when}일차</span>
-          <span>총 {item.personnel}명</span>
+          <span className="tiny_name">{item.when}일차</span>
+          <span className="tiny_status">총 {item.personnel}명</span>
         </div>
-        <div>{item.date}</div>
-        <div>{item.time}</div>
-        <div>{item.school}</div>
-        <button>자세히</button>
+        <p>{item.date}<br></br>
+        {item.time} 시<br></br>
+        {item.school}</p>
+        <button id="buttonSelect">자세히</button>
       </div>
     );
   });
 
   return (
-    <div>
+    <div className="interview">
       <h2>면접 상세</h2>
       <div>
-        <button>면접 기본 질문 작성하기</button>
+        <button id="button_red">면접 기본 질문 작성하기</button>
       </div>
 
       <div>
-        <div>면접 일시</div>
-        {interviewFormList}
+        <div className="middle_title">면접 일시</div>
+        <div className="adminList">{interviewFormList}</div>
+      </div>
+      <div className="adminButton">
+        <button id="button10">합격자 관리하기</button>
       </div>
     </div>
   );

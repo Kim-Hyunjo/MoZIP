@@ -30,11 +30,11 @@ const InterviewCommonQuestion = () => {
 
   const interviewFormList = questions.map((item, index) => {
     return (
-      <div key={index}>
-        <div>질문{index + 1}</div>
+      <div className="interviewQuestion" key={index}>
+        <div className="small_title">질문{index + 1}</div>
         <input type="text" value={item.question}></input>
-        <div>
-          <span>최대 부여 점수</span>
+        <div className="maxScore">
+          최대 부여 점수
           <select
             itemType="number"
             defaultValue={10}
@@ -54,22 +54,21 @@ const InterviewCommonQuestion = () => {
             })}
           </select>
         </div>
-        <div>{item.maxScore}</div>
 
-        <button onClick={handleClickRemove}>삭제</button>
+        <button id="button_x" onClick={handleClickRemove}>x</button>
       </div>
     );
   });
 
   return (
-    <div>
+    <div className="interview">
       <h2>면접 질문지 작성</h2>
-      <div>면접시에 물어볼 기본 질문지를 작성해보세요.</div>
+      <h4>면접시에 물어볼 기본 질문지를 작성해보세요.</h4>
 
       <div>
-        <div>면접 일시</div>
-        {interviewFormList}
+        <div className="interviewQuestionList">{interviewFormList}</div>
       </div>
+      <button id="button4">저장</button>
     </div>
   );
 };
