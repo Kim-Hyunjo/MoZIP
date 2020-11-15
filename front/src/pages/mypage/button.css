@@ -134,6 +134,16 @@
   background: #fff;
   color: #0C5AC6;
 }
+#button6B_smaller{
+  width: auto;
+  padding: 4px 8px;
+  height: auto;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+  background:#0C5AC6;
+  color: #fff;
+}
 #button6W_smaller{
   width: auto;
   padding: 4px 8px;

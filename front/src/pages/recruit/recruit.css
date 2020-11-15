@@ -23,7 +23,6 @@
   margin: 12px;
   margin-top: 4px;
 }
-
 /*for selection*/
 .explanation {
   margin: 10px;
@@ -176,12 +175,62 @@
   width: 200px;
   height: 32px;
 }
+.recruit_choose{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
 .recruit_choosetime {
   margin-left: 32px;
   width: 80px;
   height: 32px;
   text-align: center;
   margin: 20px;
+  transform: translate(20%, 0%);
+}
+.recruit_bottombuttons {
+    text-align: center;
+}
+.recruit_bottombutton {
+    margin: 20px;
+    margin-top: 28px;
+}
+/*processform_dialog*/
+.MuiDialog-root .rec_dig_title{
+    margin-bottom: -30px;
+    width: 400px;
+}
+.MuiDialog-root .rec_dig_semititle{
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+.MuiDialog-root .rec_dig_explain{
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+.MuiDialog-root .rec_dig_radio {
+    margin-top: 12px;
+}
+.MuiDialog-root .rec_dig_input {
+    align-items: center;
+}
+.MuiDialog-root .rec_dig_placeholder {
+    height: 24px;
+    font-size: 16px;
+    margin-right: 12px;
+
+}
+.MuiDialog-root .rec_dig_put {
+    font-size: 16px;
+    margin: 8px;
+}
+.MuiDialog-root .rec_dig_putbtn {
+    margin: 8px;
+    
+    margin-bottom: 2px;
 }
 
 /*applicants*/

@@ -225,21 +225,22 @@ const ProcessForm = () => {
         <div className="smalltitle">
           면접 진행 시간 <span>* 한 면접 당 배정 될 시간을 입력해주세요.</span>
         </div>
-        <Select className="recruit_choosetime" defaultValue="분" >
-          <option aria-label="minute" value="5" />
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={15}>15</option>
-          <option value={20}>20</option>
-          <option value={25}>25</option>
-          <option value={30}>30</option>
-          <option value={35}>35</option>
-          <option value={40}>40</option>
-          <option value={45}>45</option>
-          <option value={50}>50</option>
-          <option value={55}>55</option>
-          <option value={60}>60</option>
+        <div className="recruit_choose"><Select className="recruit_choosetime" defaultValue="분" >
+        <option aria-label="minute" value="5" />
+        <option value={5}>5</option>
+        <option value={10}>10</option>
+        <option value={15}>15</option>
+        <option value={20}>20</option>
+        <option value={25}>25</option>
+        <option value={30}>30</option>
+        <option value={35}>35</option>
+        <option value={40}>40</option>
+        <option value={45}>45</option>
+        <option value={50}>50</option>
+        <option value={55}>55</option>
+        <option value={60}>60</option>
         </Select>
+        <div>분</div></div>
       </div>
 
       <div>
@@ -247,32 +248,37 @@ const ProcessForm = () => {
           면접 중간 쉬는 시간{' '}
           <span>* 면접 사이의 쉬는 시간을 입력해주세요.</span>
         </div>
-        <Select className="recruit_choosetime" defaultValue="분" >
-          <option aria-label="minute" value="5" />
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={15}>15</option>
-          <option value={20}>20</option>
-          <option value={25}>25</option>
-          <option value={30}>30</option>
-          <option value={35}>35</option>
-          <option value={40}>40</option>
-          <option value={45}>45</option>
-          <option value={50}>50</option>
-          <option value={55}>55</option>
-          <option value={60}>60</option>
+        <div className="recruit_choose">
+          <Select className="recruit_choosetime" defaultValue="분" >
+        <option aria-label="minute" value="5" />
+        <option value={5}>5</option>
+        <option value={10}>10</option>
+        <option value={15}>15</option>
+        <option value={20}>20</option>
+        <option value={25}>25</option>
+        <option value={30}>30</option>
+        <option value={35}>35</option>
+        <option value={40}>40</option>
+        <option value={45}>45</option>
+        <option value={50}>50</option>
+        <option value={55}>55</option>
+        <option value={60}>60</option>
         </Select>
+        <div>분</div>
+        </div>
       </div>
 
-      <button>임시저장</button>
-      <button>제출하기</button>
+      <div className="recruit_bottombuttons">
+        <button id="button5W" className="recruit_bottombutton">임시저장</button>
+        <button id="button5B" className="recruit_bottombutton">제출하기</button>
+      </div>
 
-      <Dialog
+      <Dialog 
         open={openMultiChoice}
         onClose={handleCloseMutliChoice}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">객관식 질문 추가하기</DialogTitle>
+        <DialogTitle className="rec_dig_title" id="form-dialog-title">객관식 질문 추가하기</DialogTitle>
         <DialogContent>
           <TextField
             placeholder="질문을 입력하세요."
@@ -284,11 +290,11 @@ const ProcessForm = () => {
             fullWidth
           />
           <div>
-            <FormLabel component="legend">단일/복수 선택</FormLabel>
-            <div>단일 선택형: 하나의 선지만 선택이 가능합니다.</div>
-            <div>복수 선택형: 여러 개의 선지 선택이 가능합니다.</div>
+            <FormLabel component="legend" className="rec_dig_semititle">단일/복수 선택</FormLabel>
+            <div className="rec_dig_explain">단일 선택형: 하나의 선지만 선택이 가능합니다.</div>
+            <div className="rec_dig_explain">복수 선택형: 여러 개의 선지 선택이 가능합니다.</div>
           </div>
-          <RadioGroup
+          <RadioGroup className="rec_dig_radio"
             aria-label="gender"
             name="gender1"
             value={valueSingleOrMulti}
@@ -298,19 +304,19 @@ const ProcessForm = () => {
             <FormControlLabel value="multi" control={<Radio />} label="복수" />
           </RadioGroup>
           <div>
-            <FormLabel component="legend">선지 입력</FormLabel>
-            <div>질문에 대한 선지를 작성해주세요.</div>
+            <FormLabel component="legend" className="rec_dig_semititle">선지 입력</FormLabel>
+            <div className="rec_dig_explain">질문에 대한 선지를 작성해주세요.</div>
           </div>
-          <div>
-            <input type="text" placeholder="선지를 입력하세요."></input>
-            <button>입력</button>
+          <div className="rec_dig_input">
+            <input className="rec_dig_placeholder" type="text" placeholder="선지를 입력하세요."></input>
+            <button id="button6B_smaller">입력</button>
           </div>
-          <div>
+          <div >
             {MulList.map((item) => {
               return (
-                <div key={item.id}>
+                <div className="rec_dig_put" key={item.id}>
                   {item.question}
-                  <button>삭제</button>
+                  <button className="rec_dig_putbtn" id="button6B_smaller">삭제</button>
                 </div>
               );
             })}
@@ -331,7 +337,7 @@ const ProcessForm = () => {
         onClose={handleCloseShortAnswer}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">단답형 질문 추가하기</DialogTitle>
+        <DialogTitle className="rec_dig_title" id="form-dialog-title">단답형 질문 추가하기</DialogTitle>
         <DialogContent>
           <TextField
             placeholder="질문을 입력하세요."
@@ -358,7 +364,7 @@ const ProcessForm = () => {
         onClose={handleCloseLongAnswer}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">서술형 질문 추가하기</DialogTitle>
+        <DialogTitle className="rec_dig_title" id="form-dialog-title">서술형 질문 추가하기</DialogTitle>
         <DialogContent>
           <TextField
             placeholder="질문을 입력하세요."
