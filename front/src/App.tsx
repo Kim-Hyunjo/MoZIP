@@ -240,6 +240,11 @@ function App() {
               path="/recruit/interview/commonquestion"
               component={InterviewCommonQuestion}
             ></Route>
+            <Route
+              exact
+              path="/recruit/schedule2"
+              component={Schedule2}
+            ></Route>
             {/* NotFount */}
             <Route component={NotFound} />
           </Switch>
