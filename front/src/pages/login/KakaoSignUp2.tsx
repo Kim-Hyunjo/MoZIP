@@ -48,12 +48,12 @@ const KakaoSignUp = () => {
   const [img, setImg] = useState<string>('');
   const cookies = new Cookies();
 
-  useEffect(() => {
-    console.log('컴포넌트가 화면에 나타남');
-    return () => {
-      console.log('컴포넌트가 화면에서 사라짐');
-    };
-  }, [img]);
+  // useEffect(() => {
+  //   console.log('컴포넌트가 화면에 나타남');
+  //   return () => {
+  //     console.log('컴포넌트가 화면에서 사라짐');
+  //   };
+  // }, [img]);
 
   const [open, setOpen] = React.useState(false);
 
@@ -124,7 +124,7 @@ const KakaoSignUp = () => {
           <Button onClick={handleClose} color="primary">
             아뉴
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleClose} color="primary" autoFocus href="/">
             네
           </Button>
         </DialogActions>

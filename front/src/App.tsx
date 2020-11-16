@@ -49,11 +49,21 @@ import FinalProcessing from './pages/recruit/FinalProcessing';
 import KakaoSignUp from './pages/login/KakaoSignUp2';
 import MyPageEdit from './pages/mypage/myPageEdit';
 
+import Cookies from 'universal-cookie';
+
 function App() {
+  const cookies = new Cookies();
+
   return (
     <Router>
       <div className="App">
         <header>
+          {/* {cookies.get('token') === null ? (
+            <div>토큰없음</div>
+          ) : (
+            <div>토큰있음</div>
+          )} */}
+          {cookies.get('access_token')}
           <Link to="/login">
             <button>로그인</button>
           </Link>
