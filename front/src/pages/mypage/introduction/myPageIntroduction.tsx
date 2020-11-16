@@ -13,9 +13,10 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import './layout.css';
-import './button.css';
+import '../layout.css';
+import '../button.css';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import MyPageIntroductionItem from './MyPageIntroductionItem';
 
 interface Question {
   id: number;
@@ -26,7 +27,7 @@ interface Question {
 const myPageIntroduction = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [questions, setQuestions] = useState<Question[]>([
-    { id: 0, title: '지원 동기/이유', content: '' },
+    { id: 0, title: '지원 동기/이유', content: 'asdasdasd' },
     {
       id: 1,
       title:
@@ -60,6 +61,7 @@ const myPageIntroduction = () => {
   const [value, setValue] = useState('long');
   const [title, setTitle] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+  const [question, setQuestion] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
@@ -93,46 +95,35 @@ const myPageIntroduction = () => {
     setQuestions(q);
   };
 
+  const handleUpdate = (id: number, content: string) => {
+    let qs: Question[] = Object.assign([], questions);
+    qs.map((info) => {
+      if (info.id === id) {
+        info.content = content;
+      }
+    });
+    setQuestions(qs);
+    console.log(questions);
+  };
+
+  const handleRemove = (id: number) => {
+    let qs: Question[] = [];
+    questions.map((info) => {
+      if (info.id !== id) {
+        qs.push(info);
+      }
+    });
+    setQuestions(qs);
+  };
+
   const questionFormList = questions.map((item) => {
     return (
       <div key={item.id}>
-        <div className="introduction_question">{item.title}</div>
-        <div className="introduction_answer">
-          <div className="input">
-            <TextField
-              id="outlined-multiline-static"
-              multiline
-              rows={6}
-              placeholder="질문에 대한 답안을 작성해주세요."
-              variant="outlined"
-              value={item.content}
-              onChange={(
-                e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-              ) => {
-                let question: Question;
-              }}
-              fullWidth
-            />
-          </div>
-
-          <div className="introduction_buttons">
-            <button id="button1_blue">수정하기</button>
-            <button
-              id="button1_red"
-              onClick={() => {
-                let q: Question[] = [];
-                questions.map((info) => {
-                  if (info.id !== item.id) {
-                    q.push(info);
-                  }
-                });
-                setQuestions(q);
-              }}
-            >
-              삭제하기
-            </button>
-          </div>
-        </div>
+        <MyPageIntroductionItem
+          propsQuestion={item}
+          onUpdate={handleUpdate}
+          onRemove={handleRemove}
+        />
       </div>
     );
   });
