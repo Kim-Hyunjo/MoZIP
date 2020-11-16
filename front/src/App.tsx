@@ -44,6 +44,7 @@ import InterviewCommonQuestion from './pages/recruit/InterviewCommonQuestion';
 import InterviewDetail from './pages/recruit/InterviewDetail';
 import Record from './pages/recruit/record/Record';
 import PostInterviewPersonal from './pages/recruit/PostInterviewPersonal';
+import PostprocessingNotice from './pages/recruit/PostprocessingNotice';
 import InterviewPostprocessing from './pages/recruit/InterviewPostprocessing';
 import FinalProcessing from './pages/recruit/FinalProcessing';
 
@@ -269,6 +270,11 @@ function App() {
               path="/recruit/interview/InterviewPostprocessing"
               component={InterviewPostprocessing}
             ></Route>
+             <Route
+              exact
+              path="/recruit/interview/postprocessing/notice"
+              component={PostprocessingNotice}
+            ></Route>
             <Route
               exact
               path="/recruit/schedule2"
@@ -279,6 +285,7 @@ function App() {
               path="/recruit/finalprocessing"
               component={FinalProcessing}
             ></Route>
+           
 
             {/* NotFount */}
             <Route component={NotFound} />
