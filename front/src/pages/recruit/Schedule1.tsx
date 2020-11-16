@@ -9,18 +9,23 @@ const Schedule1 = () => {
             </div>
             <form action="">
             <div>
-                <h3>최우영</h3>
-                    <label htmlFor=""></label>
-                <input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} />시~<input type="select"maxLength={2} />시
-                
-                <label htmlFor=""></label>
-                <input type="checkbox" name="second" value="2020년 7월 19일 수요일"/><strong>2020년 7월 19일 수요일</strong><input type="select" maxLength={2} />시~<input type="select"maxLength={2} />시
-                
-                <label htmlFor=""></label>
-                <input type="checkbox" name="third" value="2020년 7월 20일 수요일"/><strong>2020년 7월 20일 수요일</strong><input type="select" maxLength={2} />시~<input type="select"maxLength={2} />시
-                
+                <div className="middle_title">최우영</div>
+                <div className="selectTime">
+                    <div className="candidateTime">
+                        <label htmlFor=""></label>
+                        <input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} />시 ~<input type="select"maxLength={2} />시
+                    </div>
+                    <div className="candidateTime">
+                        <label htmlFor=""></label>
+                        <input type="checkbox" name="second" value="2020년 7월 19일 수요일"/><strong>2020년 7월 19일 수요일</strong><input type="select" maxLength={2} />시 ~<input type="select"maxLength={2} />시
+                    </div>
+                    <div className="candidateTime">
+                        <label htmlFor=""></label>
+                        <input type="checkbox" name="third" value="2020년 7월 20일 수요일"/><strong>2020년 7월 20일 수요일</strong><input type="select" maxLength={2} />시 ~<input type="select"maxLength={2} />시
+                    </div>
+                </div>
             </div>
-            <button>저장</button>
+            <button id ="button4">저장</button>
             </form>
         </div>
     )
