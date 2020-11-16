@@ -43,6 +43,7 @@ import InterviewCommonQuestion from './pages/recruit/InterviewCommonQuestion';
 import Schedule2 from './pages/recruit/Schedule2';
 import InterviewDetail from './pages/recruit/InterviewDetail';
 import Record from './pages/recruit/Record';
+import PostInterviewPersonal from './pages/recruit/PostInterviewPersonal';
 
 function App() {
   return (
@@ -255,6 +256,11 @@ function App() {
               exact path ="/recruit/interview/record"
               component={Record}>
             </Route>
+            <Route
+              exact path ="/recruit/interview/postprocessing/detail"
+              component={PostInterviewPersonal}>
+            </Route>
+            
             {/* NotFount */}
             <Route component={NotFound} />
           </Switch>

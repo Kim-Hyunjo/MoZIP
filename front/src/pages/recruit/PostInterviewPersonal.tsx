@@ -1,7 +1,7 @@
 import React from 'react';
 import './resume.css';
 
-const Record = () => {
+const PostInterviewPersonal = () => {
     const info = [{
       name:'한채은',
       school:"테이브 대학교",
@@ -14,20 +14,11 @@ const Record = () => {
     
     return (
         <div className="record">
-            <h2>면접 평가서</h2>
-            <h4>지원자의 면접 답변을 실시간으로 작성해보세요.</h4>
+            <h2>지원자 지원서 정보</h2>
+            <h4>지원자의 정보 및 자기소개서를 확인해보세요.</h4>
                 <form action="">
                     <label htmlFor=""></label>
-                    <div className="stateBox">
-                      <ul className="states">
-                          <li><div className="stateName">한채은</div></li>
-                          <li><div className="stateName">한채은</div></li>
-                          <li><div className="stateName">한채은</div></li>
-                      </ul>
-
-                      <div className="interviewDate">면접 일시 2020-09-19 13:00</div>
-                      <div className="interviewer">면접관 최우영, 왕희도</div>
-                      <div className="paperScore">서류 총점 : 10점</div>
+                      <div className="paperScore">점수 총점 : 90점</div>
                       <div className="gray_namecard">
                           <div>
                               <span>프로필 사진</span>
@@ -61,38 +52,35 @@ const Record = () => {
                       </form>
                       
                       <div className="small_title">면접 질문</div>
-                      <div className="interviewQnA">
-                        <div className="interviewQuestion">질문 1.<br></br>간단히 자기소개 부탁드립니다.</div>
-                        <div className="interviewAnswer"><input></input></div>
+                      <div className="small_gray_namecard">
+                        <div className="interviewQuestion">간단히 자기소개 부탁드립니다.</div>
+                        <div className="interviewAnswer">저는 저입니다.</div>
+                        <div className ="answerScore"><span>3점</span></div>
                       </div>
-                      <div className="interviewQnA">
-                        <div className="interviewQuestion">질문 1.<br></br>간단히 자기소개 부탁드립니다.</div>
-                        <div className="interviewAnswer"><input></input></div>
+                      <div className="small_gray_namecard">
+                        <div className="interviewQuestion">간단히 자기소개 부탁드립니다.</div>
+                        <div className="interviewAnswer">저는 저입니다.</div>
+                        <div className ="answerScore"><span>3점</span></div>
                       </div>
-                      <div className="interviewQnA">
-                        <div className="interviewQuestion">질문 1.<br></br>간단히 자기소개 부탁드립니다.</div>
-                        <div className="interviewAnswer"><input></input></div>
+                      <div className="small_gray_namecard">
+                        <div className="interviewQuestion">간단히 자기소개 부탁드립니다.</div>
+                        <div className="interviewAnswer">저는 저입니다.</div>
+                        <div className ="answerScore"><span>3점</span></div>
                       </div>
-                      <div className="interviewQnA">
-                        <div className="interviewQuestion">질문 1.<br></br>간단히 자기소개 부탁드립니다.</div>
-                        <div className="interviewAnswer"><input></input></div>
+                      <div className="small_gray_namecard">
+                        <div className="interviewQuestion">간단히 자기소개 부탁드립니다.</div>
+                        <div className="interviewAnswer">저는 저입니다.</div>
+                        <div className ="answerScore"><span>3점</span></div>
                       </div>
-                      <button id="button_plus">+</button>
-                      <div className="interviewQnA">
-                        <div className="interviewExtra">비고</div>
-                        <div className="interviewExtraW"><input></input></div>
-                      </div>
-                    </div>
-                    
-                  </div>  
+                    </div> 
               </form>
-              <div className="twoButtons">
-                  <button id="button1_blue">저장</button>
-                  <button id="button1">임시 저장</button>
+              <div className="post_twoButtons">
+                  <button id="button1">수정하기</button>
+                  <button id="button1_blue">돌아가기</button>
               </div>
         </div>
     )
 }
 
-export default Record
+export default PostInterviewPersonal
     
