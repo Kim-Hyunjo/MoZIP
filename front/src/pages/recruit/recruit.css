@@ -613,9 +613,7 @@
 .post_twoButtons #button1 {
   margin-right: 10px;
 }
-
-<<<<<<< HEAD
-=======
+/*이거 안 지우는 거 맞죠?*/
 /*final processing*/
 .final {
   width: 1000px;
@@ -704,4 +702,3 @@
   display: block;
   margin: 100px 0px 15px 70px;
 }
->>>>>>> develop
