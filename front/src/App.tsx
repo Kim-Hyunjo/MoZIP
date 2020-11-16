@@ -19,7 +19,7 @@ import CircleDetail from './pages/circle/CircleDetail';
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
 import ListApplyFail from './pages/list/apply/ListApplyFail';
 import mypage from './pages/mypage/mypage';
-import myPageEdit from './pages/mypage/myPageEdit';
+import MyPageEdit from './pages/mypage/MyPageEdit';
 import mypageStatus from './pages/mypage/mypageStatus';
 import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
@@ -124,7 +124,7 @@ function App() {
             <Route exact path="/rt" component={RedirectTest} />
             {/* mypage */}
             <Route exact path="/mypage" component={mypage} />
-            <Route exact path="/mypage/edit" component={myPageEdit} />
+            <Route exact path="/mypage/edit" component={MyPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
             <Route
               exact
