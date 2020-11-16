@@ -107,6 +107,9 @@
   height: auto;
   padding: 40px;
 }
+.resume .gray_namecard {
+  width: 600px;
+}
 .small_gray_namecard .resumeQuestion {
   font-size: 20px;
   margin-bottom: 12px;
@@ -116,7 +119,7 @@
   margin-left: 20px;
   margin-bottom: 10px;
 }
-.small_gray_namecard input {
+.small_gray_namecard input[type='number'] {
   margin: 5px 20px 0px 30px;
   text-align: center;
   width: 50px;

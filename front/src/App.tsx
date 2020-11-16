@@ -41,6 +41,8 @@ import Schedule1 from './pages/recruit/Schedule1';
 import Interview from './pages/recruit/Interview';
 import InterviewCommonQuestion from './pages/recruit/InterviewCommonQuestion';
 import Schedule2 from './pages/recruit/Schedule2';
+import InterviewDetail from './pages/recruit/InterviewDetail';
+import Record from './pages/recruit/Record';
 
 function App() {
   return (
@@ -245,6 +247,14 @@ function App() {
               path="/recruit/schedule2"
               component={Schedule2}
             ></Route>
+            <Route
+              exact path ="/recruit/interview/detail/1"
+              component={InterviewDetail}>
+            </Route>
+            <Route
+              exact path ="/recruit/interview/record"
+              component={Record}>
+            </Route>
             {/* NotFount */}
             <Route component={NotFound} />
           </Switch>

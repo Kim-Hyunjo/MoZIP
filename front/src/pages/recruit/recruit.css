@@ -35,6 +35,9 @@
 .give_space_bottom {
   margin-bottom: 100px;
 }
+.give_space_top {
+  margin-top: 30px;
+}
 /*for selection*/
 .explanation {
   margin: 10px;
@@ -423,6 +426,10 @@
   width: 560px;
   margin: 0;
 }
+.intervieweeGroup #button4 {
+  margin: 0;
+  transform: translate(155%, -105%);
+}
 .intervieweeInform .display_horiz span {
   margin-right: 200px;
   font-size: 20px;
@@ -490,4 +497,96 @@
   font-size: 20px;
   padding: 8px;
   height: auto;
+}
+
+/*record*/
+.record {
+  width: 1000px;
+}
+.record .interviewDate {
+  clear: both;
+  font-size: 25px;
+  padding: 40px 100px;
+}
+.record .stateBox {
+  margin-top: 15px;
+  align-items: center;
+  width: 1000px;
+  height: auto;
+  border: 1px solid;
+  border-color: #707070;
+}
+.record .interviewer {
+  display: flex;
+  font-size: 25px;
+  padding: 0px 100px;
+  float: right;
+  transform: translate(-15%, -240%);
+}
+.record .paperScore {
+  clear: both;
+  float: right;
+  color: #0c5ac6;
+  font-size: 25px;
+  transform: translate(-70%, -70%);
+}
+.record .gray_namecard {
+  clear: both;
+  width: 600px;
+}
+.record .small_title {
+  margin-left: 100px;
+}
+.record .small_gray_namecard {
+  width: 700px;
+}
+.record .small_gray_namecard .answerScore {
+  float: right;
+  transform: translate(0%, -350%);
+}
+.record .small_title {
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: 28px;
+}
+.record .interviewQnA {
+  margin-left: 70px;
+  padding: 30px;
+}
+.record .interviewQuestion {
+  width: 300px;
+  font-size: 20px;
+  text-align: right;
+  transform: translate(0%, -60%);
+  display: inline-flex;
+}
+.record .interviewAnswer {
+  width: 500px;
+  display: inline-flex;
+}
+.record .interviewAnswer input {
+  width: 500px;
+  height: 200px;
+}
+.record #button_plus {
+  margin: 0 auto;
+  display: inherit;
+}
+.record .interviewExtra {
+  width: 300px;
+  font-size: 20px;
+  text-align: right;
+  transform: translate(65%, -80%);
+  display: inline-flex;
+}
+.record .interviewExtraW {
+  width: 500px;
+  display: inline-flex;
+}
+.record .interviewExtraW input {
+  width: 500px;
+  height: 100px;
+}
+.record .twoButtons {
+  margin-top: 20px;
 }
