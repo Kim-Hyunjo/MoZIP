@@ -613,3 +613,92 @@
 .post_twoButtons #button1 {
   margin-right: 10px;
 }
+
+/*final processing*/
+.final {
+  width: 1000px;
+}
+.paidNum {
+  clear: both;
+  font-size: 22px;
+  margin-left: 10px;
+}
+.final .right {
+  float: right;
+  margin-right: 100px;
+}
+.final select {
+  display: inline-flex;
+  margin-right: 20px;
+}
+.final button[type='button'] {
+  float: right;
+  display: inline-flex;
+}
+
+.finalList {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 800px;
+}
+.finalPerson {
+  border: 1px solid #707070;
+  border-radius: 20px;
+  padding: 15px 20px;
+  font-size: 20px;
+  margin: 24px 0px;
+}
+.finalPerson input[type='checkbox'] {
+  margin-right: 10px;
+}
+.final .twoButtons {
+  float: right;
+  transform: translate(0%, -20%);
+}
+.final .twoButtons #button4 {
+  background-color: #00a116;
+  border-color: #00a116;
+  margin-right: 20px;
+}
+/*post-processing notice*/
+.postprocessing {
+  width: 1000px;
+}
+.postprocessing textarea {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.postprocessing .example {
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 600px;
+  padding: 50px 30px;
+  display: block;
+  text-align: center;
+  line-height: 150%;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
+}
+.postprocessing .postProButtons {
+  width: 750px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.postprocessing .postProButtons #button_red {
+  width: 160px;
+  height: 36px;
+  margin: 0px;
+  float: right;
+}
+.postprocessing .postProButtons #button4 {
+  float: right;
+  margin-right: 20px;
+}
+.postprocessing .middle_title {
+  display: block;
+  margin: 100px 0px 15px 70px;
+}

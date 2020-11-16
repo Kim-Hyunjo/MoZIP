@@ -6,23 +6,24 @@ const PostprocessingNotice = () => {
         setcontent((e.target as any).value)
     }
     return (
-        <div>
+        <div className="postprocessing">
             <h2>
             합격 안내문
             </h2>
-            <p>면접 일정을 수정 및 정리해보세요.</p>
+            <h4>면접 일정을 수정 및 정리해보세요.</h4>
 
             <textarea placeholder="합격 안내문을 작성해주세요.
                 (ex. 회비 입금, MT 및 OT 일정, 연락처 등)
-                아래 예시를 참고해주세요." name="" id="" cols={90} rows={10} onChange={ChangeHandler}>
+                아래 예시를 참고해주세요." name="" id="" cols={90} rows={20} onChange={ChangeHandler}>
 
             </textarea>
-            <button>이전</button>
-            <button>저장</button>
-            <button>최종 합격자 발표</button>
-
-            <div>
-                <h3>예시:</h3>
+            <div className="postProButtons">
+                <button id = "button1">이전</button>
+                <button id="button_red">최종 합격자 발표</button>
+                <button id ="button4">저장</button>
+            </div>
+            <div className="middle_title">예시:</div>
+            <div className="example">
                 <p>안녕하세요. TAVE입니다.<br/>
                     TAVE 6기에 최종 합격하게 되신 것을 진심으로 축하드립니다!<br/>
                     

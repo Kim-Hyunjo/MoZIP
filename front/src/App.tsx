@@ -47,12 +47,16 @@ import PostInterviewPersonal from './pages/recruit/PostInterviewPersonal';
 import PostprocessingNotice from './pages/recruit/PostprocessingNotice';
 import InterviewPostprocessing from './pages/recruit/InterviewPostprocessing';
 import FinalProcessing from './pages/recruit/FinalProcessing';
+import KakaoSignUp from './pages/login/KakaoSignUp2';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <header>
+          <Link to="/login">
+            <button>로그인</button>
+          </Link>
           <nav>
             <div id="list">
               <ul className="menu">
@@ -286,6 +290,9 @@ function App() {
               component={FinalProcessing}
             ></Route>
            
+
+            {'login'}
+            <Route exact path="/login" component={KakaoSignUp}></Route>
 
             {/* NotFount */}
             <Route component={NotFound} />
