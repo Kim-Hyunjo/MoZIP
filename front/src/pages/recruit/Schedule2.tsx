@@ -38,7 +38,7 @@ const Schedule2 = () => {
                         </div>
                     </div>
                     <div className="intervieweeInform">
-                        <div className="display_horiz interview_group_wrap"><h3>조별 대상자</h3>
+                        <div className="display_horiz interview_group_wrap"><h3>{day[0].day} 대상자</h3>
                         <span>총 16명</span>
                         <button id="button1">수정하기</button></div>
                         <ul className="intervieweeGroup">
@@ -68,7 +68,7 @@ const Schedule2 = () => {
                     </div>
                     <div className="intervieweeInform">
                         <div className="display_horiz interview_group_wrap">
-                            <h3>조별 대상자</h3>
+                            <h3>{day[1].day} 대상자</h3>
                             <span>총 12명</span>
                             <button id="button1">수정하기</button>
                         </div>
@@ -99,7 +99,7 @@ const Schedule2 = () => {
                     </div>
                     <div className="intervieweeInform">
                         <div className="display_horiz interview_group_wrap">
-                            <h3>조별 대상자</h3>
+                            <h3>{day[2].day} 대상자</h3>
                             <span>총 12명</span>
                             <button id="button1">수정하기</button>
                         </div>
