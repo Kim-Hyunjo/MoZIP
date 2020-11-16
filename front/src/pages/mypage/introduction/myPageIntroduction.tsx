@@ -61,7 +61,6 @@ const myPageIntroduction = () => {
   const [value, setValue] = useState('long');
   const [title, setTitle] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
-  const [question, setQuestion] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);

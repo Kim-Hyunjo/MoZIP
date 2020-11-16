@@ -42,7 +42,7 @@ import Schedule2 from './pages/recruit/Schedule2';
 import Interview from './pages/recruit/Interview';
 import InterviewCommonQuestion from './pages/recruit/InterviewCommonQuestion';
 import InterviewDetail from './pages/recruit/InterviewDetail';
-import Record from './pages/recruit/Record';
+import Record from './pages/recruit/record/Record';
 import PostInterviewPersonal from './pages/recruit/PostInterviewPersonal';
 import InterviewPostprocessing from './pages/recruit/InterviewPostprocessing';
 import FinalProcessing from './pages/recruit/FinalProcessing';
@@ -251,32 +251,35 @@ function App() {
               component={Schedule2}
             ></Route>
             <Route
-              exact path ="/recruit/interview/detail/1"
-              component={InterviewDetail}>
-            </Route>
+              exact
+              path="/recruit/interview/detail/1"
+              component={InterviewDetail}
+            ></Route>
             <Route
-              exact path ="/recruit/interview/record"
-              component={Record}>
-            </Route>
+              exact
+              path="/recruit/interview/record"
+              component={Record}
+            ></Route>
             <Route
-              exact path ="/recruit/interview/postprocessing/detail"
-              component={PostInterviewPersonal}>
-            </Route>
+              exact
+              path="/recruit/interview/postprocessing/detail"
+              component={PostInterviewPersonal}
+            ></Route>
             <Route
               path="/recruit/interview/InterviewPostprocessing"
               component={InterviewPostprocessing}
             ></Route>
             <Route
-            exact
-            path="/recruit/schedule2"
+              exact
+              path="/recruit/schedule2"
               component={Schedule2}
             ></Route>
             <Route
-            exact
-            path="/recruit/finalprocessing"
+              exact
+              path="/recruit/finalprocessing"
               component={FinalProcessing}
             ></Route>
-           
+
             {/* NotFount */}
             <Route component={NotFound} />
           </Switch>
