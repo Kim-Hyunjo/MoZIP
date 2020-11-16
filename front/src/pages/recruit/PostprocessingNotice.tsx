@@ -14,7 +14,7 @@ const PostprocessingNotice = () => {
 
             <textarea placeholder="합격 안내문을 작성해주세요.
                 (ex. 회비 입금, MT 및 OT 일정, 연락처 등)
-                아래 예시를 참고해주세요." name="" id="" cols={30} rows={10} onChange={ChangeHandler}>
+                아래 예시를 참고해주세요." name="" id="" cols={90} rows={10} onChange={ChangeHandler}>
 
             </textarea>
             <button>이전</button>
