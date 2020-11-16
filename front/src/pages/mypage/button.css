@@ -73,10 +73,10 @@
 }
 
 #button4 {
-  width: 80px;
-  height: 32px;
+  width: 88px;
+  height: 36px;
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 12px;
   border-color: #0c59c3;
   background-color: #0c59c3;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
@@ -84,10 +84,10 @@
 }
 
 #button4:disabled {
-  width: 80px;
-  height: 32px;
+  width: 88px;
+  height: 36px;
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 12px;
   border-color: #0c59c3;
   background-color: #bed0e9;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
@@ -114,64 +114,64 @@
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
   color: #0c59c3;
 }
-#button6B{
+#button6B {
   width: auto;
   padding: 4px 16px;
   height: 40px;
   border-radius: 12px;
   border: none;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background: #0C5AC6;
+  background: #0c5ac6;
   color: #fff;
 }
-#button6W{
+#button6W {
   width: auto;
   padding: 4px 16px;
   height: 40px;
   border-radius: 12px;
-  border: 1px solid #0C5AC6;
+  border: 1px solid #0c5ac6;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
   background: #fff;
-  color: #0C5AC6;
+  color: #0c5ac6;
 }
-#button6B_smaller{
+#button6B_smaller {
   width: auto;
   padding: 4px 8px;
   height: auto;
   border-radius: 12px;
   border: none;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background:#0C5AC6;
+  background: #0c5ac6;
   color: #fff;
 }
-#button6W_smaller{
+#button6W_smaller {
   width: auto;
   padding: 4px 8px;
   height: auto;
   border-radius: 12px;
-  border: 1px solid #0C5AC6;
+  border: 1px solid #0c5ac6;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
   background: #fff;
-  color: #0C5AC6;
+  color: #0c5ac6;
 }
-#button6R_smaller{
+#button6R_smaller {
   width: auto;
   padding: 4px 8px;
   height: auto;
   border-radius: 12px;
-  border: 1px solid #C60C0C;
+  border: 1px solid #c60c0c;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background: #C60C0C;
+  background: #c60c0c;
   color: #fff;
 }
-#button7B{
+#button7B {
   width: 190px;
   padding: 16px;
   height: auto;
   border-radius: 12px;
   border: none;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background: #0C5AC6;
+  background: #0c5ac6;
   color: #fff;
 }
 #button8 {
