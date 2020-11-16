@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 // import { StyledText } from '../style';
+import Axios from 'axios';
 import KaKaoLogin from 'react-kakao-login';
 
 interface State {
@@ -15,13 +16,72 @@ class KakaoSignUp extends Component<any, State> {
     };
   }
 
-  responseKaKao = (res: any) => {
+  responseKaKao = async (res: any) => {
     this.setState({
       data: res,
     });
-    alert(JSON.stringify(this.state.data));
-    console.log(JSON.stringify(this.state.data));
+    const semi_email = JSON.stringify(
+      this.state.data.profile.kakao_account.email,
+    );
+    const _email = semi_email.replace(/^"+|"+$/g, '');
+
+    const semi_age = JSON.stringify(
+      this.state.data.profile.kakao_account.age_range[0],
+    );
+    const s_age = semi_age.replace(/^"+|"+$/g, '');
+    const _age = parseInt(s_age);
+
+    // try {
+    //   alert(JSON.stringify(this.state.data.profile.id));
+    //   const response = await Axios({
+    //     method: 'get',
+    //     url: `${_url}/api/user_exist/${JSON.stringify(
+    //       this.state.data.profile.id,
+    //     )}/`,
+    //     responseType: 'json',
+    //   });
+    //   const msg: string = JSON.stringify(response.data.message);
+
+    //   if (msg == 'true') {
+    //     alert('로그인되었습니다');
+    //   } else {
+    //     try {
+    //       const signup_response = await axios({
+    //         method: 'post',
+    //         url: `${_url}/api/user_list/`,
+    //         data: {
+    //           password: 1234,
+    //           email: _email,
+    //           kakao_id: JSON.stringify(this.state.data.profile.id),
+    //           nickname: JSON.stringify(
+    //             this.state.data.profile.properties.nickname,
+    //           ),
+    //           image: JSON.stringify(
+    //             this.state.data.profile.properties.profile_image,
+    //           ),
+    //           ages: _age,
+    //         },
+    //         responseType: 'json',
+    //       });
+    //       alert(signup_response);
+    //     } catch (err) {
+    //       sessionStorage.clear();
+    //       alert(err);
+    //     }
+    //   }
+    // } catch (err) {
+    //   sessionStorage.clear();
+    //   alert(err);
+    // }
   };
+
+  // responseKaKao = (res: any) => {
+  //   this.setState({
+  //     data: res,
+  //   });
+  //   alert(JSON.stringify(this.state.data));
+  //   console.log(JSON.stringify(this.state.data));
+  // };
 
   responseFail = (err: any) => {
     alert(err);

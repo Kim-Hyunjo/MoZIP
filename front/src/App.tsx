@@ -19,7 +19,6 @@ import CircleDetail from './pages/circle/CircleDetail';
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
 import ListApplyFail from './pages/list/apply/ListApplyFail';
 import mypage from './pages/mypage/mypage';
-import MyPageEdit from './pages/mypage/MyPageEdit';
 import mypageStatus from './pages/mypage/mypageStatus';
 import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
@@ -48,6 +47,7 @@ import PostprocessingNotice from './pages/recruit/PostprocessingNotice';
 import InterviewPostprocessing from './pages/recruit/InterviewPostprocessing';
 import FinalProcessing from './pages/recruit/FinalProcessing';
 import KakaoSignUp from './pages/login/KakaoSignUp2';
+import MyPageEdit from './pages/mypage/myPageEdit';
 
 function App() {
   return (
@@ -274,7 +274,7 @@ function App() {
               path="/recruit/interview/InterviewPostprocessing"
               component={InterviewPostprocessing}
             ></Route>
-             <Route
+            <Route
               exact
               path="/recruit/interview/postprocessing/notice"
               component={PostprocessingNotice}
@@ -289,7 +289,6 @@ function App() {
               path="/recruit/finalprocessing"
               component={FinalProcessing}
             ></Route>
-           
 
             {'login'}
             <Route exact path="/login" component={KakaoSignUp}></Route>

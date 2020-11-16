@@ -2,16 +2,28 @@ import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 // import { StyledText } from '../style';
 import KaKaoLogin from 'react-kakao-login';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const KakaoSignUp = () => {
-  const [data, setData] = useState<any>();
+  const cookies = new Cookies();
 
   const responseKaKao = (res: any) => {
-    setData(res);
-    const data1 = res.json();
+    const access_token = JSON.stringify(res.response.access_token);
+    const name = JSON.stringify(res.profile.properties.nickname);
+    const image = JSON.stringify(res.profile.properties.thumbnail_image);
+    const semi_email = JSON.stringify(res.profile.kakao_account.email);
+    const email = semi_email.replace(/^"+|"+$/g, '');
+
+    console.log(access_token);
+    cookies.set('access_token', access_token, { path: '/' });
+    cookies.set('name', name, { path: '/' });
+    cookies.set('image', image, { path: '/' });
+    cookies.set('email', email, { path: '/' });
+    cookies.set('access_token', access_token, { path: '/' });
 
     alert(JSON.stringify(res));
-    console.log(JSON.stringify(res));
+    // console.log(JSON.stringify(res));
   };
 
   const responseFail = (err: any) => {
@@ -28,7 +40,6 @@ const KakaoSignUp = () => {
           needProfile={true}
           onSuccess={responseKaKao}
           onFail={responseFail}
-          //   key={'68e1890c86abef0b895c50c05679908a'}
         />
       </div>
     </div>
