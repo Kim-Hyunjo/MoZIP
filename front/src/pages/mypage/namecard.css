@@ -110,6 +110,17 @@ c .small_section .small_wrap {
   display: block;
   margin: 40px auto;
 }
+.gray_namecard .right_side {
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 200%;
+  transform: translate(35%, -10%);
+}
+
+.gray_namecard .right_side .name {
+  font-size: 25px;
+  margin: 8px 0px;
+}
 
 .title_gray_namecard {
   color: #0c5ac6;

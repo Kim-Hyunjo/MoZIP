@@ -18,19 +18,19 @@ const Resume2 = () => {
             </div>
 
             <div className="personScore">점수 총점 : 10점</div>
-            <div className="big_namecard">{info[0].name}</div>
-            <div>
-                <h3>{info[0].name}</h3>
-                <span>프로필 사진</span>
-                <div className="right_side">
-                <ul>
+            <div className="gray_namecard">
+                <div>
+                    <span>프로필 사진</span>
+                    <div className="right_side">
+                    <ul>
 
-                    <li className="name"><span>{info[0].name}</span></li>
-                    <li><span>{info[0].school}{info[0].grade}</span></li>
-                    <li><span>{info[0].date}</span></li>
-                    <li><span>{info[0].phone}</span></li>
-                    <li><span>{info[0].city}</span></li>
-                </ul>
+                        <li className="name">{info[0].name}</li>
+                        <li>{info[0].school}{info[0].grade}</li>
+                        <li>{info[0].date}</li>
+                        <li>{info[0].phone}</li>
+                        <li>{info[0].city}</li>
+                    </ul>
+                    </div>
                 </div>
             </div>
             <div>
@@ -41,11 +41,11 @@ const Resume2 = () => {
                     {selfIntoduction.map((info)=>{
                         return(
                             <div className="small_gray_namecard">
-                            <li><h4>{info.question}</h4>
-                                <span>{info.answer}</span>
+                            <li><div className="resumeQuestion">{info.question}</div>
+                                <div className="resumeAnswer">{info.answer}</div>
                                 <label htmlFor=""></label>
                                 <input type="number" min={10} max ={100}/>
-                                <button>저장</button>
+                                <button id="button4">저장</button>
                             </li>
                             </div>
                         )
