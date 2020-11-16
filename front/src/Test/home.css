@@ -1,0 +1,92 @@
+.home_wrapper{
+    width: 1000px;
+
+}
+.home_top_wrapper{
+    width: 812px;
+    min-height: 600px;
+    display: block;
+    margin: 0 auto;
+}
+.home_top_wrapper #horizontal_list{
+    display: inline-block;
+    height: auto;
+    margin: 0 auto;
+}
+.home_top_wrapper #horizontal_list li{
+    min-width: 200px;
+    height: 200px;
+    font-size: 24px;
+    font-weight: 600;
+    border: 0.1px solid;
+}
+.home_top_wrapper #button10{
+    background: #fff;
+    border: 1px solid #0C5AC6;
+    font-size: 28px;
+    color: #0C5AC6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.home_mid_wrapper{
+    display: block;
+    text-align: center;
+    width: 1000px;
+}
+/* .home_mid_wrapper h2, 
+.home_mid_wrapper div{
+    width: auto;
+} */
+.img_cards {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 44px;
+}
+.home_mid_wrapper .img_card_owner{
+    width: 40%;
+    height: auto;
+}
+.home_mid_wrapper .img_card_owner:hover{
+    transform: translate(0px, -20px);
+}
+.home_mid_wrapper .img_card_user{
+    width: 40%;
+    height: auto;
+}
+.home_mid_wrapper .img_card_user:hover{
+    transform: translate(0px, -20px);
+}
+ .bet-img{
+    font-size: 32px;
+    font-weight: 600;
+    margin: 32px;
+}
+.home_mid2_wrapper img{
+    width: 100%;
+    margin: 100px 0;
+}
+.home_mid3_wrapper h2{
+    color: #0C5AC6;
+    margin: 32px;
+    font-size: 56px;
+}
+.home_mid3_wrapper .img_how{
+    width: 1000px;
+    margin: 32px;
+    margin-top: 0px;
+}
+.home_mid4_wrapper .img_keys{
+    width: 1000px;
+    margin: 32px;
+    margin-top: 0px;
+}
+.home_mid5_wrapper img{
+    width: 1000px;
+    margin: 32px;
+    margin-top: 0px;
+}

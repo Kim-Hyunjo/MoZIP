@@ -13,7 +13,7 @@ header {
   width: 100%;
   height: 200px;
   background-color: #b2cff7;
-  position: fixed;
+  /* position: fixed; */
 }
 .body #wrapper {
   position: relative;
@@ -76,7 +76,7 @@ header {
 }
 
 .body {
-  padding-top: 200px;
+  padding-top: 20px;
   margin: 80px 0;
   min-width: 1300px;
   /*가운데 정렬을 위해 추가했습니다.*/
