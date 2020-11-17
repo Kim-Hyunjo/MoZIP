@@ -10,15 +10,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: rgba(0,0,0,0.36);
+    color: #000;
     font-size: 16px;
     font-weight: 700;
     flex-direction: column;
     cursor: pointer;
+    opacity: 0.36;
 }
 #horizontal_list li:hover{
-    color: rgb(0,0,0);
+    
+    opacity: 1;
 
+}
+
+#horizontal_list li img{
+    width: 80px;
+    
 }
 li .border {
     width: 100%;
