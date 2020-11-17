@@ -89,8 +89,9 @@ class KakaoSignUp extends Component<any, State> {
 
   render() {
     return (
-      <div>
-        <h1>로그인</h1>
+      <div className="login">
+        <h2>Log in</h2>
+        <h4>기존에 사용하시는 계정으로 간단하게 로그인 하세요.</h4>
         {/* <StKaKaoLogin>
                         <img src={img} alt="a" onClick={this.loginWithKakao} />
                     </StKaKaoLogin> */}

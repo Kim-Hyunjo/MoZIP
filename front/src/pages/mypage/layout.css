@@ -1,30 +1,102 @@
 /*for myPageIntro*/
-.flexthem{
-    display:inline-flex;
-    align-items: center;
-    margin-left: 74%;
+.flexthem {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 74%;
 }
-.input{
-    font-size: 40px;
-    margin-bottom: 24px;
-    width: 1000px;
+.input {
+  font-size: 40px;
+  margin-bottom: 24px;
+  width: 1000px;
 }
 .introduction_question {
-    font-size: 24px;
-    margin: 12px;
+  font-size: 24px;
+  margin: 12px;
 }
 .introduction_answer {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 .introduction_buttons {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 12px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 12px;
 }
 
 #button1_red {
-    margin-top: 16px;
+  margin-top: 16px;
   margin-bottom: 20px;
+}
+/*mypage*/
+.mypage {
+  width: 1000px;
+}
+.profileImage {
+  width: 7px;
+  height: 280px;
+  float: left;
+}
+.profileImage img {
+  border-radius: 300px;
+  float: left;
+  transform: translate(18%, 28%);
+}
+.warning {
+  min-width: 70%;
+  font-size: 14px;
+  margin-left: 420px;
+  margin-top: 45px;
+  margin-bottom: 7px;
+  color: red;
+}
+/*mypage edit*/
+.MyPageEditButton #button4 {
+  margin-top: 24px;
+  float: right;
+  margin-right: 120px;
+}
+.이름,
+.분류,
+.학교,
+.전공,
+.학년,
+.생년월일,
+.전화번호,
+.이메일,
+.거주지 {
+  text-align: right;
+  transform: translate(-63%, 0%);
+}
+
+.big_namecard .right_side input[type='text'] {
+  padding: 2px 5px;
+}
+
+/*log in*/
+.login {
+  width: 1000px;
+}
+.kakaoButton {
+  margin: 0 auto;
+  display: table;
+  padding-top: 30px;
+}
+
+/*mypage_introduction*/
+.mypage_introduction {
+  width: 1000px;
+}
+.savedAnswer {
+  border: 0.5px solid #bdbdbd;
+  border-radius: 10px 5px;
+  padding: 10px;
+  font-family: 'Arial';
+  font-size: 16px;
+  margin-bottom: 24px;
+  width: 860px;
+  min-height: 114px;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

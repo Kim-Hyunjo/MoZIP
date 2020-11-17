@@ -58,13 +58,16 @@ const mypage = () => {
   ];
 
   return (
-    <div>
+    <div className="mypage">
       <h2>My page</h2>
       <div className="warning">
         *본인 확인을 위해 사진 포함 모든 정보를 등록해주셔야 동아리 지원이
         가능합니다.
       </div>
       <div className="big_namecard">
+        <div className="profileImage">
+          <img src="http://placehold.it/180x180" />
+        </div>
         <div className="right_side">
           <div className="name">{personalInfo.name}</div>
           분류 : {personalInfo.sort} <br></br>
@@ -138,7 +141,7 @@ const mypage = () => {
       <div id="myClub" className="small_section">
         <div className="small_wrap"><div className="middle_title">My 동아리</div>
         <div className="word_button">
-        <Link to="./mypage/status">자세히 보기</Link>
+        <Link to="./mypage/status">Mozip 현황</Link>
         </div></div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
@@ -166,7 +169,7 @@ const mypage = () => {
       <div id="openRequest" className="small_section">
         <div className="small_wrap"><div className="middle_title">개설 요청한 동아리</div>
         <div className="word_button">
-        <Link to="./">동아리 개설하기</Link>
+        <Link to="./circle/open">동아리 개설하기</Link>
         </div></div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">

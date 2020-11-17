@@ -128,9 +128,9 @@ const myPageIntroduction = () => {
   });
 
   return (
-    <div className="introduction_wrapper">
+    <div className="mypage_introduction">
       <h2>자기소개함</h2>
-      <h3>자기소개서 질문과 답변을 미리 준비해보세요.</h3>
+      <h4>자기소개서 질문과 답변을 미리 준비해보세요.</h4>
       <div className="flexthem">
         <div>
           <label>
