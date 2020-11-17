@@ -3,7 +3,7 @@
 
 }
 .home_top_wrapper{
-    width: 812px;
+    width: 692px;
     min-height: 600px;
     display: block;
     margin: 0 auto;
@@ -14,11 +14,16 @@
     margin: 0 auto;
 }
 .home_top_wrapper #horizontal_list li{
-    min-width: 200px;
-    height: 200px;
-    font-size: 24px;
+    min-width: 170px;
+    height: 170px;
+    font-size: 20px;
     font-weight: 600;
     border: 0.1px solid;
+    
+}
+.home_top_wrapper #horizontal_list li img{
+    width: 100px;
+    
 }
 .home_top_wrapper #button10{
     background: #fff;
@@ -89,4 +94,5 @@
     width: 1000px;
     margin: 32px;
     margin-top: 0px;
+    height: auto;
 }

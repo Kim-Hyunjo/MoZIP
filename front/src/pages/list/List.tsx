@@ -8,19 +8,28 @@ import React, { useState } from 'react';
 import ListAcademy from './ListAcademy';
 import ListSubject from './ListSubject';
 import './tab.css';
+import icon_all from '../images2/icon_all@2x.png';
+import icon_academy from '../images2/icon_academy@2x.png';
+import icon_art from '../images2/icon_art@2x.png';
+import icon_networking from '../images2/icon_networking@2x.png';
+import icon_sports from '../images2/icon_sports@2x.png';
+import icon_trip from '../images2/icon_trip@2x.png';
+import icon_religion from '../images2/icon_religion@2x.png';
+import icon_volunteer from '../images2/icon_volunteer@2x.png';
+import icon_etc from '../images2/icon_etc@2x.png';
 
 const List = (props: RouteComponentProps<{}>) => {
   const [subject, setSubject] = useState<string>('all');
   const test = [
-    { name: 'all' },
-    { name: 'academy' },
-    { name: 'art' },
-    { name: 'networking' },
-    { name: 'sports' },
-    { name: 'trip' },
-    { name: 'religion' },
-    { name: 'volunteer' },
-    { name: 'etc' },
+    { name: 'all', img: icon_all},
+    { name: 'academy',  img: icon_academy},
+    { name: 'art',  img: icon_art},
+    { name: 'networking', img: icon_networking },
+    { name: 'sports',  img: icon_sports },
+    { name: 'trip', img: icon_trip },
+    { name: 'religion', img: icon_religion },
+    { name: 'volunteer', img: icon_volunteer },
+    { name: 'etc', img: icon_etc },
   ];
   const 학술 = [
     { id: '1', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
@@ -152,6 +161,9 @@ const List = (props: RouteComponentProps<{}>) => {
                 }}
               >
                 <div className="border top_border"></div>
+                <img
+                    src={ item.img }
+                    alt='tab_icon' />
                 {item.name}
                 <div className="border bottom_border"></div>
               </li>
