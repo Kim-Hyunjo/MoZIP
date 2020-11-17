@@ -38,15 +38,15 @@ urlpatterns = [
 
     #mozip
     #list
-    path('list/all/', ClubListAllView.as_view()),
-    path('list/academy/', ClubListAcademyView.as_view()),
-    path('list/art/', include(router.urls)),
-    path('list/networking/', include(router.urls)),
-    path('list/sports/', include(router.urls)),
-    path('list/travel/', include(router.urls)),
-    path('list/religion/', include(router.urls)),
-    path('list/volunteer/', include(router.urls)),
-    path('list/etc/', include(router.urls)),
+    path('list/all/', ListAllView.as_view()),
+    path('list/academy/', ListAcademyView.as_view()),
+    path('list/art/', ListArtView.as_view()),
+    path('list/networking/', ListNetworkingView.as_view()),
+    path('list/sports/', ListSportsView.as_view()),
+    path('list/travel/', ListTravelView.as_view()),
+    path('list/religion/', ListReligionView.as_view()),
+    path('list/volunteer/', ListVolunteerView.as_view()),
+    path('list/etc/', ListEtcView.as_view()),
 
     path('list/academy/{cc_id}/', ClubJustDetailView.as_view()),
     path('list/academy/{circleID}/detail/', include(router.urls)),
