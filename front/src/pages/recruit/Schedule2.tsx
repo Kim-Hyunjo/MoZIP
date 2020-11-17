@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Schedule2 = () => {
     const  day = [{day:'1일차', date:'2020년 7월 10일', time:' 오후 4시~7시', site:'동국대학교',total:"총 16명"},
@@ -172,8 +173,8 @@ const Schedule2 = () => {
                     </div>
                 </div>
                 <div className="interview_btns5">
-                    <button id="button5W" >돌아가기</button>
-                    <button id="button5B" >저장</button>
+                    <Link to="/recruit/schedule/management"><button id="button5W" >돌아가기</button></Link>
+                    <Link to="/recruit/schedule/management"><button id="button5B" >저장</button></Link>
                 </div>
                 </form>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './resume.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Resume = () => {
     const candidateStatus = [
@@ -40,7 +41,7 @@ const Resume = () => {
                                 <div className="rightSide">
                                     <span className="personalScore"> 점수 :{info.score}</span>
                                     <strong id="skip">{info.status}</strong>   
-                                    <button id ="button1">상세보기</button>
+                                    <Link to="/recruit/resume/:member_id"><button id ="button1">상세보기</button></Link>
                                 </div>
                             </li>
                                     
@@ -55,13 +56,11 @@ const Resume = () => {
                                 <button id="outButt">불합격</button>
                                 <button id="inButt">합격</button>
                             </div>
-                  
                         </div>
                     </div>
                     
                 </form>
-                <div><button id="button_red">면접 일정 관리</button></div>
-                <div><button>면접 일정 관리 </button></div>
+                <div><Link to="/recruit/schedule/management"><button id="button_red">면접 일정 관리</button></Link></div>
 
         </div>
     )

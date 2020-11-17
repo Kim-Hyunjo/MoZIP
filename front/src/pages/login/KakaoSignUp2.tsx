@@ -90,10 +90,11 @@ const KakaoSignUp = () => {
   };
 
   return (
-    <div>
-      <h1>로그인</h1>
+    <div className="login">
+        <h2>Log in</h2>
+        <h4>기존에 사용하시는 계정으로 간단하게 로그인 하세요.</h4>
       <br></br>
-      <div>
+      <div className="kakaoButton">
         <KaKaoBtn
           token={'68e1890c86abef0b895c50c05679908a'}
           needProfile={true}

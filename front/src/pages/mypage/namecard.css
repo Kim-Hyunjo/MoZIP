@@ -9,8 +9,6 @@
 }
 
 .big_namecard .right_side {
-  margin-top: auto;
-  margin-bottom: auto;
   line-height: 200%;
   transform: translate(35%, 0%);
 }
@@ -19,7 +17,23 @@
   font-size: 25px;
   margin: 8px 0px;
 }
+.big_namecard .right_side label {
+  margin-right: 15px;
+  text-align: right;
+}
+.이름,
+.분류,
+.학교,
+.전공,
+.학년,
+.생년월일,
+.전화번호,
+.이메일,
+.거주지 {
+  text-align: right;
 
+  transform: translate(-63%, 0%);
+}
 .big_namecard .button {
   float: right;
   transform: translate(-35%, -50%);

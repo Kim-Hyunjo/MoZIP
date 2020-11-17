@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Resume3 = () => {
     const manager = [{name:'최우영', select:'선택완료',timeSelect:'시간선택'},
@@ -76,7 +77,7 @@ const Resume3 = () => {
                     </ul>
                     <div className="twoButtons">
                         <button id="button1_blue">임시저장</button>
-                        <button id="button1">자세히</button>
+                        <Link to="/recruit/schedule/management/detail"><button id="button1">자세히</button></Link>
                     </div>
                 </div>
                 <div className="result">
@@ -84,7 +85,7 @@ const Resume3 = () => {
                     <p>남은 인원은 '자세히'에 들어가 직접 시간을 지정해주세요.</p>
                 </div>
             </div>
-            <button id="button_red">면접 그룹 등록하기</button>
+            <Link to ="/recruit/resume"><button id="button_red">면접 그룹 등록하기</button></Link>
         </div>
     )
 }
