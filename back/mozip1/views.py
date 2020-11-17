@@ -8,6 +8,8 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from rest_framework import authentication, permissions
+
+
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -71,9 +73,72 @@ class ClubListAcademyView(APIView):
         serializer = ClubSerializer(Club.objects.get(category='Academy'), many=True)
         return Response(serializer.data)
 
-#academy,art...
+#list
+class ListAllView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.all(), many = True)
+        return Response(serializer.data)
+
+class ListAcademyView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="학술"), many = True)
+        return Response(serializer.data)
+
+class ListArtView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="예술"), many = True) 
+        return Response(serializer.data)
+            
+class ListNetworkingView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="친목"), many = True) 
+        return Response(serializer.data)
+
+class ListSportsView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="스포츠"), many = True) 
+        return Response(serializer.data)
+
+class ListTravelView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="여행"), many = True) 
+        return Response(serializer.data)
+
+class ListReligionView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="종교"), many = True) 
+        return Response(serializer.data)
+
+class ListVolunteerView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="봉사"), many = True) 
+        return Response(serializer.data)
+
+class ListEtcView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['name','information','self_image','category']
+        serializer = ListClubSerializer(Club.objects.filter(category="기타"), many = True) 
+        return Response(serializer.data)
 
 class ClubJustDetailView(APIView): #동아리 그냥 상세
     def get(self, request, id):
         serializer = ClubSerializer(Club.objects.get(cc_id=id), many=True)
         return Response(serializer.data)
+

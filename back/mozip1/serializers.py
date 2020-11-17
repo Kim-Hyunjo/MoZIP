@@ -19,3 +19,9 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Post
         fields = ['id','title','content']
+
+#list
+class ListClubSerializer(serializers.HyperlinkedModelSerializer):
+    class Meat:
+        model = Club
+        fields = ['name','information','self_image','category']
