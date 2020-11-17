@@ -65,9 +65,9 @@ const mypageStatus = () => {
             <div className="subject_gray_namecard">모임 시간</div> 
             미정 
           </div> <br></br>
-          
-          <button className="button_medium3 btn_ingray_namecard">지원 현황 확인</button>
-        
+          <Link to ="/recruit/applicants">
+            <button className="button_medium3 btn_ingray_namecard">지원 현황 확인</button>
+          </Link>
         </div>
         
       </div>
@@ -91,9 +91,9 @@ const mypageStatus = () => {
             <div className="subject_gray_namecard">모임 시간</div> 
             미정 
           </div> <br></br>
-          
-          <button className="button_medium3 btn_ingray_namecard">지원자 정보</button>
-        
+          <Link to ="/recruit/resume">
+            <button className="button_medium3 btn_ingray_namecard">지원자 정보</button>
+          </Link>
         </div>
         <div className="gray_namecard">
         <div className="stage_gray_namecard">면접 진행 중</div>

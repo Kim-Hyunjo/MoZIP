@@ -118,9 +118,9 @@ const List = (props: RouteComponentProps<{}>) => {
   ];
 
   return (
-    <div>
+    <div className="list">
       <h2>전체 동아리 목록</h2>
-      <p>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</p>
+      <h4>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</h4>
       <div className="wrapper">
       <div>
         <label>

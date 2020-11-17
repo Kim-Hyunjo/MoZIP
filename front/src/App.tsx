@@ -65,7 +65,7 @@ function App() {
           )} */}
           {cookies.get('access_token')}
           <Link to="/login">
-            <button>로그인</button>
+            <div id = "button_login">로그인</div>
           </Link>
           <nav>
             <div id="list">
@@ -77,9 +77,9 @@ function App() {
                   </NavLink>
                   <ul className="sub">
                     <li>
-                      <NavLink exact to="/">
-                        지원 이력
-                      </NavLink>
+                    <NavLink exact to="/mypage">
+                      My Page
+                    </NavLink>
                     </li>
                     <li>
                       <NavLink exact to="/mypage/introduction">
@@ -95,17 +95,22 @@ function App() {
                 </li>
                 <li>
                   <NavLink exact to="/intro">
-                    Recruit
+                    Guide
                   </NavLink>
                   <ul className="sub">
                     <li>
+                    <NavLink exact to="/intro">
+                      Guide
+                    </NavLink>
+                    </li>
+                    <li>
                       <NavLink exact to="circle/open">
-                        동아리 개설
+                        동아리 개설법
                       </NavLink>
                     </li>
                     <li>
                       <NavLink exact to="/">
-                        동아리 운영
+                        동아리 운영하기
                       </NavLink>
                     </li>
                     <li>
@@ -128,7 +133,7 @@ function App() {
         <div className="body">
           <Switch>
             <Route exact={true} path="/home" component={Home} />
-            <Route exact path="/" render={() => <h3>Index</h3>} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/intro" render={() => <h3>소개</h3>} />
             <Route exact path="/posts" component={TestList} />
             <Route exact path="/rt" component={RedirectTest} />
@@ -291,7 +296,7 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/recruit/schedule2"
+              path="/recruit/schedule/management/detail"
               component={Schedule2}
             ></Route>
             <Route

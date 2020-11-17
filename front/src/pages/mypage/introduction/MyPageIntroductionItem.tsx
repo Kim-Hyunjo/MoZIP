@@ -61,7 +61,7 @@ const MyPageIntroductionItem: React.FunctionComponent<Props> = ({
           </div>
         ) : (
           <div>
-            <div>{propsQuestion.content}</div>
+            <div className="savedAnswer">{propsQuestion.content}</div>
           </div>
         )}
 

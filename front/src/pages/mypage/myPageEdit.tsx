@@ -73,16 +73,18 @@ const MyPageEdit:any = () => {
     setOpen(false);
   }
   return (
-    <div>
+    <div className="mypage">
       <h2>개인정보 수정</h2>
       <div className="warning"></div>
       <div className="wrapper">
         <div className="big_namecard">
-          <div>{/* 사진추가부분 */}</div>
+          <div className="profileImage">
+            <img src="http://placehold.it/180x180" />
+          </div>
           <div className="right_side">
             <form noValidate>
               <div className="이름">
-                <label htmlFor="firstName">이름:</label>
+                <label htmlFor="firstName">이름 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -93,7 +95,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="분류">
-                <label htmlFor="분류">분류:</label>
+                <label htmlFor="분류">분류 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -104,7 +106,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="학교">
-                <label htmlFor="학교">학교:</label>
+                <label htmlFor="학교">학교 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -115,7 +117,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="전공">
-                <label htmlFor="전공">전공:</label>
+                <label htmlFor="전공">전공 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -126,7 +128,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="학년">
-                <label htmlFor="학년">학년:</label>
+                <label htmlFor="학년">학년 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -137,7 +139,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="생년월일">
-                <label htmlFor="생년월일">생년월일:</label>
+                <label htmlFor="생년월일">생년월일 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -148,7 +150,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="전화번호">
-                <label htmlFor="firstName">전화번호:</label>
+                <label htmlFor="firstName">전화번호 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -159,7 +161,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="이메일">
-                <label htmlFor="이메일">이메일:</label>
+                <label htmlFor="이메일">이메일 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
@@ -170,7 +172,7 @@ const MyPageEdit:any = () => {
                 />
               </div>
               <div className="거주지">
-                <label htmlFor="거주지">거주 지역:</label>
+                <label htmlFor="거주지">거주 지역 :</label>
                 <input
                   type="text"
                   className="MyPageEdit"
