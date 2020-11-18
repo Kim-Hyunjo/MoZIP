@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
       height: theme.spacing(3),
     },
     large: {
-      alignContent: 'center',
       width: theme.spacing(7),
       height: theme.spacing(7),
     },
@@ -109,8 +108,8 @@ const KakaoSignUp = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{cookies.get('name')}</DialogTitle>
-        <DialogContent>
-          <div className={classes.root} id="profile_image">
+        <DialogContent id="profile_image">
+          <div className={classes.root} >
             <Avatar
               alt="Remy Sharp"
               src={cookies.get('image')}
