@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
+import CircleFaq from './CircleFaq';
 
 interface FAQ {
   id: number;
@@ -10,46 +11,88 @@ interface FAQ {
 const Circle = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
 ) => {
-  const [update, setUpdate] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(true);
   const [faqs, setFaqs] = useState<FAQ[]>([
     { id: 0, question: '지원 동기/이유', answer: 'asdasdasd' },
     {
       id: 1,
       question:
         '대학 입학 후 현재까지 한 활동과 느낀점을 중심으로 자신을 소개해주세요.',
-      answer: '',
+      answer: '하이하이',
     },
-    { id: 2, question: '자기 소개(성격)', answer: '' },
-    { id: 3, question: '취미/특기/관심사', answer: '' },
-    { id: 4, question: '동아리 활동과 관련하여 지금까지 한 활동', answer: '' },
+    { id: 2, question: '자기 소개(성격)', answer: '하이하이' },
+    { id: 3, question: '취미/특기/관심사', answer: '하이하이' },
+    {
+      id: 4,
+      question: '동아리 활동과 관련하여 지금까지 한 활동',
+      answer: '하이하이',
+    },
     {
       id: 5,
       question: '단체 생활을 한 경험, 느낀점, 단체에서의 역할',
-      answer: '',
+      answer: '하이하이',
     },
     {
       id: 6,
       question: '타인과 갈등 발생했던 상황에서 성공/실패한 경험 느낀점',
-      answer: '',
+      answer: '하이하이',
     },
-    { id: 7, question: '공모전/대회 경력', answer: '' },
-    { id: 8, question: '자신에게 가장 의미 있었던 경험', answer: '' },
-    { id: 9, question: '동아리에서 하고 싶은 활동', answer: '' },
-    { id: 10, question: '동아리 활동을 통해 얻고 싶은 점', answer: '' },
-    { id: 11, question: '본인이 동아리에 도움이 될 수 있는 점', answer: '' },
-    { id: 12, question: '동아리에서 본인을 뽑아야 하는 이유', answer: '' },
-    { id: 13, question: '향후 학업 계획', answer: '' },
-    { id: 14, question: '각오', answer: '' },
+    { id: 7, question: '공모전/대회 경력', answer: '하이하이' },
+    { id: 8, question: '자신에게 가장 의미 있었던 경험', answer: '하이하이' },
+    { id: 9, question: '동아리에서 하고 싶은 활동', answer: '하이하이' },
+    { id: 10, question: '동아리 활동을 통해 얻고 싶은 점', answer: '하이하이' },
+    {
+      id: 11,
+      question: '본인이 동아리에 도움이 될 수 있는 점',
+      answer: '하이하이',
+    },
+    {
+      id: 12,
+      question: '동아리에서 본인을 뽑아야 하는 이유',
+      answer: '하이하이',
+    },
+    { id: 13, question: '향후 학업 계획', answer: '하이하이' },
+    { id: 14, question: '각오', answer: '하이하이' },
   ]);
+  let id = 15;
+  const [newQuestion, setNewQuestion] = useState<string>('');
+  const [newAnswer, setNewAnswer] = useState<string>('');
 
-  // let tmps: FAQ[] = [];
-  const [tmpFaqs, setTmpFaqs] = useState<FAQ[]>([]);
-
-  const handleUpdate = () => {
-    setUpdate(!update);
+  const handleToggle = () => {
+    setToggle(!toggle);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === 'question') {
+      setNewQuestion(e.target.value);
+    } else {
+      setNewAnswer(e.target.value);
+    }
+  };
+
+  const handleSave = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    let tmps: FAQ[] = Object.assign([], faqs);
+    let tmp: FAQ = {
+      id: id,
+      question: newQuestion,
+      answer: newAnswer,
+    };
+    tmps.push(tmp);
+    setFaqs(tmps);
+    setNewQuestion('');
+    setNewAnswer('');
+  };
+
+  const onUpdate = (id: number, question: string, answer: string) => {
+    let tmps: FAQ[] = Object.assign([], faqs);
+    tmps.map((info) => {
+      if (info.id === id) {
+        info.question = question;
+        info.answer = answer;
+      }
+    });
+    setFaqs(tmps);
+  };
 
   return (
     <div className="circle" id="wrapper">
@@ -121,48 +164,40 @@ const Circle = (
         </div>
         <div className="section_wrapper">
           <div className="small_title">FAQ</div>
-          {update ? (
-            <div className="FAQ_list">
-              {/* {faqs.map((item) => {
-                return (
-                  <Fragment>
-                    <div className="FAQ_question">{item.question}</div>
-                    <div className="FAQ_answer">{item.answer}</div>
-                  </Fragment>
-                );
-              })} */}
-              {/* <div className="FAQ_question">다음 모집은 언제쯤인가요?</div>
-              <div className="FAQ_answer">
-                안녕하세요! 문의 주셔서 감사합니다. 다음 7기 모집은 21년 1월로
-                예정하고 있습니다.
-              </div>
-              <div className="FAQ_question">다음 모집은 언제쯤인가요?</div>
-              <div className="FAQ_answer">
-                안녕하세요! 문의 주셔서 감사합니다. 다음 7기 모집은 21년 1월로
-                예정하고 있습니다.
-              </div> */}
+          <div className="FAQ_list">
+            {faqs.map((item) => {
+              return (
+                <CircleFaq
+                  onUpdate={onUpdate}
+                  isUpdate={toggle}
+                  faq={item}
+                ></CircleFaq>
+              );
+            })}
+          </div>
+          {toggle ? (
+            <div>
+              <span>질문 : </span>
+              <input
+                type="text"
+                name="question"
+                value={newQuestion}
+                onChange={handleChange}
+              ></input>
+              <span>답변 : </span>
+              <input
+                type="text"
+                name="answer"
+                value={newAnswer}
+                onChange={handleChange}
+              ></input>
+              <button onClick={handleSave}>질문 답변 저장</button>
             </div>
           ) : (
-            <div>
-              {tmpFaqs.map((item) => {
-                return (
-                  <Fragment>
-                    <input
-                      className="FAQ_question"
-                      value={item.question}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        // let tmpFaq: FAQ = {};
-                      }}
-                    ></input>
-                    <input className="FAQ_answer" value={item.answer}></input>
-                  </Fragment>
-                );
-              })}
-            </div>
+            <div></div>
           )}
-          <div>{update}</div>
-          <button id="button5B" onClick={handleUpdate}>
-            {update ? (
+          <button id="button5B" onClick={handleToggle}>
+            {toggle ? (
               <Fragment>FAQ 수정</Fragment>
             ) : (
               <Fragment>FAQ 저장</Fragment>
