@@ -49,6 +49,9 @@ import InterviewPostprocessing from './pages/recruit/InterviewPostprocessing';
 import FinalProcessing from './pages/recruit/FinalProcessing';
 import KakaoSignUp from './pages/login/KakaoSignUp2';
 import MyPageEdit from './pages/mypage/myPageEdit';
+import guideRegistration from './pages/about/guideRegistration';
+import guideSelfintroduction from './pages/about/guideSelfintroduction';
+import guideOperation from './pages/about/guideOperation';
 
 import Cookies from 'universal-cookie';
 import Button from '@material-ui/core/Button';
@@ -66,7 +69,7 @@ function App() {
               <div id="button_login">로그인/회원가입</div>
             </Link>
           ) : (
-            <Button
+            <Button id="button_login"
               onClick={() => {
                 cookies.remove('access_token');
                 cookies.remove('name');
@@ -116,17 +119,17 @@ function App() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="circle/open">
+                      <NavLink exact to="/guide/registration">
                         동아리 개설법
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="/guide/operation">
                         동아리 운영하기
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="/guide/selfintroduction">
                         자기소개서함이란
                       </NavLink>
                     </li>
@@ -316,6 +319,9 @@ function App() {
               path="/recruit/finalprocessing"
               component={FinalProcessing}
             ></Route>
+            <Route exact path ="/guide/registration" component={guideRegistration}></Route>
+            <Route exact path ="/guide/selfintroduction" component={guideSelfintroduction}></Route>
+            <Route exact path ="/guide/operation" component={guideOperation}></Route>
 
             {'login'}
             <Route exact path="/login" component={KakaoSignUp}></Route>

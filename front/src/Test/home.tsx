@@ -153,7 +153,8 @@ import icon_etc from '../images/icon_etc@2x.png';
               );
             })}
           </ul>
-          <button id="button10">전체 동아리 보기</button>
+          <Link to ="/list">
+          <button id="button10">전체 동아리 보기</button></Link>
         </div>
         <div className="home_mid_wrapper">
             <h2>Start now</h2>
