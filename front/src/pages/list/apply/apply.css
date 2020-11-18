@@ -1,5 +1,5 @@
 .apply_wrapper {
-  width: 1300px;
+  width: 1000px;
 }
 .apply_questions {
   position: relative;
@@ -14,15 +14,15 @@
 .applyquestion {
   margin-bottom: 12px;
 }
-.applyquestion label{
-  font-weight: 600;
-  font-size: 24px;
+.applyquestion label {
+  font-weight: 550;
+  font-size: 20px;
 }
 .question_box input {
   margin-left: 15px;
   margin-bottom: 5px;
 }
-.essay{
+.essay {
   padding: 12px;
   font-size: 20px;
 }
@@ -34,7 +34,12 @@
 }
 .question_box input[type='checkbox'] {
   margin-right: 5px;
-  
+}
+.noticeConsent {
+  margin-top: 50px;
+}
+.noticeConsent input[type='checkbox'] {
+  margin-right: 5px;
 }
 
 .applyCheckbox {
@@ -45,13 +50,17 @@
 
 .resumeList {
   position: fixed;
-  transform: translate(420%, -250%);
+  display: block;
+  margin: 0 auto;
+  transform: translate(230%, -195%);
+  margin-left: 400px;
   border: 2px solid;
   border-color: #0c59c3;
   border-radius: 10px;
+  background-color: white;
 
   padding: 30px 15px;
-  width: 200px;
+  width: 190px;
 }
 
 .resumeList_header {
@@ -63,7 +72,7 @@
 
 .resumeList ul li {
   color: #0c5ac6;
-  margin: 10px 0px 25px 0px;
+  margin: 5px 0px 55px 0px;
 }
 
 .resumeList ul li p {

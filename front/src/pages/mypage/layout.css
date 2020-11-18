@@ -50,6 +50,19 @@
   margin-bottom: 7px;
   color: red;
 }
+.clubImage img {
+  border-radius: 200px;
+  margin: 0 auto;
+  display: inherit;
+  margin-top: 5px;
+}
+.clubImage150 img {
+  border-radius: 200px;
+  /* transform: translate(17px, 10px); */
+  margin: 0 auto;
+  display: inherit;
+  margin-top: 15px;
+}
 /*mypage edit*/
 .MyPageEditButton #button4 {
   margin-top: 24px;

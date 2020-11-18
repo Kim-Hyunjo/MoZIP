@@ -127,7 +127,7 @@ const KakaoSignUp = () => {
 
 const KaKaoBtn = styled(KaKaoLogin)`
   padding: 0;
-  width: 190px;
+  width: 3000px;
   height: 44px;
   line-height: 44px;
   color: #783c00;

@@ -6,7 +6,7 @@ const Circle = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
 ) => {
   return (
-    <div id="wrapper">
+    <div className="circle" id="wrapper">
       <div className="circle_header">
         <h2>Tave</h2>
         <div className="small_title">국내 최초 4차 산업 혁명 동아리</div>
@@ -14,8 +14,11 @@ const Circle = (
         <div className="hashtag">#학술</div>
         <div className="detailButton">
           <Link to={`${props.match.url}/detail`}>
-            <button id="button8">모집 상세</button>
+            <button id="button5B">모집 상세</button>
           </Link>
+        </div>
+        <div className="clubImage150">
+          <img src="http://placehold.it/150x150" />
         </div>
       </div>
       <div className="circle_detail">
@@ -23,8 +26,8 @@ const Circle = (
         <br></br>
         커리큘럼은 4차산업혁명 관련 세션과 스터디 그리고 프로젝트로, 4차
         산업혁명에 관한 시야를 넓힐 수 있고 자신의 실력을 향상시킬 수 있도록
-        구성했습니다.
-        또한 다양한 분야의 사람들과 교류하며 네트워크를 형성할 수 있습니다!
+        구성했습니다.<br></br>
+        또한 다양한 분야의 사람들과 교류하며 네트워크를 형성할 수 있습니다!<br></br>
         전체 오프라인 모임은 한강 Ice Breaking, OT, 컨퍼런스 총3번 진행되며
         스터디 및 프로젝트 활동은 팀별로 소규모로 진행됩니다.<br></br>
         자세한 내용은 TAVE 카카오톡 플러스 친구를 통해 문의 바랍니다.

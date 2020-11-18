@@ -20,6 +20,7 @@ import ListApplySuccess from './pages/list/apply/ListApplySuccess';
 import ListApplyFail from './pages/list/apply/ListApplyFail';
 import mypage from './pages/mypage/mypage';
 import mypageStatus from './pages/mypage/mypageStatus';
+import myPageNotice from './pages/mypage/myPageNotice';
 import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
 import myPageIntroduction from './pages/mypage/introduction/myPageIntroduction';
@@ -65,7 +66,7 @@ function App() {
           )} */}
           {cookies.get('access_token')}
           <Link to="/login">
-            <div id = "button_login">로그인</div>
+            <div id = "button_login">로그인/회원가입</div>
           </Link>
           <nav>
             <div id="list">
@@ -144,7 +145,7 @@ function App() {
             <Route
               exact
               path="/mypage/:circle_id/notice"
-              component={mypageStatus}
+              component={myPageNotice}
             />
             <Route
               exact
