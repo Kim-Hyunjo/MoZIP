@@ -60,8 +60,9 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          {cookies.get('access_token')}
-          {cookies.get('access_token') === cookies.get('none') ? (
+          {/* {cookies.get('access_token')} */}
+          {/* {typeof cookies.get('none')} */}
+          {cookies.get('access_token') === undefined ? (
             <Link to="/login">
               <div id="button_login">로그인/회원가입</div>
             </Link>
@@ -73,7 +74,7 @@ function App() {
                 cookies.remove('image');
                 cookies.remove('email');
               }}
-              href="/"
+              href="/home"
             >
               로그아웃
             </Button>
@@ -183,12 +184,12 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/circle/members"
+              path="/list/:subject/:circle_id/members"
               component={CircleMembers}
             ></Route>
             <Route
               exact
-              path="/circle/members/edit"
+              path="/list/:subject/:circle_id/members/edit"
               component={CircleMembersEdit}
             ></Route>
             {/* list */}

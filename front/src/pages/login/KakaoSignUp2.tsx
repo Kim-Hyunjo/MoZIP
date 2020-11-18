@@ -38,12 +38,6 @@ const KakaoSignUp = () => {
 
   const cookies = new Cookies();
 
-  // let access_token: string = '';
-  // let name: string = '';
-  // let image: string = '';
-  // let semi_email: string = '';
-  // let email: string = '';
-
   const [img, setImg] = useState<string>('');
   const [open, setOpen] = React.useState(false);
 
