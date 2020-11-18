@@ -66,7 +66,7 @@ function App() {
               <div id="button_login">로그인/회원가입</div>
             </Link>
           ) : (
-            <Button
+            <Button id="button_login"
               onClick={() => {
                 cookies.remove('access_token');
                 cookies.remove('name');

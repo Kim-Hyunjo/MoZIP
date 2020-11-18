@@ -270,7 +270,7 @@ a.active {
 }
 .MuiDialog-root .MuiTypography-h6 {
   font-size: 20px;
-  line-height: 1.3;
+  line-height: 0.8;
   font-weight: 600;
 }
 .MuiDialog-root .MuiTypography-body1 {

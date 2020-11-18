@@ -13,6 +13,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
+import { Style } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: theme.spacing(3),
     },
     large: {
+      alignContent: 'center',
       width: theme.spacing(7),
       height: theme.spacing(7),
     },
@@ -108,7 +110,7 @@ const KakaoSignUp = () => {
       >
         <DialogTitle id="alert-dialog-title">{cookies.get('name')}</DialogTitle>
         <DialogContent>
-          <div className={classes.root}>
+          <div className={classes.root} id="profile_image">
             <Avatar
               alt="Remy Sharp"
               src={cookies.get('image')}
@@ -120,11 +122,11 @@ const KakaoSignUp = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            아뉴
-          </Button>
           <Button onClick={handleLogIn} color="primary" autoFocus href="/">
-            네
+            예
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            아니요
           </Button>
         </DialogActions>
       </Dialog>
