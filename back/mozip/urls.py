@@ -218,10 +218,23 @@ urlpatterns = [
     path('recruit/management/interview/postprocessing/notice/',include(router.urls)),
     path('recruit/management/interview/postprocessing/detail/',include(router.urls)),
     path('recruit/management/interview/postprocessing/finalprocessing/',include(router.urls)),
+    path('recruit/schedule/management', include(router.urls)),
+    path('recruit/schedule/management/staff', include(router.urls)),
+    path('recruit/schedule/management/detail', include(router.urls)),
+    path('recruit/interview/', include(router.urls)),
+    path('recruit/interview/commonquestion', include(router.urls)),
+    path('recruit/interview/detail', include(router.urls)),
+    path('recruit/interview/record', include(router.urls)),
+    path('recruit/interview/postprocessing/all', include(router.urls)),
+    path('recruit/interview/postprocessing/yet', include(router.urls)),
+    path('recruit/interview/postprocessing/pass', include(router.urls)),
+    path('recruit/interview/postprocessing/nonpass', include(router.urls)),
+    path('recruit/interview/postprocessing/keep', include(router.urls)),
+    path('recruit/interview/postprocessing/notice', include(router.urls)),
 
     #guide
     path('guide/selfintroduction/', include(router.urls)),
-    path('guide/sregistration/', include(router.urls)),
+    path('guide/registration/', include(router.urls)),
     path('guide/operation/', include(router.urls)),
 
     #circle
