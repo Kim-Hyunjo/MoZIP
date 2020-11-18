@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
     BrowserRouter as Router,
     Route,
@@ -6,8 +6,54 @@ import {
     Switch,
     NavLink,
   } from 'react-router-dom';
-
+import CircleMembersEditSubmaster from './CircleMembersEditSubmaster'
+import CircleMembersEditmaster from './CircleMembersEditmaster'
+import CircleMembersEditTech from './CircleMembersEditTech'
+import CircleMembersEditModal from './CircleMembersEditModal'
+  interface Role {
+      id: number,
+      name: string
+      status: string,
+      content:string
+  }
 const CircleMembersEdit = () => {
+    const [master, setMaster] = useState<Role[]>([
+        {
+            id: 0, name:'최우영', status:'회장',content:'프로필 사진'
+        },
+    ]);
+    const [submaster, setSubMaster] = useState<Role[]>([
+        {
+            id: 0, name:'박웅기', status:'부회장',content:'프로필 사진'
+        },
+    ]);
+
+    const [tech, setTech] = useState<Role[]>([
+        {id: 0, name:'왕희도', status:'기술',content:'프로필 사진'},
+        {id: 1, name:'왕희도', status:'기술',content:'프로필 사진'
+        },
+    ]);
+        const masterList = master.map((item) =>{
+            return(
+                <CircleMembersEditmaster
+                propsRole={item}/>
+            )
+        })
+    
+        const submasterList = submaster.map((item) =>{
+            return(
+                <CircleMembersEditSubmaster
+                propsRole={item}/>
+            )
+        })
+        const techList = tech.map((item) =>{
+            return(
+                <CircleMembersEditTech
+                propsRole={item}/>
+            )
+        })
+        
+
     return (
         <div className="circleMembers">
             <div><h2>운영진수정</h2>
@@ -27,34 +73,21 @@ const CircleMembersEdit = () => {
                     <li>부회장</li>
                     <li>기술처</li>
                     <li>회계</li>
-                    <li><button id = "button_plus" type="button">+</button></li>
+                    <li><button  id = "button_plus" type="button">+</button></li>
                 </ul>
             </div>
-            <div>
-                <div className="role">
-                    <div className="roleName">회장 (owner)</div>
-                    <a className="changeOwner" href="#">권한 넘기기</a>
-                </div>
-                <div className="user_namecard"><div className="user_name">최우영</div><div className="user_role">회장</div><span>프로필 사진</span></div>
+            <div style={{display:'flex'}}>
+                {masterList}
             </div>
-            <div>
-                <div className="role">
-                    <div className="roleName">부회장 (관리자)</div>
-                    <a className="changeOwner" href="#">인원 추가</a>
-                </div>
-                <div className="user_namecard_edit"><div className="user_name">박웅기</div><button id="button_x" type="button">x</button><div className="user_role">부회장</div><span>프로필 사진</span></div>
+            <div style={{display:'flex'}}>
+            {submasterList}
+
             </div>
-            <div>
-                 <div className="role"> 
-                    <div className="roleName">기술처 (관리자)</div>
-                    <a className="changeOwner" href="#">인원 추가</a>
-                </div>
-                <div className="user_namecard_edit"><div className="user_name">왕희도</div><button id="button_x" type="button">x</button><div className="user_role">기술</div><span>프로필 사진</span></div>
-                <div className="user_namecard_edit"><div className="user_name">왕희도</div><button id="button_x" type="button">x</button><div className="user_role">기술</div><span>프로필 사진</span></div>
-                <div className="user_namecard_edit"><div className="user_name">왕희도</div><button id="button_x" type="button">x</button><div className="user_role">기술</div><span>프로필 사진</span></div>
-                <div className="user_namecard_edit"><div className="user_name">왕희도</div><button id="button_x" type="button">x</button><div className="user_role">기술</div><span>프로필 사진</span></div>
-                <div className="user_namecard_edit"><div className="user_name">왕희도</div><button id="button_x" type="button">x</button><div className="user_role">기술</div><span>프로필 사진</span></div>
+            <div style={{display:'flex'}}>
+                 {techList}
+                
             </div>
+            
             <button id="button4" type="submit">완료</button>
         </div>
     )

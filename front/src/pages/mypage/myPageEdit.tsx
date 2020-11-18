@@ -11,7 +11,7 @@ import { DialogTitle } from '@material-ui/core';
 import './namecard.css';
 import Axios from 'axios';
 
-const MyPageEdit:any = () => {
+const MyPageEdit:any = (  ) => {
 
   const [name, setname] = useState('')
   const [sort, setsort] = useState('')
