@@ -58,20 +58,28 @@ const CircleMembersEditModal=  ()=> {
   const handleClose = () => {
     setOpen(false);
   };
-
+const handleAdd =() =>{
+    setOpen(false);
+    
+}
+const handleItem = (e: React.MouseEvent) =>{
+    console.dir((e.target as any).value)
+}
   const body = (
     <div style={modalStyle} className={classes.paper}>
         {guest.map((item) => {
              return(
-                <div>
+                <div onClick={handleItem} key={item.id}>
                 <div className="role">
-            <div className="roleName">{item.status} (관리자)</div>
+            <div className="roleName" >{item.status} (관리자)</div>
                </div>
                <div className="user_namecard_edit"><div className="user_name">{item.name}</div><button id="button_x" type="button">x</button><div className="user_role">{item.status}</div><span>{item.content}</span></div>
             </div>
              )
         })}
       {/* <SimpleModal /> */}
+      <button id="button4" onClick={handleClose} >취소</button>
+      <button id="button4" type="submit" onClick={handleAdd}>추가</button>
     </div>
   );
 

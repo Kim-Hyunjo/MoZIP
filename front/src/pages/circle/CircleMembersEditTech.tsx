@@ -16,7 +16,6 @@ const CircleMembersEditTech:React.FunctionComponent<Props> = ({
 }) =>{
     
    
-    const [open, setOpen] = useState<boolean>(false)
  
  
       
