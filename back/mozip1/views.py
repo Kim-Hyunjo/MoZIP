@@ -121,6 +121,31 @@ class ClubJustDetailView(APIView): #동아리 그냥 상세
         serializer = ClubSerializer(Club.objects.get(cc_id=id), many=True)
         return Response(serializer.data)
 
+#list/category/{ccID}
+class ClubView(APIView):
+    def get(self, request, cc_id, user_id):
+        #Club
+        serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
+        #Club_review
+        serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
+        #Club_FAQ
+        serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
+        return Response(serializer1.data + serializer2.data + serializer3.data)
+    
+    # def put(self, request, cc_id, user_id):
+    #     #회원이면
+    #     #회장이면
+
+class ListDetailView(APIView):
+    def get(self, reuqest, cc_id, user_id):
+            serializer1 = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=cc_id), many=True)
+            serializer2 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
+            return Response(serializer1.data + serializer2.data)
+
+
+
+
+
 #mypage
 
 class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동아리개설요청(list),지원이력(list)
