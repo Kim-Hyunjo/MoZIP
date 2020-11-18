@@ -36,16 +36,15 @@ const useStyles = makeStyles((theme: Theme) =>
 const KakaoSignUp = () => {
   const classes = useStyles();
 
-  const [img, setImg] = useState<string>('');
   const cookies = new Cookies();
 
-  // useEffect(() => {
-  //   console.log('컴포넌트가 화면에 나타남');
-  //   return () => {
-  //     console.log('컴포넌트가 화면에서 사라짐');
-  //   };
-  // }, [img]);
+  // let access_token: string = '';
+  // let name: string = '';
+  // let image: string = '';
+  // let semi_email: string = '';
+  // let email: string = '';
 
+  const [img, setImg] = useState<string>('');
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -53,6 +52,15 @@ const KakaoSignUp = () => {
   };
 
   const handleClose = () => {
+    cookies.remove('access_token');
+    cookies.remove('name');
+    cookies.remove('image');
+    cookies.remove('email');
+
+    setOpen(false);
+  };
+
+  const handleLogIn = () => {
     setOpen(false);
   };
 
@@ -68,8 +76,7 @@ const KakaoSignUp = () => {
     cookies.set('name', name, { path: '/' });
     cookies.set('image', image, { path: '/' });
     cookies.set('email', email, { path: '/' });
-    cookies.set('access_token', access_token, { path: '/' });
-    setImg(image);
+
     console.log(image);
     handleClickOpen();
     // alert(JSON.stringify(res));
@@ -116,7 +123,7 @@ const KakaoSignUp = () => {
           <Button onClick={handleClose} color="primary">
             아뉴
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus href="/">
+          <Button onClick={handleLogIn} color="primary" autoFocus href="/">
             네
           </Button>
         </DialogActions>
