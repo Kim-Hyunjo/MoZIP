@@ -29,7 +29,8 @@ const myPageNotice = () => {
         </div>
       </div>
     </div>
-    <button className="button_medium3 btn_inmiddle">확인</button>
+    <Link to ="/mypage">
+    <button className="button_medium3 btn_inmiddle">확인</button></Link>
     </div>
   );
 };

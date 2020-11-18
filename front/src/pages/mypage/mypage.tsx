@@ -87,7 +87,8 @@ const mypage = () => {
         </div>
       </div>
       <div className="mypageStorageButton">
-        <button id="button10">자기소개함 관리</button>
+        <Link to ="/mypage/introduction">
+        <button id="button10">자기소개함 관리</button></Link>
       </div>
       <div id="applyCurrent" className="small_section">
         <div className="middle_title">나의 지원 현황</div>
@@ -98,42 +99,34 @@ const mypage = () => {
               <div className="club_intro">
                 {personalApplyCurrent[0].introduction}
               </div>
+              <div className="clubImage">
+                <img src="http://placehold.it/120x120" />
+              </div>
+              <Link to ="/mypage/:circle_id/notice">
+              <button id="button2">최종 결과 확인</button></Link>
+            </li>
+            <li>
+              <div className="club_name">{personalApplyCurrent[1].name}</div>
+              <div className="club_intro">
+                {personalApplyCurrent[1].introduction}
+              </div>
+              <div className="clubImage">
+                <img src="http://placehold.it/120x120" />
+              </div>
+              <Link to ="/mypage/:circle_id/notice">
               <button id="button2">최종 결과 확인</button>
+              </Link>
             </li>
             <li>
               <div className="club_name">{personalApplyCurrent[0].name}</div>
               <div className="club_intro">
                 {personalApplyCurrent[0].introduction}
               </div>
-              <button id="button2">최종 결과 확인</button>
-            </li>
-            <li>
-              <div className="club_name">{personalApplyCurrent[0].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[0].introduction}
+              <div className="clubImage">
+                <img src="http://placehold.it/120x120" />
               </div>
-              <button id="button2">최종 결과 확인</button>
-            </li>
-            <li>
-              <div className="club_name">{personalApplyCurrent[0].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[0].introduction}
-              </div>
-              <button id="button2">최종 결과 확인</button>
-            </li>
-            <li>
-              <div className="club_name">{personalApplyCurrent[0].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[0].introduction}
-              </div>
-              <button id="button2">최종 결과 확인</button>
-            </li>
-            <li>
-              <div className="club_name">{personalApplyCurrent[0].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[0].introduction}
-              </div>
-              <button id="button2">최종 결과 확인</button>
+              <Link to ="/mypage/:circle_id/notice">
+              <button id="button2">최종 결과 확인</button></Link>
             </li>
           </ul>
         </div>
@@ -146,6 +139,7 @@ const mypage = () => {
         <div className="horizontal_scroll">
           <ul className="small_namecard">
             <li>
+              <Link to = "/list/:subject/:circle_id">
               <div className="club_position">
                 {personalClublist[0].position}
               </div>
@@ -153,6 +147,10 @@ const mypage = () => {
               <div className="club_intro">
                 {personalClublist[0].introduction}
               </div>
+              <div className="clubImage150">
+                <img src="http://placehold.it/150x150" />
+              </div>
+              </Link>
             </li>
             <li>
               <div className="club_position">
@@ -161,6 +159,9 @@ const mypage = () => {
               <div className="club_name">{personalClublist[1].name}</div>
               <div className="club_intro">
                 {personalClublist[1].introduction}
+              </div>
+              <div className="clubImage150">
+                <img src="http://placehold.it/150x150" />
               </div>
             </li>
           </ul>
@@ -181,6 +182,9 @@ const mypage = () => {
               <div className="club_intro">
                 {personalOpenRequest[0].introduction}
               </div>
+              <div className="clubImage150">
+                <img src="http://placehold.it/150x150" />
+              </div>
             </li>
             <li>
               <div className="club_position">
@@ -189,6 +193,9 @@ const mypage = () => {
               <div className="club_name">{personalOpenRequest[1].name}</div>
               <div className="club_intro">
                 {personalOpenRequest[1].introduction}
+              </div>
+              <div className="clubImage150">
+                <img src="http://placehold.it/150x150" />
               </div>
             </li>
           </ul>
@@ -206,6 +213,9 @@ const mypage = () => {
               <div className="club_intro">
                 {personalApplyHistory[0].introduction}
               </div>
+              <div className="clubImage150">
+                <img src="http://placehold.it/150x150" />
+              </div>
             </li>
             <li>
               <div className="club_position">
@@ -214,6 +224,9 @@ const mypage = () => {
               <div className="club_name">{personalApplyHistory[1].name}</div>
               <div className="club_intro">
                 {personalApplyHistory[1].introduction}
+              </div>
+              <div className="clubImage150">
+                <img src="http://placehold.it/150x150" />
               </div>
             </li>
           </ul>

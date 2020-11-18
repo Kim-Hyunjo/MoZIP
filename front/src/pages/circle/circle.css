@@ -1,5 +1,7 @@
 .section_wrapper {
-  transform: translate(7%, 0%);
+  /* transform: translate(7%, 0%); */
+  display: table;
+  margin: 0 auto;
   margin-top: 44px;
 }
 .centeralign_wrapper {
@@ -13,9 +15,25 @@
 .upload_pic {
   float: left;
 }
-
+/*circle*/
+.circle {
+  width: 1000px;
+}
 .circle_header {
   margin-bottom: 8px;
+}
+.detailButton {
+  margin-left: 550px;
+}
+.detailButton #button5B {
+  margin-bottom: 20px;
+}
+.circle .clubImage150 img {
+  position: absolute;
+  border-radius: 0px;
+  margin: 0px;
+  top: 55px;
+  right: 110px;
 }
 
 .openDate {
@@ -29,8 +47,13 @@
 }
 
 .circle_detail {
-  width: 1000px;
+  margin: 0 auto;
+  width: 900px;
   line-height: 28px;
+  display: block;
+}
+.circle_reviewList {
+  margin: 0 auto;
 }
 
 .circle_review {
@@ -87,6 +110,10 @@
   border: 2px solid #b2cff7;
   background-color: #b2cff7;
   border-radius: 30px;
+}
+/*circle detail*/
+.circleDetail {
+  width: 1000px;
 }
 
 .recruitDetail {

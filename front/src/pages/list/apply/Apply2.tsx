@@ -52,7 +52,7 @@ const Apply2 = ({ history }: any) => {
   const renderSubmit = () => {
     if (agreement) {
       return (
-        <Link to="/list/:subject/:circle_id/detail">
+        <Link to="/list/:subject/:circle_id/apply/success">
           <button id="button4" type="submit">
             제출
           </button>
@@ -73,7 +73,7 @@ const Apply2 = ({ history }: any) => {
       </div>
       <div className="whole_resume">
       <div>
-        <div className="middle_title">지원서</div>
+        <h4>지원서</h4>
         <form action="">
           <div className="apply_questions">
             <div className="question_box">

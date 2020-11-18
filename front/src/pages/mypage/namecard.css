@@ -73,7 +73,7 @@ c .small_section .small_wrap {
   flex-direction: row;
 }
 .small_namecard {
-  width: 1200px;
+  width: auto;
   white-space: nowrap;
 
   display: inline-block;
@@ -94,15 +94,15 @@ c .small_section .small_wrap {
 .small_namecard li .club_name {
   font-size: 22px;
   margin-bottom: 8px;
-  overflow-x: hidden;
+  overflow-x: auto;
 
   height: auto;
 }
 
 .small_namecard li .club_intro {
-  /*overflow-x: auto;*/
+  overflow-x: auto;
 
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .small_namecard li .club_position {

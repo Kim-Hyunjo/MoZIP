@@ -111,18 +111,18 @@ class KakaoSignUp extends Component<any, State> {
     );
   }
 }
-const StKaKaoLogin = styled.div`
-  cursor: pointer;
-  /* border-radius:10px; */
-  /* width: 200px; */
-  /* &:hover{
-        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
-    } */
-`;
+// const StKaKaoLogin = styled.div`
+//   cursor: pointer;
+//   /* border-radius:10px; */
+//   /* width: 200px; */
+//   /* &:hover{
+//         box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+//     } */
+// `;
 
 const KaKaoBtn = styled(KaKaoLogin)`
   padding: 0;
-  width: 190px;
+  width: 200px;
   height: 44px;
   line-height: 44px;
   color: #783c00;

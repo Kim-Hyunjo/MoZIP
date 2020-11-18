@@ -46,7 +46,7 @@
   background-color: #0c59c3;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
   color: white;
-  transform: translate(0%, 400%);
+  transform: translate(0%, 40%);
   margin-left: 9px;
 }
 
@@ -276,14 +276,11 @@
   float: right;
 }
 
-.detailButton {
-  margin-left: 500px;
-}
-
 .recruitDetailButton {
   width: 800px;
   float: right;
   margin-top: -40px;
+  margin-right: 70px;
 }
 
 .recruitDetailButton #button5B {
@@ -406,7 +403,7 @@
   text-decoration: underline;
   color: white;
   padding: 12px;
-  width: 48px;
-  right: 90px;
+  width: 110px;
+  right: 30px;
   position: fixed;
 }

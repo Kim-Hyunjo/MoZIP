@@ -8,7 +8,7 @@ const CircleDetail = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
 ) => {
   return (
-    <div>
+    <div className="circleDetail">
       {/* <h2>{props.match.params.subject}</h2>
       <h2>{props.match.params.circle_id}</h2> */}
       <div className="circle_header">
@@ -23,7 +23,9 @@ const CircleDetail = (
           <Link to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}>
             <button id ="button5B">동아리 지원하기!</button>
           </Link>
-          <button id="button5W">동아리 메인페이지</button>
+          <Link to={`/list/${props.match.params.subject}/${props.match.params.circle_id}`}>
+            <button id="button5W">동아리 메인페이지</button>
+          </Link>
         </div>
       <img></img>
       </div>
