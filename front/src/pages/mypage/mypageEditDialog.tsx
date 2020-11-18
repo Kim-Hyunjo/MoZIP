@@ -36,7 +36,7 @@ export default function AlertDialog() {
             예
           </Button>
           <Button onClick={handleClose} color="primary">
-            아니오
+            아니요
           </Button>
         </DialogActions>
       </Dialog>
