@@ -6,6 +6,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['group', 'name', 'education','grader', 
+        'states', 'birthday', 'telephone', 'email', 'address','self_image','date','user_id']
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['group', 'name', 'education','grader', 
         'states', 'birthday', 'telephone', 'email', 'address','self_image','user_id']
 
 class ClubSerializer(serializers.HyperlinkedModelSerializer):
@@ -14,18 +19,13 @@ class ClubSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['cc_id','name','information','category','foundationdate' 
         ,'detail_information','self_image','card_image','telephone','email']
 
+class ListClubSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Club
+        fields = ['name','information','category','self_image']
+
 class UserApplyListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-<<<<<<< Updated upstream
-        model = Post
-        fields = ['id','title','content']
-
-#list
-class ListClubSerializer(serializers.HyperlinkedModelSerializer):
-    class Meat:
-        model = Club
-        fields = ['name','information','self_image','category']
-=======
         model = user_apply_list
         fields = ['user_id','apply_list']
 
@@ -70,4 +70,3 @@ class UserRecordQSerializer(serializers.ModelSerializer):
     class Meta:
         model = user_recordQ
         fields = ["recordQ", "user_id"]
->>>>>>> Stashed changes
