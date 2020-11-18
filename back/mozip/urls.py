@@ -38,6 +38,7 @@ urlpatterns = [
 
     #mozip
     #list
+<<<<<<< Updated upstream
     path('list/all/', ListAllView.as_view()),
     path('list/academy/', ListAcademyView.as_view()),
     path('list/art/', ListArtView.as_view()),
@@ -119,38 +120,121 @@ urlpatterns = [
     path('list/etc/{circleID}/joinus/', include(router.urls)),
     path('list/etc/{circleID}/members/', include(router.urls)),
     path('list/etc/{circleID}/members/edit/', include(router.urls)),
+=======
+  
+    path('list/academy/<int:cc_id>/detail/', include(router.urls)),
+    path('list/academy/<int:cc_id>/apply/', include(router.urls)),
+    path('list/academy/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/academy/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/academy/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/academy/<int:cc_id>/members/', include(router.urls)),
+    path('list/academy/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/art/<int:cc_id>/', include(router.urls)),
+    path('list/art/<int:cc_id>/detail/', include(router.urls)),
+    path('list/art/<int:cc_id>/apply/', include(router.urls)),
+    path('list/art/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/art/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/art/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/art/<int:cc_id>/members/', include(router.urls)),
+    path('list/art/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/networking/<int:cc_id>/', include(router.urls)),
+    path('list/networking/<int:cc_id>/detail/', include(router.urls)),
+    path('list/networking/<int:cc_id>/apply/', include(router.urls)),
+    path('list/networking/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/networking/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/networking/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/networking/<int:cc_id>/members/', include(router.urls)),
+    path('list/networking/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/sports/<int:cc_id>/', include(router.urls)),
+    path('list/sports/<int:cc_id>/detail/', include(router.urls)),
+    path('list/sports/<int:cc_id>/apply/', include(router.urls)),
+    path('list/sports/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/sports/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/sports/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/sports/<int:cc_id>/members/', include(router.urls)),
+    path('list/sports/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/travel/<int:cc_id>/', include(router.urls)),
+    path('list/travel/<int:cc_id>/detail/', include(router.urls)),
+    path('list/travel/<int:cc_id>/apply/', include(router.urls)),
+    path('list/travel/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/travel/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/travel/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/travel/<int:cc_id>/members/', include(router.urls)),
+    path('list/travel/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/religion/<int:cc_id>/', include(router.urls)),
+    path('list/religion/<int:cc_id>/detail/', include(router.urls)),
+    path('list/religion/<int:cc_id>/apply/', include(router.urls)),
+    path('list/religion/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/religion/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/religion/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/religion/<int:cc_id>/members/', include(router.urls)),
+    path('list/religion/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/volunteer/<int:cc_id>/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/detail/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/apply/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/members/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/members/edit/', include(router.urls)),
+
+    path('list/etc/<int:cc_id>/', include(router.urls)),
+    path('list/etc/<int:cc_id>/detail/', include(router.urls)),
+    path('list/etc/<int:cc_id>/apply/', include(router.urls)),
+    path('list/etc/<int:cc_id>/apply/success/', include(router.urls)),
+    path('list/etc/<int:cc_id>/apply/fail/', include(router.urls)),
+    path('list/etc/<int:cc_id>/joinus/', include(router.urls)),
+    path('list/etc/<int:cc_id>/members/', include(router.urls)),
+    path('list/etc/<int:cc_id>/members/edit/', include(router.urls)),
+>>>>>>> Stashed changes
 
     #login,signup
     path('login/', include(router.urls)),
     path('signup/', include(router.urls)),
 
     #mypage
-    path('mypage/', include(router.urls)),
-    path('mypage/edit/', include(router.urls)),
-    path('mypage/status/', include(router.urls)),
-    path('mypage/introduction/', include(router.urls)),
-    path('mypage/{circleID}/notice/', include(router.urls)),
+    path('mypage/<int:user_id>/', MypageView.as_view()),
+    path('mypage/<int:user_id>/edit/', MypageEditView.as_view()),
+    path('mypage/<int:user_id>/status/', MypageStatusView.as_view()),
+    path('mypage/<int:user_id>/introduction/', MypageIntroductionView.as_view()),
+    path('mypage/<int:user_id>/-<int:ci_id>/notice/', MypageRecruitNoticeView.as_view()),
     
     #recruit
-    path('/recruit/selection', include(router.urls)),
-    path('recruit/process/basicinfo', include(router.urls)),
-    path('recruit/process/noticeinfo', include(router.urls)),
-    path('recruit/process/form', include(router.urls)),
-    path('recruit/process/applicants', include(router.urls)),
-    path('recruit/resume', include(router.urls)),
-    path('recruit/resume/<str:memberId>', include(router.urls)),
+    path('recruit/selection/', include(router.urls)),
+    path('recruit/process/basicinfo/',include(router.urls) ),
+    path('recruit/process/noticeinfo/', include(router.urls)),
+    path('recruit/process/form/', include(router.urls)),
+    path('recruit/process/applicants/', include(router.urls)),
+    path('recruit/resume/', include(router.urls)),
+    path('recruit/resume/<int:user_id>/', include(router.urls)),
+    path('recruit/management/staff/',include(router.urls)),
+    path('recruit/management/detail/',include(router.urls)),
+    path('recruit/management/interview/commonquestion/',include(router.urls)),
+    path('recruit/management/interview/detail/',include(router.urls)),
+    path('recruit/management/interview/record/',include(router.urls)),
+    path('recruit/management/interview/postprocessing/notice/',include(router.urls)),
+    path('recruit/management/interview/postprocessing/detail/',include(router.urls)),
+    path('recruit/management/interview/postprocessing/finalprocessing/',include(router.urls)),
 
     #guide
-    path('guide/selfintroduction', include(router.urls)),
-    path('guide/sregistration', include(router.urls)),
-    path('guide/operation', include(router.urls)),
+    path('guide/selfintroduction/', include(router.urls)),
+    path('guide/sregistration/', include(router.urls)),
+    path('guide/operation/', include(router.urls)),
 
     #circle
-    path('circle/open', include(router.urls)),
-    path('circle/open/success', include(router.urls)),
-    path('circle/open/fail', include(router.urls)),
-    path('circle/open/approval', include(router.urls)),
-    path('circle/open/reject', include(router.urls)),
+    path('circle/open/', include(router.urls)),
+    path('circle/open/success/', include(router.urls)),
+    path('circle/open/fail/', include(router.urls)),
+    path('circle/open/approval/', include(router.urls)),
+    path('circle/open/reject/', include(router.urls)),
 
     
 ]
+
+  
