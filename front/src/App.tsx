@@ -51,6 +51,7 @@ import KakaoSignUp from './pages/login/KakaoSignUp2';
 import MyPageEdit from './pages/mypage/myPageEdit';
 
 import Cookies from 'universal-cookie';
+import Button from '@material-ui/core/Button';
 
 function App() {
   const cookies = new Cookies();
@@ -59,15 +60,25 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          {/* {cookies.get('token') === null ? (
-            <div>토큰없음</div>
-          ) : (
-            <div>토큰있음</div>
-          )} */}
           {cookies.get('access_token')}
-          <Link to="/login">
-            <div id = "button_login">로그인/회원가입</div>
-          </Link>
+          {cookies.get('access_token') === cookies.get('none') ? (
+            <Link to="/login">
+              <div id="button_login">로그인/회원가입</div>
+            </Link>
+          ) : (
+            <Button
+              onClick={() => {
+                cookies.remove('access_token');
+                cookies.remove('name');
+                cookies.remove('image');
+                cookies.remove('email');
+              }}
+              href="/"
+            >
+              로그아웃
+            </Button>
+          )}
+
           <nav>
             <div id="list">
               <ul className="menu">
@@ -78,9 +89,9 @@ function App() {
                   </NavLink>
                   <ul className="sub">
                     <li>
-                    <NavLink exact to="/mypage">
-                      My Page
-                    </NavLink>
+                      <NavLink exact to="/mypage">
+                        My Page
+                      </NavLink>
                     </li>
                     <li>
                       <NavLink exact to="/mypage/introduction">
@@ -100,9 +111,9 @@ function App() {
                   </NavLink>
                   <ul className="sub">
                     <li>
-                    <NavLink exact to="/intro">
-                      Guide
-                    </NavLink>
+                      <NavLink exact to="/intro">
+                        Guide
+                      </NavLink>
                     </li>
                     <li>
                       <NavLink exact to="circle/open">
