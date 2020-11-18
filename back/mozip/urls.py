@@ -38,7 +38,6 @@ urlpatterns = [
 
     #mozip
     #list
-<<<<<<< Updated upstream
     path('list/all/', ListAllView.as_view()),
     path('list/academy/', ListAcademyView.as_view()),
     path('list/art/', ListArtView.as_view()),
@@ -120,7 +119,6 @@ urlpatterns = [
     path('list/etc/{circleID}/joinus/', include(router.urls)),
     path('list/etc/{circleID}/members/', include(router.urls)),
     path('list/etc/{circleID}/members/edit/', include(router.urls)),
-=======
   
     path('list/academy/<int:cc_id>/detail/', include(router.urls)),
     path('list/academy/<int:cc_id>/apply/', include(router.urls)),
@@ -192,7 +190,6 @@ urlpatterns = [
     path('list/etc/<int:cc_id>/joinus/', include(router.urls)),
     path('list/etc/<int:cc_id>/members/', include(router.urls)),
     path('list/etc/<int:cc_id>/members/edit/', include(router.urls)),
->>>>>>> Stashed changes
 
     #login,signup
     path('login/', include(router.urls)),
