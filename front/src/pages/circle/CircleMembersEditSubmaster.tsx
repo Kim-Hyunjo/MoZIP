@@ -22,9 +22,6 @@ const CircleMembersEditSubmaster:React.FunctionComponent<Props> = ({
            { id: 3, name:'박웅기', status:'기술',content:'프로필 사진'},
            { id: 4, name:'한예송', status:'기술',content:'프로필 사진'},
     ]
- 
-    
-      
    
 return (
     <div>
@@ -32,7 +29,11 @@ return (
                     <div className="roleName">{propsRole.status} (관리자)</div>
                     <CircleMembersEditModal/>
                 </div>
-        <div className="user_namecard_edit"><div className="user_name">{propsRole.name}</div><button id="button_x" type="button">x</button><div className="user_role">{propsRole.status}</div><span>{propsRole.content}</span></div>
+        <div className="user_namecard_edit"><div className="user_name">{propsRole.name}</div><button id="button_x" type="button">x</button><div className="submaster_role">{propsRole.status}</div>
+        <div className="subClubImage">
+            <img src="http://placehold.it/120x120" />
+        </div>
+    </div>
     </div>
 )
 }
