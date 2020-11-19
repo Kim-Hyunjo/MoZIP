@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -55,6 +55,7 @@ import guideOperation from './pages/about/guideOperation';
 
 import Cookies from 'universal-cookie';
 import Button from '@material-ui/core/Button';
+import ScrollToTop from './scroll/ScrollToTop';
 
 function App() {
   const cookies = new Cookies();
@@ -67,6 +68,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <header>
           {login === '' ? (
