@@ -107,7 +107,17 @@
   border: 10px solid #e1eeff;
   background-color: #f7f7f7;
 }
-
+.editFAQ #button_x {
+  color: #e86e77;
+  font-weight: 700;
+  line-height: 12px;
+  position: relative;
+  transform: translate(645px, -147px);
+  background-color: #f7f7f7;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e86e77;
+}
 .FAQ_answer {
   width: 620px;
   height: auto;

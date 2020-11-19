@@ -50,11 +50,11 @@ urlpatterns = [
 
     path('list/academy/{cc_id}/', ClubView.as_view()),
     path('list/academy/{circleID}/detail/', ListDetailView.as_view()),
-    path('list/academy/{circleID}/apply/', include(router.urls)),
-    path('list/academy/{circleID}/apply/success/', include(router.urls)),
-    path('list/academy/{circleID}/apply/fail/', include(router.urls)),
-    path('list/academy/{circleID}/joinus/', include(router.urls)),
-    path('list/academy/{circleID}/members/', include(router.urls)),
+    path('list/academy/{circleID}/apply/', ListApplyView.as_view()),
+    path('list/academy/{circleID}/apply/success/', ListApplySuccessView.as_view()),
+    path('list/academy/{circleID}/apply/fail/', ListApplyFailView.as_view()),
+    path('list/academy/{circleID}/joinus/', ListJoinUsView.as_view(), name='joinus'),
+    path('list/academy/{circleID}/members/', ListMembersView.as_view()),
     path('list/academy/{circleID}/members/edit/', include(router.urls)),
 
     path('list/art/{circleID}/', ClubView.as_view()),
