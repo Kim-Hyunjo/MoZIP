@@ -35,9 +35,10 @@ const CircleFaq = ({ onUpdate, isUpdate, faq }: Props) => {
           <div className="FAQ_question">{faq.question}</div>
           <div className="FAQ_answer">{faq.answer}</div>
         </Fragment>
-      ) : (
-        <div>
+      ) : ( 
+      <div className="editFAQ">
           <input
+            className="FAQ_question"
             type="text"
             name="question"
             value={question}
@@ -45,6 +46,7 @@ const CircleFaq = ({ onUpdate, isUpdate, faq }: Props) => {
             onBlur={handleBlur}
           ></input>
           <input
+            className="FAQ_answer"
             type="text"
             name="answer"
             value={answer}

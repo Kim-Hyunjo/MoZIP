@@ -55,7 +55,7 @@ const CircleMembersEdit = () => {
         
 
     return (
-        <div className="circleMembers">
+        <div className="circleMembersEdit">
             <div><h2>운영진수정</h2>
                 <h4>
                 내 동아리의 운영진 명단을 수정해보세요.<br></br>
@@ -80,15 +80,13 @@ const CircleMembersEdit = () => {
                 {masterList}
             </div>
             <div style={{display:'flex'}}>
-            {submasterList}
-
+                {submasterList}
             </div>
             <div style={{display:'flex'}}>
                  {techList}
                 
             </div>
-            
-            <button id="button4" type="submit">완료</button>
+            <Link to="/list/:subject/:circle_id/members"><button id="button4" type="submit">완료</button></Link>
         </div>
     )
 }

@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
       position: 'absolute',
-      width: 1200   ,
-      height:800,
+      width: 800,
+      height:600,
       backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
+      border: '2px solid #0C5AC6',
       boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
+      // padding: theme.spacing(, 4, 3),
       display:'flex'
     },
   }),
@@ -38,7 +38,7 @@ interface Role {
 }
 
 
-const CircleMembersEditModal=  ()=> {
+const CircleMembersEditModal=()=> {
     const guest:Role[] =[
         { id: 2, name:'한채은', status:'기술',content:'프로필 사진'},
            { id: 3, name:'왕희도', status:'기술',content:'프로필 사진'},
@@ -67,19 +67,26 @@ const handleItem = (e: React.MouseEvent) =>{
 }
   const body = (
     <div style={modalStyle} className={classes.paper}>
+      <h4 id="simple-modal-title">인원 추가하기</h4>
+        
+      {/* <SimpleModal /> */}
+      <div id="simple-modal-description">
         {guest.map((item) => {
              return(
-                <div onClick={handleItem} key={item.id}>
-                <div className="role">
-            <div className="roleName" >{item.status} (관리자)</div>
-               </div>
-               <div className="user_namecard_edit"><div className="user_name">{item.name}</div><button id="button_x" type="button">x</button><div className="user_role">{item.status}</div><span>{item.content}</span></div>
-            </div>
+                <div className="namecardList" onClick={handleItem} key={item.id}>
+                  <div className="user_namecard"><div className="user_name">{item.name}</div><div className="user_role">{item.status}</div>
+                  <div className="clubImage">
+                      <img src="http://placehold.it/80x80" />
+                  </div></div>
+                </div>
              )
         })}
-      {/* <SimpleModal /> */}
-      <button id="button4" onClick={handleClose} >취소</button>
-      <button id="button4" type="submit" onClick={handleAdd}>추가</button>
+        <div className="modalButtons">
+          <button id="button1" onClick={handleClose} >취소</button>
+          <button id="button4" type="submit" onClick={handleAdd}>추가</button>
+        </div>
+        
+      </div>
     </div>
   );
 
@@ -94,6 +101,7 @@ const handleItem = (e: React.MouseEvent) =>{
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
+        
         {body}
       </Modal>
     </div>

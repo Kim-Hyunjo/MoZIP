@@ -111,8 +111,6 @@ const Circle = (
         </div>
       </div>
       <div className="circle_detail">
-        안녕하세요! 제 4차 산업혁명 연구 동아리 TAVE에서 6기 회원을 모집합니다.
-        <br></br>
         커리큘럼은 4차산업혁명 관련 세션과 스터디 그리고 프로젝트로, 4차
         산업혁명에 관한 시야를 넓힐 수 있고 자신의 실력을 향상시킬 수 있도록
         구성했습니다.<br></br>
@@ -176,27 +174,30 @@ const Circle = (
             })}
           </div>
           {toggle ? (
-            <div>
-              <span>질문 : </span>
+            <div></div>
+          ) : (
+            <div className="editFAQ">
+              <div className="small_title">FAQ 추가하기</div>
               <input
+                className="FAQ_question"
                 type="text"
                 name="question"
+                placeholder="자주 묻는 질문을 작성해보세요."
                 value={newQuestion}
                 onChange={handleChange}
               ></input>
-              <span>답변 : </span>
               <input
+                className="FAQ_answer"
                 type="text"
                 name="answer"
+                placeholder="질문에 대한 답변을 작성해보세요."
                 value={newAnswer}
                 onChange={handleChange}
               ></input>
-              <button onClick={handleSave}>질문 답변 저장</button>
+              <button id="button5W" onClick={handleSave}>질문 답변 저장</button>
             </div>
-          ) : (
-            <div></div>
           )}
-          <button id="button5B" onClick={handleToggle}>
+          <button className="FAQeditButton" id="button5B" onClick={handleToggle}>
             {toggle ? (
               <Fragment>FAQ 수정</Fragment>
             ) : (
