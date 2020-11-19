@@ -11,6 +11,8 @@ from rest_framework import generics
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListAPIView, GenericAPIView
 from rest_framework.mixins import ListModelMixin
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -124,17 +126,22 @@ class ClubJustDetailView(APIView): #동아리 그냥 상세
 #list/category/{ccID}
 class ClubView(APIView):
     def get(self, request, cc_id, user_id):
-        #Club
-        serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
-        #Club_review
-        serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
-        #Club_FAQ
-        serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
-        return Response(serializer1.data + serializer2.data + serializer3.data)
-    
-    # def put(self, request, cc_id, user_id):
-    #     #회원이면
-    #     #회장이면
+        #회원이면
+        if(user_id >0):
+            #Club
+            serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
+            #Club_review
+            serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
+            #Club_FAQ
+            serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
+            return Response(serializer1.data + serializer2.data + serializer3.data)
+        #회원 아니면 joinus로 redirect
+        else:
+            return redirect('joinus')
+
+        # def put(self, request, cc_id, user_id):
+        #회장이면
+
 
 class ListDetailView(APIView):
     def get(self, reuqest, cc_id, user_id):
@@ -142,6 +149,7 @@ class ListDetailView(APIView):
         serializer2 = ClubFAQSerializer(Club_FAQ.objects.filter(id=-cc_id), many=True)
         return Response(serializer1.data + serializer2.data)
     def post(self, request, cc_id, user_id, post_id):
+        #어떻게 구분하지ㅜㅜ
         #질문 달기-모두
         serializer = ClubDetailPostSerializer(Club_FAQ.objects.get(club_id=cc_id), data=request.data)
         if serializer.is_valid():
@@ -177,6 +185,26 @@ class ListApplyFailView(APIView):
     def get(self, request):
         serializer = RecruitFormatSerializer(recruit_format.objects.get(club_id=cc_id), many=True)
         return Response(serializer.data)
+
+class ListJoinUsView(APIView):
+    #ClubView에서 redirect됨
+    def get(self, request, cc_id, user_id):
+        #Club
+        serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
+        #Club_review
+        serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
+        #Club_FAQ
+        serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
+        return Response(serializer1.data + serializer2.data + serializer3.data)
+
+class ListMembersView(APIView):
+    #회장인지 확인ㅜ
+    def get(self, request, cc_id):
+        serializer = ClubMemberSerializer(Club_member.objects.filter(club_id=cc_id), many=True)
+        return Response(serializer.data)
+
+#class ListMembersEditView(APIView):
+
 
 
 #mypage
