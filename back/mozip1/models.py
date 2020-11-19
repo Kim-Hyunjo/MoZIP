@@ -40,17 +40,17 @@ class Creation_Club(models.Model):
     objects = models.DjongoManager()
 
 class Club(models.Model):
-    cc_id = models.IntegerField(unique=True,primary_key=True)
+    cc_id = models.IntegerField(unique=True,primary_key=True, default=0)
     name = models.CharField(max_length=15)
-    information = models.CharField(max_length=30)
+    information = models.CharField(max_length=30, null=True)
     category_choice = (("c1","학술"),("c2","예술"),("c3","친목"),("c4","스포츠"),("c5","여행"),("c6","종교"),("c7","봉사"),("c8","기타"))
     category = models.CharField(max_length=8,choices=category_choice,default="c1")
-    foundationdate = models.JSONField()
-    detail_information = models.TextField(max_length=300)
-    self_image = models.CharField(max_length=10)
+    foundationdate = models.JSONField(default=None)
+    detail_information = models.TextField(max_length=300, default=None)
+    self_image = models.CharField(max_length=10, default=None)
     card_image = models.JSONField(default=[])
-    telephone = models.CharField(max_length=15)
-    email = models.EmailField()
+    telephone = models.CharField(max_length=15, default=None)
+    email = models.EmailField(default=None)
     #status
     objects = models.DjongoManager()
 
