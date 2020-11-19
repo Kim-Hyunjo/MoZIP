@@ -411,8 +411,23 @@
   top: 4px;
   text-align: right;
   font-size: 20px;
-  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
 }
 #button_login span {
+  color: white; 
+}
+#button_logout {
+  text-decoration: underline;
+  color: white;
+  padding: 12px;
+  width: 100px;
+  right: 30px;
+  position: fixed;
+  top: 4px;
+  text-align: right;
+  font-size: 20px;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
+}
+#button_logout span {
   color: white; 
 }
