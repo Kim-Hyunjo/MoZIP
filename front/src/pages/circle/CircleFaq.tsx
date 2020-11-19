@@ -59,7 +59,7 @@ const CircleFaq = ({ onUpdate, onRemove, isUpdate, faq }: Props) => {
             onChange={handleChange}
             onBlur={handleBlur}
           ></input>
-          <button id="button_x" onClick={handleRemove}>x</button>
+          <button id="button_x" onClick={handleRemove}></button>
         </div>
       )}
     </Fragment>

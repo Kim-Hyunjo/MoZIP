@@ -108,15 +108,13 @@
   background-color: #f7f7f7;
 }
 .editFAQ #button_x {
-  color: #e86e77;
-  font-weight: 700;
-  line-height: 12px;
   position: relative;
-  transform: translate(645px, -147px);
-  background-color: #f7f7f7;
-  width: 24px;
-  height: 24px;
-  border: 2px solid #e86e77;
+  transform: translate(640px, -152px);
+  width: 32px;
+  height: 32px;
+  background-image: url("../images2/icon_x@2x.png");
+  background-size: 32px;
+  border: none;
 }
 .FAQ_answer {
   width: 620px;
