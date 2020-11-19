@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from .serializers import *
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +13,7 @@ from rest_framework.generics import ListAPIView, GenericAPIView
 from rest_framework.mixins import ListModelMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -54,6 +55,22 @@ user.save()
 return HttpResponse("Inserted")
 '''
 #list
+#임시
+class PostClubView(APIView):
+    def get(self, request):
+        model = Club
+        fields = ['cc_id','name','information','category_choice',
+        'self_image', 'email']
+        serializer = PostClubSerializer(Club.objects.all(), many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = ClubSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class ListAllView(APIView):
     def get(self, request):
@@ -154,14 +171,14 @@ class ListDetailView(APIView):
         serializer = ClubDetailPostSerializer(Club_FAQ.objects.get(club_id=cc_id), data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Reponse(serializer.data, staus=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         #답변 달기-회장
         s = Club_FAQ.objects.get(club_id=cc_id)
         serializer = ClubDetailPostSerializer(s.get(id=post_id), data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Reponse(serializer.data, staus=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ListApplyView(APIView):
@@ -173,7 +190,7 @@ class ListApplyView(APIView):
         serializer = RecruitFormatSerializer(recruit_format.objects.get(club_id=cc_id), data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Reponse(serializer.data, staus=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 #둘다 보내줄게 없는데 혹시 몰라서 아무거나..
