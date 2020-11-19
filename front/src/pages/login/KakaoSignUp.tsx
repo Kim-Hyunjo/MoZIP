@@ -1,128 +1,144 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import { StyledText } from '../style';
-import Axios from 'axios';
-import KaKaoLogin from 'react-kakao-login';
 
-interface State {
-  data: any;
+import KaKaoLogin from 'react-kakao-login';
+import Cookies from 'universal-cookie';
+
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
+
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import { Style } from '@material-ui/icons';
+
+interface Props {
+  onLogin(token: string): void;
 }
 
-class KakaoSignUp extends Component<any, State> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      data: 'kakao',
-    };
-  }
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+    small: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
+    large: {
+      width: theme.spacing(7),
+      height: theme.spacing(7),
+    },
+  }),
+);
 
-  responseKaKao = async (res: any) => {
-    this.setState({
-      data: res,
-    });
-    const semi_email = JSON.stringify(
-      this.state.data.profile.kakao_account.email,
-    );
-    const _email = semi_email.replace(/^"+|"+$/g, '');
+const KakaoSignUp = ({ onLogin }: Props) => {
+  const classes = useStyles();
 
-    const semi_age = JSON.stringify(
-      this.state.data.profile.kakao_account.age_range[0],
-    );
-    const s_age = semi_age.replace(/^"+|"+$/g, '');
-    const _age = parseInt(s_age);
+  const cookies = new Cookies();
 
-    // try {
-    //   alert(JSON.stringify(this.state.data.profile.id));
-    //   const response = await Axios({
-    //     method: 'get',
-    //     url: `${_url}/api/user_exist/${JSON.stringify(
-    //       this.state.data.profile.id,
-    //     )}/`,
-    //     responseType: 'json',
-    //   });
-    //   const msg: string = JSON.stringify(response.data.message);
+  const [img, setImg] = useState<string>('');
+  const [open, setOpen] = React.useState(false);
 
-    //   if (msg == 'true') {
-    //     alert('로그인되었습니다');
-    //   } else {
-    //     try {
-    //       const signup_response = await axios({
-    //         method: 'post',
-    //         url: `${_url}/api/user_list/`,
-    //         data: {
-    //           password: 1234,
-    //           email: _email,
-    //           kakao_id: JSON.stringify(this.state.data.profile.id),
-    //           nickname: JSON.stringify(
-    //             this.state.data.profile.properties.nickname,
-    //           ),
-    //           image: JSON.stringify(
-    //             this.state.data.profile.properties.profile_image,
-    //           ),
-    //           ages: _age,
-    //         },
-    //         responseType: 'json',
-    //       });
-    //       alert(signup_response);
-    //     } catch (err) {
-    //       sessionStorage.clear();
-    //       alert(err);
-    //     }
-    //   }
-    // } catch (err) {
-    //   sessionStorage.clear();
-    //   alert(err);
-    // }
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
-  // responseKaKao = (res: any) => {
-  //   this.setState({
-  //     data: res,
-  //   });
-  //   alert(JSON.stringify(this.state.data));
-  //   console.log(JSON.stringify(this.state.data));
-  // };
+  const handleClose = () => {
+    cookies.remove('access_token');
+    cookies.remove('name');
+    cookies.remove('image');
+    cookies.remove('email');
 
-  responseFail = (err: any) => {
+    setOpen(false);
+  };
+
+  const handleLogIn = () => {
+    onLogin(cookies.get('access_token'));
+    setOpen(false);
+  };
+
+  const responseKaKao = (res: any) => {
+    const access_token = JSON.stringify(res.response.access_token);
+    const name = JSON.stringify(res.profile.properties.nickname);
+    const image = JSON.stringify(res.profile.properties.thumbnail_image);
+    const semi_email = JSON.stringify(res.profile.kakao_account.email);
+    const email = semi_email.replace(/^"+|"+$/g, '');
+
+    console.log(access_token);
+    cookies.set('access_token', access_token, { path: '/' });
+    cookies.set('name', name, { path: '/' });
+    cookies.set('image', image, { path: '/' });
+    cookies.set('email', email, { path: '/' });
+
+    console.log(image);
+    handleClickOpen();
+    // alert(JSON.stringify(res));
+    // console.log(JSON.stringify(res));
+  };
+
+  const responseFail = (err: any) => {
     alert(err);
   };
 
-  render() {
-    return (
-      <div className="login">
-        <h2>Log in</h2>
-        <h4>기존에 사용하시는 계정으로 간단하게 로그인 하세요.</h4>
-        {/* <StKaKaoLogin>
-                        <img src={img} alt="a" onClick={this.loginWithKakao} />
-                    </StKaKaoLogin> */}
-        <br></br>
-        <div>
-          <KaKaoBtn
-            token={'68e1890c86abef0b895c50c05679908a'}
-            // buttonText="KaKao"
-            needProfile={true}
-            onSuccess={this.responseKaKao}
-            onFail={this.responseFail}
-            key={'68e1890c86abef0b895c50c05679908a'}
-            // getProfile={true}
-          />
-        </div>
+  return (
+    <div className="login">
+      <h2>Log in</h2>
+      <h4>기존에 사용하시는 계정으로 간단하게 로그인 하세요.</h4>
+      <br></br>
+      <div className="kakaoButton">
+        <KaKaoBtn
+          token={'68e1890c86abef0b895c50c05679908a'}
+          needProfile={true}
+          onSuccess={responseKaKao}
+          onFail={responseFail}
+        />
       </div>
-    );
-  }
-}
-// const StKaKaoLogin = styled.div`
-//   cursor: pointer;
-//   /* border-radius:10px; */
-//   /* width: 200px; */
-//   /* &:hover{
-//         box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
-//     } */
-// `;
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{cookies.get('name')}</DialogTitle>
+        <DialogContent id="profile_image">
+          <div className={classes.root}>
+            <Avatar
+              alt="Remy Sharp"
+              src={cookies.get('image')}
+              className={classes.large}
+            />
+          </div>
+          <DialogContentText id="alert-dialog-description">
+            로그인하시겠습니까?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Link to="/home">
+            <Button onClick={handleLogIn} color="primary" autoFocus>
+              예
+            </Button>
+          </Link>
+          <Button onClick={handleClose} color="primary">
+            아니요
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+};
 
 const KaKaoBtn = styled(KaKaoLogin)`
   padding: 0;
-  width: 200px;
+  width: 3000px;
   height: 44px;
   line-height: 44px;
   color: #783c00;
