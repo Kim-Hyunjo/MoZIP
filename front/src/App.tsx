@@ -56,6 +56,8 @@ import guideOperation from './pages/about/guideOperation';
 import Cookies from 'universal-cookie';
 import Button from '@material-ui/core/Button';
 
+import logo from './images/logo2@2x.png';
+
 function App() {
   const cookies = new Cookies();
 
@@ -63,6 +65,12 @@ function App() {
     <Router>
       <div className="App">
         <header>
+            <Link to="/home">
+              <img
+                id="mozip_logo"
+                src={ logo }
+                alt='Mo:ZIP logo' />
+            </Link>
           {/* {cookies.get('access_token')} */}
           {/* {typeof cookies.get('none')} */}
           {cookies.get('access_token') === undefined ? (
@@ -144,6 +152,7 @@ function App() {
               </ul>
             </div>
           </nav>
+          
         </header>
         <hr />
         <div className="body">
