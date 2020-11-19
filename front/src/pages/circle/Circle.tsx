@@ -54,7 +54,7 @@ const Circle = (
     { id: 13, question: '향후 학업 계획', answer: '하이하이' },
     { id: 14, question: '각오', answer: '하이하이' },
   ]);
-  let id = 15;
+  const [id, setId] = useState<number>(15);
   const [newQuestion, setNewQuestion] = useState<string>('');
   const [newAnswer, setNewAnswer] = useState<string>('');
 
@@ -79,6 +79,7 @@ const Circle = (
     };
     tmps.push(tmp);
     setFaqs(tmps);
+    setId(id + 1);
     setNewQuestion('');
     setNewAnswer('');
   };
@@ -91,6 +92,18 @@ const Circle = (
         info.answer = answer;
       }
     });
+    setFaqs(tmps);
+  };
+
+  const onRemove = (id: number) => {
+    let tmps: FAQ[] = [];
+    console.log(id + 'asd');
+    faqs.map((info) => {
+      if (info.id !== id) {
+        tmps.push(info);
+      }
+    });
+    console.log(tmps);
     setFaqs(tmps);
   };
 
@@ -166,7 +179,9 @@ const Circle = (
             {faqs.map((item) => {
               return (
                 <CircleFaq
+                  key={item.id}
                   onUpdate={onUpdate}
+                  onRemove={onRemove}
                   isUpdate={toggle}
                   faq={item}
                 ></CircleFaq>
@@ -194,10 +209,16 @@ const Circle = (
                 value={newAnswer}
                 onChange={handleChange}
               ></input>
-              <button id="button5W" onClick={handleSave}>질문 답변 저장</button>
+              <button id="button5W" onClick={handleSave}>
+                질문 답변 저장
+              </button>
             </div>
           )}
-          <button className="FAQeditButton" id="button5B" onClick={handleToggle}>
+          <button
+            className="FAQeditButton"
+            id="button5B"
+            onClick={handleToggle}
+          >
             {toggle ? (
               <Fragment>FAQ 수정</Fragment>
             ) : (

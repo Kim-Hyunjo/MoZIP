@@ -8,11 +8,12 @@ interface FAQ {
 
 interface Props {
   onUpdate(id: number, question: string, answer: string): void;
+  onRemove(id: number): void;
   isUpdate: boolean;
   faq: FAQ;
 }
 
-const CircleFaq = ({ onUpdate, isUpdate, faq }: Props) => {
+const CircleFaq = ({ onUpdate, onRemove, isUpdate, faq }: Props) => {
   const [question, setQuestion] = useState<string>(faq.question);
   const [answer, setAnswer] = useState<string>(faq.answer);
 
@@ -28,6 +29,11 @@ const CircleFaq = ({ onUpdate, isUpdate, faq }: Props) => {
     onUpdate(faq.id, question, answer);
   };
 
+  const handleRemove = () => {
+    console.log(faq.id);
+    onRemove(faq.id);
+  };
+
   return (
     <Fragment>
       {isUpdate ? (
@@ -35,8 +41,8 @@ const CircleFaq = ({ onUpdate, isUpdate, faq }: Props) => {
           <div className="FAQ_question">{faq.question}</div>
           <div className="FAQ_answer">{faq.answer}</div>
         </Fragment>
-      ) : ( 
-      <div className="editFAQ">
+      ) : (
+        <div className="editFAQ">
           <input
             className="FAQ_question"
             type="text"
@@ -53,6 +59,7 @@ const CircleFaq = ({ onUpdate, isUpdate, faq }: Props) => {
             onChange={handleChange}
             onBlur={handleBlur}
           ></input>
+          <button onClick={handleRemove}>x</button>
         </div>
       )}
     </Fragment>
