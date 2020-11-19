@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import *
 # Serializers define the API representation.
-#haha
+#list
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -23,6 +23,34 @@ class ListClubSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Club
         fields = ['name','information','category','self_image']
+
+class ClubReviewSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Club_review
+        fields = ['review']
+
+class ClubFAQSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Club_FAQ
+        fields = ['FAQ', 'club_id']
+
+class ClubIntroduceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Club_introduce
+        fields = ['title','number','region','target_choice','target','time',
+        'mainURL','detail','poster','card_image', 'ci_id']
+
+class ClubDetailPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club_FAQ
+        fields = '__all__'
+
+class RecruitFormatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = recruit_format
+        fields = '__all__'
+
+
 
 class UserApplyListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

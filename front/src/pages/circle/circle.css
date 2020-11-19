@@ -85,6 +85,9 @@
   font-size: 14px;
   margin-bottom: 7px;
 }
+.circle .section_wrapper {
+  width: 805px;
+}
 
 .FAQ_question {
   width: 620px;
@@ -97,6 +100,12 @@
   border: 2px solid #e1eeff;
   background-color: #e1eeff;
   border-radius: 30px;
+}
+.editFAQ .FAQ_question {
+  margin: 20px 0px 0px 0px;
+  padding: 16px 26px;
+  border: 10px solid #e1eeff;
+  background-color: #f7f7f7;
 }
 
 .FAQ_answer {
@@ -111,6 +120,22 @@
   background-color: #b2cff7;
   border-radius: 30px;
 }
+.editFAQ .FAQ_answer {
+  margin: 20px 0px 10px 120px;
+  padding: 16px 26px;
+  border: 10px solid #b2cff7;
+  background-color: #f7f7f7;
+}
+.editFAQ #button5W {
+  width: 140px;
+  margin: 10px 0px;
+  float: right;
+}
+.circle .FAQeditButton {
+  margin: 60px 320px;
+  display: block;
+}
+
 /*circle detail*/
 .circleDetail {
   width: 1000px;
@@ -334,16 +359,86 @@
 .role {
   display: flex;
 }
-.role .changeOwner {
-  margin-left: 20px;
-  transform: translate(0%, 63%);
-  text-decoration: underline;
-}
-.user_namecard_edit .user_role {
-  transform: translate(0%, -80%);
-}
 
 .circleMembers #button4 {
   margin: 40px 150px 0px 0px;
   float: right;
+}
+
+/*circle members edit*/
+.circleMembersEdit {
+  width: 1000px;
+}
+.circleMembersEdit .members_title {
+  margin: 30px 0px 10px 5px;
+}
+.user_namecard_edit .submaster_role {
+  font-size: 20px;
+  color: #0c59c3;
+  transform: translate(0%, -20px);
+}
+.user_namecard_edit .subClubImage {
+  transform: translate(0%, -20px);
+}
+.subClubImage img {
+  border-radius: 200px;
+  margin: 0 auto;
+  display: inherit;
+  margin-top: 5px;
+}
+.role .changeOwner {
+  margin-left: 20px;
+  margin-top: 42px;
+  text-decoration: underline;
+  border: 0px;
+  padding: 0px;
+  height: 18px;
+  background-color: white;
+}
+.circleMembersEdit #button4 {
+  float: right;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+/*circle members edit modal*/
+#simple-modal-title {
+  margin: 0;
+  line-height: 45px;
+  padding-left: 15px;
+  height: 45px;
+  width: 800px;
+  background-color: #0c5ac6;
+  color: white;
+}
+#simple-modal-description {
+  margin-top: 50px;
+  position: inherit;
+  overflow-y: auto;
+  height: 555px;
+}
+#simple-modal-description .namecardList {
+  float: left;
+}
+#simple-modal-description .user_namecard {
+  width: 100px;
+  height: 120px;
+  padding: 19px;
+}
+#simple-modal-description .user_namecard .user_name {
+  font-size: 20px;
+  padding: 0px;
+}
+#simple-modal-description .user_namecard .user_role {
+  font-size: 15px;
+  color: #0c59c3;
+}
+
+.modalButtons {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+}
+.modalButtons #button1 {
+  margin-right: 10px;
 }

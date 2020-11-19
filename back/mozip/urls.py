@@ -48,16 +48,16 @@ urlpatterns = [
     path('list/volunteer/', ListVolunteerView.as_view()),
     path('list/etc/', ListEtcView.as_view()),
 
-    path('list/academy/{cc_id}/', ClubJustDetailView.as_view()),
-    path('list/academy/{circleID}/detail/', include(router.urls)),
-    path('list/academy/{circleID}/apply/', include(router.urls)),
-    path('list/academy/{circleID}/apply/success/', include(router.urls)),
-    path('list/academy/{circleID}/apply/fail/', include(router.urls)),
+    path('list/academy/{cc_id}/', ClubView.as_view()),
+    path('list/academy/{circleID}/detail/', ListDetailView.as_view()),
+    path('list/academy/{circleID}/apply/', ListApplyView.as_view()),
+    path('list/academy/{circleID}/apply/success/', ListApplySuccessView.as_view()),
+    path('list/academy/{circleID}/apply/fail/', ListApplyFailView.as_view()),
     path('list/academy/{circleID}/joinus/', include(router.urls)),
     path('list/academy/{circleID}/members/', include(router.urls)),
     path('list/academy/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/art/{circleID}/', include(router.urls)),
+    path('list/art/{circleID}/', ClubView.as_view()),
     path('list/art/{circleID}/detail/', include(router.urls)),
     path('list/art/{circleID}/apply/', include(router.urls)),
     path('list/art/{circleID}/apply/success/', include(router.urls)),
@@ -66,7 +66,7 @@ urlpatterns = [
     path('list/art/{circleID}/members/', include(router.urls)),
     path('list/art/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/networking/{circleID}/', include(router.urls)),
+    path('list/networking/{circleID}/', ClubView.as_view()),
     path('list/networking/{circleID}/detail/', include(router.urls)),
     path('list/networking/{circleID}/apply/', include(router.urls)),
     path('list/networking/{circleID}/apply/success/', include(router.urls)),
@@ -75,7 +75,7 @@ urlpatterns = [
     path('list/networking/{circleID}/members/', include(router.urls)),
     path('list/networking/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/sports/{circleID}/', include(router.urls)),
+    path('list/sports/{circleID}/', ClubView.as_view()),
     path('list/sports/{circleID}/detail/', include(router.urls)),
     path('list/sports/{circleID}/apply/', include(router.urls)),
     path('list/sports/{circleID}/apply/success/', include(router.urls)),
@@ -84,7 +84,7 @@ urlpatterns = [
     path('list/sports/{circleID}/members/', include(router.urls)),
     path('list/sports/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/travel/{circleID}/', include(router.urls)),
+    path('list/travel/{circleID}/', ClubView.as_view()),
     path('list/travel/{circleID}/detail/', include(router.urls)),
     path('list/travel/{circleID}/apply/', include(router.urls)),
     path('list/travel/{circleID}/apply/success/', include(router.urls)),
@@ -93,7 +93,7 @@ urlpatterns = [
     path('list/travel/{circleID}/members/', include(router.urls)),
     path('list/travel/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/religion/{circleID}/', include(router.urls)),
+    path('list/religion/{circleID}/', ClubView.as_view()),
     path('list/religion/{circleID}/detail/', include(router.urls)),
     path('list/religion/{circleID}/apply/', include(router.urls)),
     path('list/religion/{circleID}/apply/success/', include(router.urls)),
@@ -102,7 +102,7 @@ urlpatterns = [
     path('list/religion/{circleID}/members/', include(router.urls)),
     path('list/religion/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/volunteer/{circleID}/', include(router.urls)),
+    path('list/volunteer/{circleID}/', ClubView.as_view()),
     path('list/volunteer/{circleID}/detail/', include(router.urls)),
     path('list/volunteer/{circleID}/apply/', include(router.urls)),
     path('list/volunteer/{circleID}/apply/success/', include(router.urls)),
@@ -111,7 +111,7 @@ urlpatterns = [
     path('list/volunteer/{circleID}/members/', include(router.urls)),
     path('list/volunteer/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/etc/{circleID}/', include(router.urls)),
+    path('list/etc/{circleID}/', ClubView.as_view()),
     path('list/etc/{circleID}/detail/', include(router.urls)),
     path('list/etc/{circleID}/apply/', include(router.urls)),
     path('list/etc/{circleID}/apply/success/', include(router.urls)),
@@ -218,10 +218,23 @@ urlpatterns = [
     path('recruit/management/interview/postprocessing/notice/',include(router.urls)),
     path('recruit/management/interview/postprocessing/detail/',include(router.urls)),
     path('recruit/management/interview/postprocessing/finalprocessing/',include(router.urls)),
+    path('recruit/schedule/management', include(router.urls)),
+    path('recruit/schedule/management/staff', include(router.urls)),
+    path('recruit/schedule/management/detail', include(router.urls)),
+    path('recruit/interview/', include(router.urls)),
+    path('recruit/interview/commonquestion', include(router.urls)),
+    path('recruit/interview/detail', include(router.urls)),
+    path('recruit/interview/record', include(router.urls)),
+    path('recruit/interview/postprocessing/all', include(router.urls)),
+    path('recruit/interview/postprocessing/yet', include(router.urls)),
+    path('recruit/interview/postprocessing/pass', include(router.urls)),
+    path('recruit/interview/postprocessing/nonpass', include(router.urls)),
+    path('recruit/interview/postprocessing/keep', include(router.urls)),
+    path('recruit/interview/postprocessing/notice', include(router.urls)),
 
     #guide
     path('guide/selfintroduction/', include(router.urls)),
-    path('guide/sregistration/', include(router.urls)),
+    path('guide/registration/', include(router.urls)),
     path('guide/operation/', include(router.urls)),
 
     #circle
