@@ -2,6 +2,13 @@ from rest_framework import serializers
 from .models import *
 # Serializers define the API representation.
 #list
+#임시
+class PostClubSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club
+        fields = ['cc_id','name','information','category_choice',
+        'self_image', 'email']
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

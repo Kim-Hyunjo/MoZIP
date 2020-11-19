@@ -35,7 +35,7 @@ urlpatterns = [
 
     #jwoo
     path('api/', include(router.urls)),
-
+    path('postclub/', PostClubView.as_view()),
     #mozip
     #list
     path('list/all/', ListAllView.as_view()),
