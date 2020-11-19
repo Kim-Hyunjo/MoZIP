@@ -1,12 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import CircleDetailQnA from './CircleDetailQnA';
 
+interface QnA {
+  id: number;
+  nickname: string;
+  date: string;
+  comment: string;
+  manager: boolean;
+}
 
 const CircleDetail = (
   props: RouteComponentProps<{ subject: string; circle_id: string }>,
 ) => {
+  const [qnas, setQnas] = useState<QnA[]>([
+    {
+      id: 0,
+      nickname: '미래테이비',
+      date: '2020-11-19',
+      comment: '다음모집은 언제쯤인가요?',
+      manager: false,
+    },
+    {
+      id: 1,
+      nickname: '미래테이비',
+      date: '2020-11-19',
+      comment:
+        '안녕하세요 문의주셔서 감사합니다. 다음 7기 모집은 21년 1월로 예정하고 있습니다.',
+      manager: true,
+    },
+    {
+      id: 2,
+      nickname: '미래테이비',
+      date: '2020-11-19',
+      comment: '다음모집은 언제쯤인가요?',
+      manager: false,
+    },
+    {
+      id: 3,
+      nickname: '미래테이비',
+      date: '2020-11-19',
+      comment:
+        '안녕하세요 문의주셔서 감사합니다. 다음 7기 모집은 21년 1월로 예정하고 있습니다.',
+      manager: true,
+    },
+  ]);
+  const [id, setId] = useState<number>(4);
+  const [comment, setComment] = useState<string>('');
+
+  const handleSave = () => {
+    let today: Date = new Date();
+    let tmps: QnA[] = Object.assign([], qnas);
+    let tmp: QnA = {
+      id: id,
+      nickname: '미래테이비',
+      date: today.toLocaleString(),
+      comment: comment,
+      manager: false,
+    };
+    tmps.push(tmp);
+    setId(id + 1);
+    setComment('');
+    setQnas(tmps);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    setComment(e.target.value);
+  };
+
   return (
     <div className="circleDetail">
       {/* <h2>{props.match.params.subject}</h2>
@@ -19,17 +83,21 @@ const CircleDetail = (
           <div>참여대상: {'대학생, 직장인, 일반인'}</div>
           <div>모임시작: {'미정'}</div>
         </div>
-        <div className ="recruitDetailButton">
-          <Link to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}>
-            <button id ="button5B">동아리 지원하기!</button>
+        <div className="recruitDetailButton">
+          <Link
+            to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}
+          >
+            <button id="button5B">동아리 지원하기!</button>
           </Link>
-          <Link to={`/list/${props.match.params.subject}/${props.match.params.circle_id}`}>
+          <Link
+            to={`/list/${props.match.params.subject}/${props.match.params.circle_id}`}
+          >
             <button id="button5W">동아리 메인페이지</button>
           </Link>
         </div>
-      <img></img>
+        <img></img>
       </div>
-      
+
       <div className="circle_detail">
         <div>
           안녕하세요! 제 4차 산업혁명 연구 동아리 TAVE에서 6기 회원을
@@ -57,60 +125,37 @@ const CircleDetail = (
       <Link
         to={`/list/${props.match.params.subject}/${props.match.params.circle_id}/apply`}
       >
-        <div className="applyButton"><button id="button10">동아리 지원하기!</button></div>
+        <div className="applyButton">
+          <button id="button10">동아리 지원하기!</button>
+        </div>
       </Link>
       <div className="centeralign_wrapper">
         <div className="small_title">QnA {'개수'}</div>
         <div className="Qu_List">
-          <div className="question">
-            <div className="questioner">{'미래테이비'}</div>
-            <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
-            <div className="questionDate">{'날짜'}</div>
-            <div className="movetoright"><button className="movemoreright" id="button0"  hidden={true}>답글</button>
-            <button id="button0" >신고</button></div>
-          </div>
-          <div className="answer">
-            <div className="questioner">{'최우영(회장)'}</div>
-            <div className="questionDetail">
-              {
-                '안녕하세요 문의주셔서 감사합니다. 다음 7기 모집은 21년 1월로 예정하고 있습니다.'
-              }
-            </div>
-            <div className="questionDate">{'날짜'}</div>
-            <div className="movetoright"><button id="button0" hidden={false}>답글</button>
-            <button id="button0">신고</button></div>
-          </div>
-          <div className="question">
-            <div className="questioner">{'미래테이비'}</div>
-            <div className="questionDetail">{'다음모집은 언제쯤인가요?'}</div>
-            <div className="questionDate">{'날짜'}</div>
-            <div className="movetoright"><button className="movemoreright" id="button0" hidden={true}>답글</button>
-            <button id="button0">신고</button></div>
-          </div>
-          <div className="answer">
-            <div className="questioner">{'최우영(회장)'}</div>
-            <div className="questionDetail">
-              {
-                '안녕하세요 문의주셔서 감사합니다. 다음 7기 모집은 21년 1월로 예정하고 있습니다.'
-              }
-            </div>
-            <div className="questionDate">{'날짜'}</div>
-            <div className="movetoright"><button id="button0" hidden={false}>답글</button>
-            <button id="button0">신고</button></div>
-          </div>
+          {qnas.map((item) => {
+            return (
+              <CircleDetailQnA
+                qna={item}
+                isManager={item.manager}
+              ></CircleDetailQnA>
+            );
+          })}
         </div>
         <div className="questionWrite">
-            <TextField
+          <TextField
             id="outlined-multiline-static"
             label="댓글 작성"
             multiline
             rows={4}
-            
             placeholder="동아리에 궁금한 점을 입력해주세요."
             variant="outlined"
             fullWidth
+            value={comment}
+            onChange={handleChange}
           />
-          <button id="button4">입력</button>
+          <button id="button4" onClick={handleSave}>
+            입력
+          </button>
         </div>
       </div>
     </div>
