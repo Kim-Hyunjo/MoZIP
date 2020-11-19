@@ -41,10 +41,15 @@ interface Role {
 const CircleMembersEditModal=()=> {
     const guest:Role[] =[
         { id: 2, name:'한채은', status:'기술',content:'프로필 사진'},
-           { id: 3, name:'왕희도', status:'기술',content:'프로필 사진'},
-           { id: 4, name:'박웅기', status:'기술',content:'프로필 사진'},
-           { id: 5, name:'한예송', status:'기술',content:'프로필 사진'},
-           { id: 6, name:'한예송', status:'기술',content:'프로필 사진'},
+        { id: 3, name:'왕희도', status:'기술',content:'프로필 사진'},
+        { id: 4, name:'박웅기', status:'기술',content:'프로필 사진'},
+        { id: 5, name:'한예송', status:'기술',content:'프로필 사진'},
+        { id: 6, name:'한예송', status:'기술',content:'프로필 사진'},
+        { id: 2, name:'한채은', status:'기술',content:'프로필 사진'},
+        { id: 3, name:'왕희도', status:'기술',content:'프로필 사진'},
+        { id: 4, name:'박웅기', status:'기술',content:'프로필 사진'},
+        { id: 5, name:'한예송', status:'기술',content:'프로필 사진'},
+        { id: 6, name:'한예송', status:'기술',content:'프로필 사진'},
     ]
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
