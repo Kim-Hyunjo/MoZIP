@@ -4,7 +4,7 @@ import {
   Link,
   RouteComponentProps,
 } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListAcademy from './ListAcademy';
 import ListSubject from './ListSubject';
 import './tab.css';
@@ -21,11 +21,11 @@ import icon_etc from '../images2/icon_etc@2x.png';
 const List = (props: RouteComponentProps<{}>) => {
   const [subject, setSubject] = useState<string>('all');
   const test = [
-    { name: 'all', img: icon_all},
-    { name: 'academy',  img: icon_academy},
-    { name: 'art',  img: icon_art},
+    { name: 'all', img: icon_all },
+    { name: 'academy', img: icon_academy },
+    { name: 'art', img: icon_art },
     { name: 'networking', img: icon_networking },
-    { name: 'sports',  img: icon_sports },
+    { name: 'sports', img: icon_sports },
     { name: 'trip', img: icon_trip },
     { name: 'religion', img: icon_religion },
     { name: 'volunteer', img: icon_volunteer },
@@ -126,68 +126,70 @@ const List = (props: RouteComponentProps<{}>) => {
     { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="list">
       <h2>전체 동아리 목록</h2>
       <h4>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</h4>
       <div className="wrapper">
-      <div>
-        <label>
-          <select
-            id="list-name"
-            defaultValue={subject}
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            onBlur={(e) => setSubject(e.target.value)}
-          >
-            {test.map((item, index) => {
+        <div>
+          <label>
+            <select
+              id="list-name"
+              defaultValue={subject}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              onBlur={(e) => setSubject(e.target.value)}
+            >
+              {test.map((item, index) => {
+                return (
+                  <option key={index} value={item.name}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
+        <div>
+          <ul id="horizontal_list">
+            {test.map((item) => {
               return (
-                <option key={index} value={item.name}>
+                <li
+                  onClick={() => {
+                    setSubject(item.name);
+                    console.log(item.name);
+                  }}
+                >
+                  <div className="border top_border"></div>
+                  <img src={item.img} alt="tab_icon" />
                   {item.name}
-                </option>
+                  <div className="border bottom_border"></div>
+                </li>
               );
             })}
-          </select>
-        </label>
-      </div>
-      <div >
-        <ul id="horizontal_list">
-          {test.map((item) => {
-            return (
-              <li
-                onClick={() => {
-                  setSubject(item.name);
-                  console.log(item.name);
-                }}
-              >
-                <div className="border top_border"></div>
-                <img
-                    src={ item.img }
-                    alt='tab_icon' />
-                {item.name}
-                <div className="border bottom_border"></div>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="category_name">{subject}</div>
-      </div>
+          </ul>
+          <div className="category_name">{subject}</div>
+        </div>
 
-      {/* <h1>{props.match.params.subject}</h1> */}
-      <div className="club_list">
-        <ul id="horizontal_club_list">
-          {학술.map((item, index) => {
-            return (
-              <li>
-                <Link to={`${props.match.url}/${subject}/${item.id}`}>
-                  <h3>{item.name}</h3>
-                  <p>{item.introduction}</p>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+        {/* <h1>{props.match.params.subject}</h1> */}
+        <div className="club_list">
+          <ul id="horizontal_club_list">
+            {학술.map((item, index) => {
+              return (
+                <li>
+                  <Link to={`${props.match.url}/${subject}/${item.id}`}>
+                    <h3>{item.name}</h3>
+                    <p>{item.introduction}</p>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
       {/* <div className="club_list">
                 <ul id="horizontal_club_list">
