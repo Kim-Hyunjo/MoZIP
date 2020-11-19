@@ -40,6 +40,16 @@ class ClubIntroduceSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['title','number','region','target_choice','target','time',
         'mainURL','detail','poster','card_image', 'ci_id']
 
+class ClubDetailPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club_FAQ
+        fields = '__all__'
+
+class RecruitFormatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = recruit_format
+        fields = '__all__'
+
 
 
 class UserApplyListSerializer(serializers.HyperlinkedModelSerializer):
