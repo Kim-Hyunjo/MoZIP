@@ -20,9 +20,10 @@ header {
 }
 
 #mozip_logo{
-  margin: 108px;
+  margin: 94px;
   box-shadow: rgba(255, 255, 255, 0.8);
   width: 160px;
+  
 }
 #mozip_logo:hover{
   transition: ease-in;
@@ -154,7 +155,7 @@ a.active {
   right: 0%;
   top: 55px;
   
-  margin-top: 60px;
+  margin-top: 52px;
 }
 
 .menu li {

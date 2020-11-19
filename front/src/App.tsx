@@ -73,30 +73,32 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <header>
-          {login === '' ? (
+          
             <Link to="/home">
               <img
                 id="mozip_logo"
-                src={ logo }
+                src={logo}
                 alt='Mo:ZIP logo' />
             </Link>
           {/* {cookies.get('access_token')} */}
           {/* {typeof cookies.get('none')} */}
-            <Link to="/login">
-              <div id="button_login">로그인/회원가입</div>
-            </Link>
+          {/* {cookies.get('access_token') === undefined ? ( */}
+          {login === '' ? (
+          <Link to="/login">
+            <div id="button_login">로그인/회원가입</div>
+          </Link>
           ) : (
             <Button
-              id="button_login"
-              onClick={() => {
-                cookies.remove('access_token');
-                cookies.remove('name');
-                cookies.remove('image');
-                cookies.remove('email');
-                setLogin('');
-              }}
-            >
-              로그아웃
+            id="button_logout"
+            onClick={() => {
+              cookies.remove('access_token');
+              cookies.remove('name');
+              cookies.remove('image');
+              cookies.remove('email');
+              setLogin('');
+            }}
+          >
+            로그아웃
             </Button>
           )}
 
@@ -161,7 +163,7 @@ function App() {
               </ul>
             </div>
           </nav>
-          
+
         </header>
         <hr />
         <div className="body">
