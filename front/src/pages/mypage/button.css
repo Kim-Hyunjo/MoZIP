@@ -282,7 +282,7 @@
   width: 800px;
   float: right;
   margin-top: -40px;
-  margin-right: 70px;
+  margin-right: 12px;
 }
 
 .recruitDetailButton #button5B {
@@ -430,4 +430,15 @@
 }
 #button_logout span {
   color: white; 
+}
+#button_excel{
+  border: none;
+  background-image: url("../images2/icon_excel@2x.png");
+  width: 56px;
+  height: 56px;
+  background-repeat: none;
+  background-size: 56px 56px;
+  margin: 12px;
+  background-color: initial;
+  margin-left: 0px;
 }

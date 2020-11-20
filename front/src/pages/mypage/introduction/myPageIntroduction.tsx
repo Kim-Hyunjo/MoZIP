@@ -130,7 +130,8 @@ const myPageIntroduction = () => {
   return (
     <div className="mypage_introduction">
       <h2>자기소개함</h2>
-      <h4>자기소개서 질문과 답변을 미리 준비해보세요.</h4>
+      <h3>자기소개서 질문과 답변을 미리 준비해보세요. <br/>작성하기 위해 <span>수정하기 버튼</span>을 누르고, 작성이 끝난 후에는 <span>저장하기 버튼</span>을 눌러 꼭 저장해주세요. 자동저장이 되지 않습니다.</h3>
+
       <div className="flexthem">
         <div>
           <label>
