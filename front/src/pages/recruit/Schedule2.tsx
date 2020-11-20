@@ -32,7 +32,7 @@ const Schedule2 = () => {
                         <span>{day[0].day}</span>
                         <button id="button1">수정하기</button>
                         <div className="tiny_gray_namecard">
-                            날짜 : {day[0].date}<br></br>
+                            날짜 : <input type="text" defaultValue={day[0].date}></input><br></br>
                             시간 : {day[0].time}<br></br>
                             위치 : {day[0].site}<br></br>
                             인원 : {day[0].total}<br></br>
