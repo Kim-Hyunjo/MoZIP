@@ -35,9 +35,11 @@ urlpatterns = [
 
     #jwoo
     path('api/', include(router.urls)),
+
     path('postclub/', PostClubView.as_view()),
     path('postclubreview/', PostClubReview.as_view()),
     path('postclubfaq/', PostClubFaq.as_view()),
+
 
     #mozip
     #list
@@ -207,6 +209,7 @@ urlpatterns = [
     
     #recruit
     path('recruit/selection/', include(router.urls)),
+    path('recruit/-<int:club_id>/applicants',RecruitApplicantsView.as_view()),
     path('recruit/process/basicinfo/',include(router.urls) ),
     path('recruit/process/noticeinfo/', include(router.urls)),
     path('recruit/process/form/', include(router.urls)),
