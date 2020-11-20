@@ -428,7 +428,7 @@
 }
 .intervieweeGroup #button4 {
   margin: 0;
-  transform: translate(155%, -105%);
+  transform: translate(135%, -87%);
 }
 .intervieweeInform .display_horiz span {
   margin-right: 200px;
@@ -557,8 +557,8 @@
   width: 300px;
   font-size: 20px;
   text-align: right;
-  transform: translate(0%, -60%);
-  display: inline-flex;
+  transform: translate(-20px, -30%);
+  display: inline-block;
 }
 .record .interviewAnswer {
   width: 500px;

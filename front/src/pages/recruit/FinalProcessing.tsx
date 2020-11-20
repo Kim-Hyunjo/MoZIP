@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const FinalProcessing = () => {
     const temporalList:any = [{name:"한채은"},{name:"한채은"},{name:"한채은"},{name:"한채은"},]
@@ -33,7 +34,8 @@ const FinalProcessing = () => {
                                     {info.name}
                                     <div className="twoButtons">
                                         <button id="button4">입금완료</button>
-                                        <button id="button1">상세보기</button>
+                                        <Link to ="/recruit/interview/postprocessing/detail">
+                                        <button id="button1">상세보기</button></Link>
                                     </div>
                                 </li>
                             )

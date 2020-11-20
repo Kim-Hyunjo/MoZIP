@@ -44,7 +44,7 @@ const Resume2 = () => {
                             <li><div className="resumeQuestion">{info.question}</div>
                                 <div className="resumeAnswer">{info.answer}</div>
                                 <label htmlFor=""></label>
-                                <input type="number" min={10} max ={100}/>
+                                <input type="number" min={0} max ={10}/>
                                 <button id="button4">저장</button>
                             </li>
                             </div>

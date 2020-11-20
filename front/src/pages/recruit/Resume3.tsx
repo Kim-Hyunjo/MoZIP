@@ -50,7 +50,8 @@ const Resume3 = () => {
                                     <li className="tiny_gray_namecard">
                                      <div className="tiny_name">{info.name}</div>
                                     <div className="tiny_status">{info.select}</div>
-                                    <button id="buttonSelect">{info.timeSelect}</button>
+                                    <Link to ="/recruit/schedule/management/staff">
+                                    <button id="buttonSelect">{info.timeSelect}</button></Link>
                                 </li>
                                 )
                             })}
