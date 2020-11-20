@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link,RouteComponentProps } from 'react-
 
 
 const Schedule2 = (props: RouteComponentProps<{}>) => {
-    const [edit, setEdit] = useState<boolean[]>([false]);
-    let _temp : boolean[];
+    const [edit, setEdit] = useState<boolean>(false);
+    // let _temp : boolean[];
     const  day = [{day:'1일차', date:'2020년 7월 10일', time:' 오후 4시~7시', site:'동국대학교',total:"총 16명"},
     {day:'1일차' ,date:'2020년 7월 12일', time:' 오후 4시~7시', site:'히히대학교',total:"총 12명"},
     {day:'1일차' ,date:'2020년 7월 13일', time:' 오후 5시~7시', site:'호호대학교',total:"총 12명"}]
@@ -39,8 +39,8 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
     //     }
     const handleEdit = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        _temp[0] = false;
-        setEdit(_temp);
+        // _temp[0] = false;
+        setEdit(!edit);
     }
     return (
         <div className="schedule">
