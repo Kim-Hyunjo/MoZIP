@@ -115,7 +115,7 @@ const mypageStatus = () => {
             <div className="subject_gray_namecard">모임 시간</div> 
             미정 
           </div> <br></br>
-          <Link to ="recruit/interview">
+          <Link to ="/recruit/interview">
           <button className="button_medium3 btn_ingray_namecard">면접 상세</button></Link>
         
         </div>
