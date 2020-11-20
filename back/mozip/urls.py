@@ -36,6 +36,9 @@ urlpatterns = [
     #jwoo
     path('api/', include(router.urls)),
     path('postclub/', PostClubView.as_view()),
+    path('postclubreview/', PostClubReview.as_view()),
+    path('postclubfaq/', PostClubFaq.as_view()),
+
     #mozip
     #list
     path('list/all/', ListAllView.as_view()),
@@ -48,8 +51,8 @@ urlpatterns = [
     path('list/volunteer/', ListVolunteerView.as_view()),
     path('list/etc/', ListEtcView.as_view()),
 
-    path('list/academy/{cc_id}/', ClubView.as_view()),
-    path('list/academy/{circleID}/detail/', ListDetailView.as_view()),
+    path('list/academy/<int:cc_id>/', ClubView.as_view()),
+    path('list/academy/<int:cc_id>/detail/', ListDetailView.as_view()),
     path('list/academy/{circleID}/apply/', ListApplyView.as_view()),
     path('list/academy/{circleID}/apply/success/', ListApplySuccessView.as_view()),
     path('list/academy/{circleID}/apply/fail/', ListApplyFailView.as_view()),
@@ -66,7 +69,7 @@ urlpatterns = [
     path('list/art/{circleID}/members/', include(router.urls)),
     path('list/art/{circleID}/members/edit/', include(router.urls)),
 
-    path('list/networking/{circleID}/', ClubView.as_view()),
+    path('list/networking/<int:cc_id>/', ClubView.as_view()),
     path('list/networking/{circleID}/detail/', include(router.urls)),
     path('list/networking/{circleID}/apply/', include(router.urls)),
     path('list/networking/{circleID}/apply/success/', include(router.urls)),
