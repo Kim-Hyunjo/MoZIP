@@ -59,6 +59,9 @@ import ScrollToTop from './scroll/ScrollToTop';
 
 import logo from './images/logo2@2x.png';
 
+import axios from "axios";
+
+
 function App() {
   const cookies = new Cookies();
 
