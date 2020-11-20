@@ -131,3 +131,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+CORS_ORIGIN_WHITELIST = (
+      'http://localhost:3000',
+      'http://3.35.234.131:3000',
+ )
+
