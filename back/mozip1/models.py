@@ -105,7 +105,7 @@ class recruit_format(models.Model):
     type_choices = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
     Type = models.CharField(max_length=15,choices=type_choices,default="1")
     club_id = models.IntegerField()
-    user_id = models.PositiveIntegerField()
+    user_id = models.PositiveIntegerField(default=0)
     document = models.JSONField()
     rf_id = models.CharField(unique=True,primary_key=True,max_length=15)
     objects = models.DjongoManager()
