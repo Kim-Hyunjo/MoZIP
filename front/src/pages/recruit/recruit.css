@@ -626,15 +626,19 @@
 .final .right {
   float: right;
   margin-right: 100px;
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(-40px);
 }
 .final select {
-  display: inline-flex;
+  /* display: inline-flex; */
   margin-right: 20px;
+  height: 32px;
 }
-.final button[type='button'] {
+/* .final button[type='button'] {
   float: right;
   display: inline-flex;
-}
+} */
 
 .finalList {
   margin: 0 auto;
@@ -654,6 +658,9 @@
 .final .twoButtons {
   float: right;
   transform: translate(0%, -20%);
+}
+.finalPerson:nth-child(1) .twoButtons {
+  margin-top: -26px;
 }
 .final .twoButtons #button4 {
   background-color: #00a116;

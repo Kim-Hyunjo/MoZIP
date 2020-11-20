@@ -13,7 +13,6 @@ const FinalProcessing = () => {
                 </h4>
             </div>
             <div>
-                
                 <div className="middle_title">임시 합격자 목록</div>
                 <div className="paidNum">총 33명중 23명</div>
                     <div className="right">
@@ -22,7 +21,7 @@ const FinalProcessing = () => {
                                 <option value="입금완료순">입금완료순</option>
                             </select>
                         </label>
-                        <button type="button">엑셀</button>
+                        <button id="button_excel" type="button"></button>
                     </div>
 
                 <div>
@@ -32,10 +31,10 @@ const FinalProcessing = () => {
                                 <li className="finalPerson">
                                     <input type="checkbox" />
                                     {info.name}
-                                    <div className="twoButtons">
-                                        <button id="button4">입금완료</button>
-                                        <Link to ="/recruit/interview/postprocessing/detail">
-                                        <button id="button1">상세보기</button></Link>
+                                    <div className="twoButtons"><div>
+                                    <button id="button4">입금완료</button>
+                                    <Link to ="/recruit/interview/postprocessing/detail">
+                                    <button id="button1">상세보기</button></Link></div>
                                     </div>
                                 </li>
                             )

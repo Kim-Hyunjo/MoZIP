@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import CircleDetailQnA from './CircleDetailQnA';
+import poster from '../images2/poster@2x.png';
 
 interface QnA {
   id: number;
@@ -97,8 +98,11 @@ const CircleDetail = (
         </div>
         <img></img>
       </div>
-
+      
       <div className="circle_detail">
+      <img className="poster"
+        src={ poster }
+        alt='tab_icon' />
         <div>
           안녕하세요! 제 4차 산업혁명 연구 동아리 TAVE에서 6기 회원을
           모집합니다.커리큘럼은 4차산업혁명 관련 세션과 스터디 그리고

@@ -52,6 +52,17 @@
   line-height: 28px;
   display: block;
 }
+
+.circle_detail .poster {
+  width: 80%;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
 .circle_reviewList {
   margin: 0 auto;
 }
