@@ -1,4 +1,11 @@
-import React from 'react'
+import React from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch,
+    NavLink,
+  } from 'react-router-dom';
 
 const Schedule1 = () => {
     return (
@@ -25,7 +32,8 @@ const Schedule1 = () => {
                     </div>
                 </div>
             </div>
-            <button id ="button4">저장</button>
+            <Link to = "/recruit/schedule/management">
+            <button id ="button4">저장</button></Link>
             </form>
         </div>
     )

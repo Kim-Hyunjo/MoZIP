@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const PostprocessingNotice = () => {
     const [content, setcontent] = useState('')
@@ -19,8 +20,10 @@ const PostprocessingNotice = () => {
             </textarea>
             <div className="postProButtons">
                 <button id = "button1">이전</button>
-                <button id="button_red">최종 합격자 발표</button>
-                <button id ="button4">저장</button>
+                <Link to ="/mypage/status">
+                <button id="button_red">최종 합격자 발표</button></Link>
+                <Link to ="/recruit/interview/postprocessing">
+                <button id ="button4">저장</button></Link>
             </div>
             <div className="middle_title">예시:</div>
             <div className="example">

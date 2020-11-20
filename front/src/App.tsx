@@ -322,7 +322,8 @@ function App() {
               component={PostInterviewPersonal}
             ></Route>
             <Route
-              path="/recruit/interview/InterviewPostprocessing"
+              exact
+              path="/recruit/interview/postprocessing"
               component={InterviewPostprocessing}
             ></Route>
             <Route

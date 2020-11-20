@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Interview = () => {
   const interviewList = [
@@ -54,7 +55,8 @@ const Interview = () => {
         <p>{item.date}<br></br>
         {item.time} 시<br></br>
         {item.school}</p>
-        <button id="buttonSelect">자세히</button>
+        <Link to ="/recruit/interview/detail/1">
+        <button id="buttonSelect">자세히</button></Link>
       </div>
     );
   });
@@ -63,7 +65,8 @@ const Interview = () => {
     <div className="interview">
       <h2>면접 상세</h2>
       <div>
-        <button id="button_red">면접 기본 질문 작성하기</button>
+        <Link to ="/recruit/interview/commonquestion">
+        <button id="button_red">면접 기본 질문 작성하기</button></Link>
       </div>
 
       <div>
@@ -71,7 +74,8 @@ const Interview = () => {
         <div className="adminList">{interviewFormList}</div>
       </div>
       <div className="adminButton">
-        <button id="button10">합격자 관리하기</button>
+        <Link to ="/recruit/interview/postprocessing">
+        <button id="button10">합격자 관리하기</button></Link>
       </div>
     </div>
   );
