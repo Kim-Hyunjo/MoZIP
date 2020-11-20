@@ -30,7 +30,7 @@ import CircleOpenReject from './pages/circle/CircleOpenReject';
 import CircleMembersEdit from './pages/circle/CircleMembersEdit';
 import CircleMembers from './pages/circle/CircleMembers';
 import ProcessBasicInfo from './pages/recruit/ProcessBasicInfo';
-import ProcessForm from './pages/recruit/ProcessForm';
+import ProcessForm from './pages/recruit/processForm/ProcessForm';
 import Selection from './pages/recruit/Selection';
 import ProcessNoticeInfo from './pages/recruit/ProcessNoticeInfo';
 import Applicants from './pages/recruit/Applicants';
@@ -58,6 +58,9 @@ import Button from '@material-ui/core/Button';
 import ScrollToTop from './scroll/ScrollToTop';
 
 import logo from './images/logo2@2x.png';
+
+import axios from "axios";
+
 
 function App() {
   const cookies = new Cookies();
