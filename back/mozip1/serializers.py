@@ -13,8 +13,7 @@ class PostClubSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['group', 'name', 'education','grader', 
-        'states', 'birthday', 'telephone', 'email', 'address','self_image','date','user_id']
+        fields = '__all__'
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
