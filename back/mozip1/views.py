@@ -54,13 +54,12 @@ user = User(group=group,name=name,education=education,grader=grader,states=state
 user.save()
 return HttpResponse("Inserted")
 '''
-#list
 #임시
 class PostClubView(APIView):
     def get(self, request):
         model = Club
-        fields = ['cc_id','name','information','category_choice',
-        'self_image', 'email']
+        fields = ['cc_id','name','information','category','foundationdate' 
+        ,'detail_information','self_image','telephone','email']
         serializer = PostClubSerializer(Club.objects.all(), many=True)
         return Response(serializer.data)
 
@@ -70,8 +69,31 @@ class PostClubView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class PostClubReview(APIView):
+    def get(self, reuqest):
+        model = Club_review
+        serializer = ClubReviewSerializer(Club_review.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request, format=None):
+        serializer = ClubReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class PostClubFaq(APIView):
+    def get(self, request):
+        model = Club_FAQ
+        serializer = ClubFAQSerializer(Club_FAQ.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request, format=None):
+        serializer = ClubFAQSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+#list
 class ListAllView(APIView):
     def get(self, request):
         model = Club
@@ -83,56 +105,56 @@ class ListAcademyView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="학술"), many = True)
+        serializer = ListClubSerializer(Club.objects.filter(category="c1"), many = True)
         return Response(serializer.data)
 
 class ListArtView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="예술"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c2"), many = True) 
         return Response(serializer.data)
             
 class ListNetworkingView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="친목"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c3"), many = True) 
         return Response(serializer.data)
 
 class ListSportsView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="스포츠"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c4"), many = True) 
         return Response(serializer.data)
 
 class ListTravelView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="여행"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c5"), many = True) 
         return Response(serializer.data)
 
 class ListReligionView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="종교"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c6"), many = True) 
         return Response(serializer.data)
 
 class ListVolunteerView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="봉사"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c7"), many = True) 
         return Response(serializer.data)
 
 class ListEtcView(APIView):
     def get(self, request):
         model = Club
         fields = ['name','information','self_image','category']
-        serializer = ListClubSerializer(Club.objects.filter(category="기타"), many = True) 
+        serializer = ListClubSerializer(Club.objects.filter(category="c8"), many = True) 
         return Response(serializer.data)
 
 class ClubJustDetailView(APIView): #동아리 그냥 상세
@@ -142,22 +164,40 @@ class ClubJustDetailView(APIView): #동아리 그냥 상세
 
 #list/category/{ccID}
 class ClubView(APIView):
-    def get(self, request, cc_id, user_id):
+    def get(self, request, cc_id):
+        serializer1 = ClubSerializer(Club.objects.filter(cc_id=-cc_id), many=True)
+        #Club_review
+        serializer2 = ClubReviewSerializer(Club_review.objects.filter(club_id=-cc_id), many=True)
+        #Club_FAQ
+        serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
+        return Response(serializer1.data + serializer2.data + serializer3.data)
         #회원이면
-        if(user_id >0):
-            #Club
-            serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
-            #Club_review
-            serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
-            #Club_FAQ
-            serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
-            return Response(serializer1.data + serializer2.data + serializer3.data)
-        #회원 아니면 joinus로 redirect
-        else:
-            return redirect('joinus')
-
-        # def put(self, request, cc_id, user_id):
-        #회장이면
+        # if(user_id >0):
+        #     #Club
+        #     serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
+        #     #Club_review
+        #     serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
+        #     #Club_FAQ
+        #     serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
+        #     return Response(serializer1.data + serializer2.data + serializer3.data)
+        # #회원 아니면 joinus로 redirect
+        # else:
+        #     return redirect('joinus')
+    #후기 작성
+    def post(self, request, cc_id):
+        serializer = ClubReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self, request, cc_id):
+        s = Club_review.objects.all()
+        serializer = ClubReviewSerializer(s + (Club_review.objects.filter(club_id=-cc_id).first()), data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)  
+    
 
 
 class ListDetailView(APIView):
