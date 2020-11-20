@@ -91,6 +91,43 @@ class PostClubFaq(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class PostClubIntroduce(APIView):
+    def get(self, request):
+        model = Club_introduce
+        serializer = ClubIntroduceAllSerializer(Club_introduce.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = ClubIntroduceAllSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # def delete(self, request, cc_id, format=None):
+    #     clubintro = Club_introduce.objects.get(club_id=-cc_id)
+    #     clubintro.delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
+class PostRecruitQA(APIView):
+    def get(self, request):
+        model = recruit_QA
+        serializer = RecruitQASerializer(recruit_QA.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = RecruitQASerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class PostUser(APIView):
+    def get(self, request):
+        model = User
+        serializer = UserSerializer(User.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 #list
@@ -190,36 +227,29 @@ class ClubView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    def put(self, request, cc_id):
-        s = Club_review.objects.all()
-        serializer = ClubReviewSerializer(s + (Club_review.objects.filter(club_id=-cc_id).first()), data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)  
-    
+    #추가는 일단 보류..
 
 
 class ListDetailView(APIView):
-    def get(self, reuqest, cc_id, user_id):
-        serializer1 = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=-cc_id), many=True)
-        serializer2 = ClubFAQSerializer(Club_FAQ.objects.filter(id=-cc_id), many=True)
+    def get(self, reuqest, cc_id):
+        serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(club_id=-cc_id), many=True)
+        serializer2 = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), many=True)
         return Response(serializer1.data + serializer2.data)
-    def post(self, request, cc_id, user_id, post_id):
+    def post(self, request, cc_id):
         #어떻게 구분하지ㅜㅜ
         #질문 달기-모두
-        serializer = ClubDetailPostSerializer(Club_FAQ.objects.get(club_id=cc_id), data=request.data)
+        serializer = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         #답변 달기-회장
-        s = Club_FAQ.objects.get(club_id=cc_id)
-        serializer = ClubDetailPostSerializer(s.get(id=post_id), data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        # s = Club_FAQ.objects.get(club_id=cc_id)
+        # serializer = ClubDetailPostSerializer(s.get(id=post_id), data=request.data)
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ListApplyView(APIView):
     def get(self, request, cc_id, user_id):
