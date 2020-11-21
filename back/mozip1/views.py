@@ -255,7 +255,17 @@ class ClubView(APIView):
         serializer2 = ClubReviewSerializer(Club_review.objects.filter(club_id=-cc_id), many=True)
         #Club_FAQ
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
-        return Response(serializer1.data + serializer2.data + serializer3.data)
+        datas1 = serializer1.data[0]
+        fdate = eval(datas1["foundationdate"])
+        datas1.update(fdate)
+        datas2 = serializer2.data[0]
+        review = eval(datas2["review"])
+        datas1.update(review)
+        datas3 = serializer3.data[0]
+        datas1.update(datas2)
+        datas1.update(datas3)
+        return Response(datas3)
+        #return Response(serializer1.data + serializer2.data + serializer3.data)
         #회원이면
         # if(user_id >0):
         #     #Club
