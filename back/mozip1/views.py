@@ -295,11 +295,11 @@ class ListApplyView(APIView):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
         datas = serializer1.data[0]
-        # l_eval = eval(datas)
-        # d = dict(OrderedDict(l_eval))
+        l_eval = eval(datas["document"])
+        d = dict(OrderedDict(l_eval))
 
-        #return Response(d)
-        return Response(datas["document"])
+        return Response(d)
+        #return Response(datas["document"])
         #return Response(serializer1.data + serializer2.data)
     def post(self, request, cc_id, user_id):
         serializer = RecruitFormatSerializer(recruit_format.objects.filter(club_id=cc_id), data=request.data)
