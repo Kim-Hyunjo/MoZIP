@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import Button from '@material-ui/core/Button';
 import { Dialog } from '@material-ui/core';
@@ -9,9 +9,66 @@ import { DialogContentText } from '@material-ui/core';
 import { DialogTitle } from '@material-ui/core';
 
 import './namecard.css';
-import Axios from 'axios';
+import axios from 'axios';
+import { DevelopUrl } from '../../http/HttpUrl';
+import { stringify } from 'querystring';
 
-const MyPageEdit: any = () => {
+interface myInform{
+  group: string;
+  name: string;
+  education: string;
+  grader : string;
+  states : string;
+  birthday : string;
+  telephone : string;
+  email : string;
+  address : string; 
+  self_image : string;
+  user_id : number;
+  school : string;
+  major : string;
+}
+
+interface academy{
+  cc_id: number;
+  name: string;
+  information: string;
+  category:  string;
+  self_image: string;
+}
+
+const MyPageEdit = () => {
+  const [_academy, setAcademy] = useState<academy[]>([]);
+  const [inform, setInform] = useState<myInform>({
+  group: '',
+  name: '',
+  education: '',
+  grader : '',
+  states : '',
+  birthday : '',
+  telephone : '',
+  email : '',
+  address : '', 
+  self_image : '',
+  user_id : 0,
+  school : '',
+  major : '',
+  })
+
+  const getApi = async () => {
+    // console.log(DevelopUrl + 'mypage/1/edit')
+    await axios.get('http://3.35.234.131:8000/list/academy').then((r)=>{
+      // let res: academy[] = r.data;
+      console.log(r.data);
+      // console.log(res);
+      // setAcademy(res);
+    })
+  }
+
+useEffect(()=>{
+  getApi()
+},[])
+
   const [name, setname] = useState('');
   const [sort, setsort] = useState('');
   const [school, setschool] = useState('');
@@ -50,11 +107,6 @@ const MyPageEdit: any = () => {
     setaddress((e.currentTarget as any).value);
   };
 
-  const personalApplyHistory = [
-    { name: '~내가 지원한 동아리~', introduction: '~동아리의 상세설명~' },
-    { name: '~내가 지원한 동아리2~', introduction: '~동아리의 상세설명2~' },
-  ];
-
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [open, setOpen] = useState(false);
 
@@ -64,7 +116,7 @@ const MyPageEdit: any = () => {
 
   const handleClose1 = () => {
     setOpen(false);
-    Axios.post('https://skhu-pwk.firebaseio.com/todo1.json', {
+    axios.post('https://skhu-pwk.firebaseio.com/todo1.json', {
       name: name,
     });
   };
@@ -73,6 +125,7 @@ const MyPageEdit: any = () => {
   };
   return (
     <div className="mypage">
+      {_academy}
       <h2>개인정보 수정</h2>
       <div className="warning"></div>
       <div className="wrapper">
@@ -90,8 +143,10 @@ const MyPageEdit: any = () => {
                   placeholder="이름"
                   name="name"
                   onChange={handleChangeName}
-                  value={name}
+                  defaultValue={inform.name}
+                  value={inform.name}
                 />
+                {inform.name}
               </div>
               <div className="분류">
                 <label htmlFor="분류">분류 :</label>
@@ -101,7 +156,7 @@ const MyPageEdit: any = () => {
                   placeholder="분류"
                   name="name"
                   onChange={handleChangeSort}
-                  value={sort}
+                  value={inform.group}
                 />
               </div>
               <div className="학교">
@@ -112,7 +167,7 @@ const MyPageEdit: any = () => {
                   placeholder="학교"
                   name="name"
                   onChange={handleChangeSchool}
-                  value={school}
+                  value={inform.school}
                 />
               </div>
               <div className="전공">
@@ -123,7 +178,7 @@ const MyPageEdit: any = () => {
                   placeholder="전공"
                   name="name"
                   onChange={handleChangeMajor}
-                  value={major}
+                  value={inform.major}
                 />
               </div>
               <div className="학년">
@@ -134,7 +189,7 @@ const MyPageEdit: any = () => {
                   placeholder="학년"
                   name="name"
                   onChange={handleChangeGrade}
-                  value={grade}
+                  value={inform.grader}
                 />
               </div>
               <div className="생년월일">
@@ -145,7 +200,7 @@ const MyPageEdit: any = () => {
                   placeholder="생년월일"
                   name="name"
                   onChange={handleChangeBirth}
-                  value={birth}
+                  value={inform.birthday}
                 />
               </div>
               <div className="전화번호">
@@ -156,7 +211,7 @@ const MyPageEdit: any = () => {
                   placeholder="전화번호"
                   name="name"
                   onChange={handleChangePhoneNum}
-                  value={phoneNum}
+                  value={inform.telephone}
                 />
               </div>
               <div className="이메일">
@@ -167,7 +222,7 @@ const MyPageEdit: any = () => {
                   placeholder="이메일"
                   name="name"
                   onChange={handleChangeEmail}
-                  value={email}
+                  value={inform.email}
                 />
               </div>
               <div className="거주지">
@@ -178,7 +233,7 @@ const MyPageEdit: any = () => {
                   placeholder="거주지"
                   name="name"
                   onChange={handleChangeAddress}
-                  value={address}
+                  value={inform.address}
                 />
               </div>
             </form>

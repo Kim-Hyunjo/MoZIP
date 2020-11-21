@@ -1,9 +1,44 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, RouteComponentProps } from 'react-router-dom';
 import React, { useState } from 'react';
+import axios from 'axios';
 import './namecard.css';
 import './button.css';
+import { DevelopUrl } from '../../http/HttpUrl';
 
-const mypage = () => {
+interface myInform{
+  group: string;
+  name: string;
+  education: string[];
+  grader : string;
+  states : string;
+  birthday : string;
+  telephone : string;
+  email : string;
+  address : string; 
+  self_image : string;
+  user_id : number;
+}
+
+const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
+  const [inform, setInform] = useState<myInform>({
+  group: '',
+  name: '',
+  education: [],
+  grader : '',
+  states : '',
+  birthday : '',
+  telephone : '',
+  email : '',
+  address : '', 
+  self_image : '',
+  user_id : 0,
+  })
+  const getApi = async () => {
+    await axios.get(DevelopUrl + '${props.match.params.subject}+/${props.match.params.circle_id/notice/}').then((r)=>{
+      let res: myInform = r.data;
+      setInform(res);
+    })
+  }
   const personalInfo = {
     name: '최우영',
     sort: '직장인',
@@ -236,4 +271,4 @@ const mypage = () => {
   );
 };
 
-export default mypage;
+export default Mypage;
