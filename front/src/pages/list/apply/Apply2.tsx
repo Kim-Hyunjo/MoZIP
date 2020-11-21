@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './apply.css';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 const Apply2 = ({ history }: any) => {
   const [motivation, setmotivation] = useState('');
@@ -120,13 +126,57 @@ const Apply2 = ({ history }: any) => {
               <div>
                 {/* 날짜는 back에서 받아온 데이터로 교체 */}
                 <div>
-                <input type="checkbox" checked={date1} onChange={checkDateChange1} name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} />시~<input type="select"maxLength={2} />시
+                {/* <input type="checkbox" checked={date1} onChange={checkDateChange1} name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} />시~<input type="select"maxLength={2} />시 */}
+                <input type="checkbox" checked={date1} onChange={checkDateChange1} name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
+                <Select className="apply_choosetime" defaultValue="시">
+                  <option aria-label="hour" value="16" />
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>  
+                  <option value={19}>19</option>
+                </Select>시~
+                <Select className="apply_choosetime" defaultValue="시">
+                  <option aria-label="hour" value="16" />
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>  
+                  <option value={19}>19</option>
+                </Select>시
                 </div>
                 <div>
-                <input type="checkbox" checked={date2} onChange={checkDateChange2} name="second" value="2020년 7월 19일 목요일"/><strong>2020년 7월 19일 목요일</strong><input type="select"maxLength={2} />시~<input type="select"maxLength={2} />시
+                <input type="checkbox" checked={date2} onChange={checkDateChange2} name="second" value="2020년 7월 19일 목요일"/><strong>2020년 7월 19일 목요일</strong>
+                <Select className="apply_choosetime" defaultValue="시">
+                  <option aria-label="hour" value="16" />
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>  
+                  <option value={19}>19</option>
+                </Select>시~
+                <Select className="apply_choosetime" defaultValue="시">
+                  <option aria-label="hour" value="16" />
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>  
+                  <option value={19}>19</option>
+                </Select>시
                 </div>
                 <div>
-                <input type="checkbox" checked={date3} onChange={checkDateChange3} name="third" value="2020년 7월 20일 금요일"/><strong>2020년 7월 20일 금요일</strong><input type="select"maxLength={2}/>시~<input type="select"maxLength={2} />시
+                {/* <input type="checkbox" checked={date3} onChange={checkDateChange3} name="third" value="2020년 7월 20일 금요일"/><strong>2020년 7월 20일 금요일</strong><input type="select"maxLength={2}/>시~<input type="select"maxLength={2} />시 */}
+                <input type="checkbox" checked={date3} onChange={checkDateChange3} name="third" value="2020년 7월 20일 금요일"/><strong>2020년 7월 20일 금요일</strong>
+                <Select className="apply_choosetime" defaultValue="시">
+                  <option aria-label="hour" value="16" />
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>  
+                  <option value={19}>19</option>
+                </Select>시~
+                <Select className="apply_choosetime" defaultValue="시">
+                  <option aria-label="hour" value="16" />
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>  
+                  <option value={19}>19</option>
+                </Select>시
                 </div>
               </div>
             </div>
