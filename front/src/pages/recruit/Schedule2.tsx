@@ -6,8 +6,8 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
     const [edit, setEdit] = useState<boolean>(false);
     // let _temp : boolean[];
     const  day = [{day:'1일차', date:'2020년 7월 10일', time:' 오후 4시~7시', site:'동국대학교',total:"총 16명"},
-    {day:'1일차' ,date:'2020년 7월 12일', time:' 오후 4시~7시', site:'히히대학교',total:"총 12명"},
-    {day:'1일차' ,date:'2020년 7월 13일', time:' 오후 5시~7시', site:'호호대학교',total:"총 12명"}]
+    {day:'2일차' ,date:'2020년 7월 12일', time:' 오후 4시~7시', site:'히히대학교',total:"총 12명"},
+    {day:'3일차' ,date:'2020년 7월 13일', time:' 오후 5시~7시', site:'호호대학교',total:"총 12명"}]
     const schedule = [{date:"2020.10.03", count:'1일차'},{date:"2020.10.03", count:'2일차'},{date:"2020.10.03", count:'3일차'}];
     const appply = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
     const appply2 = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
@@ -61,48 +61,54 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                 <form action="">
                 <div>
                 <div className="display_horiz give_space_bottom">
-                    <div className="interviewDayInform">
-                        <span>{day[0].day}</span>
+                    {edit ? (<button onClick={(event) => handleEdit(event)} id="button1">저장하기</button>): (<button onClick={(event) => handleEdit(event)} id="button1">수정하기</button>)}  
+                    {day.map((item)=>{
+                        return(<div>
+                        <div className="interviewDayInform">
+                        <span>{item.day}</span>
                         {edit ? (
                             <div>
-                            <button onClick={(event) => handleEdit(event)} id="button1">저장하기</button>
                             <div className="tiny_gray_namecard">
-                                날짜 : <input type="text" defaultValue={day[0].date}></input><br></br>
-                                시간 : <input type="text" defaultValue={day[0].time}></input><br></br>
-                                위치 : <input type="text" defaultValue={day[0].site}></input><br></br>
-                                인원 : <input type="text" defaultValue={day[0].total}></input><br></br>
+                                날짜 : <input type="text" defaultValue={item.date}></input><br></br>
+                                시간 : <input type="text" defaultValue={item.time}></input><br></br>
+                                위치 : <input type="text" defaultValue={item.site}></input><br></br>
+                                인원 : <input type="text" defaultValue={item.total}></input><br></br>
                             </div></div>
                         ): (
                             <div>
-                                <button onClick={(event) => handleEdit(event)} id="button1">수정하기</button>
+                                
                                 <div className="tiny_gray_namecard">
-                                    날짜 : {day[0].date}<br></br>
-                                    시간 : {day[0].time}<br></br>
-                                    위치 : {day[0].site}<br></br>
-                                    인원 : {day[0].total}<br></br>
+                                    날짜 : {item.date}<br></br>
+                                    시간 : {item.time}<br></br>
+                                    위치 : {item.site}<br></br>
+                                    인원 : {item.total}<br></br>
                                 </div>
                             </div>
                         )}
                     </div>
                     <div className="intervieweeInform">
-                        <div className="display_horiz interview_group_wrap"><h3>{day[0].day} 대상자</h3>
-                        <span>총 16명</span>
-                        <button id="button1">수정하기</button></div>
-                        <ul className="intervieweeGroup">
-                            {appply.map((info)=>{
-                                return(
-                                    <li className="tiny_gray_namecard">
-                                        {info.time}
-                                        <span>{info.manager}</span>
-                                        <div>{info.candidate}</div>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    </div>
+                    <div className="display_horiz interview_group_wrap"><h3>{item.day} 대상자</h3>
+                    <span>총 16명</span>
+                    <button id="button1">수정하기</button></div>
+                    <ul className="intervieweeGroup">
+                        {appply.map((info)=>{
+                            return(
+                                <li className="tiny_gray_namecard">
+                                    {info.time}
+                                    <span>{info.manager}</span>
+                                    <div>{info.candidate}</div>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div></div>)
+
+                    })}
+                    
+                    
                     </div>
 
-                    <div className="display_horiz give_space_bottom">
+                    {/* <div className="display_horiz give_space_bottom">
                     <div className="interviewDayInform">
                         <span>{day[1].day}</span>
                         <button id="button1">수정하기</button>
@@ -161,8 +167,8 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                 )
                             })}
                         </ul>
-                    </div>
-                    </div>
+                    </div> */}
+                    {/* </div> */}
                 </div>
                 <div className="interview_leftover">
                     <h2>남은 인원:</h2>

@@ -1,4 +1,13 @@
-import React from 'react'
+import { InfoOutlined } from '@material-ui/icons';
+import React, { Fragment, useState } from 'react';
+import SelfIntroduction from '../SelfIntroduction';
+
+interface questionList{
+    question: string;
+    answer: string;
+    score: number;
+    tempScore: number;
+}
 
 const Resume2 = () => {
     const info = [{
@@ -9,7 +18,32 @@ const Resume2 = () => {
         phone:'010-0000-0000',
         city:'서울시 강남구'
     }]
-    const selfIntoduction =[{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.', answer:'TAVE가 킹왕짱이기 때문입니다.'},{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.', answer:'TAVE가 킹왕짱이기 때문입니다.'},{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.', answer:'TAVE가 킹왕짱이기 때문입니다.'},{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.', answer:'TAVE가 킹왕짱이기 때문입니다.'}]
+    const [selfIntroductionList, setSelfIntroductionList] = useState<questionList[]>([
+    {question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.', answer:'TAVE가 킹왕짱이기 때문입니다.', score: 0, tempScore: 0},
+    {question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.1', answer:'TAVE가 킹왕짱이기 때문입니다.', score: 0,tempScore: 0},
+    {question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.2', answer:'TAVE가 킹왕짱이기 때문입니다.', score: 0, tempScore: 0},
+    {question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.3', answer:'TAVE가 킹왕짱이기 때문입니다.', score: 0, tempScore: 0}]);
+    const [_score, setScore] = useState<number>(0);
+    const handleSubmit = (info : questionList) =>{
+        let tmps: questionList[] = Object.assign([], selfIntroductionList);
+        tmps.map((tmp)=>{
+            if(tmp.question === info.question){
+                tmp.score = _score;
+            }
+        })
+        setSelfIntroductionList(tmps);
+    }
+    const handleChange = (value : string, info : questionList) => {
+        let tmps: questionList[] = Object.assign([], selfIntroductionList);
+        tmps.map((tmp)=>{
+            if(tmp.question === info.question){
+                info.tempScore = parseInt(value);
+            }
+        })
+        setSelfIntroductionList(tmps);
+        // setSelfIntrocore(parseInt(e.target.value));
+
+    }
     return (
         <div className="resume">
             <div>
@@ -17,7 +51,7 @@ const Resume2 = () => {
                 <div className = "small_title">지원자의 정보 및 자기소개서를 확인해보세요. </div>
             </div>
 
-            <div className="personScore">점수 총점 : 10점</div>
+            <div className="personScore">점수 총점 : {selfIntroductionList[0].score}점</div>
             <div className="gray_namecard">
                 <div>
                     <span>프로필 사진</span>
@@ -37,15 +71,16 @@ const Resume2 = () => {
                 <div className="title">자기소개서</div>
                 <form action="">
                 <ul>
-
-                    {selfIntoduction.map((info)=>{
+                    {selfIntroductionList.map((info)=>{
                         return(
                             <div className="small_gray_namecard">
                             <li><div className="resumeQuestion">{info.question}</div>
                                 <div className="resumeAnswer">{info.answer}</div>
                                 <label htmlFor=""></label>
-                                <input type="number" min={0} max ={10}/>
-                                <button id="button4">저장</button>
+                                <form onSubmit={() => handleSubmit(info)}>
+                                    <input type="number" value={info.tempScore} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e.target.value, info)} min={0} max ={10}/>
+                                    <button type="submit" id="button4">저장</button>
+                                </form>
                             </li>
                             </div>
                         )
