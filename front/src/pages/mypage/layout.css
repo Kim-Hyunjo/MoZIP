@@ -124,4 +124,5 @@
 }
 .MuiDialog-root #form-dialog-title  {
   width: 500px;
+  margin-top: 20px;
 }

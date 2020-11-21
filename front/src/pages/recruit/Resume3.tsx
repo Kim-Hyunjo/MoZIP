@@ -1,5 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 const Resume3 = () => {
     const manager = [{name:'최우영', select:'선택완료',timeSelect:'시간선택'},
@@ -33,9 +39,54 @@ const Resume3 = () => {
                 </div>
                 <div className="setting">
                     <div className="title">면접 일시</div>
+                     {/* <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
                      <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
-                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
-                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
+                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div> */}
+                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
+                     <Select className="resume_choosetime" defaultValue="시">
+                      <option aria-label="hour" value="16" />
+                      <option value={16}>16</option>
+                      <option value={17}>17</option>
+                      <option value={18}>18</option>  
+                      <option value={19}>19</option>
+                    </Select> 시 ~
+                    <Select className="resume_choosetime" defaultValue="시">
+                      <option aria-label="hour" value="16" />
+                      <option value={16}>16</option>
+                      <option value={17}>17</option>
+                      <option value={18}>18</option>  
+                      <option value={19}>19</option>
+                    </Select>  시</div>
+                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
+                     <Select className="resume_choosetime" defaultValue="시">
+                      <option aria-label="hour" value="16" />
+                      <option value={16}>16</option>
+                      <option value={17}>17</option>
+                      <option value={18}>18</option>  
+                      <option value={19}>19</option>
+                    </Select>  시 ~
+                    <Select className="resume_choosetime" defaultValue="시">
+                      <option aria-label="hour" value="16" />
+                      <option value={16}>16</option>
+                      <option value={17}>17</option>
+                      <option value={18}>18</option>  
+                      <option value={19}>19</option>
+                    </Select>  시</div>
+                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
+                     <Select className="resume_choosetime" defaultValue="시">
+                      <option aria-label="hour" value="16" />
+                      <option value={16}>16</option>
+                      <option value={17}>17</option>
+                      <option value={18}>18</option>  
+                      <option value={19}>19</option>
+                    </Select>  시 ~
+                    <Select className="resume_choosetime" defaultValue="시">
+                      <option aria-label="hour" value="16" />
+                      <option value={16}>16</option>
+                      <option value={17}>17</option>
+                      <option value={18}>18</option>  
+                      <option value={19}>19</option>
+                    </Select>  시</div>
                 </div>
                 <div className="width1000">
                     <div className="title">면접 가능한 운영진</div>
