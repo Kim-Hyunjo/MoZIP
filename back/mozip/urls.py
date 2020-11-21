@@ -71,7 +71,8 @@ urlpatterns = [
 
     path('list/art/<int:cc_id>/', ClubView.as_view()),
     path('list/art/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/art/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/art/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/art/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/art/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/art/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/art/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
@@ -80,7 +81,8 @@ urlpatterns = [
 
     path('list/networking/<int:cc_id>/', ClubView.as_view()),
     path('list/networking/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/networking/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/networking/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/networking/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/networking/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/networking/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/networking/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
@@ -89,7 +91,8 @@ urlpatterns = [
 
     path('list/sports/<int:cc_id>/', ClubView.as_view()),
     path('list/sports/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/sports/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/sports/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/sports/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/sports/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/sports/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/sports/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
@@ -98,7 +101,8 @@ urlpatterns = [
 
     path('list/travel/<int:cc_id>/', ClubView.as_view()),
     path('list/travel/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/travel/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/travel/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/travel/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/travel/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/travel/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/travel/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
@@ -107,7 +111,8 @@ urlpatterns = [
 
     path('list/religion/<int:cc_id>/', ClubView.as_view()),
     path('list/religion/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/religion/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/religion/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/religion/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/religion/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/religion/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/religion/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
@@ -116,7 +121,8 @@ urlpatterns = [
 
     path('list/volunteer/<int:cc_id>/', ClubView.as_view()),
     path('list/volunteer/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/volunteer/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/volunteer/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/volunteer/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/volunteer/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/volunteer/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/volunteer/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
@@ -125,7 +131,8 @@ urlpatterns = [
 
     path('list/etc/<int:cc_id>/', ClubView.as_view()),
     path('list/etc/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/etc/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/etc/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/etc/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/etc/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/etc/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/etc/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
