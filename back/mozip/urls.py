@@ -49,7 +49,7 @@ urlpatterns = [
 
     #mozip
     #list
-    path('list/all/', ListAllView.as_view()),
+    path('list/all', ListAllView.as_view()),
     path('list/academy/', ListAcademyView.as_view()),
     path('list/art/', ListArtView.as_view()),
     path('list/networking/', ListNetworkingView.as_view()),
@@ -148,7 +148,7 @@ urlpatterns = [
     path('recruit/<int:club_id>/applicants',RecruitApplicantsView.as_view()),
     path('recruit/process/basicinfo/',include(router.urls) ),
     path('recruit/process/noticeinfo/', include(router.urls)),
-    path('recruit/process/form/', include(router.urls)),
+    path('recruit/process/form/', RecruitProcessFormView.as_view()),
     path('recruit/process/applicants/', include(router.urls)),
     path('recruit/resume/', include(router.urls)),
     path('recruit/resume/<int:user_id>/', include(router.urls)),
