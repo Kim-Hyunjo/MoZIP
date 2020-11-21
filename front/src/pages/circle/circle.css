@@ -123,7 +123,7 @@
   transform: translate(640px, -152px);
   width: 32px;
   height: 32px;
-  background-image: url("../images2/icon_x@2x.png");
+  background-image: url('../images2/icon_x@2x.png');
   background-size: 32px;
   border: none;
 }
