@@ -271,7 +271,7 @@ class ClubJustDetailView(APIView): #동아리 그냥 상세
 class ClubView(APIView):
     def get(self, request, cc_id):
         serializer1 = ClubSerializer(Club.objects.filter(cc_id=-cc_id), many=True)
-             #Club_review
+        #Club_review
         serializer2 = ClubReviewSerializer(Club_review.objects.filter(club_id=-cc_id), many=True)
         #Club_FAQ
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
@@ -279,27 +279,13 @@ class ClubView(APIView):
         fdate = eval(datas1["foundationdate"])
         datas1.update(fdate)
         datas2 = serializer2.data[0]
-        review = eval(datas2["review"])
-        datas2["review"] = review.values()
+        datas2["review"] = eval(datas2["review"])
         datas1.update(datas2)
         datas3 = serializer3.data[0]
-        FAQ = eval(datas3["FAQ"])
-        datas3["FAQ"] = FAQ.values()
+        datas3["FAQ"] = eval(datas3["FAQ"])
         datas1.update(datas3)
         return Response(datas1)
         #return Response(serializer2.data)
-        #회원이면
-        # if(user_id >0):
-        #     #Club
-        #     serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
-        #     #Club_review
-        #     serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
-        #     #Club_FAQ
-        #     serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
-        #     return Response(serializer1.data + serializer2.data + serializer3.data)
-        # #회원 아니면 joinus로 redirect
-        # else:
-        #     return redirect('joinus')
     #후기 작성
     def post(self, request, cc_id):
         serializer = ClubReviewSerializer(data=request.data)
@@ -317,7 +303,14 @@ class ListDetailView(APIView):
     def get(self, reuqest, cc_id):
         serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(club_id=-cc_id), many=True)
         serializer2 = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), many=True)
-        return Response(serializer1.data + serializer2.data)
+        s1 = serializer1.data[0]
+        s2 = serializer2.data[0]
+        s1["detail"] = eval(s1["detail"])
+        s1["card_image"] = eval(s1["card_image"])
+        s2["QA"] = eval(s2["QA"])
+        s1.update(s2)
+        return Response(s1)
+
     def post(self, request, cc_id):
         #어떻게 구분하지ㅜㅜ
         #질문 달기-모두
@@ -326,13 +319,6 @@ class ListDetailView(APIView):
             serializer.save()
             return Response(serializer.data, staus=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        #답변 달기-회장
-        # s = Club_FAQ.objects.get(club_id=cc_id)
-        # serializer = ClubDetailPostSerializer(s.get(id=post_id), data=request.data)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
-        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ListApplyView(APIView):
     def get(self, reuqest, cc_id):
@@ -346,8 +332,7 @@ class ListApply2View(APIView):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
         datas = serializer1.data[0]
-        l_eval = eval(datas["document"])
-        d = dict(OrderedDict(l_eval))
+        datas["document"] = eval(datas["document"])
 
         return Response(datas)
         #return Response(datas["document"])
