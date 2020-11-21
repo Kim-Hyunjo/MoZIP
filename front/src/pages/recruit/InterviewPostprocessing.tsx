@@ -1,67 +1,71 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './resume.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const InterviewPostprocessing = () => {
-    const [selfIntroduction, setselfIntroduction]:any = useState([{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.',answer:'Tave가 킹왕짱이기 때문입니다.'},{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.',answer:'Tave가 킹왕짱이기 때문입니다.'},{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.',answer:'Tave가 킹왕짱이기 때문입니다.'},{question:'우리 동아리에 지원하게 된 동기를 말씀해 주세요.',answer:'Tave가 킹왕짱이기 때문입니다.'}])
-    const [interviewDetail, setinterviewDetail] = useState([{question:'1.간단히 자기소개 부탁드립니다.', answer:"저는 저입니다"},])
+    const candidateStatus = [
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+        {name:'한채은',group: '1조', time:'13:00', score:'10점', status:'보류'},
+]
     return (
-        <div>
-            <div>
-                <h2>지원자 지원서 정보</h2>
-                <p>지원자의 정보 및 자기소개서를 확인해보세요.</p>
-            </div>
-            <div>
-                <h3>한채은</h3>
-                 <span>점수 총점: 10점</span>
-                 <div>
-                    <h4>프로필 사진</h4>
-                    <p>한채은
-                        <br/>
-                        테이브 대학교 3학년
-                        <br/>
-                        2001.07.07
-                        <br/>
-                        010-0000-0000
-                        <br/>
-                        tave._.wave@naver.com
-                        <br/>
-                        서울시 강남구
-                    </p>
-                 </div>
-            </div>
-            <div>
-                <h3>자기소개서</h3>
-                <div>
-                    
-                        {selfIntroduction.map((info:any)=>{
-                            return(
-                                <>
-                                <ul>
-                                <li>{info.question}</li>
-                                <li>{info.answer}</li>
-                                </ul>
-                                </>
-                            )
-                        })}
-                        
-                </div>
-            </div>
-            <div>
-                <h3>면접 상세</h3>
-                <div>
-                    {interviewDetail.map((info:any)=>{
+        <div className="resume">
+            <h2>면접 합격자 관리</h2>
+            <h4>최종 합격자를 발표해보세요. 미결정 혹은 보류 인원 존재 시 최종 합격 발표를 할 수 없습니다.</h4>
+                <form action="">
+                    <label htmlFor=""></label>
+                    <button id="button4">통계 보기</button>
+                    <div className="stateBox">
+                        <ul className="states">
+                            <li><div className="stateName">전체</div></li>
+                            <li><div className="stateName">미결정</div></li>
+                            <li><div className="stateName">합격</div></li>
+                            <li><div className="stateName">불합격</div></li>
+                            <li><div className="stateName">보류</div></li>
+                        </ul>
+
+                        <div className="stateUsers">총 100명</div>
+                        <ul className = "horizontal_people_list">
+                            {candidateStatus.map((info)=>{
                                 return(
-                                    <>
-                                    <ul>
-                                    <li>{info.question}</li>
-                                    <li>{info.answer}</li>
-                                    </ul>
-                                    </>
+                                    <li>
+                                <label htmlFor=""></label>
+                                <input type="checkbox"/>
+                                <span className="personalName">{info.name} </span>
+                                <span className="personalTime">{info.group}{info.time}</span>
+                                <div className="rightSide">
+                                    <span className="personalScore"> 점수 :{info.score}</span>
+                                    <strong id="skip">{info.status}</strong>   
+                                    <Link to="/recruit/interview/postprocessing/detail"><button id ="button1">상세보기</button></Link>
+                                </div>
+                            </li>
+                                    
                                 )
                             })}
-                </div>
-            </div>
+                            
+                        </ul>
+                        <div className = "changeButtons">
+                            *선택한 후 아래 버튼을 누르면 해당 인원이 이동합니다.
+                            <div className ="changeButton3">
+                                <button id="skipButt">보류</button>
+                                <button id="outButt">불합격</button>
+                                <button id="inButt">합격</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+                <div><Link to="/recruit/interview/postprocessing/notice"><button id="button_red">합격 안내문 작성하기</button></Link></div>
+
         </div>
     )
 }
 
 export default InterviewPostprocessing
+    

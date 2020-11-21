@@ -1,0 +1,23 @@
+/*guide registration*/
+.guide_wrapper{
+    width: 1000px;
+}
+.guide_wrapper img{
+    width: 92%;
+    margin: 48px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.guide_wrapper div{
+    font-size: 16px;
+    font-weight: 600;
+}
+.guide_wrapper span{
+    text-decoration: underline;
+}
+
+.fonts{
+    margin: 0;
+    padding: 0;
+}

@@ -131,7 +131,7 @@ const ListAll = () => {
         <div>
           <ul id="horizontal_list">
             <li>
-              <Link to="/list">전체</Link>
+              <Link to="/list" >전체</Link>
             </li>
             <li>
               <Link to="/list/academy">학술</Link>

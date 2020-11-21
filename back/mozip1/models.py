@@ -40,17 +40,17 @@ class Creation_Club(models.Model):
     objects = models.DjongoManager()
 
 class Club(models.Model):
-    cc_id = models.IntegerField(unique=True,primary_key=True)
+    cc_id = models.IntegerField(unique=True,primary_key=True, default=0)
     name = models.CharField(max_length=15)
-    information = models.CharField(max_length=30)
+    information = models.CharField(max_length=30, null=True)
     category_choice = (("c1","학술"),("c2","예술"),("c3","친목"),("c4","스포츠"),("c5","여행"),("c6","종교"),("c7","봉사"),("c8","기타"))
     category = models.CharField(max_length=8,choices=category_choice,default="c1")
-    foundationdate = models.JSONField()
-    detail_information = models.TextField(max_length=300)
-    self_image = models.CharField(max_length=10)
+    foundationdate = models.JSONField(default=None)
+    detail_information = models.TextField(max_length=300, default=None)
+    self_image = models.CharField(max_length=10, default=None)
     card_image = models.JSONField(default=[])
-    telephone = models.CharField(max_length=15)
-    email = models.EmailField()
+    telephone = models.CharField(max_length=15, default=None)
+    email = models.EmailField(default=None)
     #status
     objects = models.DjongoManager()
 
@@ -73,22 +73,20 @@ class Club_FAQ(models.Model):
     objects = models.DjongoManager()
 
 class Club_introduce(models.Model):
-    title = models.CharField(max_length=20)
-    number = models.CharField(max_length=5)
-    region = models.JSONField()
+    number = models.CharField(max_length=5,default=None)
+    region = models.CharField(max_length=25,default=None)
     target_choice = (("t1","대학생"),("t2","직장인"),("t3","일반인"))
     target = models.CharField(max_length=10,choices=target_choice,default="t1")
-    time = models.CharField(max_length=10)
-    mainURL = models.URLField(max_length=200)
-    detail = models.JSONField()
-    poster = models.CharField(max_length=5)
-    card_image = models.JSONField()
-    club_id = models.IntegerField()
-    ci_id = models.CharField(unique=True,primary_key=True,max_length=15)
+    time = models.CharField(max_length=10,default=None)
+    mainURL = models.URLField(max_length=200,default=None)
+    detail = models.JSONField(default=[])
+    poster = models.CharField(max_length=5,default=None)
+    card_image = models.JSONField(default=[])
+    club_id = models.IntegerField(default=0)
+    type_choice = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
+    types = models.CharField(max_length=20,choices=type_choice,default="1")
+    ci_id = models.CharField(unique=True,primary_key=True,max_length=15,default=0)
     objects = models.DjongoManager()
-
-    def __str__(self):
-        return self.ci_id
 
 class recruit_QA(models.Model):
     QA = models.JSONField()
@@ -107,7 +105,7 @@ class recruit_format(models.Model):
     type_choices = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
     Type = models.CharField(max_length=15,choices=type_choices,default="1")
     club_id = models.IntegerField()
-    user_id = models.PositiveIntegerField()
+    user_id = models.PositiveIntegerField(default=0)
     document = models.JSONField()
     rf_id = models.CharField(unique=True,primary_key=True,max_length=15)
     objects = models.DjongoManager()

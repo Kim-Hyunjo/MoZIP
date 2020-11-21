@@ -51,7 +51,7 @@ const ListArt = () => {
               <Link to="/list/academy">학술</Link>
             </li>
             <li>
-              <Link to="/list/art">예술</Link>
+              <Link to="/list/art" >예술</Link>
             </li>
             <li>
               <Link to="/list/networking">친목</Link>

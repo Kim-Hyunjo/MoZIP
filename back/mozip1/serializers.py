@@ -1,12 +1,19 @@
 from rest_framework import serializers
 from .models import *
 # Serializers define the API representation.
+#임시
+class PostClubSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club
+        fields = ['cc_id','name','information','category','foundationdate' 
+        ,'detail_information','self_image','telephone','email']
+
+
 #list
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['group', 'name', 'education','grader', 
-        'states', 'birthday', 'telephone', 'email', 'address','self_image','date','user_id']
+        fields = '__all__'
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -22,12 +29,12 @@ class ClubSerializer(serializers.HyperlinkedModelSerializer):
 class ListClubSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Club
-        fields = ['name','information','category','self_image']
+        fields = ['cc_id','name','information','category','self_image']
 
 class ClubReviewSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Club_review
-        fields = ['review']
+        fields = ['review', 'club_id']
 
 class ClubFAQSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -37,17 +44,51 @@ class ClubFAQSerializer(serializers.HyperlinkedModelSerializer):
 class ClubIntroduceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Club_introduce
-        fields = ['title','number','region','target_choice','target','time',
-        'mainURL','detail','poster','card_image', 'ci_id']
+        fields = ['number','region','target','time',
+        'mainURL','detail','poster','card_image', 'club_id']
+
+class ClubIntroduceAllSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club_introduce
+        fields = '__all__'
+
+class ClubDetailPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = recruit_QA
+        fields = '__all__'
 
 
+# sj
+class CreateClubSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Creation_Club
+        fields = ["created_id","approval"]
 
-class UserApplyListSerializer(serializers.HyperlinkedModelSerializer):
+# sj - recruit
+
+class RecruitClubIntroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club_introduce
+        fields = '__all__'
+
+
+class RecruitFormatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = recruit_format
+        fields = '__all__'
+
+
+class UserApplyListSerializer(serializers.ModelSerializer):
     class Meta:
         model = user_apply_list
         fields = ['user_id','apply_list']
 
-class CreationClubSerializer(serializers.HyperlinkedModelSerializer):
+class RecruitApplicantsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = user_apply_list
+        fields = ['apply_list']
+
+class CreationClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
         fields = ['cc_id','name','information','category','foundationdate' 

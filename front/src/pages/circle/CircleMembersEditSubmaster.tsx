@@ -26,6 +26,9 @@ const CircleMembersEditSubmaster:React.FunctionComponent<Props> = ({
                         <button className="changeOwner" >인원 추가</button>
                     </div>
             <div className="user_namecard_edit"><div className="user_name">{propsRole.name}</div><button id="button_x" type="button">x</button><div className="user_role">{propsRole.status}</div><span>{propsRole.content}</span></div>
+            <div className="subClubImage">
+            <img src="http://placehold.it/120x120" />
+        </div>
         </div>
     )
     }
