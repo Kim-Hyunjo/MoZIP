@@ -284,7 +284,7 @@ class ClubView(APIView):
         datas3 = serializer3.data[0]
         datas3["FAQ"] = eval(datas3["FAQ"])
         datas1.update(datas3)
-        return Response(datas1)
+        return Response(serializer1.data)
         #return Response(serializer2.data)
     #후기 작성
     def post(self, request, cc_id):
