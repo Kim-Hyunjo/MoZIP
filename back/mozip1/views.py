@@ -327,7 +327,14 @@ class ListMembersView(APIView):
         serializer = ClubMemberSerializer(Club_member.objects.filter(club_id=-cc_id), many=True)
         return Response(serializer.data)
 
-#class ListMembersEditView(APIView):
+class ListMembersEditView(APIView):
+    def get(self, request, cc_id):
+        serializer = ClubMemberSerializer(Club_member.objects.filter(club_id=-cc_id), many=True)
+        return Response(serializer.data)
+    #post 아직
+
+
+
 
 # circle - sj
 '''
