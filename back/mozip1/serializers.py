@@ -137,3 +137,11 @@ class UserRecordQSerializer(serializers.ModelSerializer):
     class Meta:
         model = user_recordQ
         fields = ["recordQ", "user_id"]
+
+class InterviewManagerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = interview_manager
+        fileds = '__all__'
+
+
+
