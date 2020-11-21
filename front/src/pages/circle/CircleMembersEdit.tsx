@@ -102,6 +102,7 @@ const CircleMembersEdit = () => {
     });
 
     setRoleIndex(roleIndex + 1);
+    setDepartmentIndex(departmentIndex + 1);
     setNewRole('');
     setRoles(tmps);
     setDepartments(tmpDepartments);
