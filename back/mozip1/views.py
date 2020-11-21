@@ -276,15 +276,15 @@ class ClubView(APIView):
         #Club_FAQ
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
         datas1 = serializer1.data[0]
-        fdate = eval(datas1["foundationdate"])
-        datas1.update(fdate)
+        datas1["foundationdate"] = eval(datas1["foundationdate"])
+        datas1["card_image"] = eval(datas1["card_image"])
         datas2 = serializer2.data[0]
         datas2["review"] = eval(datas2["review"])
         datas1.update(datas2)
         datas3 = serializer3.data[0]
         datas3["FAQ"] = eval(datas3["FAQ"])
         datas1.update(datas3)
-        return Response(serializer1.data)
+        return Response(datas1)
         #return Response(serializer2.data)
     #후기 작성
     def post(self, request, cc_id):
