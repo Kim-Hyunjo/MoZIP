@@ -135,7 +135,7 @@ const List = (props: RouteComponentProps<{}>) => {
       <h2>전체 동아리 목록</h2>
       <h4>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</h4>
       <div className="wrapper">
-        <div>
+        {/* <div>
           <label>
             <select
               id="list-name"
@@ -153,7 +153,7 @@ const List = (props: RouteComponentProps<{}>) => {
               })}
             </select>
           </label>
-        </div>
+        </div> */}
         <div>
           <ul id="horizontal_list">
             {test.map((item) => {

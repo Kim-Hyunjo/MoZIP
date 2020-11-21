@@ -132,6 +132,7 @@ import icon_etc from '../images/icon_etc@2x.png';
     ];
   
     return (
+      <div>
       <div className="home_wrapper">
         <div className="home_top_wrapper">
         <Link to = "/list"><ul id="horizontal_list">
@@ -172,6 +173,7 @@ import icon_etc from '../images/icon_etc@2x.png';
                alt='card_user' />
             </div>
         </div>
+        </div>
         <div className="home_mid2_wrapper">
             <img
                src={ imgC }
@@ -194,7 +196,7 @@ import icon_etc from '../images/icon_etc@2x.png';
             <img
                className="img_keys"
                src={ imgF }
-               alt='key services' />
+               alt='banner' />
         </div>
       </div>
     );
