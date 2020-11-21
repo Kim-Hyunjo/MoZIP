@@ -257,6 +257,7 @@ class ClubView(APIView):
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
         s1 = serializer1.data[0]
         s2 = serializer2.data[0]
+        s1["foundationdate"] = eval(s1["foundationdate"])
         s2["review"] = eval(s2["review"])
         s3 = serializer3.data[0]
         s1.update(s2)
@@ -264,18 +265,6 @@ class ClubView(APIView):
         s1.update(s3)
         #return Response(datas1)
         return Response(s1)
-        #회원이면
-        # if(user_id >0):
-        #     #Club
-        #     serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
-        #     #Club_review
-        #     serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
-        #     #Club_FAQ
-        #     serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
-        #     return Response(serializer1.data + serializer2.data + serializer3.data)
-        # #회원 아니면 joinus로 redirect
-        # else:
-        #     return redirect('joinus')
     #후기 작성
     def post(self, request, cc_id):
         serializer = ClubReviewSerializer(data=request.data)
@@ -293,7 +282,13 @@ class ListDetailView(APIView):
     def get(self, reuqest, cc_id):
         serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(club_id=-cc_id), many=True)
         serializer2 = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), many=True)
-        return Response(serializer1.data + serializer2.data)
+        s1 = serializer1.data[0]
+        s2 = serializer2.data[0]
+        s1["card_image"] = eval(s1["card_image"])
+        s1["detail"] = eval(s1["detail"])
+        s2["QA"] = eval(s2["QA"])
+        s1.update(s2)
+        return Response(s1)
     def post(self, request, cc_id):
         #어떻게 구분하지ㅜㅜ
         #질문 달기-모두
