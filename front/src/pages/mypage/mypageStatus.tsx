@@ -1,10 +1,19 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './button.css';
 import './h3lines.css';
 import './namecard.css';
+import axios from 'axios';
 
-const mypageStatus = () => {
+
+interface Status{
+  user_id : number;
+  states : string;
+  club_in : string;
+}
+
+const MypageStatus = () => {
+  const[status, setStatus] = useState<Status[]>([])
   const personalClublist = [
     {
       name: '~나의 동아리~',
@@ -17,11 +26,24 @@ const mypageStatus = () => {
       position: '회원',
     },
   ];
+  const getApi = async () => {
+    await axios.get('http://3.35.234.131:8000/mypage/1/status/').then((r)=>{
+      let res: Status[] = r.data;
+      setStatus(res);
+    })
+  }
+
+  useEffect(()=>{
+    getApi()
+  },[])
 
   return (
     <div>
       <div id="namecard"><h2>동아리 모집 현황</h2></div>
       <h3>
+        {status.map((item)=>{
+          return(<div>{item.user_id}</div>)
+        })}
         <div>동아리별 부원 모집 과정 현황을 확인해보세요.</div>
         <br />
       <div>
@@ -124,4 +146,4 @@ const mypageStatus = () => {
   );
 };
 
-export default mypageStatus;
+export default MypageStatus;

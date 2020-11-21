@@ -184,68 +184,88 @@ class ListAllView(APIView):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.all(), many = True)
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
         
 class ListAcademyView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c1"), many = True)
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ListArtView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c2"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
             
 class ListNetworkingView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c3"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ListSportsView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c4"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ListTravelView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c5"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ListReligionView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c6"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ListVolunteerView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c7"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ListEtcView(APIView):
     def get(self, request):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c8"), many = True) 
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class ClubJustDetailView(APIView): #동아리 그냥 상세
     def get(self, request, id):
         serializer = ClubSerializer(Club.objects.get(cc_id=id), many=True)
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 #list/category/{ccID}
 class ClubView(APIView):
@@ -255,27 +275,17 @@ class ClubView(APIView):
         serializer2 = ClubReviewSerializer(Club_review.objects.filter(club_id=-cc_id), many=True)
         #Club_FAQ
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
-        s1 = serializer1.data[0]
-        s2 = serializer2.data[0]
-        s2["review"] = eval(s2["review"])
-        s3 = serializer3.data[0]
-        s1.update(s2)
-        s3["FAQ"] = eval(s3["FAQ"])
-        s1.update(s3)
-        #return Response(datas1)
-        return Response(s1)
-        #회원이면
-        # if(user_id >0):
-        #     #Club
-        #     serializer1 = ClubSerializer(Club.objects.get(cc_id=cc_id), many=True)
-        #     #Club_review
-        #     serializer2 = ClubReviewSerializer(Club_review.objects.filter(id=cc_id), many=True)
-        #     #Club_FAQ
-        #     serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(id=cc_id), many=True)
-        #     return Response(serializer1.data + serializer2.data + serializer3.data)
-        # #회원 아니면 joinus로 redirect
-        # else:
-        #     return redirect('joinus')
+        datas1 = serializer1.data[0]
+        datas1["foundationdate"] = eval(datas1["foundationdate"])
+        datas1["card_image"] = eval(datas1["card_image"])
+        datas2 = serializer2.data[0]
+        datas2["review"] = eval(datas2["review"])
+        datas1.update(datas2)
+        datas3 = serializer3.data[0]
+        datas3["FAQ"] = eval(datas3["FAQ"])
+        datas1.update(datas3)
+        return Response(datas1)
+        #return Response(serializer2.data)
     #후기 작성
     def post(self, request, cc_id):
         serializer = ClubReviewSerializer(data=request.data)
@@ -291,9 +301,16 @@ class ClubView(APIView):
 
 class ListDetailView(APIView):
     def get(self, reuqest, cc_id):
-        serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(club_id=-cc_id), many=True)
+        serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(ci_id=-cc_id), many=True)
         serializer2 = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), many=True)
-        return Response(serializer1.data + serializer2.data)
+        s1 = serializer1.data[0]
+        s2 = serializer2.data[0]
+        s1["detail"] = eval(s1["detail"])
+        s1["card_image"] = eval(s1["card_image"])
+        s2["QA"] = eval(s2["QA"])
+        s1.update(s2)
+        return Response(s1)
+
     def post(self, request, cc_id):
         #어떻게 구분하지ㅜㅜ
         #질문 달기-모두
@@ -302,13 +319,6 @@ class ListDetailView(APIView):
             serializer.save()
             return Response(serializer.data, staus=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        #답변 달기-회장
-        # s = Club_FAQ.objects.get(club_id=cc_id)
-        # serializer = ClubDetailPostSerializer(s.get(id=post_id), data=request.data)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
-        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ListApplyView(APIView):
     def get(self, reuqest, cc_id):
@@ -322,8 +332,7 @@ class ListApply2View(APIView):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
         datas = serializer1.data[0]
-        l_eval = eval(datas["document"])
-        d = dict(OrderedDict(l_eval))
+        datas["document"] = eval(datas["document"])
 
         return Response(datas)
         #return Response(datas["document"])
@@ -397,8 +406,7 @@ class ClubIntroudView(APIView):
         Club_in = Club_introduce.objects.get(club_id=-1)
         serializer = RecruitClubIntroSerializer(Club_in)
         return Response(serializer.data)
-class RecruitNoticeview(APIView):
-    
+class RecruitNoticeview(APIView):   
     def get(self,request):
         rn = recruit_notice.objects.all()
         serializer = RecruitNoticeSerializer(rn,many=True)
@@ -458,13 +466,12 @@ class MypageEditView(APIView):
 
 class MypageIntroductionView(APIView):
     def get(self, request, user_id):
-        def get_object(self, user_id):
-            try:
-                return user_recordQ.objects.filter(user_id=user_id)[0]
-            except user_recordQ.DoesNotExist:
-                return None
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id))
-        return Response(serializer.data)
+        d = serializer.data    
+        edu = eval(datas["education"])
+        dict_edu = dict(OrderedDict(edu))
+        datas.update(dict_edu)
+        return Response(d["recordQ"])
 
     def post(self, request, user_id):
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id),data=request.data)
@@ -482,18 +489,30 @@ class MypageIntroductionView(APIView):
 
 class MypageRecruitNoticeView(APIView):
     def get(self, request, user_id, ci_id):
-        serializer = RecruitNoticeSerializer(recruit_notice.objects.get(ci_id=-ci_id))
-        return Response(serializer.data)
+        serializer = RecruitNoticeSerializer(recruit_notice.objects.filter(ci_id=-ci_id),many=True)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club리스트 가져오기
     def get(self, request, user_id):
-        serializer = UserCircleSerializer(user_circle.objects.get(user_id=user_id))
-        response = Response(serializer.data)
-        response["Access-Control-Allow-Origin"] = "*"
-        response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
-        response["Access-Control-Allow-Headers"] = "*"
+        serializer = UserCircleSerializer(user_circle.objects.filter(user_id=user_id),many=True)
+        res = []
+        for i in range(len(serializer.data)):
+            d = serializer.data[i]
+            #a = serializer.data[i]["user_id"]
+            #b = serializer.data[i]["states"]
+            #c = serializer.data[i]["club_in"]
+            #val = [a,b,c]
+            res.append(d)
+        response = Response(res)
+        response = add_cors_header(response)
         return response
-
+def add_cors_header(response):
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    response["Access-Control-Allow-Headers"] = "*"
+    return response
 #recruit
 '''
 datas = serializer1.data[0]
@@ -564,24 +583,14 @@ class CircleOpenView(APIView):
 
 class RecruitProcessFormView(APIView):
     def get(self, request):
-        model = recruit_format
-        serializer = RecruitFormatSerializer(recruit_format.objects.all(), many=True)
+        model = recruit_format.objects.all()
+        serializer = RecruitFormatSerializer(model, many=True)
         return Response(serializer.data)
-    def post(self, request):
+    @csrf_exempt
+    def post(self,request):
         serializer = RecruitFormatSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-import json
-def lambda_handler(event,context):
-    return{
-        'statusCode':200,
-        'headers':{
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Origin':'http://localhost:3000/',
-            'Access-Control-Allow-Methods': 'OPTIONS.POST.GET'
-        },
-        'body': json.dumps('Hello from Lambda!')
-    }
+ 

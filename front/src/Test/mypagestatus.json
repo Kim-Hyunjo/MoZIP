@@ -1,0 +1,41 @@
+[
+    {
+        "circle": 1,
+        "title": "TAVE 6기 모집",
+        "headCount": 50,
+        "region": "서울시",
+        "ableJob": [
+            "대학생",
+            "직장인",
+            "일반인"
+        ],
+        "time": "10시",
+        "status": "모집 중"
+    },
+    {
+        "circle": 1,
+        "title": "TAVE 6기 모집",
+        "headCount": 50,
+        "region": "서울시",
+        "ableJob": [
+            "대학생",
+            "직장인",
+            "일반인"
+        ],
+        "time": "10시",
+        "status": "서류 진행 중"
+    },
+    {
+        "circle": 1,
+        "title": "TAVE 6기 모집",
+        "headCount": 50,
+        "region": "서울시",
+        "ableJob": [
+            "대학생",
+            "직장인",
+            "일반인"
+        ],
+        "time": "10시",
+        "status": "면접 진행 중"
+    }
+]
