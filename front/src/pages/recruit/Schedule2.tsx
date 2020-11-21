@@ -1,5 +1,6 @@
 import React, {useState, } from 'react'
 import { BrowserRouter as Router, Route, Link,RouteComponentProps } from 'react-router-dom';
+import Apply from '../list/apply/Apply';
 import './recruit.css';
 
 const Schedule2 = (props: RouteComponentProps<{}>) => {
@@ -9,7 +10,7 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
     {day:'2일차' ,date:'2020년 7월 12일', time:' 오후 4시~7시', site:'히히대학교',total:"총 12명"},
     {day:'3일차' ,date:'2020년 7월 13일', time:' 오후 5시~7시', site:'호호대학교',total:"총 12명"}]
     const schedule = [{date:"2020.10.03", count:'1일차'},{date:"2020.10.03", count:'2일차'},{date:"2020.10.03", count:'3일차'}];
-    const appply = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
+    const apply = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
     const appply2 = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
     const appply3 = [{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},{time:"13:00",candidate:"한채은,한예송",manager:"최우영,왕희도"},]
     let dayInform;
@@ -89,10 +90,10 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
 
                     <div className="intervieweeInform">
                     <div className="display_horiz interview_group_wrap"><h3>{item.day} 대상자</h3>
-                    <span>총 16명</span>
+                    <span>총 {apply.length}명</span>
                     <button id="button1">수정하기</button></div>
                     <ul className="intervieweeGroup">
-                        {appply.map((info)=>{
+                        {apply.map((info)=>{
                             return(
                                 <li className="tiny_gray_namecard">
                                     {info.time}

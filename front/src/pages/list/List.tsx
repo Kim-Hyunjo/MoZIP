@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  RouteComponentProps,
-} from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ListAcademy from './ListAcademy';
 import ListSubject from './ListSubject';

@@ -13,6 +13,8 @@ from rest_framework.generics import ListAPIView, GenericAPIView
 from rest_framework.mixins import ListModelMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from collections import OrderedDict
+from ast import literal_eval
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -168,63 +170,63 @@ class PostClubMember(APIView):
 class ListAllView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.all(), many = True)
         return Response(serializer.data)
         
 class ListAcademyView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c1"), many = True)
         return Response(serializer.data)
 
 class ListArtView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c2"), many = True) 
         return Response(serializer.data)
             
 class ListNetworkingView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c3"), many = True) 
         return Response(serializer.data)
 
 class ListSportsView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c4"), many = True) 
         return Response(serializer.data)
 
 class ListTravelView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c5"), many = True) 
         return Response(serializer.data)
 
 class ListReligionView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c6"), many = True) 
         return Response(serializer.data)
 
 class ListVolunteerView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c7"), many = True) 
         return Response(serializer.data)
 
 class ListEtcView(APIView):
     def get(self, request):
         model = Club
-        fields = ['name','information','self_image','category']
+        fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.filter(category="c8"), many = True) 
         return Response(serializer.data)
 
@@ -292,7 +294,13 @@ class ListApplyView(APIView):
     def get(self, request, cc_id, user_id):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
-        return Response(serializer1.data + serializer2.data)
+        datas = serializer1.data[0]
+        l_eval = eval(datas["document"])
+        d = dict(OrderedDict(l_eval))
+
+        return Response(d)
+        #return Response(datas["document"])
+        #return Response(serializer1.data + serializer2.data)
     def post(self, request, cc_id, user_id):
         serializer = RecruitFormatSerializer(recruit_format.objects.filter(club_id=cc_id), data=request.data)
         if serializer.is_valid():

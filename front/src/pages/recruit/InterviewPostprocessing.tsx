@@ -42,7 +42,7 @@ const InterviewPostprocessing = () => {
                                 <div className="rightSide">
                                     <span className="personalScore"> 점수 :{info.score}</span>
                                     <strong id="skip">{info.status}</strong>   
-                                    <Link to="/recruit/resume/:member_id"><button id ="button1">상세보기</button></Link>
+                                    <Link to="/recruit/interview/postprocessing/detail"><button id ="button1">상세보기</button></Link>
                                 </div>
                             </li>
                                     
