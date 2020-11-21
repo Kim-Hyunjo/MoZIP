@@ -24,12 +24,11 @@ const CircleMembersEditItem = ({ member, department_id, onRemove }: Props) => {
         <div className="user_name">{member.name}</div>
         {member.role !== '회장' ? (
           <button id="button_x" type="button" onClick={handleRemove}>
-            x
           </button>
         ) : (
-          <Fragment></Fragment>
-        )}
-        <div className="submaster_role">{member.role}</div>
+            <Fragment></Fragment>
+          )}
+        <div className={member.role === '회장' ? 'master_role' : 'submaster_role'}>{member.role}</div>
         <div className="subClubImage">
           <img src="http://placehold.it/120x120" />
         </div>

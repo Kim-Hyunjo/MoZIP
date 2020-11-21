@@ -34,14 +34,12 @@ const CircleMembersEditDialogItem = ({
       <div className="user_namecard_edit">
         <div className="user_name">{member.name}</div>
         {!member.isChecked ? (
-          <button id="button_x" type="button" onClick={handleAdd}>
-            +
+          <button className="btn_plusorx_move" id="button_plus" type="button" onClick={handleAdd}>
           </button>
         ) : (
-          <button id="button_x" type="button" onClick={handleDelete}>
-            -
-          </button>
-        )}
+            <button id="button_x" type="button" onClick={handleDelete}>
+            </button>
+          )}
         <div className="submaster_role">{member.role}</div>
         <div className="subClubImage">
           <img src="http://placehold.it/120x120" />

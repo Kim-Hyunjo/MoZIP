@@ -178,32 +178,32 @@ const CircleMembersEdit = () => {
         <ul className="membersKind">
           {roles.map((role) => {
             return (
-              <li key={role.role_id}>
+              <li className="display_horiz" key={role.role_id}>
                 {role.role_name}
                 <button
-                  id="button_plus"
+                  id="button_x"
                   type="button"
                   onClick={() => handleRemoveRole(role.role_id)}
                 >
-                  x
                 </button>
               </li>
             );
           })}
-          <li>
-            <button id="button_plus" type="button" onClick={handleToggleRole}>
-              {toggleRole ? '-' : '+'}
-            </button>
-          </li>
+          <div className="display_horiz new_member_kind">
+            <span hidden={!toggleRole}>
+              <input
+                className="new_member_kind_input"
+                type="text"
+                value={newRole}
+                onChange={handleChangeNewRole}
+              ></input>
+              <button id="button6B_smaller" onClick={handleCreateRole}>추가</button>
+            </span>
+            <li>
+              <button id={toggleRole ? 'button_x' : 'button_plus'} type="button" onClick={handleToggleRole}></button>
+            </li></div>
         </ul>
-        <span hidden={!toggleRole}>
-          <input
-            type="text"
-            value={newRole}
-            onChange={handleChangeNewRole}
-          ></input>
-          <button onClick={handleCreateRole}>추가</button>
-        </span>
+
       </div>
       {departments.map((department) => {
         return (
