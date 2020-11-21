@@ -29,7 +29,7 @@ class ClubSerializer(serializers.HyperlinkedModelSerializer):
 class ListClubSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Club
-        fields = ['name','information','category','self_image']
+        fields = ['cc_id','name','information','category','self_image']
 
 class ClubReviewSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
