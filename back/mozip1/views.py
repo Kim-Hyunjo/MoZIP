@@ -13,6 +13,8 @@ from rest_framework.generics import ListAPIView, GenericAPIView
 from rest_framework.mixins import ListModelMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from collections import OrderedDict
+from ast import literal_eval
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -293,8 +295,11 @@ class ListApplyView(APIView):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
         datas = serializer1.data[0]
-        json_acceptable_string = s.re
-        return Response(datas["document"])
+        l_eval = eval(datas["document"])
+        d = dict(OrderedDict(l_eval))
+
+        return Response(d)
+        #return Response(datas["document"])
         #return Response(serializer1.data + serializer2.data)
     def post(self, request, cc_id, user_id):
         serializer = RecruitFormatSerializer(recruit_format.objects.filter(club_id=cc_id), data=request.data)
