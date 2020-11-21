@@ -1,5 +1,6 @@
 .home_wrapper{
     width: 1000px;
+    margin: 0 auto;
 }
 .home_top_wrapper{
     width: 692px;
@@ -54,14 +55,17 @@
     height: auto;
 }
 .home_mid_wrapper .img_card_owner:hover{
-    transform: translate(0px, -20px);
+    /* transform: translate(0px, -20px); */
+    transition: transform 0.3s ease;
+    transform: scale(1.03);
 }
 .home_mid_wrapper .img_card_user{
     width: 40%;
     height: auto;
 }
 .home_mid_wrapper .img_card_user:hover{
-    transform: translate(0px, -20px);
+    transition: transform 0.3s ease;
+    transform: scale(1.03);
 }
  .bet-img{
     font-size: 32px;
@@ -71,6 +75,11 @@
 .home_mid2_wrapper img{
     width: 100%;
     margin: 100px 0;
+}
+.home_mid3_wrapper{
+    width: 1000px;
+    margin: 0 auto;
+
 }
 .home_mid3_wrapper h2{
     color: #0C5AC6;
@@ -82,14 +91,18 @@
     margin: 32px;
     margin-top: 0px;
 }
+.home_mid4_wrapper{
+    width: 1000px;
+    margin: 0 auto;
+
+}
 .home_mid4_wrapper .img_keys{
     width: 1000px;
     margin: 32px;
     margin-top: 0px;
 }
 .home_mid5_wrapper img{
-    width: 1000px;
-    margin: 32px;
-    margin-top: 0px;
+    width: 100%;
+    margin: 0px;
     height: auto;
 }
