@@ -374,12 +374,22 @@ class ListMembersEditView(APIView):
 
 
 # circle - sj
-'''
+
 class CreateClubApproval(APIView):
-    def get(self,request,created_id):
-        serializer = CreateClubSerializer(Creation_Club.objects.get(created_id=created_id))
+    def get(self,request):
+        club = Creation_Club.objects.all()
+        serializer = CreateClubSerializer(club,many=True)
         return Response(serializer.data)
-'''
+    
+    @csrf_exempt
+    def post(self,request):
+
+        serializer = CreateClubSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 # recruit
 class ClubIntroudView(APIView): 
@@ -389,7 +399,28 @@ class ClubIntroudView(APIView):
         Club_in = Club_introduce.objects.get(club_id=-1)
         serializer = RecruitClubIntroSerializer(Club_in)
         return Response(serializer.data)
+class RecruitNoticeview(APIView):
+    
+    def get(self,request):
+        rn = recruit_notice.objects.all()
+        serializer = RecruitNoticeSerializer(rn,many=True)
+        return Response(serializer.data)
+    
+    '''
+    def get(self, request, format=None):
+        snippets = Snippet.objects.all()
+        serializer = SnippetSerializer(snippets, many=True)
+        return Response(serializer.data)
+    '''
 
+
+    @csrf_exempt
+    def post(self,request):
+        serializer = RecruitNoticeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -482,7 +513,7 @@ class RecruitApplicantsView(APIView): #지원자 수, 각각의 이름,프로필
                 u = serializer1.data
                 users.append(u)
         return Response(users)
-        
+
 
 class RecruitResumeView(APIView): #서류전형 지원자목록
     def get(self,request):

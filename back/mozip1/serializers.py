@@ -62,7 +62,7 @@ class ClubDetailPostSerializer(serializers.ModelSerializer):
 class CreateClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
-        fields = ["created_id","approval"]
+        fields = '__all__'
 
 # sj - recruit
 

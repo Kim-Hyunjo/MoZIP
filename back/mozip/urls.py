@@ -147,7 +147,7 @@ urlpatterns = [
     path('recruit/selection/', include(router.urls)),
     path('recruit/<int:club_id>/applicants',RecruitApplicantsView.as_view()),
     path('recruit/process/basicinfo/',include(router.urls) ),
-    path('recruit/process/noticeinfo/', include(router.urls)),
+    path('recruit/process/noticeinfo/', RecruitNoticeview.as_view()),
     path('recruit/process/form/', include(router.urls)),
     path('recruit/process/applicants/', include(router.urls)),
     path('recruit/resume/', include(router.urls)),
@@ -180,7 +180,7 @@ urlpatterns = [
     path('guide/operation/', include(router.urls)),
 
     #circle
-    path('circle/open/', include(router.urls)),
+    path('circle/open/', CreateClubApproval.as_view()),
     path('circle/open/success/', include(router.urls)),
     path('circle/open/fail/', include(router.urls)),
     path('circle/open/approval/', include(router.urls)),
