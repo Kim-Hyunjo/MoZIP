@@ -12,7 +12,7 @@ import Home from './Test/home';
 import RedirectTest from './Test/RedirectTest';
 import TestList from './Test/TestList';
 import List from './pages/list/List';
-import ApplyNotice   from './pages/list/apply/ApplyNotice';
+import ApplyNotice from './pages/list/apply/ApplyNotice';
 import ApplyTemplete from './pages/list/apply/ApplyTemplete';
 import Circle from './pages/circle/Circle';
 import CircleDetail from './pages/circle/CircleDetail';
@@ -60,6 +60,7 @@ import ScrollToTop from './scroll/ScrollToTop';
 import logo from './images/logo@2x.png';
 import Test from './Test/Test';
 import words from './images/words.png';
+import Intro from './pages/about/Intro';
 
 function App() {
   const cookies = new Cookies();
@@ -86,19 +87,19 @@ function App() {
               <div id="button_login">로그인/회원가입</div>
             </Link>
           ) : (
-            <Button
-              id="button_logout"
-              onClick={() => {
-                cookies.remove('access_token');
-                cookies.remove('name');
-                cookies.remove('image');
-                cookies.remove('email');
-                setLogin('');
-              }}
-            >
-              로그아웃
-            </Button>
-          )}
+              <Button
+                id="button_logout"
+                onClick={() => {
+                  cookies.remove('access_token');
+                  cookies.remove('name');
+                  cookies.remove('image');
+                  cookies.remove('email');
+                  setLogin('');
+                }}
+              >
+                로그아웃
+              </Button>
+            )}
 
           <nav>
             <div id="list">
@@ -169,7 +170,7 @@ function App() {
             <Route exact={true} path="/test" component={Test} />
             <Route exact={true} path="/home" component={Home} />
             <Route exact path="/" component={Home} />
-            <Route exact path="/intro" render={() => <h3>소개</h3>} />
+            <Route exact path="/intro" component={Intro} />
             <Route exact path="/posts" component={TestList} />
             <Route exact path="/rt" component={RedirectTest} />
             {/* mypage */}
@@ -371,55 +372,55 @@ function App() {
         <footer>
           <div className="footer_display_vert">
             <img
-              src={ logo }
+              src={logo}
               alt='logo' />
             <img
-              src={ words }
+              src={words}
               alt='explanation' />
           </div>
           <div className="footer_navs">
-          <div className="footer_display_vert footer_nav">
-          <span>Information</span>
-          <nav>
-            <ul>
-              <li>
-                <Link className="footer_link" to="/intro">Guide</Link>
-              </li>
-              <li>
-                <Link className="footer_link" to="/login">Join Us</Link>
-              </li>
-            </ul>
-          </nav>
-          </div>
-          <div className="footer_display_vert footer_nav">
-          <span>Support</span>
-          <nav>
-            <ul>
-              <li>
-                <Link className="footer_link" to="/intro">Contact Us</Link>
-              </li>
-              <li>
-                <Link className="footer_link" to="/login">Customer Service</Link>
-              </li>
-            </ul>
-          </nav>
-          </div>
-          <div className="footer_display_vert footer_nav">
-          <span>Legal</span>
-          <nav>
-            <ul>
-              <li>
-                <Link className="footer_link" to="/intro">Terms & Condition</Link>
-              </li>
-              <li>
-                <Link className="footer_link" to="/login">Privacy Policy</Link>
-              </li>
-              <li>
-                <Link className="footer_link" to="/login">Cookie Policy</Link>
-              </li>
-            </ul>
-          </nav>
-          </div>
+            <div className="footer_display_vert footer_nav">
+              <span>Information</span>
+              <nav>
+                <ul>
+                  <li>
+                    <Link className="footer_link" to="/intro">Guide</Link>
+                  </li>
+                  <li>
+                    <Link className="footer_link" to="/login">Join Us</Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div className="footer_display_vert footer_nav">
+              <span>Support</span>
+              <nav>
+                <ul>
+                  <li>
+                    <Link className="footer_link" to="/">Contact Us</Link>
+                  </li>
+                  <li>
+                    <Link className="footer_link" to="/">Customer Service</Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div className="footer_display_vert footer_nav">
+              <span>Legal</span>
+              <nav>
+                <ul>
+                  <li>
+                    <Link className="footer_link" to="/">Terms & Condition</Link>
+                  </li>
+                  <li>
+                    <Link className="footer_link" to="/">Privacy Policy</Link>
+                  </li>
+                  <li>
+                    <Link className="footer_link" to="/">Cookie Policy</Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </footer>
       </div>
