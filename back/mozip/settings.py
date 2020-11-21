@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'mozip.urls'
@@ -89,6 +89,7 @@ DATABASES = {
         'HOST':'3.35.234.131',
         'PORT':'27017',
     }
+    
 }
 
 
@@ -138,6 +139,10 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = (
       'http://localhost:3000',
+      'http://localhost:8000',
+      'http://localhost:27017',
       'http://3.35.234.131:3000',
+      'http://3.35.234.131:8000',
+      'http://3.35.234.131:27017',
  )
 
