@@ -26,13 +26,13 @@ const PostPersonalSelfItem = ({ toggle, item, onUpdate }: Props) => {
     <div className="small_gray_namecard">
       <div className="interviewQuestion">{item.question}</div>
       <div className="interviewAnswer">{item.answer}</div>
-      <div className="answerScore">
+      <div className="answerScore_">
         {toggle ? (
-          <span>
-            <input type="number" value={score} onChange={handleChange}></input>
+          <span className="answerScore">
+            <input type="number" value={score} onChange={handleChange}></input>점
           </span>
         ) : (
-          <span>{item.score}</span>
+          <span className="answerScore2">{item.score}점</span>
         )}
       </div>
     </div>

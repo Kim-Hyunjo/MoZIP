@@ -574,9 +574,16 @@
 .record .small_gray_namecard {
   width: 700px;
 }
-.record .small_gray_namecard .answerScore {
+.record .small_gray_namecard .answerScore_ {
   float: right;
-  transform: translate(0%, -350%);
+  transform: translate(10%, -220%);
+}
+.record .small_gray_namecard .answerScore_ input{
+  margin-right: 6px;
+}
+.answerScore2{
+  float: right;
+  transform: translate(32%, -132%);
 }
 .record .small_title {
   margin-top: 50px;
@@ -624,6 +631,7 @@
 .record .twoButtons {
   margin-top: 20px;
 }
+
 .small_gray_namecard .interviewQuestion {
   height: auto;
   width: auto;
