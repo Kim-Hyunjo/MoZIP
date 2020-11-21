@@ -1,6 +1,9 @@
 span {
-    color:#0C5AC6;
+  color: #0c5ac6;
 }
 h3 {
-    margin-bottom: 52px;
+  margin-bottom: 52px;
+}
+.mypage_introduction h3 {
+  margin-bottom: 0px;
 }

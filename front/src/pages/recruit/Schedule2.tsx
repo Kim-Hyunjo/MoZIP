@@ -180,49 +180,63 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     <div className="tiny_gray_namecard display_horiz2">
                         <h4>박웅기</h4>
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     <div className="tiny_gray_namecard display_horiz2">
                         <h4>박웅기</h4>
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     <div className="tiny_gray_namecard display_horiz2">
                         <h4>박웅기</h4>
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     <div className="tiny_gray_namecard display_horiz2">
                         <h4>박웅기</h4>
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     <div className="tiny_gray_namecard display_horiz2">
                         <h4>박웅기</h4>
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     <div className="tiny_gray_namecard display_horiz2">
                         <h4>박웅기</h4>
                             <span>
                                 회원
                             </span>
-                            <div>프로필 사진</div>
+                            <div className="clubImage">
+                                <img src="http://placehold.it/100x100" />
+                            </div>
                     </div>
                     </div>
                 </div>
