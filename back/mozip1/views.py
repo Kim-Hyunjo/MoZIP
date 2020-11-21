@@ -459,7 +459,11 @@ class MypageRecruitNoticeView(APIView):
 class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club리스트 가져오기
     def get(self, request, user_id):
         serializer = UserCircleSerializer(user_circle.objects.get(user_id=user_id))
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response["Access-Control-Allow-Origin"] = "http://localhost:3000/"
+        response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+        response["Access-Control-Allow-Headers"] = "http://localhost:3000/"
+        return response
 
 #recruit
 '''
@@ -528,3 +532,27 @@ class CircleOpenView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class RecruitProcessFormView(APIView):
+    def get(self, request):
+        model = recruit_format
+        serializer = RecruitFormatSerializer(recruit_format.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = RecruitFormatSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+import json
+def lambda_handler(event,context):
+    return{
+        'statusCode':200,
+        'headers':{
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin':'http://localhost:3000/',
+            'Access-Control-Allow-Methods': 'OPTIONS.POST.GET'
+        },
+        'body': json.dumps('Hello from Lambda!')
+    }
