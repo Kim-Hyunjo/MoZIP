@@ -137,7 +137,7 @@ import icon_etc from '../images/icon_etc@2x.png';
           <ul id="horizontal_list">
             {test.map((item) => {
               return (
-                <li
+                <li 
                   onClick={() => {
                     setSubject(item.name);
                     console.log(item.name);

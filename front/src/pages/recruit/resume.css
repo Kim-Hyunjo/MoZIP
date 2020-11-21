@@ -69,6 +69,18 @@
   background:#D9AB00;
   color: #fff;
 }
+.stateName_pass_w {
+  color:#00A116;
+}
+.stateName_nonpass_w {
+  color:  #C60C0C;
+}
+.stateName_keep_w{
+  color: #D9AB00;
+}
+.stateName_yet_w{
+  color:  #818181;
+}
 .stateUsers {
   font-size: 24px;
   margin-top: 60px;
@@ -106,7 +118,6 @@
 }
 .horizontal_people_list li #skip {
   margin: 0px 30px 0px 0px;
-  color: #d9ab00;
   font-size: 20px;
 }
 
