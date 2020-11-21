@@ -59,8 +59,8 @@ import ScrollToTop from './scroll/ScrollToTop';
 
 import logo from './images/logo2@2x.png';
 
-import axios from "axios";
-
+import axios from 'axios';
+import Test from './Test/Test';
 
 function App() {
   const cookies = new Cookies();
@@ -76,32 +76,28 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <header>
-          
-            <Link to="/home">
-              <img
-                id="mozip_logo"
-                src={logo}
-                alt='Mo:ZIP logo' />
-            </Link>
+          <Link to="/home">
+            <img id="mozip_logo" src={logo} alt="Mo:ZIP logo" />
+          </Link>
           {/* {cookies.get('access_token')} */}
           {/* {typeof cookies.get('none')} */}
           {/* {cookies.get('access_token') === undefined ? ( */}
           {login === '' ? (
-          <Link to="/login">
-            <div id="button_login">로그인/회원가입</div>
-          </Link>
+            <Link to="/login">
+              <div id="button_login">로그인/회원가입</div>
+            </Link>
           ) : (
             <Button
-            id="button_logout"
-            onClick={() => {
-              cookies.remove('access_token');
-              cookies.remove('name');
-              cookies.remove('image');
-              cookies.remove('email');
-              setLogin('');
-            }}
-          >
-            로그아웃
+              id="button_logout"
+              onClick={() => {
+                cookies.remove('access_token');
+                cookies.remove('name');
+                cookies.remove('image');
+                cookies.remove('email');
+                setLogin('');
+              }}
+            >
+              로그아웃
             </Button>
           )}
 
@@ -166,11 +162,13 @@ function App() {
               </ul>
             </div>
           </nav>
-
         </header>
         <hr />
         <div className="body">
           <Switch>
+            {'!!!!!!!!!테스트 페이지!!!!!!!!!'}
+            <Route exact={true} path="/test" component={Test} />
+
             <Route exact={true} path="/home" component={Home} />
             <Route exact path="/" component={Home} />
             <Route exact path="/intro" render={() => <h3>소개</h3>} />
