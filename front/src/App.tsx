@@ -58,8 +58,7 @@ import Button from '@material-ui/core/Button';
 import ScrollToTop from './scroll/ScrollToTop';
 
 import logo from './images/logo2@2x.png';
-
-import axios from 'axios';
+import Test from './Test/Test';
 
 function App() {
   const cookies = new Cookies();
@@ -165,6 +164,8 @@ function App() {
         <hr />
         <div className="body">
           <Switch>
+            {'!!!!!!테스트!!!!!!'}
+            <Route exact={true} path="/test" component={Test} />
             <Route exact={true} path="/home" component={Home} />
             <Route exact path="/" component={Home} />
             <Route exact path="/intro" render={() => <h3>소개</h3>} />
