@@ -184,7 +184,9 @@ class ListAllView(APIView):
         model = Club
         fields = ['cc_id','name','information','self_image','category']
         serializer = ListClubSerializer(Club.objects.all(), many = True)
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
         
 class ListAcademyView(APIView):
     def get(self, request):
@@ -392,8 +394,7 @@ class ClubIntroudView(APIView):
         Club_in = Club_introduce.objects.get(club_id=-1)
         serializer = RecruitClubIntroSerializer(Club_in)
         return Response(serializer.data)
-class RecruitNoticeview(APIView):
-    
+class RecruitNoticeview(APIView):   
     def get(self,request):
         rn = recruit_notice.objects.all()
         serializer = RecruitNoticeSerializer(rn,many=True)
@@ -453,13 +454,12 @@ class MypageEditView(APIView):
 
 class MypageIntroductionView(APIView):
     def get(self, request, user_id):
-        def get_object(self, user_id):
-            try:
-                return user_recordQ.objects.filter(user_id=user_id)[0]
-            except user_recordQ.DoesNotExist:
-                return None
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id))
-        return Response(serializer.data)
+        d = serializer.data    
+        edu = eval(datas["education"])
+        dict_edu = dict(OrderedDict(edu))
+        datas.update(dict_edu)
+        return Response(d["recordQ"])
 
     def post(self, request, user_id):
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id),data=request.data)
@@ -477,18 +477,29 @@ class MypageIntroductionView(APIView):
 
 class MypageRecruitNoticeView(APIView):
     def get(self, request, user_id, ci_id):
-        serializer = RecruitNoticeSerializer(recruit_notice.objects.get(ci_id=-ci_id))
-        return Response(serializer.data)
+        serializer = RecruitNoticeSerializer(recruit_notice.objects.filter(ci_id=-ci_id),many=True)
+        response = Response(serializer.data)
+        response = add_cors_header(response)
+        return response
 
 class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club리스트 가져오기
     def get(self, request, user_id):
-        serializer = UserCircleSerializer(user_circle.objects.get(user_id=user_id))
-        response = Response(serializer.data)
-        response["Access-Control-Allow-Origin"] = "*"
-        response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
-        response["Access-Control-Allow-Headers"] = "*"
+        serializer = UserCircleSerializer(user_circle.objects.filter(user_id=user_id),many=True)
+        res = []
+        for i in range(len(serializer.data)):
+            a = serializer.data[i]["user_id"]
+            b = serializer.data[i]["states"]
+            c = serializer.data[i]["club_in"]
+            val = [a,b,c]
+            res.append(val)
+        response = Response(res)
+        response = add_cors_header(response)
         return response
-
+def add_cors_header(response):
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    response["Access-Control-Allow-Headers"] = "*"
+    return response
 #recruit
 '''
 datas = serializer1.data[0]
@@ -568,15 +579,4 @@ class RecruitProcessFormView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-import json
-def lambda_handler(event,context):
-    return{
-        'statusCode':200,
-        'headers':{
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Origin':'http://localhost:3000/',
-            'Access-Control-Allow-Methods': 'OPTIONS.POST.GET'
-        },
-        'body': json.dumps('Hello from Lambda!')
-    }
+ 
