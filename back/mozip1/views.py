@@ -251,23 +251,19 @@ class ClubJustDetailView(APIView): #동아리 그냥 상세
 class ClubView(APIView):
     def get(self, request, cc_id):
         serializer1 = ClubSerializer(Club.objects.filter(cc_id=-cc_id), many=True)
-             #Club_review
+        #Club_review
         serializer2 = ClubReviewSerializer(Club_review.objects.filter(club_id=-cc_id), many=True)
         #Club_FAQ
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
-        datas1 = serializer1.data[0]
-        fdate = eval(datas1["foundationdate"])
-        datas1.update(fdate)
-        datas2 = serializer2.data[0]
-        review = eval(datas2["review"])
-        datas2["review"] = review.values()
-        datas1.update(datas2)
-        datas3 = serializer3.data[0]
-        FAQ = eval(datas3["FAQ"])
-        datas3["FAQ"] = FAQ.values()
-        datas1.update(datas3)
-        return Response(datas1)
-        #return Response(serializer2.data)
+        s1 = serializer1.data[0]
+        s2 = serializer2.data[0]
+        s2["review"] = eval(s2["review"])
+        s3 = serializer3.data[0]
+        s1.update(s2)
+        s3["FAQ"] = eval(s3["FAQ"])
+        s1.update(s3)
+        #return Response(datas1)
+        return Response(s1)
         #회원이면
         # if(user_id >0):
         #     #Club
