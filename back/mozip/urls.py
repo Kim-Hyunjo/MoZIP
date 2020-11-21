@@ -36,7 +36,7 @@ urlpatterns = [
     #jwoo
     path('api/', include(router.urls)),
 
-    path('postclub/', PostClubView.as_view()),
+    path('postclub', PostClubView.as_view()),
     path('postclubreview/', PostClubReview.as_view()),
     path('postclubfaq/', PostClubFaq.as_view()),
     path('postclubintro/', PostClubIntroduce.as_view()),
@@ -49,7 +49,7 @@ urlpatterns = [
 
     #mozip
     #list
-    path('list/all/', ListAllView.as_view()),
+    path('list/all', ListAllView.as_view()),
     path('list/academy/', ListAcademyView.as_view()),
     path('list/art/', ListArtView.as_view()),
     path('list/networking/', ListNetworkingView.as_view()),
@@ -148,7 +148,7 @@ urlpatterns = [
     path('recruit/<int:club_id>/applicants',RecruitApplicantsView.as_view()),
     path('recruit/process/basicinfo/',include(router.urls) ),
     path('recruit/process/noticeinfo/', include(router.urls)),
-    path('recruit/process/form/', include(router.urls)),
+    path('recruit/process/form/', RecruitProcessFormView.as_view()),
     path('recruit/process/applicants/', include(router.urls)),
     path('recruit/resume/', include(router.urls)),
     path('recruit/resume/<int:user_id>/', include(router.urls)),
@@ -180,7 +180,7 @@ urlpatterns = [
     path('guide/operation/', include(router.urls)),
 
     #circle
-    path('circle/open/', include(router.urls)),
+    path('circle/open/', CreateClubApproval.as_view()),
     path('circle/open/success/', include(router.urls)),
     path('circle/open/fail/', include(router.urls)),
     path('circle/open/approval/', include(router.urls)),
