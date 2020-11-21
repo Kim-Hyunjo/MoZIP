@@ -460,9 +460,9 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
     def get(self, request, user_id):
         serializer = UserCircleSerializer(user_circle.objects.get(user_id=user_id))
         response = Response(serializer.data)
-        response["Access-Control-Allow-Origin"] = "http://localhost:3000/"
+        response["Access-Control-Allow-Origin"] = "*"
         response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
-        response["Access-Control-Allow-Headers"] = "http://localhost:3000/"
+        response["Access-Control-Allow-Headers"] = "*"
         return response
 
 #recruit
