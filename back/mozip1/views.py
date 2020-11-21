@@ -283,9 +283,9 @@ class ListDetailView(APIView):
         serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(club_id=-cc_id), many=True)
         serializer2 = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), many=True)
         s1 = serializer1.data[0]
-        s2 = serializer2.data[0]
         s1["card_image"] = eval(s1["card_image"])
         s1["detail"] = eval(s1["detail"])
+        s2 = serializer2.data[0]
         s2["QA"] = eval(s2["QA"])
         s1.update(s2)
         return Response(s1)
