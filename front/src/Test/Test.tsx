@@ -1,20 +1,32 @@
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { DevelopUrl } from '../http/HttpUrl';
 
-const Test = (props: RouteComponentProps<{ postId: string }>) => { // 추가 
-    function goNextPost() {
-        const nextPostId = Number(props.match.params.postId) + 1;
-        props.history.push(`/posts/${nextPostId}`);
-    }
+interface TestDTO {
+  users: string;
+  clubs: string;
+}
 
-    return (
-        <div>
-            <h3>Post {props.match.params.postId}</h3>
-            {/* 버튼추가 */}
-            <button onClick={goNextPost}>Next post</button>
-            {/* URL Paramter Parsing */}
-            <p>{new URLSearchParams(props.location.search).get('bodys')}</p>
-        </div>);
+const Test = () => {
+  const [dto, setDto] = useState<TestDTO>({ users: 'no', clubs: 'no' });
+
+  const getApi = async () => {
+    await axios.get(DevelopUrl).then((r) => {
+      let res: TestDTO = r.data;
+      console.log(res);
+      setDto(res);
+    });
+  };
+
+  useEffect(() => {
+    getApi();
+  }, []);
+  return (
+    <div>
+      <div>{dto.clubs}</div>
+      <div>{dto.users}</div>
+    </div>
+  );
 };
 
 export default Test;

@@ -157,19 +157,35 @@ const List = (props: RouteComponentProps<{}>) => {
         <div>
           <ul id="horizontal_list">
             {test.map((item) => {
+              if (item.name === subject){
               return (
-                <li
+                <li className="chosen" 
                   onClick={() => {
                     setSubject(item.name);
                     console.log(item.name);
                   }}
                 >
-                  <div className="border top_border"></div>
+                  <div className="border top_border border_b"></div>
                   <img src={item.img} alt="tab_icon" />
                   {item.name}
-                  <div className="border bottom_border"></div>
+                  <div className="border bottom_border border_b"></div>
                 </li>
-              );
+              );}else {
+                return (
+                  <li 
+                    className="notChosen"
+                    onClick={() => {
+                      setSubject(item.name);
+                      console.log(item.name);
+                    }}
+                  >
+                    <div className="border top_border border_n"></div>
+                    <img src={item.img} alt="tab_icon" />
+                    {item.name}
+                    <div className="border bottom_border border_n"></div>
+                  </li>
+                );
+              }
             })}
           </ul>
           <div className="category_name">{subject}</div>

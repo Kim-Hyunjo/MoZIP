@@ -161,8 +161,17 @@ const Open = () => {
           </div>
           <div className="tagSelect">
             <label htmlFor=""></label>
+            태그 선택 :  
             <select name="태그선택" id="태그선택">
               <option value="미선택">미선택</option>
+              <option value="미선택">학술</option>
+              <option value="미선택">예술</option>
+              <option value="미선택">친목</option>
+              <option value="미선택">스포츠</option>
+              <option value="미선택">여행</option>
+              <option value="미선택">종교</option>
+              <option value="미선택">봉사</option>
+              <option value="미선택">기타</option>
             </select>
           </div>
           <div className="submitButton">
