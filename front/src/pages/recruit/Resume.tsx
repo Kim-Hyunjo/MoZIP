@@ -107,7 +107,6 @@ const Resume = () => {
     let tmps: Candidate[] = Object.assign([], candidates);
     tmps.map((info) => {
       if (info.isChecked === true) {
-        info.isChecked = false;
         info.status = '보류';
       }
     });
@@ -119,7 +118,6 @@ const Resume = () => {
     let tmps: Candidate[] = Object.assign([], candidates);
     tmps.map((info) => {
       if (info.isChecked === true) {
-        info.isChecked = false;
         info.status = '불합격';
       }
     });
@@ -131,7 +129,6 @@ const Resume = () => {
     let tmps: Candidate[] = Object.assign([], candidates);
     tmps.map((info) => {
       if (info.isChecked === true) {
-        info.isChecked = false;
         info.status = '합격';
       }
     });
@@ -146,35 +143,52 @@ const Resume = () => {
         <button id="button4">통계 보기</button>
         <div className="stateBox">
           <ul className="states">
-            <li className={(status==='전체')  ? 'stateName_all': 'stateName_all_none'} 
+            <li
+              className={
+                status === '전체' ? 'stateName_all' : 'stateName_all_none'
+              }
               onClick={() => {
                 setStatus('전체');
               }}
             >
               <div className="stateName">전체</div>
             </li>
-            <li className={(status==='미결정')  ? 'stateName_yet': 'stateName_yet_none'} 
+            <li
+              className={
+                status === '미결정' ? 'stateName_yet' : 'stateName_yet_none'
+              }
               onClick={() => {
                 setStatus('미결정');
               }}
             >
               <div className="stateName">미결정</div>
             </li>
-            <li className={(status==='합격')  ? 'stateName_pass': 'stateName_pass_none'} 
+            <li
+              className={
+                status === '합격' ? 'stateName_pass' : 'stateName_pass_none'
+              }
               onClick={() => {
                 setStatus('합격');
               }}
             >
               <div className="stateName">합격</div>
             </li>
-            <li className={(status==='불합격')  ? 'stateName_nonpass': 'stateName_nonpass_none'} 
+            <li
+              className={
+                status === '불합격'
+                  ? 'stateName_nonpass'
+                  : 'stateName_nonpass_none'
+              }
               onClick={() => {
                 setStatus('불합격');
               }}
             >
               <div className="stateName">불합격</div>
             </li>
-            <li className={(status==='보류')  ? 'stateName_keep': 'stateName_keep_none'} 
+            <li
+              className={
+                status === '보류' ? 'stateName_keep' : 'stateName_keep_none'
+              }
               onClick={() => {
                 setStatus('보류');
               }}
