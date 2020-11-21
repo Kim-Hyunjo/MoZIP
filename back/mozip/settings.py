@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'jwoo',
-        'USER': 'hayeon4060',
+        'USER': 'centos',
         'PASSWORD': '0000',
         'HOST':'3.35.234.131',
         'PORT':'27017',
