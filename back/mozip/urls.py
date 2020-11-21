@@ -158,7 +158,7 @@ urlpatterns = [
     path('recruit/process/form/', RecruitProcessFormView.as_view()),
     path('recruit/resume/', include(router.urls)),
     path('recruit/resume/<int:user_id>/', include(router.urls)),
-    path('recruit/management/staff/',include(router.urls)),
+    path('recruit/management/staff/',InterviewManagerView.as_view()),
     path('recruit/management/detail/',include(router.urls)),
     path('recruit/management/interview/commonquestion/',include(router.urls)),
     path('recruit/management/interview/detail/',include(router.urls)),

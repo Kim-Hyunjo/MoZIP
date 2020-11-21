@@ -608,4 +608,18 @@ class RecruitProcessFormView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class InterviewManagerView(APIView):
+    def get(self, reuest):
+        model = interview_manager.objects.all()
+        serializer = InterviewManagerSerializer(model,many=True)
+        return Response(serializer.data)
+    @csrf_exempt
+    def post(self,request):
+        serializer = InterviewManagerSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
  

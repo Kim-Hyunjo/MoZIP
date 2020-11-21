@@ -158,8 +158,13 @@ class user_recordQ(models.Model):
 
 class interview_group():
     ci_id = models.CharField(unique=True,primary_key=True,max_length=15)
-    
 
+class interview_manager(models.Model):
+    run_time = models.PositiveIntegerField(default=0)
+    rest_time = models.PositiveIntegerField(default=0)
+    rf_id = models.CharField(max_length=15,default=None)
+    manager = models.JSONField()
+    objects = models.DjongoManager()    
 
 
 
