@@ -288,7 +288,7 @@ class ListDetailView(APIView):
         s2 = serializer2.data[0]
         s2["QA"] = eval(s2["QA"])
         s1.update(s2)
-        return Response(s2)
+        return Response(serializer2.data)
     def post(self, request, cc_id):
         #어떻게 구분하지ㅜㅜ
         #질문 달기-모두
