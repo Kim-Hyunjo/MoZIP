@@ -1,6 +1,6 @@
 import React, {useState, } from 'react'
 import { BrowserRouter as Router, Route, Link,RouteComponentProps } from 'react-router-dom';
-
+import './recruit.css';
 
 const Schedule2 = (props: RouteComponentProps<{}>) => {
     const [edit, setEdit] = useState<boolean>(false);
@@ -59,16 +59,16 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                     </ul>
                 </div>
                 <form action="">
-                <div>
-                <div className="display_horiz give_space_bottom">
-                    {edit ? (<button onClick={(event) => handleEdit(event)} id="button1">저장하기</button>): (<button onClick={(event) => handleEdit(event)} id="button1">수정하기</button>)}  
+                <div className="display_vert">
+                <div className="give_space_bottom schedule_cards">
+                    {edit ? (<button className="button_editscheduleinfo" onClick={(event) => handleEdit(event)} id="button1">저장하기</button>): (<button className="button_editscheduleinfo" onClick={(event) => handleEdit(event)} id="button1">전체 일일정보 수정</button>)}  
                     {day.map((item)=>{
-                        return(<div>
+                        return(<div className="display_horiz give_space_bottom">
                         <div className="interviewDayInform">
                         <span>{item.day}</span>
                         {edit ? (
                             <div>
-                            <div className="tiny_gray_namecard">
+                            <div className="tiny_gray_namecard tiny_gray_namecard_edit">
                                 날짜 : <input type="text" defaultValue={item.date}></input><br></br>
                                 시간 : <input type="text" defaultValue={item.time}></input><br></br>
                                 위치 : <input type="text" defaultValue={item.site}></input><br></br>
@@ -77,15 +77,16 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                         ): (
                             <div>
                                 
-                                <div className="tiny_gray_namecard">
-                                    날짜 : {item.date}<br></br>
-                                    시간 : {item.time}<br></br>
-                                    위치 : {item.site}<br></br>
-                                    인원 : {item.total}<br></br>
+                                <div className="tiny_gray_namecard ">
+                                    <div> 날짜 : {item.date}<br></br> </div>
+                                    <div> 시간 : {item.time}<br></br> </div>
+                                    <div> 위치 : {item.site}<br></br> </div>
+                                    <div> 인원 : {item.total}<br></br> </div>
                                 </div>
                             </div>
                         )}
                     </div>
+
                     <div className="intervieweeInform">
                     <div className="display_horiz interview_group_wrap"><h3>{item.day} 대상자</h3>
                     <span>총 16명</span>

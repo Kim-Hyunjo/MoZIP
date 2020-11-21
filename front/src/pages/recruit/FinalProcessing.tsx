@@ -59,10 +59,15 @@ const FinalProcessing = () => {
                                 <li className="finalPerson">
                                     <input type="checkbox" />
                                     {info.name}
-                                    <div className="twoButtons"><div>
-                                    <button onClick={()=>(handleClick(info))} id="button4">{info.status}</button>
-                                    <Link to ="/recruit/interview/postprocessing/detail">
-                                    <button id="button1">상세보기</button></Link></div>
+                                    <div className="twoButtons">
+                                        <button  
+                                            onClick={()=>(handleClick(info))} 
+                                            className={(info.status==='입금 완료')  ? 'btn_deposit_g': 
+                                            (info.status==='입금 오류')  ? 'btn_deposit_r': 'btn_deposit_y'}>
+                                                {info.status}</button>
+                                        <Link to ="/recruit/interview/postprocessing/detail">
+                                            <button id="button1" >상세보기</button>
+                                        </Link>
                                     </div>
                                 </li>
                             )

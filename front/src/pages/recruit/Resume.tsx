@@ -144,7 +144,6 @@ const Resume = () => {
       <form action="">
         <label htmlFor=""></label>
         <button id="button4">통계 보기</button>
-        <div>{status}</div>
         <div className="stateBox">
           <ul className="states">
             <li className={(status==='전체')  ? 'stateName_all': 'stateName_all_none'} 

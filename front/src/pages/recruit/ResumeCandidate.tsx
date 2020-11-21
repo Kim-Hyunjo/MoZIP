@@ -32,7 +32,14 @@ const ResumeCandidate = ({ candidate, onChangeCheck }: Props) => {
       </span>
       <div className="rightSide">
         <span className="personalScore"> 점수 :{candidate.score}점</span>
-        <strong id="skip">{candidate.status}</strong>
+        <strong className={(candidate.status==='합격')  ? 'stateName_pass_w': 
+        (candidate.status==='불합격')  ? 'stateName_nonpass_w': 
+        (candidate.status==='보류')  ? 'stateName_keep_w':
+        (candidate.status==='미결정')  ? 'stateName_yet_w':'stateName_none'} 
+        id="skip">{candidate.status}</strong>
+       
+        
+        
         <Link to="/recruit/resume/:member_id">
           <button id="button1">상세보기</button>
         </Link>
