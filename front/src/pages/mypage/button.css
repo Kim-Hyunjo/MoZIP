@@ -244,9 +244,10 @@
   height: 20px;
   border: 1px solid;
   border-radius: 15px;
-  border-color: #0c59c3;
+  border: none;
   color: #0c59c3;
   background-color: white;
+  background-image: url('../images2/icon_plus@2x.png');
 }
 #button_x {
   width: 20px;
