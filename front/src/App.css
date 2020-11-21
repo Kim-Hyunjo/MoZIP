@@ -28,11 +28,11 @@ header {
 #mozip_logo:hover{
   transition: ease-in;
 }
-header nav #list {
+/* header nav #list {
   position: fixed;
-  
+  position: relative;
   text-shadow:  rgba(255, 255, 255, 0.2);
-}
+} */
 .body #wrapper {
   position: relative;
   margin: 0 auto;
@@ -153,10 +153,9 @@ a.active {
 .menu {
   clear: both;
   float: right;
-  position: fixed;
+  position: absolute;
   right: 0%;
   top: 55px;
-  
   margin-top: 52px;
 }
 

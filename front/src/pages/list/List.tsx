@@ -1,4 +1,9 @@
-import { Link, RouteComponentProps } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  RouteComponentProps,
+} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ListAcademy from './ListAcademy';
 import ListSubject from './ListSubject';
@@ -131,10 +136,29 @@ const List = (props: RouteComponentProps<{}>) => {
       <h4>MOZIP에 등록된 전체 동아리 목록을 확인해보세요.</h4>
       <div className="wrapper">
         <div>
+          <label>
+            <select
+              id="list-name"
+              defaultValue={subject}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              onBlur={(e) => setSubject(e.target.value)}
+            >
+              {test.map((item, index) => {
+                return (
+                  <option key={index} value={item.name}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
+        <div>
           <ul id="horizontal_list">
             {test.map((item) => {
               return (
-                <li 
+                <li
                   onClick={() => {
                     setSubject(item.name);
                     console.log(item.name);
