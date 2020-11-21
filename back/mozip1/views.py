@@ -301,7 +301,7 @@ class ClubView(APIView):
 
 class ListDetailView(APIView):
     def get(self, reuqest, cc_id):
-        serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(club_id=-cc_id), many=True)
+        serializer1 = ClubIntroduceSerializer(Club_introduce.objects.filter(ci_id=-cc_id), many=True)
         serializer2 = RecruitQASerializer(recruit_QA.objects.filter(ci_id=-cc_id), many=True)
         s1 = serializer1.data[0]
         s2 = serializer2.data[0]
