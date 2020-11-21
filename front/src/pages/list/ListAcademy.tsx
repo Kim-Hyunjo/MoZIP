@@ -1,7 +1,35 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { Interface } from 'readline';
+import { DevelopUrl } from '../../http/HttpUrl';
+import axios from 'axios';
 const ListAcademy = () => {
+ const [academy, setacademy] = useState<{
+  name: string;
+  introduction: string;
+}[]>( [
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+  { name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
+])
+ const getData = async() =>{
+  await axios.get(DevelopUrl).then((r)=>{
+    let res = r.data
+    console.log(res)
+    setacademy(res)
+  })
+ }
+
+
+ useEffect(() => {
+  getData()
+ }, [])
   const test = [
     { name: '학술' },
     { name: '예술' },
@@ -76,7 +104,7 @@ const ListAcademy = () => {
 
         <div className="club_list">
           <ul id="horizontal_club_list">
-            {학술.map((item) => {
+            {academy.map((item) => {
               return (
                 <li style={{ marginRight: '10px' }}>
                   <Link to="/list/academy">
