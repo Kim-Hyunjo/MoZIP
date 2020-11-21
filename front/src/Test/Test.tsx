@@ -21,6 +21,7 @@ const Test = () => {
   useEffect(() => {
     getApi();
   }, []);
+
   return (
     <div>
       <div>{dto.clubs}</div>

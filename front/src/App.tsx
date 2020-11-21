@@ -12,8 +12,8 @@ import Home from './Test/home';
 import RedirectTest from './Test/RedirectTest';
 import TestList from './Test/TestList';
 import List from './pages/list/List';
-import Apply from './pages/list/apply/Apply';
-import Apply2 from './pages/list/apply/Apply2';
+import ApplyNotice   from './pages/list/apply/ApplyNotice';
+import ApplyTemplete from './pages/list/apply/ApplyTemplete';
 import Circle from './pages/circle/Circle';
 import CircleDetail from './pages/circle/CircleDetail';
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
@@ -58,8 +58,7 @@ import Button from '@material-ui/core/Button';
 import ScrollToTop from './scroll/ScrollToTop';
 
 import logo from './images/logo2@2x.png';
-
-import axios from 'axios';
+import Test from './Test/Test';
 
 function App() {
   const cookies = new Cookies();
@@ -165,6 +164,8 @@ function App() {
         <hr />
         <div className="body">
           <Switch>
+            {'!!!!!!테스트!!!!!!'}
+            <Route exact={true} path="/test" component={Test} />
             <Route exact={true} path="/home" component={Home} />
             <Route exact path="/" component={Home} />
             <Route exact path="/intro" render={() => <h3>소개</h3>} />
@@ -232,12 +233,12 @@ function App() {
             <Route
               exact
               path="/list/:subject/:circle_id/apply"
-              component={Apply}
+              component={ApplyNotice}
             ></Route>
             <Route
               exact
-              path="/list/:subject/:circle_id/apply2"
-              component={Apply2}
+              path="/list/:subject/:circle_id/ApplyTemplete"
+              component={ApplyTemplete}
             ></Route>
             <Route
               exact

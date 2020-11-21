@@ -8,7 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
-const Apply2 = ({ history }: any) => {
+const ApplyTemplete = ({ history }: any) => {
   const [motivation, setmotivation] = useState('');
   const [reason, setreason] = useState('');
   const [agreement, setagreement] = useState<boolean>(false);
@@ -223,4 +223,4 @@ const Apply2 = ({ history }: any) => {
   );
 };
 
-export default Apply2;
+export default ApplyTemplete;

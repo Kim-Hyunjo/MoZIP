@@ -8,7 +8,7 @@ interface Role {
 interface Props {
     propsRole:Role;
 }
-const CircleMembersEditmaster:React.FunctionComponent<Props> = ({
+const CircleMembersEditMaster:React.FunctionComponent<Props> = ({
     propsRole
     
     
@@ -29,4 +29,4 @@ return (
     </div>
 )
 }
-export default CircleMembersEditmaster
+export default CircleMembersEditMaster

@@ -4,7 +4,7 @@ import {
   Link,
   RouteComponentProps,
 } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState ,useEffect} from 'react';
 import ListAcademy from './ListAcademy';
 import ListSubject from './ListSubject';
 import './tab.css';
@@ -17,8 +17,10 @@ import icon_trip from '../images2/icon_trip@2x.png';
 import icon_religion from '../images2/icon_religion@2x.png';
 import icon_volunteer from '../images2/icon_volunteer@2x.png';
 import icon_etc from '../images2/icon_etc@2x.png';
+import axios from'axios'
 
 const List = (props: RouteComponentProps<{}>) => {
+  
   const [subject, setSubject] = useState<string>('all');
   const test = [
     { name: 'all', img: icon_all },
