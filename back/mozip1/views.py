@@ -262,9 +262,9 @@ class ClubView(APIView):
         review = eval(datas2["review"])
         datas1.update(review)
         datas3 = serializer3.data[0]
-        datas1.update(datas2)
-        datas1.update(datas3)
-        return Response(datas3)
+        FAQ = eval(datas3["FAQ"])
+        datas1.update(FAQ)
+        return Response(datas1)
         #return Response(serializer1.data + serializer2.data + serializer3.data)
         #회원이면
         # if(user_id >0):
