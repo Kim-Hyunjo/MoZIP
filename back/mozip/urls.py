@@ -147,7 +147,7 @@ urlpatterns = [
     path('recruit/selection/', include(router.urls)),
     path('recruit/<int:club_id>/applicants',RecruitApplicantsView.as_view()),
     path('recruit/process/basicinfo/',include(router.urls) ),
-    path('recruit/process/noticeinfo/', include(router.urls)),
+    path('recruit/process/noticeinfo/', RecruitNoticeview.as_view()),
     path('recruit/process/form/', RecruitProcessFormView.as_view()),
     path('recruit/process/applicants/', include(router.urls)),
     path('recruit/resume/', include(router.urls)),
