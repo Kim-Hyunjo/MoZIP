@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './resume.css';
 import { Link } from 'react-router-dom';
 import ResumeCandidate from './ResumeCandidate';
+import { classNames } from 'react-select/src/utils';
 
 interface Candidate {
   id: number;
@@ -146,35 +147,35 @@ const Resume = () => {
         <div>{status}</div>
         <div className="stateBox">
           <ul className="states">
-            <li
+            <li className={(status==='전체')  ? 'stateName_all': 'stateName_all_none'} 
               onClick={() => {
                 setStatus('전체');
               }}
             >
               <div className="stateName">전체</div>
             </li>
-            <li
+            <li className={(status==='미결정')  ? 'stateName_yet': 'stateName_yet_none'} 
               onClick={() => {
                 setStatus('미결정');
               }}
             >
               <div className="stateName">미결정</div>
             </li>
-            <li
+            <li className={(status==='합격')  ? 'stateName_pass': 'stateName_pass_none'} 
               onClick={() => {
                 setStatus('합격');
               }}
             >
               <div className="stateName">합격</div>
             </li>
-            <li
+            <li className={(status==='불합격')  ? 'stateName_nonpass': 'stateName_nonpass_none'} 
               onClick={() => {
                 setStatus('불합격');
               }}
             >
               <div className="stateName">불합격</div>
             </li>
-            <li
+            <li className={(status==='보류')  ? 'stateName_keep': 'stateName_keep_none'} 
               onClick={() => {
                 setStatus('보류');
               }}

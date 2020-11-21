@@ -29,7 +29,46 @@
   font-weight: 500;
   line-height: 60px;
 }
-
+.stateName_all_none{
+  background: #fff;
+  color:#000;
+}
+.stateName_yet_none{
+  background: #fff;
+  color: #818181;
+}
+.stateName_pass_none{
+  background: #fff;
+  color:#00A116;
+}
+.stateName_nonpass_none{
+  background: #fff;
+  color:#C60C0C;
+}
+.stateName_keep_none{
+  background: #fff;
+  color:#D9AB00;
+}
+.stateName_all{
+  background: #000;
+  color: #fff;
+}
+.stateName_yet{
+  background:  #818181;
+  color:#fff;
+}
+.stateName_pass{
+  background:#00A116;
+  color: #fff;
+}
+.stateName_nonpass{
+  background: #C60C0C;
+  color:#fff;
+}
+.stateName_keep{
+  background:#D9AB00;
+  color: #fff;
+}
 .stateUsers {
   font-size: 24px;
   margin-top: 60px;
@@ -161,7 +200,7 @@
   transform: translate(68%, -150%);
 }
 .resume #buttonSelect {
-  transform: translate(170%, -20%);
+  transform: translate(176%, -36%);
 }
 .tiny_gray_namecard p {
   font-size: 15px;
@@ -182,9 +221,12 @@
 .twoButtons #button1 {
   float: right;
   margin-right: 10px;
+  margin-top: 20px;
 }
 .twoButtons #button1_blue {
   float: right;
+  margin-top: 20px;
+  margin-right: 36px;
 }
 .width1000 {
   width: 1000px;
@@ -205,4 +247,10 @@
   height: 64px;
   font-size: 22px;
   margin-top: 50px;
+}
+.resume_choosetime {
+  margin-left: 15px;
+  margin-bottom: 5px;
+  width: 56px;
+  text-align: center;
 }
