@@ -57,8 +57,9 @@ import Cookies from 'universal-cookie';
 import Button from '@material-ui/core/Button';
 import ScrollToTop from './scroll/ScrollToTop';
 
-import logo from './images/logo2@2x.png';
+import logo from './images/logo@2x.png';
 import Test from './Test/Test';
+import words from './images/words.png';
 
 function App() {
   const cookies = new Cookies();
@@ -237,7 +238,7 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/list/:subject/:circle_id/ApplyTemplete"
+              path="/list/:subject/:circle_id/apply2"
               component={ApplyTemplete}
             ></Route>
             <Route
@@ -368,26 +369,58 @@ function App() {
         </div>
         <hr />
         <footer>
-          <h1>여기는 푸터</h1>
+          <div className="footer_display_vert">
+            <img
+              src={ logo }
+              alt='logo' />
+            <img
+              src={ words }
+              alt='explanation' />
+          </div>
+          <div className="footer_navs">
+          <div className="footer_display_vert footer_nav">
+          <span>Information</span>
           <nav>
             <ul>
               <li>
-                <Link to="/">이용약관</Link>
+                <Link className="footer_link" to="/intro">Guide</Link>
               </li>
               <li>
-                <Link to="/home">개인정보 처리방침</Link>
-              </li>
-              <li>
-                <Link to="/intro">고객센터</Link>
+                <Link className="footer_link" to="/login">Join Us</Link>
               </li>
             </ul>
-            <div>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio
-              amet deserunt repudiandae, est reprehenderit unde culpa? Beatae,
-              cum iste vel, non eaque inventore alias quo maiores vero, tenetur
-              facilis quisquam?
-            </div>
           </nav>
+          </div>
+          <div className="footer_display_vert footer_nav">
+          <span>Support</span>
+          <nav>
+            <ul>
+              <li>
+                <Link className="footer_link" to="/intro">Contact Us</Link>
+              </li>
+              <li>
+                <Link className="footer_link" to="/login">Customer Service</Link>
+              </li>
+            </ul>
+          </nav>
+          </div>
+          <div className="footer_display_vert footer_nav">
+          <span>Legal</span>
+          <nav>
+            <ul>
+              <li>
+                <Link className="footer_link" to="/intro">Terms & Condition</Link>
+              </li>
+              <li>
+                <Link className="footer_link" to="/login">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link className="footer_link" to="/login">Cookie Policy</Link>
+              </li>
+            </ul>
+          </nav>
+          </div>
+          </div>
         </footer>
       </div>
     </Router>

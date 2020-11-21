@@ -169,10 +169,14 @@ const PostInterviewPersonal = () => {
           })}
         </div>
       </form>
+                   
       <div className="post_twoButtons">
-        <button id="button1" onClick={handleUpdate}>
+        {/* <button id="button1" onClick={handleUpdate}>
           수정하기
-        </button>
+        </button> */}
+        {toggle ? (<button  onClick={(event) => handleUpdate(event)} id="button1">저장하기</button>):
+         (<button onClick={(event) => handleUpdate(event)} id="button1">수정하기</button>)}  
+       
         <button id="button1_blue">돌아가기</button>
       </div>
     </div>
