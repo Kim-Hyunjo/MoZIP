@@ -98,15 +98,21 @@ class recruit_notice(models.Model):
     ci_id = models.CharField(unique=True,primary_key=True,max_length=15)
     objects = models.DjongoManager()
 
+
 # 만들떄 RDB의 manytomany이용할 예정, 현재는 dumdy확인을 위해 기입
 class recruit_format(models.Model):
-    number = models.PositiveIntegerField()
     type_choices = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
     Type = models.CharField(max_length=15,choices=type_choices,default="1")
-    club_id = models.IntegerField()
+    club_id = models.IntegerField(default=0)
     user_id = models.PositiveIntegerField(default=0)
-    document = models.JSONField()
     rf_id = models.CharField(unique=True,primary_key=True,max_length=15)
+    approval_info = models.JSONField(default=[])
+    time = models.JSONField(default=[])
+    run_time = models.IntegerField(default=0)
+    rest_time = models.IntegerField(default=0)
+    Multiple_choice = models.JSONField(default=[])
+    Short_answer = models.JSONField(default=[])
+    long_answer = models.JSONField(default=[])
     objects = models.DjongoManager()
 
 class recruit_basic_question(models.Model):

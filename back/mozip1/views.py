@@ -583,10 +583,11 @@ class CircleOpenView(APIView):
 
 class RecruitProcessFormView(APIView):
     def get(self, request):
-        model = recruit_format
-        serializer = RecruitFormatSerializer(recruit_format.objects.all(), many=True)
+        model = recruit_format.objects.all()
+        serializer = RecruitFormatSerializer(model, many=True)
         return Response(serializer.data)
-    def post(self, request):
+    @csrf_exempt
+    def post(self,request):
         serializer = RecruitFormatSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

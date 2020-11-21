@@ -156,7 +156,6 @@ urlpatterns = [
     path('recruit/process/basicinfo/',include(router.urls) ),
     path('recruit/process/noticeinfo/', RecruitNoticeview.as_view()),
     path('recruit/process/form/', RecruitProcessFormView.as_view()),
-    path('recruit/process/applicants/', include(router.urls)),
     path('recruit/resume/', include(router.urls)),
     path('recruit/resume/<int:user_id>/', include(router.urls)),
     path('recruit/management/staff/',include(router.urls)),
