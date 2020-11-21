@@ -260,12 +260,14 @@ class ClubView(APIView):
         datas1.update(fdate)
         datas2 = serializer2.data[0]
         review = eval(datas2["review"])
-        datas1.update(review)
+        datas2["review"] = review.values()
+        datas1.update(datas2)
         datas3 = serializer3.data[0]
         FAQ = eval(datas3["FAQ"])
-        datas1.update(FAQ)
+        datas3["FAQ"] = FAQ.values()
+        datas1.update(datas3)
         return Response(datas1)
-        #return Response(serializer1.data + serializer2.data + serializer3.data)
+        #return Response(serializer2.data)
         #회원이면
         # if(user_id >0):
         #     #Club
