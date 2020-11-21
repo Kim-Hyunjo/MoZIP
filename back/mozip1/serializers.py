@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
-class UserProfileSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ['group', 'name', 'education','grader', 
@@ -62,7 +62,7 @@ class ClubDetailPostSerializer(serializers.ModelSerializer):
 class CreateClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
-        fields = ["created_id","approval"]
+        fields = '__all__'
 
 # sj - recruit
 
@@ -85,14 +85,18 @@ class UserApplyListSerializer(serializers.ModelSerializer):
 
 class RecruitApplicantsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = user_apply_list
-        fields = ['apply_list']
+        model = User
+        fields = ['user_id','name','self_image']
 
 class CreationClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
         fields = ['cc_id','name','information','category','foundationdate' 
         ,'detail_information','self_image','telephone','email','approval','created_id']
+
+class CreationClubSerializer(serializers.Serializer):
+    pass
+
 
 class ClubMemberSerializer(serializers.ModelSerializer):
     class Meta:

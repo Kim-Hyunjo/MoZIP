@@ -24,18 +24,18 @@ class User(models.Model):
         return str(self.user_id)
 
 class Creation_Club(models.Model):
-    name = models.CharField(max_length=15)
-    information = models.CharField(max_length=30)
+    name = models.CharField(max_length=15,default=None)
+    information = models.CharField(max_length=30,default=None)
     category_choice = (("c1","학술"),("c2","예술"),("c3","친목"),("c4","스포츠"),("c5","여행"),("c6","종교"),("c7","봉사"),("c8","기타"))
     category = models.CharField(max_length=8,choices=category_choice,default="c1")
     foundationdate = models.JSONField()
-    detail_information = models.TextField(max_length=300)
-    self_image = models.CharField(max_length=10)
-    telephone = models.CharField(max_length=15)
-    email = models.EmailField()
+    detail_information = models.TextField(max_length=300,default=None)
+    self_image = models.CharField(max_length=10,default=None)
+    telephone = models.CharField(max_length=15,default=None)
+    email = models.EmailField(default=None)
     approval_choice = (("a1","미확인"),("a2","승인"),("a3","승인불가"))
     approval = models.CharField(max_length=8,choices=approval_choice,default="a1")
-    created_id = models.PositiveIntegerField()
+    created_id = models.PositiveIntegerField(default=0)
     objects = models.DjongoManager()
 
 class Club(models.Model):
