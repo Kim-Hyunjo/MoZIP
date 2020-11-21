@@ -61,6 +61,9 @@
   color: white;
 }
 #button3_intro {
+  transform: translate(820px, 30px);
+  /* float: right; */
+  /* margin: 0px 20px 30px 0px; */
   width: 150px;
   height: 52px;
   border: 1px solid #0c59c3;
@@ -249,7 +252,7 @@
   width: 20px;
   height: 20px;
   background-color: initial;
-  background-image: url("../images2/icon_x@2x.png");
+  background-image: url('../images2/icon_x@2x.png');
   /* border: 1px solid; */
   /* border-radius: 15px; */
   /* background-color: white; */
@@ -334,7 +337,7 @@
 }
 
 .apply2Buttons {
-  width: 84% ;
+  width: 84%;
   padding: 30px 10px 0px 10px;
 }
 .apply2Buttons #button1 {
@@ -414,7 +417,7 @@
   text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
 }
 #button_login span {
-  color: white; 
+  color: white;
 }
 #button_logout {
   text-decoration: underline;
@@ -429,11 +432,11 @@
   text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
 }
 #button_logout span {
-  color: white; 
+  color: white;
 }
-#button_excel{
+#button_excel {
   border: none;
-  background-image: url("../images2/icon_excel@2x.png");
+  background-image: url('../images2/icon_excel@2x.png');
   width: 56px;
   height: 56px;
   background-repeat: none;
