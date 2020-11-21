@@ -56,5 +56,11 @@
   "devDependencies": {
     "@types/react-select": "^3.0.23",
     "@types/styled-components": "^5.1.4"
+  },
+  "proxy": {
+    "/api/*":  {
+      "target": "http://django:8000",
+      "secure": false
+    }
   }
 }
