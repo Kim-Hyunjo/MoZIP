@@ -165,7 +165,17 @@ class PostClubMember(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+class PostRecruitNotice(APIView):
+    def get(self, request):
+        model = recruit_notice
+        serializer = RecruitNoticeSerializer(recruit_notice.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = RecruitNoticeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 #list
@@ -293,6 +303,13 @@ class ListDetailView(APIView):
         # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ListApplyView(APIView):
+    def get(self, reuqest, cc_id):
+        serializer = RecruitNoticeSerializer(recruit_notice.objects.filter(ci_id=-cc_id), many=True)
+        datas = serializer.data[0]
+        notices = eval(datas["notice"])
+        return Response(notices)
+
+class ListApply2View(APIView):
     def get(self, request, cc_id, user_id):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
