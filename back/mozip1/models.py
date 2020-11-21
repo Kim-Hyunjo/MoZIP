@@ -14,7 +14,7 @@ class User(models.Model):
     birthday = models.CharField(max_length=12)
     telephone = models.CharField(max_length=15)
     email = models.EmailField()
-    address = models.JSONField()
+    address = models.TextField()
     self_image = models.CharField(max_length=10)
     date = models.DateField(auto_now_add=True)
     user_id = models.PositiveIntegerField(unique=True,primary_key=True)
@@ -24,7 +24,6 @@ class User(models.Model):
         return str(self.user_id)
 
 class Creation_Club(models.Model):
-    cc_id = models.IntegerField(unique=True,primary_key=True)
     name = models.CharField(max_length=15)
     information = models.CharField(max_length=30)
     category_choice = (("c1","학술"),("c2","예술"),("c3","친목"),("c4","스포츠"),("c5","여행"),("c6","종교"),("c7","봉사"),("c8","기타"))
