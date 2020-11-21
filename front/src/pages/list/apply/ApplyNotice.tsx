@@ -6,7 +6,7 @@ import {
     Switch,
     NavLink,
   } from 'react-router-dom';
-const Apply = () => {
+const ApplyNotice = () => {
     const [notification, setNotification]:any = useState<boolean>(false)
     const checkHandler:any = (e:Event)=>{
         setNotification((e.target as any).checked)
@@ -55,4 +55,4 @@ const Apply = () => {
     )
 }
 
-export default Apply
+export default ApplyNotice

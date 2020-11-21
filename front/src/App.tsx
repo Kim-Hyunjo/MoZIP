@@ -12,8 +12,8 @@ import Home from './Test/home';
 import RedirectTest from './Test/RedirectTest';
 import TestList from './Test/TestList';
 import List from './pages/list/List';
-import Apply from './pages/list/apply/Apply';
-import Apply2 from './pages/list/apply/Apply2';
+import ApplyNotice   from './pages/list/apply/ApplyNotice';
+import ApplyTemplete from './pages/list/apply/ApplyTemplete';
 import Circle from './pages/circle/Circle';
 import CircleDetail from './pages/circle/CircleDetail';
 import ListApplySuccess from './pages/list/apply/ListApplySuccess';
@@ -214,12 +214,12 @@ function App() {
             <Route
               exact
               path="/list/:subject/:circle_id/apply"
-              component={Apply}
+              component={ApplyNotice}
             ></Route>
             <Route
               exact
-              path="/list/:subject/:circle_id/apply2"
-              component={Apply2}
+              path="/list/:subject/:circle_id/ApplyTemplete"
+              component={ApplyTemplete}
             ></Route>
             <Route
               exact
