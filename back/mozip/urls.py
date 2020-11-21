@@ -65,7 +65,7 @@ urlpatterns = [
     path('list/academy/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/academy/<int:cc_id>/joinus/', ListJoinUsView.as_view(), name='joinus'),
     path('list/academy/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/academy/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/academy/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/art/<int:cc_id>/', ClubView.as_view()),
     path('list/art/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -74,7 +74,7 @@ urlpatterns = [
     path('list/art/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/art/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/art/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/art/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/art/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/networking/<int:cc_id>/', ClubView.as_view()),
     path('list/networking/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -83,7 +83,7 @@ urlpatterns = [
     path('list/networking/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/networking/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/networking/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/networking/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/networking/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/sports/<int:cc_id>/', ClubView.as_view()),
     path('list/sports/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -92,7 +92,7 @@ urlpatterns = [
     path('list/sports/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/sports/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/sports/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/sports/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/sports/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/travel/<int:cc_id>/', ClubView.as_view()),
     path('list/travel/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -101,7 +101,7 @@ urlpatterns = [
     path('list/travel/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/travel/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/travel/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/travel/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/travel/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/religion/<int:cc_id>/', ClubView.as_view()),
     path('list/religion/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -110,7 +110,7 @@ urlpatterns = [
     path('list/religion/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/religion/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/religion/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/religion/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/religion/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/volunteer/<int:cc_id>/', ClubView.as_view()),
     path('list/volunteer/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -119,7 +119,7 @@ urlpatterns = [
     path('list/volunteer/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/volunteer/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/volunteer/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/volunteer/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/volunteer/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     path('list/etc/<int:cc_id>/', ClubView.as_view()),
     path('list/etc/<int:cc_id>/detail/', ListDetailView.as_view()),
@@ -128,7 +128,7 @@ urlpatterns = [
     path('list/etc/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/etc/<int:cc_id>/joinus/', ListJoinUsView.as_view()),
     path('list/etc/<int:cc_id>/members/', ListMembersView.as_view()),
-    path('list/etc/<int:cc_id>/members/edit/', include(router.urls)),
+    path('list/etc/<int:cc_id>/members/edit/', ListMembersEditView.as_view()),
 
     #login,signup
     path('login/', include(router.urls)),
