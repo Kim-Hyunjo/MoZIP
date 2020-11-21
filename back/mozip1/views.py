@@ -321,16 +321,11 @@ class ListDetailView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ListApplyView(APIView):
-    # def get(self, reuqest, cc_id):
-    #     serializer = RecruitNoticeSerializer(recruit_notice.objects.filter(ci_id=-cc_id), many=True)
-    #     datas = serializer.data[0]
-    #     notices = eval(datas["notice"])
-    #     return Response(notices)
     def get(self, reuqest, cc_id):
         serializer = RecruitNoticeSerializer(recruit_notice.objects.filter(ci_id=-cc_id), many=True)
-        # datas = serializer.data[0]
-        # notices = eval(datas["notice"])
-        return Response(serializer.data)
+        datas = serializer.data[0]
+        notices = eval(datas["notice"])
+        return Response(notices)
 
 class ListApply2View(APIView):
     def get(self, request, cc_id, user_id):
