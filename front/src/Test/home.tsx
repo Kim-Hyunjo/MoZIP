@@ -134,7 +134,7 @@ import icon_etc from '../images/icon_etc@2x.png';
     return (
       <div className="home_wrapper">
         <div className="home_top_wrapper">
-          <ul id="horizontal_list">
+        <Link to = "/list"><ul id="horizontal_list">
             {test.map((item) => {
               return (
                 <li
@@ -143,6 +143,7 @@ import icon_etc from '../images/icon_etc@2x.png';
                     console.log(item.name);
                   }}
                 >
+                  
                   <div className="border top_border"></div>
                   <img
                     src={ item.img }
@@ -152,7 +153,7 @@ import icon_etc from '../images/icon_etc@2x.png';
                 </li>
               );
             })}
-          </ul>
+          </ul></Link>
           <Link to ="/list">
           <button id="button10">전체 동아리 보기</button></Link>
         </div>
