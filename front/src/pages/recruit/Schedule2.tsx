@@ -1,6 +1,6 @@
 import React, {useState, } from 'react'
 import { BrowserRouter as Router, Route, Link,RouteComponentProps } from 'react-router-dom';
-import Apply from '../list/apply/Apply';
+// import Apply from '../list/apply/Apply';
 import './recruit.css';
 
 const Schedule2 = (props: RouteComponentProps<{}>) => {
