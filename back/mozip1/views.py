@@ -15,6 +15,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from collections import OrderedDict
 from ast import literal_eval
+import json
+from django.forms.models import model_to_dict
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -298,7 +300,7 @@ class ListApplyView(APIView):
         l_eval = eval(datas["document"])
         d = dict(OrderedDict(l_eval))
 
-        return Response(d)
+        return Response(datas)
         #return Response(datas["document"])
         #return Response(serializer1.data + serializer2.data)
     def post(self, request, cc_id, user_id):
@@ -374,11 +376,14 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
         data = [serializer1.data,serializer2.data,serializer3.data]
         return Response(data)
 
-
 class MypageEditView(APIView):
     def get(self, request, user_id):
         serializer = UserProfileSerializer(User.objects.get(user_id=user_id))
-        return Response(serializer.data)
+        datas = serializer.data
+        edu = eval(datas["education"])
+        dict_edu = dict(OrderedDict(edu))
+        datas.update(dict_edu)
+        return Response(datas)
 
     def put(self, request, user_id):
         serializer = UserProfileSerializer(User.objects.get(user_id=user_id),data=request.data)
