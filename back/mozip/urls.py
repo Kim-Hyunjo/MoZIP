@@ -180,7 +180,7 @@ urlpatterns = [
     path('guide/operation/', include(router.urls)),
 
     #circle
-    path('circle/open/', include(router.urls)),
+    path('circle/open/', CreateClubApproval.as_view()),
     path('circle/open/success/', include(router.urls)),
     path('circle/open/fail/', include(router.urls)),
     path('circle/open/approval/', include(router.urls)),
