@@ -7,7 +7,7 @@ import {
     NavLink,
 } from 'react-router-dom';
 import CircleMembersEditSubmaster from './CircleMembersEditSubmaster'
-import CircleMembersEditMaster from './CircleMembersEditMaster'
+import CircleMembersEditMaster from './CircleMembersEditmaster'
 import CircleMembersEditTech from './CircleMembersEditTech'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -222,4 +222,4 @@ const CircleMembersEdit = () => {
     )
 }
 
-export default CircleMembersEdit
+export default CircleMembersEdit;

@@ -1,6 +1,5 @@
 .home_wrapper{
     width: 1000px;
-
 }
 .home_top_wrapper{
     width: 692px;
@@ -19,11 +18,9 @@
     font-size: 20px;
     font-weight: 600;
     border: 0.1px solid;
-    
 }
 .home_top_wrapper #horizontal_list li img{
     width: 100px;
-    
 }
 .home_top_wrapper #button10{
     background: #fff;

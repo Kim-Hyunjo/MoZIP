@@ -36,7 +36,9 @@ const CircleMembersEditTech: React.FunctionComponent<Props> = ({
                 <button onClick={onDelete} id="button_x" type="button">x</button>
                 <div className="user_role">{propsRole.status}</div>
                 <span>{propsRole.content}</span>
-                </div>
+                <div className="subClubImage">
+            <img src="http://placehold.it/120x120" />
+        </div></div>
         </div>
     )
 }

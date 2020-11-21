@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Circle from '../circle/Circle';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 interface Question {
   id: number;
@@ -138,7 +139,8 @@ const InterviewCommonQuestion = () => {
             </div>
           </div>
         </div>
-        <button id="button4">저장</button>
+        <Link to ="/recruit/interview">
+        <button id="button4">저장</button></Link>
       </div>
     </div>
   );

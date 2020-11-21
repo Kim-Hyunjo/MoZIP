@@ -130,26 +130,11 @@ const myPageIntroduction = () => {
   return (
     <div className="mypage_introduction">
       <h2>자기소개함</h2>
-      <h4>자기소개서 질문과 답변을 미리 준비해보세요.</h4>
-      <div className="flexthem">
-        <div>
-          <label>
-            <select
-              id="list-name_intro"
-              // defaultValue={subject}
-              // value={subject}
-              // onChange={(e) => setSubject(e.target.value)}
-              // onBlur={(e) => setSubject(e.target.value)}
-            >
-              <option>최신순</option>
-              <option>인기순</option>
-            </select>
-          </label>
-        </div>
+      <h3>자기소개서 질문과 답변을 미리 준비해보세요. <br/>작성하기 위해 <span>수정하기 버튼</span>을 누르고, 작성이 끝난 후에는 <span>저장하기 버튼</span>을 눌러 꼭 저장해주세요. 자동저장이 되지 않습니다.</h3>
+
         <button id="button3_intro" onClick={handleClickOpen}>
           직접 추가
         </button>
-      </div>
       <div>
         <div>{questionFormList}</div>
       </div>

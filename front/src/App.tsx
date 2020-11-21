@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -30,7 +30,7 @@ import CircleOpenReject from './pages/circle/CircleOpenReject';
 import CircleMembersEdit from './pages/circle/CircleMembersEdit';
 import CircleMembers from './pages/circle/CircleMembers';
 import ProcessBasicInfo from './pages/recruit/ProcessBasicInfo';
-import ProcessForm from './pages/recruit/ProcessForm';
+import ProcessForm from './pages/recruit/processForm/ProcessForm';
 import Selection from './pages/recruit/Selection';
 import ProcessNoticeInfo from './pages/recruit/ProcessNoticeInfo';
 import Applicants from './pages/recruit/Applicants';
@@ -47,7 +47,7 @@ import PostInterviewPersonal from './pages/recruit/PostInterviewPersonal';
 import PostprocessingNotice from './pages/recruit/PostprocessingNotice';
 import InterviewPostprocessing from './pages/recruit/InterviewPostprocessing';
 import FinalProcessing from './pages/recruit/FinalProcessing';
-import KakaoSignUp from './pages/login/KakaoSignUp2';
+import KakaoSignUp from './pages/login/KakaoSignUp';
 import MyPageEdit from './pages/mypage/myPageEdit';
 import guideRegistration from './pages/about/guideRegistration';
 import guideSelfintroduction from './pages/about/guideSelfintroduction';
@@ -55,28 +55,46 @@ import guideOperation from './pages/about/guideOperation';
 
 import Cookies from 'universal-cookie';
 import Button from '@material-ui/core/Button';
+import ScrollToTop from './scroll/ScrollToTop';
+
+import logo from './images/logo2@2x.png';
+
+import axios from 'axios';
 
 function App() {
   const cookies = new Cookies();
 
+  const [login, setLogin] = useState<string>(cookies.get('access_token'));
+
+  const handleLogin = (token: string) => {
+    setLogin(token);
+  };
+
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <header>
-          {cookies.get('access_token')}
-          {cookies.get('access_token') === cookies.get('none') ? (
+          <Link to="/home">
+            <img id="mozip_logo" src={logo} alt="Mo:ZIP logo" />
+          </Link>
+          {/* {cookies.get('access_token')} */}
+          {/* {typeof cookies.get('none')} */}
+          {/* {cookies.get('access_token') === undefined ? ( */}
+          {login === '' ? (
             <Link to="/login">
               <div id="button_login">로그인/회원가입</div>
             </Link>
           ) : (
-            <Button id="button_login"
+            <Button
+              id="button_logout"
               onClick={() => {
                 cookies.remove('access_token');
                 cookies.remove('name');
                 cookies.remove('image');
                 cookies.remove('email');
+                setLogin('');
               }}
-              href="/"
             >
               로그아웃
             </Button>
@@ -186,12 +204,12 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/circle/members"
+              path="/list/:subject/:circle_id/members"
               component={CircleMembers}
             ></Route>
             <Route
               exact
-              path="/circle/members/edit"
+              path="/list/:subject/:circle_id/members/edit"
               component={CircleMembersEdit}
             ></Route>
             {/* list */}
@@ -301,7 +319,8 @@ function App() {
               component={PostInterviewPersonal}
             ></Route>
             <Route
-              path="/recruit/interview/InterviewPostprocessing"
+              exact
+              path="/recruit/interview/postprocessing"
               component={InterviewPostprocessing}
             ></Route>
             <Route
@@ -319,12 +338,28 @@ function App() {
               path="/recruit/finalprocessing"
               component={FinalProcessing}
             ></Route>
-            <Route exact path ="/guide/registration" component={guideRegistration}></Route>
-            <Route exact path ="/guide/selfintroduction" component={guideSelfintroduction}></Route>
-            <Route exact path ="/guide/operation" component={guideOperation}></Route>
+            <Route
+              exact
+              path="/guide/registration"
+              component={guideRegistration}
+            ></Route>
+            <Route
+              exact
+              path="/guide/selfintroduction"
+              component={guideSelfintroduction}
+            ></Route>
+            <Route
+              exact
+              path="/guide/operation"
+              component={guideOperation}
+            ></Route>
 
             {'login'}
-            <Route exact path="/login" component={KakaoSignUp}></Route>
+            <Route
+              exact
+              path="/login"
+              render={() => <KakaoSignUp onLogin={handleLogin}></KakaoSignUp>}
+            ></Route>
 
             {/* NotFount */}
             <Route component={NotFound} />

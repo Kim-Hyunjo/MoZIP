@@ -1,5 +1,6 @@
 import React from 'react';
 import '../resume.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Record = () => {
   const info = [
@@ -179,7 +180,8 @@ const Record = () => {
         </div>
       </form>
       <div className="twoButtons">
-        <button id="button1_blue">저장</button>
+        <Link to ="/recruit/interview/detail/1">
+        <button id="button1_blue">저장</button></Link>
         <button id="button1">임시 저장</button>
       </div>
     </div>

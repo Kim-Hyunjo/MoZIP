@@ -4,6 +4,7 @@
   align-items: center;
   margin-left: 74%;
 }
+
 .input {
   font-size: 40px;
   margin-bottom: 24px;
@@ -100,6 +101,14 @@
 .mypage_introduction {
   width: 1000px;
 }
+.mypage_introduction span {
+  font-size: 16px;
+  font-weight: 600;
+}
+.mypage_introduction h3:nth-child(1) {
+  margin-bottom: 0px;
+  background-color: chartreuse;
+}
 .savedAnswer {
   border: 0.5px solid #bdbdbd;
   border-radius: 10px 5px;
@@ -112,4 +121,8 @@
   height: auto;
   overflow-x: hidden;
   overflow-y: auto;
+}
+.MuiDialog-root #form-dialog-title  {
+  width: 500px;
+  margin-top: 20px;
 }
