@@ -369,7 +369,22 @@ class ListMembersView(APIView):
     #회장인지 확인ㅜ
     def get(self, request, cc_id):
         serializer = ClubMemberSerializer(Club_member.objects.filter(club_id=-cc_id), many=True)
-        return Response(serializer.data)
+        s1 = serializer.data[0]
+        s1["member"] = eval(s1["member"])
+        members = s1["member"]
+        owner = members["owner"]
+        owner_idx = int(owner[0])
+        user_owner = MemberUserSerializer(User.objects.filter(user_id=owner_idx), many=True)
+        s1["member"]["owner"] = user_owner.data[0]
+        guest = members["guest"]
+        guest_count = len(guest)
+        tmp_list = list()
+        for i in range(0, guest_count):
+            guest_idx = int(guest[i])
+            user_guest = MemberUserSerializer(User.objects.filter(user_id=guest_idx), many=True)
+            tmp_list.append(user_guest.data[0])
+        s1["member"]["guest"] = tmp_list
+        return Response(s1)
 
 class ListMembersEditView(APIView):
     def get(self, request, cc_id):

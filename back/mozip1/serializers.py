@@ -56,6 +56,10 @@ class ClubDetailPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = recruit_QA
         fields = '__all__'
+class MemberUserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['user_id', 'name', 'self_image']
 
 
 # sj
