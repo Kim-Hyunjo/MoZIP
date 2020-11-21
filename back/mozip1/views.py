@@ -277,7 +277,6 @@ class ClubView(APIView):
         serializer3 = ClubFAQSerializer(Club_FAQ.objects.filter(club_id=-cc_id), many=True)
         datas1 = serializer1.data[0]
         fdate = eval(datas1["foundationdate"])
-        datas1["card_image"] = eval(datas1["card_image"])
         datas1.update(fdate)
         datas2 = serializer2.data[0]
         datas2["review"] = eval(datas2["review"])
