@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import CircleMembersEditModal from './CircleMembersEditModal'
 
 interface Role {
     id: number;
@@ -16,24 +15,18 @@ const CircleMembersEditSubmaster:React.FunctionComponent<Props> = ({
     propsRole
     
 }) =>{
-    const guest:Role[] =[
-        { id: 1, name:'한채은', status:'기술',content:'프로필 사진'},
-           { id: 2, name:'왕희도', status:'기술',content:'프로필 사진'},
-           { id: 3, name:'박웅기', status:'기술',content:'프로필 사진'},
-           { id: 4, name:'한예송', status:'기술',content:'프로필 사진'},
-    ]
+ 
  
     
       
-   
-return (
-    <div>
-         <div className="role">
-                    <div className="roleName">{propsRole.status} (관리자)</div>
-                    <CircleMembersEditModal/>
-                </div>
-        <div className="user_namecard_edit"><div className="user_name">{propsRole.name}</div><button id="button_x" type="button">x</button><div className="user_role">{propsRole.status}</div><span>{propsRole.content}</span></div>
-    </div>
-)
-}
+    return (
+        <div>
+             <div className="role">
+                        <div className="roleName">{propsRole.status} (관리자)</div>
+                        <button className="changeOwner" >인원 추가</button>
+                    </div>
+            <div className="user_namecard_edit"><div className="user_name">{propsRole.name}</div><button id="button_x" type="button">x</button><div className="user_role">{propsRole.status}</div><span>{propsRole.content}</span></div>
+        </div>
+    )
+    }
 export default CircleMembersEditSubmaster

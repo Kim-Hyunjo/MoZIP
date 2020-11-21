@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './apply.css';
 
-const Apply2 = ({ history }: any) => {
+const ApplyTemplete = ({ history }: any) => {
   const [motivation, setmotivation] = useState('');
   const [reason, setreason] = useState('');
   const [agreement, setagreement] = useState<boolean>(false);
@@ -173,4 +173,4 @@ const Apply2 = ({ history }: any) => {
   );
 };
 
-export default Apply2;
+export default ApplyTemplete;
