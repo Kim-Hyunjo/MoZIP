@@ -9,7 +9,6 @@ interface Question {
   question: string;
   answer: string;
   score: number;
-  tempScore: number;
 }
 
 const Resume2 = (props: RouteComponentProps<{ member_id: string }>) => {
@@ -30,38 +29,39 @@ const Resume2 = (props: RouteComponentProps<{ member_id: string }>) => {
       question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.',
       answer: 'TAVE가 킹왕짱이기 때문입니다.',
       score: 0,
-      tempScore: 0,
     },
     {
       id: 2,
       question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.1',
       answer: 'TAVE가 킹왕짱이기 때문입니다.',
       score: 0,
-      tempScore: 0,
     },
     {
       id: 3,
       question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.2',
       answer: 'TAVE가 킹왕짱이기 때문입니다.',
       score: 0,
-      tempScore: 0,
     },
     {
       id: 4,
       question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.3',
       answer: 'TAVE가 킹왕짱이기 때문입니다.',
       score: 0,
-      tempScore: 0,
     },
   ]);
-
+  const _num = 0;
+  const [sum, setSum] = useState<number>(0);
   const handleChange = (id: number, score: number) => {
     let tmps: Question[] = Object.assign([], selfIntroductionList);
+    let tmpSum : number = 0;
     tmps.map((info) => {
       if (info.id === id) {
         info.score = Number(score);
       }
+      tmpSum+=info.score;
     });
+
+    setSum(tmpSum);
     setSelfIntroductionList(tmps);
   };
 
@@ -79,7 +79,7 @@ const Resume2 = (props: RouteComponentProps<{ member_id: string }>) => {
       </div>
 
       <div className="personScore">
-        점수 총점 : {selfIntroductionList[0].score}점
+        점수 총점 : {sum}점
       </div>
       <div className="gray_namecard">
         <div>
@@ -104,10 +104,11 @@ const Resume2 = (props: RouteComponentProps<{ member_id: string }>) => {
           <ul>
             {selfIntroductionList.map((question) => {
               return (
+                  <div>
                 <Resume2Score
                   question={question}
                   onUpdate={handleChange}
-                ></Resume2Score>
+                ></Resume2Score></div>
               );
             })}
           </ul>

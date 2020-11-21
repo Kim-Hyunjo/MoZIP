@@ -5,7 +5,6 @@ interface Question {
   question: string;
   answer: string;
   score: number;
-  tempScore: number;
 }
 
 interface Props {
