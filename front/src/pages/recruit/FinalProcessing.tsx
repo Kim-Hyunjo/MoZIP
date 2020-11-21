@@ -1,8 +1,36 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+interface Candidate{
+    name : string;
+    status : string;
+}
+
 const FinalProcessing = () => {
-    const temporalList:any = [{name:"한채은"},{name:"한채은"},{name:"한채은"},{name:"한채은"},]
+    const [status, setStatus] =useState<string>('미입금');
+    const [candidates, setCandidates] = useState<Candidate[]>([
+        {name:"한채은", status:'미입금'},
+        {name:"한채은1", status:'입금 완료'},
+        {name:"한채은2", status:'입금 오류'},
+        {name:"한채은3", status:'입금 완료'}
+    ]);
+    const handleClick = (_candidate : Candidate) =>{
+        let tmps: Candidate[] = Object.assign([], candidates);
+        tmps.map((info)=>{
+            if(info.name === _candidate.name){
+                if (_candidate.status === '입금 완료'){
+                    _candidate.status = '미입금';
+                }
+                else if (_candidate.status === '미입금'){
+                    _candidate.status = '입금 오류';
+                }
+                else if (_candidate.status === '입금 오류'){
+                    _candidate.status = '입금 완료';
+                }
+            }
+        })
+        setCandidates(tmps);
+    }
     return (
         <div className="final">
             <div>
@@ -26,13 +54,13 @@ const FinalProcessing = () => {
 
                 <div>
                     <ul className="finalList">
-                        {temporalList.map((info:any)=>{
+                        {candidates.map((info : Candidate)=>{
                              return(
                                 <li className="finalPerson">
                                     <input type="checkbox" />
                                     {info.name}
                                     <div className="twoButtons"><div>
-                                    <button id="button4">입금완료</button>
+                                    <button onClick={()=>(handleClick(info))} id="button4">{info.status}</button>
                                     <Link to ="/recruit/interview/postprocessing/detail">
                                     <button id="button1">상세보기</button></Link></div>
                                     </div>
