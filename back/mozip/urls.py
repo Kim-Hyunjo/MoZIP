@@ -45,6 +45,7 @@ urlpatterns = [
     path("postrecruitformat/", PostRecruitFormat.as_view()),
     path("postuserrecordq/", PostUserRecordQ.as_view()),
     path("postclubmember/", PostClubMember.as_view()),
+    path("postrecruitnotice/", PostRecruitNotice.as_view()),
 
     #mozip
     #list
@@ -60,7 +61,8 @@ urlpatterns = [
 
     path('list/academy/<int:cc_id>/', ClubView.as_view()),
     path('list/academy/<int:cc_id>/detail/', ListDetailView.as_view()),
-    path('list/academy/<int:cc_id>/apply/<int:user_id>/', ListApplyView.as_view()),
+    path('list/academy/<int:cc_id>/apply/', ListApplyView.as_view()),
+    path('list/academy/<int:cc_id>/apply2/<int:user_id>/', ListApply2View.as_view()),
     path('list/academy/<int:cc_id>/apply/success/', ListApplySuccessView.as_view()),
     path('list/academy/<int:cc_id>/apply/fail/', ListApplyFailView.as_view()),
     path('list/academy/<int:cc_id>/joinus/', ListJoinUsView.as_view(), name='joinus'),
@@ -139,11 +141,11 @@ urlpatterns = [
     path('mypage/<int:user_id>/edit/', MypageEditView.as_view()),
     path('mypage/<int:user_id>/status/', MypageStatusView.as_view()),
     path('mypage/<int:user_id>/introduction/', MypageIntroductionView.as_view()),
-    path('mypage/<int:user_id>/-<int:ci_id>/notice/', MypageRecruitNoticeView.as_view()),
+    path('mypage/<int:user_id>/<int:ci_id>/notice/', MypageRecruitNoticeView.as_view()),
     
     #recruit
     path('recruit/selection/', include(router.urls)),
-    path('recruit/-<int:club_id>/applicants',RecruitApplicantsView.as_view()),
+    path('recruit/<int:club_id>/applicants',RecruitApplicantsView.as_view()),
     path('recruit/process/basicinfo/',include(router.urls) ),
     path('recruit/process/noticeinfo/', include(router.urls)),
     path('recruit/process/form/', include(router.urls)),
