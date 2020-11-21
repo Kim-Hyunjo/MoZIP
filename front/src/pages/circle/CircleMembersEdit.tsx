@@ -164,13 +164,13 @@ const CircleMembersEdit = () => {
       </div>
       <h4>
         내 동아리의 운영진 명단을 수정해보세요.<br></br>
-        동아리 부원 권한 단계는 소유자(회장), 관리자(운영진), 회원 총
+        동아리 부원 권한 단계는 <span>소유자(회장), 관리자(운영진), 회원</span> 총
         3가지입니다. <br></br>
-        Owner의 경우 명칭만 변경 가능하며, 1명으로 고정되어있습니다. 권한을
+        <span>Owner</span>의 경우 명칭만 변경 가능하며, 1명으로 고정되어있습니다. 권한을
         넘김으로써 회장을 변경할 수 있습니다. <br></br>
-        Manager의 경우 명칭을 변경할 수 있으며 직책의 수를 변경할 수 있습니다.
+        <span>Manager</span>의 경우 명칭을 변경할 수 있으며 직책의 수를 변경할 수 있습니다.
         직책 및 인원 추가를 통해 변경 가능합니다.<br></br>
-        구체적인 내용은 guide 페이지에서 확인하실 수 있습니다.
+        구체적인 내용은 <Link className="linktoguide" to='/guide/registration'>guide 페이지</Link>에서 확인하실 수 있습니다.
       </h4>
       <div className="members_title">운영진</div>
       <div>
@@ -212,12 +212,12 @@ const CircleMembersEdit = () => {
               {department.role.role_name === '회장' ? (
                 <button className="changeOwner">권한 넘기기</button>
               ) : (
-                <CircleMembersEditDialog
-                  deparment_id={department.department_id}
-                  refMembers={department.members as Member2[]}
-                  onAddMembers={handleAddMembers}
-                ></CircleMembersEditDialog>
-              )}
+                  <CircleMembersEditDialog
+                    deparment_id={department.department_id}
+                    refMembers={department.members as Member2[]}
+                    onAddMembers={handleAddMembers}
+                  ></CircleMembersEditDialog>
+                )}
             </div>
             {department.members.map((member) => {
               return (
