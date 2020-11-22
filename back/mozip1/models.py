@@ -156,15 +156,37 @@ class user_recordQ(models.Model):
     recordQ = models.JSONField()
     objects = models.DjongoManager()
 
-class interview_group():
-    ci_id = models.CharField(unique=True,primary_key=True,max_length=15)
+class interview_group(models.Model):
+    # 이미 조가 짜여져서 front 하단에 보이는 url 데이터 카톡에서 확인
+    rf_id = models.CharField(max_length=15,default=None)
+    interviewer = models.JSONField()
+    manager = models.JSONField()
+    etc = models.JSONField()
+    objects = models.DjongoManager()
+
 
 class interview_manager(models.Model):
+    # 운영진 들의 면접가능시간 저장하는 모델
     run_time = models.PositiveIntegerField(default=0)
     rest_time = models.PositiveIntegerField(default=0)
     rf_id = models.CharField(max_length=15,default=None)
     manager = models.JSONField()
-    objects = models.DjongoManager()    
+    objects = models.DjongoManager()
+ 
+'''
+면접 조 데이터 알고리즘에 줄 떄 데이터 형태
+"rf_id":"1rf", (운영진도 가능한 시간 다 적음)
+"manager":[{"user_id":{"$numberLong":"1"},"name":"최우영","time":["2020.07.17수14시~17시","2020.07.17수18시~20시"]},
+{"user_id":{"$numberLong":"2"},
+"name":"박웅기",  
+"time":["2020.07.17수14시~17시","2020.07.17수18시~20시"]}],(가능한 시간 다 적음)
+"interviewer":[{"user_id":"3","name":"권수지","time":"2020.07.17수14시~17~17시"},{"user_id":"4","name":"김현조","time":"2020.07.17수18시~20시"},{"user_id":"5","name":"김정우","time":"2020.07.17수18시~20시"}],"etc":[{"user_id":"6","name":"이하연"}]}
+'''
+'''
+면접 알고리즘에서 다 돌리면 db 데이터 예시처럼
+{"_id":{"$oid":"5fba5ab1849a536ae65a3bf1"},"rf_id":"1rf","manager":[{"user_id":{"$numberLong":"1"},"name":"최우영","time":["2020.07.17수14시~17시","2020.07.17수18시~20시"]},{"user_id":{"$numberLong":"2"},"name":"박웅기","time":["2020.07.17수14시~17시"]}],"interviewer":[{"user_id":"3","name":"권수지","time":"2020.07.17수14시~17~17시"},{"user_id":"4","name":"김현조","time":"2020.07.17수18시~20시"},{"user_id":"5","name":"김정우","time":"2020.07.17수18시~20시"}],"etc":[{"user_id":"6","name":"이하연"}]}
+들어가게 부탁 ..... sorry I love 현조, 정우, 하연
+'''
 
 
 

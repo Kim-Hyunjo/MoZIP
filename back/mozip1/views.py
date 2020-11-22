@@ -621,5 +621,22 @@ class InterviewManagerView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self,request):
+        pass
+
+class InterviewGroupView(APIView):
+    def get(self,request):
+        model = interview_group.objects.all()
+        serializer = InterviewGroupSerializer(model,many=True)
+        return Response(serializer.data)
+    @csrf_exempt
+    def post(self,request):
+        serializer = InterviewGroupSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self,request):
+        pass
 
  
