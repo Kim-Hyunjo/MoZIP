@@ -49,7 +49,7 @@ urlpatterns = [
 
     #mozip
     #list
-    path('list/all', ListAllView.as_view()),
+    path('list/all/', ListAllView.as_view()),
     path('list/academy/', ListAcademyView.as_view()),
     path('list/art/', ListArtView.as_view()),
     path('list/networking/', ListNetworkingView.as_view()),
@@ -186,7 +186,7 @@ urlpatterns = [
     path('guide/operation/', include(router.urls)),
 
     #circle
-    path('circle/open/', CreateClubApproval.as_view()),
+    path('circle/open/', CircleOpenView.as_view()),
     path('circle/open/success/', include(router.urls)),
     path('circle/open/fail/', include(router.urls)),
     path('circle/open/approval/', include(router.urls)),

@@ -98,10 +98,6 @@ class CreationClubSerializer(serializers.ModelSerializer):
         fields = ['cc_id','name','information','category','foundationdate' 
         ,'detail_information','self_image','telephone','email','approval','created_id']
 
-class CreationClubSerializer(serializers.Serializer):
-    pass
-
-
 class ClubMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Club_member
