@@ -159,7 +159,7 @@ urlpatterns = [
     path('recruit/resume/', include(router.urls)),
     path('recruit/resume/<int:user_id>/', include(router.urls)),
     path('recruit/management/staff/',InterviewManagerView.as_view()),
-    path('recruit/management/detail/',include(router.urls)),
+    path('recruit/management/detail/',InterviewGroupView.as_view()),
     path('recruit/management/interview/commonquestion/',include(router.urls)),
     path('recruit/management/interview/detail/',include(router.urls)),
     path('recruit/management/interview/record/',include(router.urls)),

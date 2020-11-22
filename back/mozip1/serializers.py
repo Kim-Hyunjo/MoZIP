@@ -141,7 +141,11 @@ class UserRecordQSerializer(serializers.ModelSerializer):
 class InterviewManagerSerializer(serializers.ModelSerializer):
     class Meta:
         model = interview_manager
-        fileds = '__all__'
+        fields = '__all__'
 
+class InterviewGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = interview_group
+        fields = '__all__'
 
 
