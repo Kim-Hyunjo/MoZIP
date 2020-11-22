@@ -17,6 +17,12 @@ from collections import OrderedDict
 from ast import literal_eval
 import json
 from django.forms.models import model_to_dict
+
+def add_cors_header(response):
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    response["Access-Control-Allow-Headers"] = "*"
+    return response
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -406,7 +412,10 @@ class RecruitNoticeview(APIView):
     def get(self,request):
         rn = recruit_notice.objects.all()
         serializer = RecruitNoticeSerializer(rn,many=True)
-        return Response(serializer.data)
+        res = serializer.data
+        response = Response(res)
+        response = add_cors_header(response)
+        return response
     
     '''
     def get(self, request, format=None):
@@ -435,7 +444,9 @@ class RecruitApplicantsView(APIView):
                 serializer1 = RecruitApplicantsSerializer(User.objects.get(user_id=ui))
                 u = serializer1.data
                 users.append(u)
-        return Response(users)
+        response = Response(users)
+        response = add_cors_header(response)
+        return response
 
 class RecruitProcessFormView(APIView):
     def get(self, request):
@@ -489,11 +500,33 @@ class CircleOpenView(APIView):
 #mypage
 class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동아리개설요청(list),지원이력(list)
     def get(self,request,user_id,format=None):
-        serializer1 = UserSerializer(User.objects.get(user_id=user_id))
-        #serializer2 = UserApplyListSerializer(user_apply_list.objects.filter(user_id=user_id))
-        #serializer3 = ClubMemberSerializer(Club_member.objects.filter(member__contains={-1})[0])
-        data = [serializer1.data]#,serializer2.data]#,serializer3.data]
-        return Response(data)
+        serializer1 = UserProfileSerializer(User.objects.get(user_id=user_id))
+        data1 = serializer1.data
+        edu = eval(data1["education"])
+        dict_edu = dict(OrderedDict(edu))
+        data1.update(dict_edu)
+        serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
+        data2 = serializer2.data["apply_list"]
+        serializer3 = ClubMemberSerializer(Club_member.objects.filter(),many=True)
+        serializer4 = ClubSerializer
+        clubs = []
+        data3_mypage = []
+        data5_mypage = []
+        for i in range(len(serializer3.data)):
+            for j in list(eval(serializer3.data[i]["member"])):
+                if user_id == j:
+                    c_id = serializer3.data[i]["club_id"]    
+                    datas = serializer4(Club.objects.get(cc_id=c_id))           
+                    data3_mypage.append([datas.data["name"],datas.data["information"],datas.data["self_image"]])
+        serializer5 = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id),many=True)
+        approval_choice = {"a1":"미확인","a2":"승인","a3":"승인불가"}
+        for i in serializer5.data:
+            a = i["approval"] #approval_choice[a]
+            data5_mypage.append([i["name"],i["information"],approval_choice[a]])
+        data = [data1,eval(data2),data3_mypage,data5_mypage]
+        response = Response(data)
+        response = add_cors_header(response)
+        return response
 
 
 class MypageEditView(APIView):
@@ -503,7 +536,9 @@ class MypageEditView(APIView):
         edu = eval(datas["education"])
         dict_edu = dict(OrderedDict(edu))
         datas.update(dict_edu)
-        return Response(datas)
+        response = Response(datas)
+        response = add_cors_header(response)
+        return response
 
     def post(self, request, user_id):
         serializer = UserProfileSerializer(User.objects.get(user_id=user_id),data=request.data)
@@ -524,7 +559,9 @@ class MypageIntroductionView(APIView):
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id))
         d = serializer.data    
         rq = eval(d["recordQ"])
-        return Response(rq)
+        response = Response(rq)
+        response = add_cors_header(response)
+        return response
 
     def post(self, request, user_id):
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id),data=request.data)
@@ -540,9 +577,9 @@ class MypageIntroductionView(APIView):
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)  
 
-class MypageRecruitNoticeView(APIView):
+class MypageRecruitNoticeView(APIView): #내가 지원한 동아리중에서 클릭하여 내가 어떤 상태인지에 따라 notice반환: 서류합격,면접합격
     def get(self, request, user_id, ci_id):
-        serializer = RecruitNoticeSerializer(recruit_notice.objects.filter(ci_id=-ci_id),many=True)
+        serializer = RecruitNoticeSerializer(recruit_notice.objects.get(ci_id=-ci_id))
         response = Response(serializer.data)
         response = add_cors_header(response)
         return response
@@ -554,17 +591,12 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
         for i in range(len(serializer.data)):
             d = serializer.data[i]
             c = serializer.data[i]['club_in']
-            d['club_in'].update()
-            res.append(d)
+            res.append([d,eval(c)])
         response = Response(res)
         response = add_cors_header(response)
         return response
-def add_cors_header(response):
-    response["Access-Control-Allow-Origin"] = "*"
-    response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
-    response["Access-Control-Allow-Headers"] = "*"
-    return response
-    
+
+
 class RecruitProcessFormView(APIView):
     def get(self, request):
         model = recruit_format.objects.all()
