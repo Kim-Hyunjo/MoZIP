@@ -393,26 +393,6 @@ class ListMembersEditView(APIView):
     #post 아직
 
 
-
-
-# circle - sj
-
-class CreateClubApproval(APIView):
-    def get(self,request):
-        club = Creation_Club.objects.all()
-        serializer = CreateClubSerializer(club,many=True)
-        return Response(serializer.data)
-    
-    @csrf_exempt
-    def post(self,request):
-
-        serializer = CreateClubSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 # recruit
 class ClubIntroudView(APIView): 
     def get(self,request):
@@ -421,6 +401,7 @@ class ClubIntroudView(APIView):
         Club_in = Club_introduce.objects.get(club_id=-1)
         serializer = RecruitClubIntroSerializer(Club_in)
         return Response(serializer.data)
+
 class RecruitNoticeview(APIView):   
     def get(self,request):
         rn = recruit_notice.objects.all()
@@ -433,8 +414,6 @@ class RecruitNoticeview(APIView):
         serializer = SnippetSerializer(snippets, many=True)
         return Response(serializer.data)
     '''
-
-
     @csrf_exempt
     def post(self,request):
         serializer = RecruitNoticeSerializer(data=request.data)
@@ -443,10 +422,71 @@ class RecruitNoticeview(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class RecruitApplicantsView(APIView): 
+    def get(self,request,club_id):
+        club_id = -club_id
+        serializer =  UserApplyListSerializer(user_apply_list.objects.all(),many=True)
+        users = []
+        for i in range(len(serializer.data)):
+            d = serializer.data[i]
+            l_eval = eval(d["apply_list"])
+            if club_id in l_eval:
+                ui = d["user_id"]
+                serializer1 = RecruitApplicantsSerializer(User.objects.get(user_id=ui))
+                u = serializer1.data
+                users.append(u)
+        return Response(users)
 
+class RecruitProcessFormView(APIView):
+    def get(self, request):
+        model = recruit_format
+        serializer = RecruitFormatSerializer(recruit_format.objects.all(), many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = RecruitFormatSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class RecruitResumeView(APIView): #서류전형 지원자목록
+    def get(self,request):
+        pass
+
+    def post(self,request):
+        pass
+
+class RecruitResumeDetailView(APIView):
+    def get(self,request,user_id):
+        return
+        
+
+class RecruitScheduleManagementView(APIView):
+    def get(self):
+        return
+
+class RecruitScheduleManagementStaffView(APIView):
+    def get(self):
+        return
+
+class RecruitScheduleManagementDetailView(APIView):
+    def get(self):
+        return
+
+#circle/open
+class CircleOpenView(APIView):
+    def get(self,request,user_id):
+        serializer = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id), many=True)
+        return Response(serializer.data)
+    
+    def post(self,request,user_id):
+        serializer = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id), data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 #mypage
-
 class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동아리개설요청(list),지원이력(list)
     def get(self,request,user_id,format=None):
         serializer1 = UserSerializer(User.objects.get(user_id=user_id))
@@ -483,10 +523,8 @@ class MypageIntroductionView(APIView):
     def get(self, request, user_id):
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id))
         d = serializer.data    
-        edu = eval(datas["education"])
-        dict_edu = dict(OrderedDict(edu))
-        datas.update(dict_edu)
-        return Response(d["recordQ"])
+        rq = eval(d["recordQ"])
+        return Response(rq)
 
     def post(self, request, user_id):
         serializer = UserRecordQSerializer(user_recordQ.objects.get(user_id=user_id),data=request.data)
@@ -515,10 +553,8 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
         res = []
         for i in range(len(serializer.data)):
             d = serializer.data[i]
-            #a = serializer.data[i]["user_id"]
-            #b = serializer.data[i]["states"]
-            #c = serializer.data[i]["club_in"]
-            #val = [a,b,c]
+            c = serializer.data[i]['club_in']
+            d['club_in'].update()
             res.append(d)
         response = Response(res)
         response = add_cors_header(response)
@@ -528,74 +564,7 @@ def add_cors_header(response):
     response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
     response["Access-Control-Allow-Headers"] = "*"
     return response
-#recruit
-'''
-datas = serializer1.data[0]
-l_eval = eval(datas["document"])
-d = dict(OrderedDict(l_eval))
-'''
-class RecruitApplicantsView(APIView): #지원자 수, 각각의 이름,프로필사진Like.objects.filter(user=request.user).values('status', flat=True)
-    #user_apply_list의 apply_list 의 value중에 인자로 받은 club_id가 있다면 user_id를 리스트에 저장한다.
-    def get(self,request,club_id):
-        club_id = -club_id
-        serializer =  UserApplyListSerializer(user_apply_list.objects.all(),many=True)
-        users = []
-        for i in range(len(serializer.data)):
-            d = serializer.data[i]
-            l_eval = eval(d["apply_list"])
-            if club_id in l_eval:
-                ui = d["user_id"]
-                serializer1 = RecruitApplicantsSerializer(User.objects.get(user_id=ui))
-                u = serializer1.data
-                users.append(u)
-        return Response(users)
-
-
-class RecruitResumeView(APIView): #서류전형 지원자목록
-    def get(self,request):
-        pass
-
-    def post(self,request):
-        pass
-
-class RecruitResumeDetailView(APIView):
-    def get(self,request,user_id):
-        return
-        
-
-class RecruitScheduleManagementView(APIView):
-    def get(self):
-        return
-
-class RecruitScheduleManagementStaffView(APIView):
-    def get(self):
-        return
-
-class RecruitScheduleManagementDetailView(APIView):
-    def get(self):
-        return
-class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동아리개설요청(list),지원이력(list)
-    def get(self,request,user_id,format=None):
-        serializer1 = UserSerializer(User.objects.get(user_id=user_id))
-        serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=1))
-
-        cm_data = Club_member.objects.raw("db.mozip1_club_member.find({club_id:-1})")
-        serializer3 = ClubMemberSerializer(cm_data[1])
-        data = [serializer1.data,serializer2.data,serializer3.data]
-        return Response(data)
-
-class CircleOpenView(APIView):
-    def get(self,request,user_id):
-        serializer = CircleOpenSerializer(Creation_Club.objects.filter(created_id=user_id).values())
-        return Response(serializer.data)
     
-    def post(self,request,user_id):
-        serializer = CircleOpenSerializer(Creation_Club.objects.filter(created_id=user_id), data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 class RecruitProcessFormView(APIView):
     def get(self, request):
         model = recruit_format.objects.all()
@@ -638,5 +607,3 @@ class InterviewGroupView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def put(self,request):
         pass
-
- 
