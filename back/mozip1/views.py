@@ -498,32 +498,48 @@ class CircleOpenView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 #mypage
+import json
+from collections import OrderedDict
 class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동아리개설요청(list),지원이력(list)
     def get(self,request,user_id,format=None):
         serializer1 = UserProfileSerializer(User.objects.get(user_id=user_id))
         data1 = serializer1.data
         edu = eval(data1["education"])
         dict_edu = dict(OrderedDict(edu))
-        data1.update(dict_edu)
+        data1.pop('education')
+        data1['education'] = dict_edu
         serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
-        data2 = serializer2.data["apply_list"]
+        data2 = serializer2.data
+        data2_ = serializer2.data["apply_list"]
+        data2["apply_list"] = eval(data2_)
+        data2.pop('user_id')
         serializer3 = ClubMemberSerializer(Club_member.objects.filter(),many=True)
         serializer4 = ClubSerializer
         clubs = []
         data3_mypage = []
         data5_mypage = []
+        data3 = {}
         for i in range(len(serializer3.data)):
-            for j in list(eval(serializer3.data[i]["member"])):
-                if user_id == j:
+            print(dict(OrderedDict(eval(serializer3.data[i]["member"]))))
+            for o in dict(OrderedDict(eval(serializer3.data[i]["member"])))["owner"]:
+                if user_id == o:
                     c_id = serializer3.data[i]["club_id"]    
                     datas = serializer4(Club.objects.get(cc_id=c_id))           
-                    data3_mypage.append([datas.data["name"],datas.data["information"],datas.data["self_image"]])
+                    data3_mypage.append([datas.data["name"],datas.data["information"],datas.data["self_image"],'owner'])
+            for j in dict(OrderedDict(eval(serializer3.data[i]["member"])))["guest"]:
+                if user_id == j: 
+                    c_id = serializer3.data[i]["club_id"]    
+                    datas = serializer4(Club.objects.get(cc_id=c_id))           
+                    data3_mypage.append([datas.data["name"],datas.data["information"],datas.data["self_image"],'guest'])
+        data3["my_club"] = data3_mypage
         serializer5 = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id),many=True)
         approval_choice = {"a1":"미확인","a2":"승인","a3":"승인불가"}
         for i in serializer5.data:
             a = i["approval"] #approval_choice[a]
             data5_mypage.append([i["name"],i["information"],approval_choice[a]])
-        data = [data1,eval(data2),data3_mypage,data5_mypage]
+        data5 = {}
+        data5["clubs_on_approval_process"] = data5_mypage
+        data = [data1,data2,data3,data5]
         response = Response(data)
         response = add_cors_header(response)
         return response
@@ -534,8 +550,9 @@ class MypageEditView(APIView):
         serializer = UserProfileSerializer(User.objects.get(user_id=user_id))
         datas = serializer.data
         edu = eval(datas["education"])
-        dict_edu = dict(OrderedDict(edu))
-        datas.update(dict_edu)
+        dict_edu = dict(OrderedDict(edu))       
+        datas.pop('education')
+        datas['education'] = dict_edu
         response = Response(datas)
         response = add_cors_header(response)
         return response
@@ -588,10 +605,13 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
     def get(self, request, user_id):
         serializer = UserCircleSerializer(user_circle.objects.filter(user_id=user_id),many=True)
         res = []
+        e = {}
         for i in range(len(serializer.data)):
             d = serializer.data[i]
             c = serializer.data[i]['club_in']
-            res.append([d,eval(c)])
+            d.pop("club_in")
+            e["club_in"] = eval(c)
+            res.append([d,e])
         response = Response(res)
         response = add_cors_header(response)
         return response
