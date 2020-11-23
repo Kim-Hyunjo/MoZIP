@@ -1,7 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import Axios from 'axios';
+import React, { Fragment, useEffect, useState } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import CircleFaq from './CircleFaq';
-
+import axios from'axios'
+import { DevelopUrl } from '../../http/HttpUrl';
+import { StringLiteral, StringLiteralType } from 'typescript';
+import { StringifyOptions } from 'querystring';
 interface FAQ {
   id: number;
   question: string;
@@ -106,13 +110,25 @@ const Circle = (
     console.log(tmps);
     setFaqs(tmps);
   };
+const [info, setinfo] = useState<any>([]);
+const getData = async() =>{
+  await axios.get( 'http://3.35.234.131:8000/list/art/2/' ).then((r)=>{
+    let res = r.data;
+    console.log(res)
+    setinfo(res)
+  })
+}
+useEffect(() => {
+getData()
 
-  return (
+}, [])
+
+return (
     <div className="circle" id="wrapper">
       <div className="circle_header">
-        <h2>Tave</h2>
-        <div className="small_title">국내 최초 4차 산업 혁명 동아리</div>
-        <div className="openDate">2017.06.30 창립</div>
+        <h2>{info.name}</h2>
+        <div className="small_title">{info.information}</div>
+  <div className="openDate">{info.foundationdate}</div>
         <div className="hashtag">#학술</div>
         <div className="detailButton">
           <Link to={`${props.match.url}/detail`}>
@@ -138,7 +154,7 @@ const Circle = (
           <div className="small_title">동아리원 후기</div>
           <div className="circle_reviewList">
             <div className="circle_review">
-              <div className="reviewer">나는야테이비</div>
+              <div className="reviewer">{info.foundationdate}</div>
               <div className="reviewDetail">
                 TAVE 6기로 활동하였습니다. 최고의 동아리입니다. 글 길게 쓰면은
                 말풍선이 길어지지롱 히히ㅣ히힣히ㅣㅣㅣ히히ㅣ히ㅣ ㅎ ㅣㅎ ㅣㅎ

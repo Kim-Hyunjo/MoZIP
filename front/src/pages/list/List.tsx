@@ -16,7 +16,6 @@ import icon_religion from '../images2/icon_religion@2x.png';
 import icon_volunteer from '../images2/icon_volunteer@2x.png';
 import icon_etc from '../images2/icon_etc@2x.png';
 import axios from 'axios'
-import { DevelopUrl } from '../../http/HttpUrl';
 
 interface Subject{
 id:Number,
