@@ -36,106 +36,13 @@ import icon_etc from '../images/icon_etc@2x.png';
       { name: 'volunteer', img: icon_volunteer },
       { name: 'etc', img: icon_etc },
     ];
-    const 학술 = [
-      { id: '1', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '2', name: '학술', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '3', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '4', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '5', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '6', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '7', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '8', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { id: '9', name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-    const 예술 = [
-      { name: '예술', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-  
-    const 친목 = [
-      { name: '친목', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-  
-    const 스포츠 = [
-      { name: '스포츠', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-  
-    const 여행 = [
-      { name: '여행', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-  
-    const 종교 = [
-      { name: '종교', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-  
-    const 봉사 = [
-      { name: '봉사', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
-  
-    const 기타 = [
-      { name: '기타', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-      { name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
-    ];
+   
   
     return (
       <div>
       <div className="home_wrapper">
         <div className="home_top_wrapper">
-        <Link to = "/list"><ul id="horizontal_list">
+        <Link to ='/list'><ul id="horizontal_list">
             {test.map((item) => {
               return (
                 <li 
