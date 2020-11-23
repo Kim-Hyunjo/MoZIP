@@ -123,7 +123,21 @@ class recruit_basic_question(models.Model):
     user_id = models.PositiveIntegerField()
     rbq_id = models.CharField(unique=True,primary_key=True,max_length=15)
     objects = models.DjongoManager()
+'''
+class Pass_fail에서 
+detail_type은 2가지에 숫자를 가질 수 있음
+0 => 면접 전형이다
+1 => 서류 전형이다
+if type = 면접 + 서류전형 and detail_type = 1 :
+    현재 면접_서류전형인데 서류평가를 하는 중
+if type= 면접 + 서류전형 and detail_type = 0:
+    현재 면접_서류전형인데 서류평가를 다했고 1차 통과한 사람들 중 면접 평가이다
+if type = 면접 :
+    detail_type은 무조건 0이어야 한다
+if type = 서류:
+    detail_type은 무조건 1이어야 한다.
 
+'''
 class Pass_Fail(models.Model):
     type_choices = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
     Type = models.CharField(max_length=15,choices=type_choices,default="1")
@@ -133,6 +147,7 @@ class Pass_Fail(models.Model):
     pass_fail = models.CharField(max_length=10,choices=pass_fail_choices,default="1")
     detail = models.JSONField()
     pf_id = models.CharField(unique=True,primary_key=True,max_length=10)
+    detail_type = models.PositiveIntegerField(default=0)
     objects = models.DjongoManager()
 
 class user_apply_list(models.Model):
