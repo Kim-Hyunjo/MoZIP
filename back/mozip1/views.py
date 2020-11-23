@@ -605,13 +605,15 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
     def get(self, request, user_id):
         serializer = UserCircleSerializer(user_circle.objects.filter(user_id=user_id),many=True)
         res = []
-        e = {}
+        
         for i in range(len(serializer.data)):
             d = serializer.data[i]
             c = serializer.data[i]['club_in']
+            e = {}
             d.pop("club_in")
             e["club_in"] = eval(c)
             res.append([d,e])
+            
         response = Response(res)
         response = add_cors_header(response)
         return response
