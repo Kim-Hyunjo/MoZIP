@@ -56,13 +56,17 @@ class ClubDetailPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = recruit_QA
         fields = '__all__'
+class MemberUserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['user_id', 'name', 'self_image']
 
 
 # sj
 class CreateClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
-        fields = ["created_id","approval"]
+        fields = '__all__'
 
 # sj - recruit
 
@@ -91,27 +95,17 @@ class RecruitApplicantsSerializer(serializers.ModelSerializer):
 class CreationClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
-        fields = ['cc_id','name','information','category','foundationdate' 
-        ,'detail_information','self_image','telephone','email','approval','created_id']
-
-class CreationClubSerializer(serializers.Serializer):
-    pass
-
+        fields ='__all__'
 
 class ClubMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Club_member
-        fields = ['club_id','member']
+        fields = '__all__'
 
 class UserCircleSerializer(serializers.ModelSerializer):
     class Meta:
         model = user_circle
         fields = ['user_id','states','club_in']
-
-class MypageSerializer(serializers.ModelSerializer): #프로필,지원현황,내동아리,동아리개설요청,지원이력
-    user = UserSerializer()
-    apply_list = UserApplyListSerializer()
-    club_in = UserCircleSerializer()
 
 
 class RecruitNoticeSerializer(serializers.ModelSerializer):
@@ -133,3 +127,15 @@ class UserRecordQSerializer(serializers.ModelSerializer):
     class Meta:
         model = user_recordQ
         fields = ["recordQ", "user_id"]
+
+class InterviewManagerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = interview_manager
+        fields = '__all__'
+
+class InterviewGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = interview_group
+        fields = '__all__'
+
+

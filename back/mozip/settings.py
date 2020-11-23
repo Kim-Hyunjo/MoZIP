@@ -87,12 +87,10 @@ DATABASES = {
         'USER': 'centos',
         'PASSWORD': '0000',
         'HOST':'3.35.234.131',
-        'PORT':'27017',
+        'PORT':'27017', 
     }
-    
+
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 

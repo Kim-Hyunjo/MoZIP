@@ -21,3 +21,47 @@
     margin: 0;
     padding: 0;
 }
+
+.guide_wrapper #button6B{
+    padding:12px;
+    font-size: 20px;
+    width: 300px;
+    height: 60px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+}
+.intro_wrapper img{
+    margin: 48px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro_wrapper .image_intro1{
+    width: 1000px;
+}
+.intro_wrapper .image_intro15{
+    width: 100%;
+}
+.intro_wrapper .image_intro2{
+    width: 700px;
+    margin-top: 80px;
+}
+.intro_wrapper .image_intro3{
+    width: 1000px;
+    margin-top: 40px;
+}
+
+.guide_wrapper #button6W{
+    padding: 8px;
+    font-size: 20px;
+    width: 280px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+}

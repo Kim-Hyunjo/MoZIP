@@ -24,18 +24,18 @@ class User(models.Model):
         return str(self.user_id)
 
 class Creation_Club(models.Model):
-    name = models.CharField(max_length=15)
-    information = models.CharField(max_length=30)
+    name = models.CharField(max_length=15,default=None)
+    information = models.CharField(max_length=30,default=None)
     category_choice = (("c1","학술"),("c2","예술"),("c3","친목"),("c4","스포츠"),("c5","여행"),("c6","종교"),("c7","봉사"),("c8","기타"))
     category = models.CharField(max_length=8,choices=category_choice,default="c1")
     foundationdate = models.JSONField()
-    detail_information = models.TextField(max_length=300)
-    self_image = models.CharField(max_length=10)
-    telephone = models.CharField(max_length=15)
-    email = models.EmailField()
+    detail_information = models.TextField(max_length=300,default=None)
+    self_image = models.CharField(max_length=10,default=None)
+    telephone = models.CharField(max_length=15,default=None)
+    email = models.EmailField(default=None)
     approval_choice = (("a1","미확인"),("a2","승인"),("a3","승인불가"))
     approval = models.CharField(max_length=8,choices=approval_choice,default="a1")
-    created_id = models.PositiveIntegerField()
+    created_id = models.PositiveIntegerField(default=0)
     objects = models.DjongoManager()
 
 class Club(models.Model):
@@ -98,15 +98,21 @@ class recruit_notice(models.Model):
     ci_id = models.CharField(unique=True,primary_key=True,max_length=15)
     objects = models.DjongoManager()
 
+
 # 만들떄 RDB의 manytomany이용할 예정, 현재는 dumdy확인을 위해 기입
 class recruit_format(models.Model):
-    number = models.PositiveIntegerField()
     type_choices = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
     Type = models.CharField(max_length=15,choices=type_choices,default="1")
-    club_id = models.IntegerField()
+    club_id = models.IntegerField(default=0)
     user_id = models.PositiveIntegerField(default=0)
-    document = models.JSONField()
     rf_id = models.CharField(unique=True,primary_key=True,max_length=15)
+    approval_info = models.JSONField(default=[])
+    time = models.JSONField(default=[])
+    run_time = models.IntegerField(default=0)
+    rest_time = models.IntegerField(default=0)
+    Multiple_choice = models.JSONField(default=[])
+    Short_answer = models.JSONField(default=[])
+    long_answer = models.JSONField(default=[])
     objects = models.DjongoManager()
 
 class recruit_basic_question(models.Model):
@@ -117,7 +123,21 @@ class recruit_basic_question(models.Model):
     user_id = models.PositiveIntegerField()
     rbq_id = models.CharField(unique=True,primary_key=True,max_length=15)
     objects = models.DjongoManager()
+'''
+class Pass_fail에서 
+detail_type은 2가지에 숫자를 가질 수 있음
+0 => 면접 전형이다
+1 => 서류 전형이다
+if type = 면접 + 서류전형 and detail_type = 1 :
+    현재 면접_서류전형인데 서류평가를 하는 중
+if type= 면접 + 서류전형 and detail_type = 0:
+    현재 면접_서류전형인데 서류평가를 다했고 1차 통과한 사람들 중 면접 평가이다
+if type = 면접 :
+    detail_type은 무조건 0이어야 한다
+if type = 서류:
+    detail_type은 무조건 1이어야 한다.
 
+'''
 class Pass_Fail(models.Model):
     type_choices = (("1","면접전형"),("2","서류전형"),("3","면접+서류전형"))
     Type = models.CharField(max_length=15,choices=type_choices,default="1")
@@ -127,6 +147,7 @@ class Pass_Fail(models.Model):
     pass_fail = models.CharField(max_length=10,choices=pass_fail_choices,default="1")
     detail = models.JSONField()
     pf_id = models.CharField(unique=True,primary_key=True,max_length=10)
+    detail_type = models.PositiveIntegerField(default=0)
     objects = models.DjongoManager()
 
 class user_apply_list(models.Model):
@@ -150,10 +171,37 @@ class user_recordQ(models.Model):
     recordQ = models.JSONField()
     objects = models.DjongoManager()
 
-class interview_group():
-    ci_id = models.CharField(unique=True,primary_key=True,max_length=15)
-    
+class interview_group(models.Model):
+    # 이미 조가 짜여져서 front 하단에 보이는 url 데이터 카톡에서 확인
+    rf_id = models.CharField(max_length=15,default=None)
+    interviewer = models.JSONField()
+    manager = models.JSONField()
+    etc = models.JSONField()
+    objects = models.DjongoManager()
 
+
+class interview_manager(models.Model):
+    # 운영진 들의 면접가능시간 저장하는 모델
+    run_time = models.PositiveIntegerField(default=0)
+    rest_time = models.PositiveIntegerField(default=0)
+    rf_id = models.CharField(max_length=15,default=None)
+    manager = models.JSONField()
+    objects = models.DjongoManager()
+ 
+'''
+면접 조 데이터 알고리즘에 줄 떄 데이터 형태
+"rf_id":"1rf", (운영진도 가능한 시간 다 적음)
+"manager":[{"user_id":{"$numberLong":"1"},"name":"최우영","time":["2020.07.17수14시~17시","2020.07.17수18시~20시"]},
+{"user_id":{"$numberLong":"2"},
+"name":"박웅기",  
+"time":["2020.07.17수14시~17시","2020.07.17수18시~20시"]}],(가능한 시간 다 적음)
+"interviewer":[{"user_id":"3","name":"권수지","time":"2020.07.17수14시~17~17시"},{"user_id":"4","name":"김현조","time":"2020.07.17수18시~20시"},{"user_id":"5","name":"김정우","time":"2020.07.17수18시~20시"}],"etc":[{"user_id":"6","name":"이하연"}]}
+'''
+'''
+면접 알고리즘에서 다 돌리면 db 데이터 예시처럼
+{"_id":{"$oid":"5fba5ab1849a536ae65a3bf1"},"rf_id":"1rf","manager":[{"user_id":{"$numberLong":"1"},"name":"최우영","time":["2020.07.17수14시~17시","2020.07.17수18시~20시"]},{"user_id":{"$numberLong":"2"},"name":"박웅기","time":["2020.07.17수14시~17시"]}],"interviewer":[{"user_id":"3","name":"권수지","time":"2020.07.17수14시~17~17시"},{"user_id":"4","name":"김현조","time":"2020.07.17수18시~20시"},{"user_id":"5","name":"김정우","time":"2020.07.17수18시~20시"}],"etc":[{"user_id":"6","name":"이하연"}]}
+들어가게 부탁 ..... sorry I love 현조, 정우, 하연
+'''
 
 
 

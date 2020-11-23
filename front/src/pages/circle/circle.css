@@ -11,7 +11,12 @@
 .inform {
   margin-left: 10px;
 }
+.circle_display_horiz{
 
+}
+.circle_display_vert{
+  
+}
 .upload_pic {
   float: left;
 }
@@ -127,6 +132,20 @@
   background-size: 32px;
   border: none;
 }
+.user_namecard_edit #button_plus {
+  position: relative;
+  transform: translate(72px, -44px);
+  border: none;
+}
+.user_namecard_edit #button_x {
+  width: 32px;
+  height: 32px;
+  background-size: 36px;
+  transform: translate(72px, -44px);
+}
+/* .btn_plusorx_move {
+  background: chartreuse;
+} */
 .FAQ_answer {
   width: 620px;
   height: auto;
@@ -356,9 +375,23 @@
   float: left;
   font-size: 20px;
   color: #0c59c3;
-  width: 70px;
+  width: auto;
   text-align: center;
-  transform: translate(0%, 72%);
+  transform: translate(0%, 56%);
+  margin: 0px 16px;
+}
+.new_member_kind {
+  display: inline-flex;
+  align-items: center;
+}
+.new_member_kind span {
+  transform: translate(0%, 40%);
+}
+.new_member_kind input {
+  margin: 0px 8px;
+}
+.new_member_kind button {
+  transform: translate(0%, 6%);
 }
 .roleName {
   font-size: 26px;
@@ -388,16 +421,27 @@
 .circleMembersEdit {
   width: 1000px;
 }
+.circleMembersEdit span {
+  font-size: 20px;
+  font-weight: 600;
+}
+.circleMembersEdit .linktoguide {
+  font-size: 20px;
+  color: #0c5ac6;
+  text-decoration: underline;
+}
 .circleMembersEdit .members_title {
   margin: 30px 0px 10px 5px;
 }
+
 .user_namecard_edit .submaster_role {
+  margin: 0 auto;
   font-size: 20px;
   color: #0c59c3;
-  transform: translate(0%, -20px);
+  transform: translate(0%, -26px);
 }
-.user_namecard_edit .subClubImage {
-  transform: translate(0%, -20px);
+.user_namecard_edit img:nth-child(1) {
+  transform: translate(0%, -26px);
 }
 .subClubImage img {
   border-radius: 200px;

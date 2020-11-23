@@ -13,7 +13,7 @@ import axios from 'axios';
 import { DevelopUrl } from '../../http/HttpUrl';
 import { stringify } from 'querystring';
 
-interface myInform{
+interface MyInform{
   group: string;
   name: string;
   education: string;
@@ -29,17 +29,24 @@ interface myInform{
   major : string;
 }
 
-interface academy{
-  cc_id: number;
-  name: string;
-  information: string;
-  category:  string;
-  self_image: string;
-}
+// interface Academy{
+//   cc_id: number;
+//   name: string;
+//   information: string;
+//   category:  string;
+//   self_image: string;
+// }
+
+// interface Status{
+//   user_id : number;
+//   states : string;
+//   club_in : string;
+// }
 
 const MyPageEdit = () => {
-  const [_academy, setAcademy] = useState<academy[]>([]);
-  const [inform, setInform] = useState<myInform>({
+  // const[status, setStatus] = useState<Status>({user_id:0,states:'', club_in:''})
+  // const [_academy, setAcademy] = useState<Academy[]>([]);
+  const [inform, setInform] = useState<MyInform>({
   group: '',
   name: '',
   education: '',
@@ -56,12 +63,9 @@ const MyPageEdit = () => {
   })
 
   const getApi = async () => {
-    // console.log(DevelopUrl + 'mypage/1/edit')
-    await axios.get('http://3.35.234.131:8000/list/academy').then((r)=>{
-      // let res: academy[] = r.data;
-      console.log(r.data);
-      // console.log(res);
-      // setAcademy(res);
+    await axios.get('http://3.35.234.131:8000/mypage/1/edit/').then((r)=>{
+      let res: MyInform = r.data;
+      setInform(res);
     })
   }
 
@@ -125,7 +129,6 @@ useEffect(()=>{
   };
   return (
     <div className="mypage">
-      {_academy}
       <h2>개인정보 수정</h2>
       <div className="warning"></div>
       <div className="wrapper">
@@ -143,10 +146,8 @@ useEffect(()=>{
                   placeholder="이름"
                   name="name"
                   onChange={handleChangeName}
-                  defaultValue={inform.name}
                   value={inform.name}
                 />
-                {inform.name}
               </div>
               <div className="분류">
                 <label htmlFor="분류">분류 :</label>

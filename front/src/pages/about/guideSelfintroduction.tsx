@@ -1,21 +1,27 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-    NavLink,
-  } from 'react-router-dom';
-  import './guide.css';
-
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink,
+} from 'react-router-dom';
+import './guide.css';
+import guide1 from '../images2/guide_selfintro_1@2x.png';
+import guide2 from '../images2/guide_selfintro_2@2x.png';
 const guideSelfintroduction = () => {
-  return(
-    <div>
-      <h2 className="fonts">Headline</h2>
-      <h3 className="fonts">Subtitle 1</h3>
-      <h4 className="fonts">Subtitle 2</h4>
-      <h5 className="fonts">Body 1</h5>
-      <div className="fonts">Body 2</div>
+  return (
+    <div className="guide_wrapper">
+      <h2>자기소개서함 활용법</h2>
+      <img
+        src={guide1}
+        alt='guide image' />
+      <img
+        src={guide2}
+        alt='guide image' />
+      <Link to='/mypage/introduction'>
+        <button id="button6B">자기소개서 작성하러 가기</button>
+      </Link>
     </div>
   )
 }

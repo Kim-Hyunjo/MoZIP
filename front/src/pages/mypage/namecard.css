@@ -162,7 +162,7 @@ c .small_section .small_wrap {
   display: inline-block;
   padding: 20px;
   width: 160px;
-  height: 180px;
+  height: 200px;
   margin: 5px 10px 20px 10px;
   border: 1px solid;
   border-radius: 15px;
@@ -174,7 +174,7 @@ c .small_section .small_wrap {
   display: inline-block;
   padding: 20px;
   width: 160px;
-  height: 180px;
+  height: 200px;
   margin: 5px 10px 20px 10px;
   border: 1px solid;
   border-radius: 15px;
@@ -183,7 +183,8 @@ c .small_section .small_wrap {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
 }
 .user_namecard_edit #button_x {
-  transform: translate(380%, -230%);
+  transform: translate(300%, -200%);
+  
 }
 
 .small_gray_namecard {

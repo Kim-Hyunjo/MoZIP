@@ -240,19 +240,23 @@
 }
 
 #button_plus {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border: 1px solid;
-  border-radius: 15px;
-  border-color: #0c59c3;
+  border: none;
   color: #0c59c3;
   background-color: white;
+  background-image: url('../images2/icon_plus@2x.png');
+  background-size: 24px;
 }
 #button_x {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background-color: initial;
   background-image: url('../images2/icon_x@2x.png');
+  border: none;
+  background-size: 26px;
+
   /* border: 1px solid; */
   /* border-radius: 15px; */
   /* background-color: white; */

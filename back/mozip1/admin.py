@@ -5,3 +5,8 @@ from .models import *
 
 admin.site.register(User)
 admin.site.register(Club)
+admin.site.register(Club_review)
+admin.site.register(Club_FAQ)
+admin.site.register(Club_introduce)
+admin.site.register(recruit_QA)
+admin.site.register(recruit_format)
