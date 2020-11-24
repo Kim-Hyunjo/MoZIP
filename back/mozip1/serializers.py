@@ -92,10 +92,28 @@ class RecruitApplicantsSerializer(serializers.ModelSerializer):
         model = User
         fields = ['user_id','name','self_image']
 
+from bson import ObjectId
+from bson.errors import InvalidId
+from django.utils.encoding import smart_text 
+class ObjectIdField(serializers.Field):
+    """ Serializer field for Djongo ObjectId fields """
+    def to_internal_value(self, data):
+        # Serialized value -> Database value
+        try:
+            return ObjectId(str(data))  # Get the ID, then build an ObjectId instance using it
+        except InvalidId:
+            raise serializers.ValidationError(
+                '{} is not a valid ObjectId'.format(data))
+    def to_representation(self, value):
+        # Database value -> Serialized value
+        if not ObjectId.is_valid(value):  # User submitted ID's might not be properly structured
+            raise InvalidId
+        return smart_text(value)
+
 class CreationClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
-        fields ='__all__'
+        fields =['name','information','category','foundationdate','detail_information','self_image','contact','created_id']
 
 class ClubMemberSerializer(serializers.ModelSerializer):
     class Meta:
