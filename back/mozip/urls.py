@@ -186,9 +186,9 @@ urlpatterns = [
     path('guide/operation/', include(router.urls)),
 
     #circle
-    path('circle/open/', CircleOpenView.as_view()),
+    path('circle/open/', CircleOpenView.as_view(),name='circle_open'),
     path('circle/open/success/', include(router.urls)),
-    path('circle/open/fail/', include(router.urls)),
+    #path('circle/open/fail/', include(router.urls)),
     path('circle/open/approval/', include(router.urls)),
     path('circle/open/reject/', include(router.urls)),
 

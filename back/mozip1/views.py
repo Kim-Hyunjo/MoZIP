@@ -43,7 +43,7 @@ class UserListView(APIView):
 def add_user(self,request):
 group = request.POST.get("group")
 name = request.POST.get("name")
-education = {"school":request.POST.get("school"),"major":request.POST.get("major")}
+foundationdate = {"school":request.POST.get("school"),"major":request.POST.get("major")}
 grader = request.POST.get("grader")
 states = request.POST.get("states")
 birthday = request.POST.get("birthday")
@@ -59,7 +59,7 @@ if num == None:
 else:
     user_id = num + 1
 
-user = User(group=group,name=name,education=education,grader=grader,states=states,birthday=birthday,telephone=telephone,email=email,address=address,self_image=self_image,date=date,user_id=user_id)
+user = User(group=group,name=name,foundationdate=foundationdate,grader=grader,states=states,birthday=birthday,telephone=telephone,email=email,address=address,self_image=self_image,date=date,user_id=user_id)
 user.save()
 return HttpResponse("Inserted")
 '''
@@ -484,19 +484,31 @@ class RecruitScheduleManagementDetailView(APIView):
         return
 
 #circle/open
+from rest_framework.parsers import JSONParser
+from rest_framework.renderers import JSONRenderer
+
 class CircleOpenView(APIView):
-    def get(self,request,user_id):
-        serializer = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id), many=True)
-        return Response(serializer.data)
+    def get(self,request):
+        user_id = request.query_params.get('user_id', None)
+        serializer = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id), many=True)    
+        d = serializer.data
+        for i in range(len(d)):
+            fd = eval(d[i]["foundationdate"])
+            dict_fd = dict(OrderedDict(fd))       
+            d[i].pop('foundationdate')
+            d[i]['foundationdate'] = dict_fd
+        response = Response(d)
+        response = add_cors_header(response)
+        return response
     
-    def post(self,request,user_id):
-        serializer = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id), data=request.data)
-        
+    def post(self,request):
+        user_id = request.query_params.get('user_id', None)
+        request.data["created_id"] = user_id
+        serializer = CreationClubSerializer(Creation_Club(),data=request.data)       
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 #mypage
 import json
 from collections import OrderedDict
@@ -504,10 +516,10 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
     def get(self,request,user_id,format=None):
         serializer1 = UserProfileSerializer(User.objects.get(user_id=user_id))
         data1 = serializer1.data
-        edu = eval(data1["education"])
+        edu = eval(data1["foundationdate"])
         dict_edu = dict(OrderedDict(edu))
-        data1.pop('education')
-        data1['education'] = dict_edu
+        data1.pop('foundationdate')
+        data1['foundationdate'] = dict_edu
         serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
         data2 = serializer2.data
         data2_ = serializer2.data["apply_list"]
@@ -549,10 +561,10 @@ class MypageEditView(APIView):
     def get(self, request, user_id):
         serializer = UserProfileSerializer(User.objects.get(user_id=user_id))
         datas = serializer.data
-        edu = eval(datas["education"])
+        edu = eval(datas["foundationdate"])
         dict_edu = dict(OrderedDict(edu))       
-        datas.pop('education')
-        datas['education'] = dict_edu
+        datas.pop('foundationdate')
+        datas['foundationdate'] = dict_edu
         response = Response(datas)
         response = add_cors_header(response)
         return response
@@ -597,6 +609,9 @@ class MypageIntroductionView(APIView):
 class MypageRecruitNoticeView(APIView): #내가 지원한 동아리중에서 클릭하여 내가 어떤 상태인지에 따라 notice반환: 서류합격,면접합격
     def get(self, request, user_id, ci_id):
         serializer = RecruitNoticeSerializer(recruit_notice.objects.get(ci_id=-ci_id))
+        d = serializer.data
+        serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
+        
         response = Response(serializer.data)
         response = add_cors_header(response)
         return response
