@@ -71,6 +71,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Creation_Club',
             fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(default=None, max_length=15)),
                 ('information', models.CharField(default=None, max_length=30)),
                 ('category', models.CharField(choices=[('c1', '학술'), ('c2', '예술'), ('c3', '친목'), ('c4', '스포츠'), ('c5', '여행'), ('c6', '종교'), ('c7', '봉사'), ('c8', '기타')], default='c1', max_length=8)),
