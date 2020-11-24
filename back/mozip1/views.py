@@ -438,8 +438,8 @@ class RecruitApplicantsView(APIView):
         users = []
         for i in range(len(serializer.data)):
             d = serializer.data[i]
-            l_eval = eval(d["apply_list"])
-            if club_id in l_eval:
+            al_dict = dict(OrderedDict(eval(d["apply_list"])))
+            if club_id in al_dict["applying"]:
                 ui = d["user_id"]
                 serializer1 = RecruitApplicantsSerializer(User.objects.get(user_id=ui))
                 u = serializer1.data
