@@ -113,7 +113,7 @@ class ObjectIdField(serializers.Field):
 class CreationClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creation_Club
-        fields =['name','information','category','foundationdate','detail_information','self_image','contact','created_id']
+        fields =['name','information','category','foundationdate','detail_information','self_image','contact','created_id','approval']
 
 class ClubMemberSerializer(serializers.ModelSerializer):
     class Meta:

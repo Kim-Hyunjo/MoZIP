@@ -516,10 +516,10 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
     def get(self,request,user_id,format=None):
         serializer1 = UserProfileSerializer(User.objects.get(user_id=user_id))
         data1 = serializer1.data
-        edu = eval(data1["foundationdate"])
+        edu = eval(data1["education"])
         dict_edu = dict(OrderedDict(edu))
-        data1.pop('foundationdate')
-        data1['foundationdate'] = dict_edu
+        data1.pop('education')
+        data1['education'] = dict_edu
         serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
         data2 = serializer2.data
         data2_ = serializer2.data["apply_list"]
@@ -561,10 +561,10 @@ class MypageEditView(APIView):
     def get(self, request, user_id):
         serializer = UserProfileSerializer(User.objects.get(user_id=user_id))
         datas = serializer.data
-        edu = eval(datas["foundationdate"])
+        edu = eval(datas["education"])
         dict_edu = dict(OrderedDict(edu))       
-        datas.pop('foundationdate')
-        datas['foundationdate'] = dict_edu
+        datas.pop('education')
+        datas['education'] = dict_edu
         response = Response(datas)
         response = add_cors_header(response)
         return response
