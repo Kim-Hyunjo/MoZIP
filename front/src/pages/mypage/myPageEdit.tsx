@@ -292,7 +292,7 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
         </DialogContent>
 
         <DialogActions>
-          <Link to="/mypage">
+          <Link to="/mypage/1">
             <Button
               type="submit"
               onClick={handleClose1}
