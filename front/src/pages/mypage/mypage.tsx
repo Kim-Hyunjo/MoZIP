@@ -6,6 +6,14 @@ import './button.css';
 import { DevelopUrl } from '../../http/HttpUrl';
 
 interface myInform{
+  profile : Profile;
+  applying_list : ApplyingList[];
+  myclub : MyClub[];
+  clubs_on_approval_process : OnAprrov[];
+  applied_list : AppliedList[];
+}
+
+interface Profile{
   group: string;
   name: string;
   grader : string;
@@ -17,107 +25,97 @@ interface myInform{
   self_image : string;
   user_id : number;
   education: Education;
-  apply_list : Applies;
-  my_club : Clubs[];
-  clubs_on_approval_process: OnAprrov[];
 }
+
 interface Education{
   school : string;
   major : string;
 }
 
-interface Applies{
-  applying: number[];
-  applied : number[];
+interface ApplyingList{
+  name : string;
+  information: string;
 }
 
-interface Clubs{
-  club : string[];
+interface MyClub{
+  name : string;
+  information: string;
+  image : string;
+  position : string;
+}
+
+interface AppliedList{
+  name : string,
+  information: string,
 }
 
 interface OnAprrov{
-  club : string[];
+  name : string;
+  information: string;
+  approval_choice: string;
 }
+
 
 const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
   const [inform, setInform] = useState<myInform>({
-  group: '',
-  name: '',
-  grader : '',
-  states : '',
-  birthday : '',
-  telephone : '',
-  email : '',
-  address : '', 
-  self_image : '',
-  user_id : 0,
-  education: {school: '', major : ''},
-  apply_list : {applying: [], applied : []},
-  my_club : [{club: []}],
-  clubs_on_approval_process: [{club: []}],
+  profile : {
+    group: '',
+    name: '',
+    grader : '',
+    states : '',
+    birthday : '',
+    telephone : '',
+    email : '',
+    address : '', 
+    self_image : '',
+    user_id : 0,
+    education: {school: '', major : ''},
+  },
+  applying_list : [{
+    name : '',
+    information: '',
+  }],
+  myclub : [{
+    name : '',
+    information: '',
+    image : '',
+    position : '',
+  }],
+  clubs_on_approval_process : [{
+    name : '',
+    information: '',
+    approval_choice: '',
+  }],
+  applied_list : [{
+    name : '',
+    information: '',
+  }],
   })
   const getApi = async () => {
-    await axios.get(`http://3.35.234.131:8000/mypage/${props.match.params.user_id}`).then((r)=>{
+    await axios.get(`http://3.35.234.131:8000/mypage/1/`).then((r)=>{
       let res: myInform = r.data;
       setInform(res);
-      console.log(inform.birthday);
     })
   }
   useEffect(()=>{
     getApi()
   },[])
   const personalInfo = {
-    name: inform.name,
-    sort: inform.group,
-    school: inform.education.school,
-    major: inform.education.major,
-    grade: inform.grader,
-    state: inform.states,
-    birth: inform.birthday,
-    phoneNum: inform.telephone,
-    email: inform.email,
-    address: inform.address,
+    name: inform.profile.name,
+    sort: inform.profile.group,
+    school: inform.profile.education.school,
+    major: inform.profile.education.major,
+    grade: inform.profile.grader,
+    state: inform.profile.states,
+    birth: inform.profile.birthday,
+    phoneNum: inform.profile.telephone,
+    email: inform.profile.email,
+    address: inform.profile.address,
   };
-  const personalApplyCurrent = [
-    { name: '~내가 지원한 동아리~', introduction: '~동아리의 상세설명~' },
-    { name: '~내가 지원한 동아리2~', introduction: '~동아리의 상세설명2~' },
-  ];
-  const personalClublist = [
-    {
-      name: 'TAVE',
-      introduction: '동아리의 상세설명~~~~~',
-      position: '운영진',
-    },
-    {
-      name: '나의동아리2~~~~~',
-      introduction: '~동아리의 상세설명2~',
-      position: '회원',
-    },
-  ];
-  const personalOpenRequest = [
-    {
-      name: '~개설 요청 동아리~',
-      introduction: '~동아리의 상세설명~',
-      status: '진행중',
-    },
-    {
-      name: '~개설 요청 동아리2~',
-      introduction: '~동아리의 상세설명2~',
-      status: '승인',
-    },
-  ];
-  const personalApplyHistory = [
-    {
-      name: '~내가 지원한 동아리~',
-      introduction: '~동아리의 상세설명~',
-      status: '합격',
-    },
-    {
-      name: '~내가 지원한 동아리2~',
-      introduction: '~동아리의 상세설명2~',
-      status: '불합격',
-    },
-  ];
+  const personalApplyCurrent = inform.applying_list;
+  const personalClublist = inform.myclub;
+  const personalOpenRequest = inform.clubs_on_approval_process;
+  const personalApplyHistory = inform.applied_list;
 
   return (
     <div className="mypage">
@@ -135,7 +133,7 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
           분류 : {personalInfo.sort} <br></br>
           학교 및 학과 : {personalInfo.school} {personalInfo.major}
           <br></br>
-          학년 : {personalInfo.grade}학년 {personalInfo.state}중 <br></br>
+          학년 : {personalInfo.grade} {personalInfo.state}중 <br></br>
           생년월일 : {personalInfo.birth} <br></br>
           전화번호 : {personalInfo.phoneNum} <br></br>
           이메일 : {personalInfo.email} <br></br>
@@ -156,40 +154,22 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
         <div className="middle_title">나의 지원 현황</div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
-            <li>
-              <div className="club_name">{personalApplyCurrent[0].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[0].introduction}
-              </div>
-              <div className="clubImage">
-                <img src="http://placehold.it/120x120" />
-              </div>
-              <Link to ="/mypage/:circle_id/notice">
-              <button id="button2">최종 결과 확인</button></Link>
-            </li>
-            <li>
-              <div className="club_name">{personalApplyCurrent[1].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[1].introduction}
-              </div>
-              <div className="clubImage">
-                <img src="http://placehold.it/120x120" />
-              </div>
-              <Link to ="/mypage/:circle_id/notice">
-              <button id="button2">최종 결과 확인</button>
-              </Link>
-            </li>
-            <li>
-              <div className="club_name">{personalApplyCurrent[0].name}</div>
-              <div className="club_intro">
-                {personalApplyCurrent[0].introduction}
-              </div>
-              <div className="clubImage">
-                <img src="http://placehold.it/120x120" />
-              </div>
-              <Link to ="/mypage/:circle_id/notice">
-              <button id="button2">최종 결과 확인</button></Link>
-            </li>
+            {personalApplyCurrent.map((item)=>{
+              return(
+                <li>
+                  <div className="club_name">{item.name}</div>
+                  <div className="club_intro">
+                    {item.information}
+                  </div>
+                  <div className="clubImage">
+                    <img src="http://placehold.it/120x120" />
+                  </div>
+                  <Link to ="/mypage/:circle_id/notice">
+                  <button id="button2">최종 결과 확인</button></Link>
+                </li>
+              );
+            })}
+            
           </ul>
         </div>
       </div>
@@ -200,32 +180,26 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
         </div></div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
-            <li>
-              <Link to = "/list/:subject/:circle_id">
-              <div className="club_position">
-                {personalClublist[0].position}
-              </div>
-              <div className="club_name">{personalClublist[0].name}</div>
-              <div className="club_intro">
-                {personalClublist[0].introduction}
-              </div>
-              <div className="clubImage150">
-                <img src="http://placehold.it/150x150" />
-              </div>
-              </Link>
-            </li>
-            <li>
-              <div className="club_position">
-                {personalClublist[1].position}
-              </div>
-              <div className="club_name">{personalClublist[1].name}</div>
-              <div className="club_intro">
-                {personalClublist[1].introduction}
-              </div>
-              <div className="clubImage150">
-                <img src="http://placehold.it/150x150" />
-              </div>
-            </li>
+            {personalClublist.map((item)=>{
+                return(
+                  <li>
+                    <Link to = "/list/:subject/:circle_id">
+                    
+                    <div className="club_position">
+                      {item.position === 'owner' ? ('회장') : item.position === 'guest' ? ('회원') : ('운영진')}
+                    </div>
+                   
+                    <div className="club_name">{item.name}</div>
+                    <div className="club_intro">
+                      {item.information}
+                    </div>
+                    <div className="clubImage150">
+                      <img src="http://placehold.it/150x150" />
+                    </div>
+                    </Link>
+                </li>
+                );
+              })}
           </ul>
         </div>
       </div>
@@ -236,30 +210,22 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
         </div></div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
-            <li>
-              <div className="club_position">
-                {personalOpenRequest[0].status}
-              </div>
-              <div className="club_name">{personalOpenRequest[0].name}</div>
-              <div className="club_intro">
-                {personalOpenRequest[0].introduction}
-              </div>
-              <div className="clubImage150">
-                <img src="http://placehold.it/150x150" />
-              </div>
-            </li>
-            <li>
-              <div className="club_position">
-                {personalOpenRequest[1].status}
-              </div>
-              <div className="club_name">{personalOpenRequest[1].name}</div>
-              <div className="club_intro">
-                {personalOpenRequest[1].introduction}
-              </div>
-              <div className="clubImage150">
-                <img src="http://placehold.it/150x150" />
-              </div>
-            </li>
+            {personalOpenRequest.map((item)=>{
+              return(
+                <li>
+                  <div className="club_position">
+                    {item.approval_choice}
+                  </div>
+                  <div className="club_name">{item.name}</div>
+                  <div className="club_intro">
+                    {item.information}
+                  </div>
+                  <div className="clubImage150">
+                    <img src="http://placehold.it/150x150" />
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -267,30 +233,22 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
         <div className="middle_title">나의 지원 이력</div>
         <div className="horizontal_scroll">
           <ul className="small_namecard">
-            <li>
-              <div className="club_position">
-                {personalApplyHistory[0].status}
-              </div>
-              <div className="club_name">{personalApplyHistory[0].name}</div>
-              <div className="club_intro">
-                {personalApplyHistory[0].introduction}
-              </div>
-              <div className="clubImage150">
-                <img src="http://placehold.it/150x150" />
-              </div>
-            </li>
-            <li>
-              <div className="club_position">
-                {personalApplyHistory[1].status}
-              </div>
-              <div className="club_name">{personalApplyHistory[1].name}</div>
-              <div className="club_intro">
-                {personalApplyHistory[1].introduction}
-              </div>
-              <div className="clubImage150">
-                <img src="http://placehold.it/150x150" />
-              </div>
-            </li>
+            {personalApplyHistory.map((item) =>{
+              return(
+                <li>
+                  <div className="club_position">
+                    합격
+                  </div>
+                  <div className="club_name">{item.name}</div>
+                  <div className="club_intro">
+                    {item.information}
+                  </div>
+                  <div className="clubImage150">
+                    <img src="http://placehold.it/150x150" />
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
