@@ -13,10 +13,6 @@ class PostClubSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
-class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
         fields = ['group', 'name', 'education','grader', 
         'states', 'birthday', 'telephone', 'email', 'address','self_image','user_id']
 
@@ -41,16 +37,11 @@ class ClubFAQSerializer(serializers.HyperlinkedModelSerializer):
         model = Club_FAQ
         fields = ['FAQ', 'club_id']
 
-class ClubIntroduceSerializer(serializers.HyperlinkedModelSerializer):
+class ClubIntroduceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Club_introduce
         fields = ['number','region','target','time',
         'mainURL','detail','poster','card_image', 'club_id']
-
-class ClubIntroduceAllSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Club_introduce
-        fields = '__all__'
 
 class ClubDetailPostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -69,17 +60,10 @@ class CreateClubSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 # sj - recruit
-
-class RecruitClubIntroSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Club_introduce
-        fields = '__all__'
-
-
 class RecruitFormatSerializer(serializers.ModelSerializer):
     class Meta:
         model = recruit_format
-        fields = '__all__'
+        fields = ['Type','club_id','user_id','rf_id','approval_info','time','run_time','rest_time','Multiple_choice','Short_answer','long_answer']
 
 
 class UserApplyListSerializer(serializers.ModelSerializer):
@@ -92,23 +76,6 @@ class RecruitApplicantsSerializer(serializers.ModelSerializer):
         model = User
         fields = ['user_id','name','self_image']
 
-from bson import ObjectId
-from bson.errors import InvalidId
-from django.utils.encoding import smart_text 
-class ObjectIdField(serializers.Field):
-    """ Serializer field for Djongo ObjectId fields """
-    def to_internal_value(self, data):
-        # Serialized value -> Database value
-        try:
-            return ObjectId(str(data))  # Get the ID, then build an ObjectId instance using it
-        except InvalidId:
-            raise serializers.ValidationError(
-                '{} is not a valid ObjectId'.format(data))
-    def to_representation(self, value):
-        # Database value -> Serialized value
-        if not ObjectId.is_valid(value):  # User submitted ID's might not be properly structured
-            raise InvalidId
-        return smart_text(value)
 
 class CreationClubSerializer(serializers.ModelSerializer):
     class Meta:
@@ -149,11 +116,14 @@ class UserRecordQSerializer(serializers.ModelSerializer):
 class InterviewManagerSerializer(serializers.ModelSerializer):
     class Meta:
         model = interview_manager
-        fields = '__all__'
+        fields = ['rf_id','manager','run_time','rest_time']
 
 class InterviewGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = interview_group
-        fields = '__all__'
+        fields = ['rf_id','interviewer','manager','etc']
 
-
+class PassFailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pass_Fail
+        fields = ['Type','ci_id','user_id','pf_id','pass_fail','detail','detail_type']

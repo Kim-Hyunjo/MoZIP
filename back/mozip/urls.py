@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from rest_framework import routers
 from mozip1.views import *
+from rest_framework.authtoken.views import obtain_auth_token
 
 #jwoo
 
@@ -31,6 +32,7 @@ urlpatterns = [
     path('test1/', include(router.urls)),
     path('test2/', UserListView.as_view()),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')), #login,logout 추가
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 
 
     #jwoo
@@ -157,7 +159,7 @@ urlpatterns = [
     path('recruit/process/noticeinfo/', RecruitNoticeview.as_view()),
     path('recruit/process/form/', RecruitProcessFormView.as_view()),
     path('recruit/resume/', include(router.urls)),
-    path('recruit/resume/<int:user_id>/', include(router.urls)),
+    path('recruit/resume/<int:user_id>/', RecruitResumeDetailView.as_view()),
     path('recruit/management/staff/',InterviewManagerView.as_view()),
     path('recruit/management/detail/',InterviewGroupView.as_view()),
     path('recruit/management/interview/commonquestion/',include(router.urls)),
@@ -166,9 +168,9 @@ urlpatterns = [
     path('recruit/management/interview/postprocessing/notice/',include(router.urls)),
     path('recruit/management/interview/postprocessing/detail/',include(router.urls)),
     path('recruit/management/interview/postprocessing/finalprocessing/',include(router.urls)),
-    path('recruit/schedule/management', include(router.urls)),
-    path('recruit/schedule/management/staff', include(router.urls)),
-    path('recruit/schedule/management/detail', include(router.urls)),
+    path('recruit/<str:ci_id>/schedule/management', RecruitScheduleManagementView.as_view()),
+    path('recruit/<str:ci_id>/schedule/management/staff', RecruitScheduleManagementStaffView.as_view()),
+    path('recruit/<str:ci_id>/schedule/management/detail', RecruitScheduleManagementDetailView.as_view()),
     path('recruit/interview/', include(router.urls)),
     path('recruit/interview/commonquestion', include(router.urls)),
     path('recruit/interview/detail', include(router.urls)),
