@@ -583,10 +583,11 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
         dict_edu = dict(OrderedDict(edu))
         data1.pop('education')
         data1['education'] = dict_edu
+        '''
         data1["group"] = group_choice[data1["group"]]
         data1["grader"] = grader_choice[data1["grader"]]
         data1["states"] = states_choice[data1["states"]]
-        
+        '''
         print(data1)
         serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
         data2 = serializer2.data
