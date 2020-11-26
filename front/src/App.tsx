@@ -106,12 +106,12 @@ function App() {
               <ul className="menu">
                 {/* NavLink를 이용하면 다이나믹 스타일 적용가능 */}
                 <li>
-                  <NavLink exact to="/mypage">
+                  <NavLink exact to="/mypage/:user_id">
                     My Page
                   </NavLink>
                   <ul className="sub">
                     <li>
-                      <NavLink exact to="/mypage">
+                      <NavLink exact to="/mypage/:user_id">
                         My Page
                       </NavLink>
                     </li>
@@ -174,8 +174,8 @@ function App() {
             <Route exact path="/posts" component={TestList} />
             <Route exact path="/rt" component={RedirectTest} />
             {/* mypage */}
-            <Route exact path="/mypage" component={mypage} />
-            <Route exact path="/mypage/edit" component={MyPageEdit} />
+            <Route exact path="/mypage/:user_id" component={mypage} />
+            <Route exact path="/mypage/edit/:user_id" component={MyPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
             <Route
               exact
