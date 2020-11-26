@@ -583,11 +583,9 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
         dict_edu = dict(OrderedDict(edu))
         data1.pop('education')
         data1['education'] = dict_edu
-        '''
         data1["group"] = group_choice[data1["group"]]
         data1["grader"] = grader_choice[data1["grader"]]
         data1["states"] = states_choice[data1["states"]]
-        '''
         print(data1)
         serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
         data2 = serializer2.data
@@ -645,22 +643,18 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
 
 class MypageEditView(APIView):
     def get(self, request, user_id):
-        '''
         group_choice = {'g1':'학생','g2':'직장인','g3':'일반인'}
         grader_choice = {"gr1":"1학년","gr2":"2학년","gr3":"3학년","gr4":"4학년"}
         states_choice = {"s1":"재학","s2":"휴학","s3":"졸업"}
-        '''
         serializer = UserSerializer(User.objects.get(user_id=user_id))
         datas = serializer.data
         edu = eval(datas["education"])
         dict_edu = dict(OrderedDict(edu))       
         datas.pop('education')
         datas['education'] = dict_edu
-        '''
         datas["group"] = group_choice[datas["group"]]
         datas["grader"] = grader_choice[datas["grader"]]
         datas["states"] = states_choice[datas["states"]]
-        '''
         response = Response(datas)
         response = add_cors_header(response)
         return response
