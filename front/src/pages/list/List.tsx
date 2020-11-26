@@ -18,16 +18,16 @@ import icon_etc from '../images2/icon_etc@2x.png';
 import axios from 'axios'
 
 interface Subject{
-id:Number,
+  cc_id:Number,
 name:String,
-introduction:String
+information:String
 }
 const List = (props: RouteComponentProps<{}>) => {
 
   const [subject, setSubject] = useState<string>('all');
   
   const getSubject = async() =>{
-    await axios.get('http://3.35.234.131:8000/circle/open/reject/users/').then((r)=>{
+    await axios.get('http://3.35.234.131:8000/list/all/').then((r)=>{
       let res = r.data;
       console.log(res)
       setcontent(res)
@@ -153,7 +153,7 @@ const List = (props: RouteComponentProps<{}>) => {
     { id: 8, name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
     { id: 9 , name: 'Tave', introduction: '국내 최초 4차 산업혁명동아리' },
   ]
-const [content, setcontent] = useState(all)
+const [content, setcontent] = useState<any>(all)
 
   useEffect(():any => {
     if(subject ==="all"){
@@ -162,6 +162,7 @@ const [content, setcontent] = useState(all)
     }else
     if (subject === "academy") {
       setcontent(academy)
+      
     }
     else
     if (subject === "art") {
@@ -236,7 +237,7 @@ const [content, setcontent] = useState(all)
                     className="notChosen"
                     onClick={() => {
                       setSubject(item.name);
-                      console.log(item.name);
+                      // console.log(item.name);
                     }}
                   >
                     <div className="border top_border border_n"></div>
@@ -254,12 +255,12 @@ const [content, setcontent] = useState(all)
         {/* <h1>{props.match.params.subject}</h1> */}
         <div className="club_list">
           <ul id="horizontal_club_list">
-            {content.map((item, index) => {
+            {content.map((item:Subject, index:number) => {
               return (
                 <li>
-                  <Link to={`${props.match.url}/${subject}/${item.id}`}>
+                  <Link to={`${props.match.url}/${subject}/${item.cc_id}`}>
                     <h3>{item.name}</h3>
-                    <p>{item.introduction}</p>
+                    <p>{item.information}</p>
                   </Link>
                 </li>
               );
