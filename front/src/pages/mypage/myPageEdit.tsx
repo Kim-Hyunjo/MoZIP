@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, RouteComponentProps } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
 
 import Button from '@material-ui/core/Button';
@@ -16,7 +16,6 @@ import { stringify } from 'querystring';
 interface MyInform{
   group: string;
   name: string;
-  education: string;
   grader : string;
   states : string;
   birthday : string;
@@ -25,6 +24,10 @@ interface MyInform{
   address : string; 
   self_image : string;
   user_id : number;
+  education : Education;
+}
+
+interface Education{
   school : string;
   major : string;
 }
@@ -43,13 +46,12 @@ interface MyInform{
 //   club_in : string;
 // }
 
-const MyPageEdit = () => {
+const MyPageEdit = (props: RouteComponentProps<{user_id: string}>) => {
   // const[status, setStatus] = useState<Status>({user_id:0,states:'', club_in:''})
   // const [_academy, setAcademy] = useState<Academy[]>([]);
   const [inform, setInform] = useState<MyInform>({
   group: '',
   name: '',
-  education: '',
   grader : '',
   states : '',
   birthday : '',
@@ -58,12 +60,11 @@ const MyPageEdit = () => {
   address : '', 
   self_image : '',
   user_id : 0,
-  school : '',
-  major : '',
+  education : {school: '', major: ''},
   })
 
   const getApi = async () => {
-    await axios.get('http://3.35.234.131:8000/mypage/1/edit/').then((r)=>{
+    await axios.get(`http://3.35.234.131:8000/mypage/${props.match.params.user_id}/edit/`).then((r)=>{
       let res: MyInform = r.data;
       setInform(res);
     })
@@ -168,7 +169,7 @@ useEffect(()=>{
                   placeholder="학교"
                   name="name"
                   onChange={handleChangeSchool}
-                  value={inform.school}
+                  value={inform.education.school}
                 />
               </div>
               <div className="전공">
@@ -179,7 +180,7 @@ useEffect(()=>{
                   placeholder="전공"
                   name="name"
                   onChange={handleChangeMajor}
-                  value={inform.major}
+                  value={inform.education.major}
                 />
               </div>
               <div className="학년">

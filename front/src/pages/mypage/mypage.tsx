@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Link, RouteComponentProps } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import './namecard.css';
 import './button.css';
@@ -8,7 +8,6 @@ import { DevelopUrl } from '../../http/HttpUrl';
 interface myInform{
   group: string;
   name: string;
-  education: string[];
   grader : string;
   states : string;
   birthday : string;
@@ -17,13 +16,33 @@ interface myInform{
   address : string; 
   self_image : string;
   user_id : number;
+  education: Education;
+  apply_list : Applies;
+  my_club : Clubs[];
+  clubs_on_approval_process: OnAprrov[];
+}
+interface Education{
+  school : string;
+  major : string;
+}
+
+interface Applies{
+  applying: number[];
+  applied : number[];
+}
+
+interface Clubs{
+  club : string[];
+}
+
+interface OnAprrov{
+  club : string[];
 }
 
 const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
   const [inform, setInform] = useState<myInform>({
   group: '',
   name: '',
-  education: [],
   grader : '',
   states : '',
   birthday : '',
@@ -32,24 +51,32 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
   address : '', 
   self_image : '',
   user_id : 0,
+  education: {school: '', major : ''},
+  apply_list : {applying: [], applied : []},
+  my_club : [{club: []}],
+  clubs_on_approval_process: [{club: []}],
   })
   const getApi = async () => {
-    await axios.get(DevelopUrl + '${props.match.params.subject}+/${props.match.params.circle_id/notice/}').then((r)=>{
+    await axios.get(`http://3.35.234.131:8000/mypage/${props.match.params.user_id}`).then((r)=>{
       let res: myInform = r.data;
       setInform(res);
+      console.log(inform.birthday);
     })
   }
+  useEffect(()=>{
+    getApi()
+  },[])
   const personalInfo = {
-    name: '최우영',
-    sort: '직장인',
-    school: '테이브대학교',
-    major: '서핑학과',
-    grade: '3',
-    state: '재학',
-    birth: '2020.11.07',
-    phoneNum: '010-0000-0000',
-    email: 'tave@naver.com',
-    address: '서울시 강남구',
+    name: inform.name,
+    sort: inform.group,
+    school: inform.education.school,
+    major: inform.education.major,
+    grade: inform.grader,
+    state: inform.states,
+    birth: inform.birthday,
+    phoneNum: inform.telephone,
+    email: inform.email,
+    address: inform.address,
   };
   const personalApplyCurrent = [
     { name: '~내가 지원한 동아리~', introduction: '~동아리의 상세설명~' },
@@ -116,7 +143,7 @@ const Mypage = (props: RouteComponentProps<{user_id: string}>) => {
           <br></br>
         </div>
         <div className="inMyinform">
-          <Link to="./mypage/edit">
+          <Link to ={`/mypage/edit/${props.match.params.user_id}`}>
             <button id="button1">수정하기</button>
           </Link>
         </div>
