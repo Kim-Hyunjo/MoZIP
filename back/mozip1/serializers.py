@@ -41,7 +41,7 @@ class ClubIntroduceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Club_introduce
         fields = ['number','region','target','time',
-        'mainURL','detail','poster','card_image', 'club_id']
+        'mainURL','detail','poster','card_image', 'club_id','types','ci_id','detail']
 
 class ClubDetailPostSerializer(serializers.ModelSerializer):
     class Meta:

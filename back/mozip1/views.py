@@ -400,6 +400,34 @@ class ListMembersEditView(APIView):
 
 
 # recruit
+class RecruitBasicInfo(APIView):
+    def get(self,request, club_id):
+     
+        Type_choice ={"1":"면접전형","2":"서류전형","3":"면접+서류전형"}
+        Target_choice =  {"t1":"대학생","t2":"직장인","t3":"일반인"}
+        club_id = -club_id
+        Recruit_basic = ClubIntroduceSerializer(Club_introduce.objects.get(club_id=club_id))
+        data1 = Recruit_basic.data
+        detail = eval(data1["detail"])
+        card = eval(data1["card_image"])
+        data1["detail"] = detail
+        data1["card_image"] = card
+        data1["types"] = Type_choice[data1["types"]]
+        data1["target"] = Target_choice[data1["target"]]
+        response = Response(data1)
+        response = add_cors_header(response)
+        return response
+    
+    @csrf_exempt
+    def post(self,request, club_id):
+        club_id = -club_id
+        serializer = ClubIntroduceSerializer(Club_introduce.objects.get(club_id=club_id),data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class ClubIntroudView(APIView): 
     def get(self,request):
         model = Club_introduce
@@ -732,12 +760,38 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
 
 
 class RecruitProcessFormView(APIView):
-    def get(self, request):
-        model = recruit_format.objects.all()
-        serializer = RecruitFormatSerializer(model, many=True)
-        return Response(serializer.data)
-    @csrf_exempt
-    def post(self,request):
+       def get(self, request,club_id):
+        Type_choice ={"1":"면접전형","2":"서류전형","3":"면접+서류전형"}
+        club_id = -club_id
+        Recruit_basic = RecruitFormatSerializer(recruit_format.objects.filter(club_id=club_id),many=True)
+        data1 = Recruit_basic.data
+
+        Multiple_choice = eval(data1["Multiple_choice"])
+        dict_Multiple_choice = dict(OrderedDict(Multiple_choice))
+        datas.pop('Multiple_choice')
+        data1['Multiple_choice'] = dict_Multiple_choice
+
+        Short_answer = eval(data1["Short_answer"])
+        dict_Short_answer = dict(OrderedDict(Short_answer))
+        datas.pop('Short_answer')
+        data1['Short_answer'] = dict_Short_answer
+
+        long_answer = eval(data1["long_answer"])
+        dict_long_answer = dict(OrderedDict(long_answer))
+        datas.pop('long_answer')
+        data1['long_answer'] = dict_long_answer
+
+        approval_info = eval(data1["approval_info"])
+        time = eval(data1["time"])
+        data1["approval_info"] = approval_info
+        data1["time"] = time
+        data1["Type"] = Type_choice[data1["Type"]]
+        response = Response(data1)
+        response = add_cors_header(response)
+        return response
+
+
+    def post(self, request):
         serializer = RecruitFormatSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
