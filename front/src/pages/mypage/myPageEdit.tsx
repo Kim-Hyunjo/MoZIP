@@ -60,7 +60,7 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
     email: '',
     address: '',
     self_image: '',
-    user_id: 0,
+    user_id: 1,
     education: {
       school: '',
       major: '',
@@ -106,24 +106,27 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
     setOpen(true);
   };
 
-  const handleClose1 = () => {
+  const handleClose1 = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     setOpen(false);
-    axios.post(DevelopUrl + 'mypage/1/edit/', {
+    let form: MyInform = {
       group: group,
       name: name,
       grader: grade,
-      states: inform.states,
+      states: "s1",
       birthday: birth,
       telephone: phoneNum,
       email: email,
       address: address,
       self_image: inform.self_image,
-      user_id: inform.user_id,
+      user_id: 1,
       education: {
         school: school,
         major: major,
       },
-    });
+    }
+    console.log(form);
+    await axios.post('http://3.35.234.131:8000/mypage/1/edit/', form);
   };
   const handleClose2 = () => {
     setOpen(false);
@@ -156,7 +159,16 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
               </div>
               <div className="분류">
                 <label htmlFor="분류">분류 :</label>
-                <input
+                <select
+                  className="MyPageEdit"
+                  defaultValue="g1"
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => { setgroup(e.target.value) }}
+                  value={group}>
+                  <option value={"g1"}>학생</option>
+                  <option value={"g2"}>직장인</option>
+                  <option value={"g3"}>일반인</option>
+                </select>
+                {/* <input
                   type="text"
                   className="MyPageEdit"
                   placeholder="분류"
@@ -166,7 +178,7 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
                       setgroup(e.target.value);
                     }}
                   value={group}
-                />
+                /> */}
               </div>
               <div className="학교">
                 <label htmlFor="학교">학교 :</label>
@@ -198,7 +210,21 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
               </div>
               <div className="학년">
                 <label htmlFor="학년">학년 :</label>
-                <input
+                {/* <input type="checkbox"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setgrade(e.target.value) }}
+                  className="MyPageEdit"
+                  placeholder="학년"
+                  name="grader" value={grade} /> */}
+                <select
+                  className="MyPageEdit"
+                  defaultValue="gr1"
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => { setgrade(e.target.value) }}
+                  value={grade}>
+                  <option value={"gr1"}>1학년</option>
+                  <option value={"gr2"}>2학년</option>
+                  <option value={"gr3"}>3학년</option>
+                </select>
+                {/* <input
                   type="text"
                   className="MyPageEdit"
                   placeholder="학년"
@@ -208,7 +234,7 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
                       setgrade(e.target.value);
                     }}
                   value={grade}
-                />
+                /> */}
               </div>
               <div className="생년월일">
                 <label htmlFor="생년월일">생년월일 :</label>
@@ -292,16 +318,16 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
         </DialogContent>
 
         <DialogActions>
-          <Link to="/mypage">
-            <Button
-              type="submit"
-              onClick={handleClose1}
-              color="primary"
-              autoFocus
-            >
-              예
+          {/* <Link to="/mypage"> */}
+          <Button
+            type="submit"
+            onClick={handleClose1}
+            color="primary"
+            autoFocus
+          >
+            예
             </Button>
-          </Link>
+          {/* </Link> */}
           {/* <Button onClick={handleClose} color="primary" autoFocus>
             예
           </Button> */}
