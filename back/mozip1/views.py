@@ -644,28 +644,36 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
 
 class MypageEditView(APIView):
     def get(self, request, user_id):
+        '''
         group_choice = {'g1':'학생','g2':'직장인','g3':'일반인'}
         grader_choice = {"gr1":"1학년","gr2":"2학년","gr3":"3학년","gr4":"4학년"}
         states_choice = {"s1":"재학","s2":"휴학","s3":"졸업"}
+        '''
         serializer = UserSerializer(User.objects.get(user_id=user_id))
         datas = serializer.data
         edu = eval(datas["education"])
         dict_edu = dict(OrderedDict(edu))       
         datas.pop('education')
         datas['education'] = dict_edu
+        '''
         datas["group"] = group_choice[datas["group"]]
         datas["grader"] = grader_choice[datas["grader"]]
         datas["states"] = states_choice[datas["states"]]
+        '''
         response = Response(datas)
         response = add_cors_header(response)
         return response
 
     def post(self, request, user_id):
+        group_choice = {'g1':'학생','g2':'직장인','g3':'일반인'}
+        grader_choice = {"gr1":"1학년","gr2":"2학년","gr3":"3학년","gr4":"4학년"}
+        states_choice = {"s1":"재학","s2":"휴학","s3":"졸업"}
         serializer = UserSerializer(User.objects.get(user_id=user_id),data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)  
+
 
     def put(self, request, user_id):
         serializer = UserSerializer(User.objects.get(user_id=user_id),data=request.data)
