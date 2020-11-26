@@ -461,22 +461,79 @@ class RecruitProcessFormView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class RecruitResumeView(APIView): #서류전형 지원자목록
     def get(self,request):
+
         pass
 
     def post(self,request):
+        
         pass
 
 class RecruitResumeDetailView(APIView):
-    def get(self,request,user_id):
+    def get(self,request,user_id,ci_id):
+        has_permission = []
+        serializer1 = UserSerializer(User.objects.get(user_id=user_id))
+        data1 = serializer1.data
+        edu = eval(data1["education"])
+        dict_edu = dict(OrderedDict(edu))
+        data1.pop('education')
+        data1['education'] = dict_edu
+        serializer2 = RecruitFormatSerializer(recruit_format.objects.get(club_id=ci_id, user_id=user_id))
+        data2 = serializer2.data
+        return
+    
+    def post(self,request,user_id,ci_id):
+        serializer1 = PassFailSerializer(Pass_Fail.objects.get(ci_id=ci_id))
+        data1 = serializer1.data
+        
         return
         
-
+'''
+GET: 
+(Pass_Fail)전체 지원자인원 ==> Pass_Fail에서 ci_id=ci_id,detail_type=1,pass_fail="합격"
+(interview_manager)면접관 인원,한 그룹당 면접시간,면접날짜,시간,면접가능 운영진이름
+==> 면접 그룹나누기 실행하면 back에서 정보(면접조결과)를 들고있다가 저장하면 interview_group에 POST
+결과는 POST/PUT한것을 바로 가져온다.
+POST: (interview_group)면접조결과(조,날짜,시간,총인원,남은인원) 
+PUT:면접조
+*한그룹당 지원자인원,면접관 인원,면접시간은 back에서 들고 면접조 짜는데 쓰고 버린다.
+'''
 class RecruitScheduleManagementView(APIView):
-    def get(self):
-        return
-
+    def get(self,request,ci_id):
+        res = {}
+        club_id = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=ci_id)).data["club_id"]
+        serializer1 = RecruitFormatSerializer(recruit_format.objects.get(club_id=club_id)).data
+        rf_id = serializer1["rf_id"]
+        res["total_interviewee_num"] = Pass_Fail.objects.filter(ci_id=ci_id, detail_type=1,pass_fail='합격').count()
+        res["total_interviewer_num"] = interview_manager.objects.filter(rf_id=rf_id).count()
+        res["time_per_group"] = serializer1["run_time"]
+        res["times_for_interview"] = serializer1["time"]
+        serializer2 = InterviewManagerSerializer(interview_manager.objects.get(rf_id=rf_id))
+        manager_list = []
+        ms = eval(serializer2.data["manager"])
+        for i in range(len(ms)):
+            manager_list.append({"name":ms[i]["name"],"user_id":ms[i]["user_id"]})
+        res["manager_list"] = manager_list
+        print(res)
+        res = Response(res)
+        add_cors_header(res)
+        return res
+    
+    def post(self,request,rf_id):
+        serializer1 = InterviewGroupSerializer(interview_group.objects.get(rf_id=rf_id))
 class RecruitScheduleManagementStaffView(APIView):
     def get(self):
+        serializer2 = InterviewManagerSerializer(interview_manager.objects.get(rf_id=rf_id))
+        manager_list = []
+        ms = serializer2["manager"]
+        for i in range(len(ms)):
+            name = ms["name"]
+            time = ms["time"]
+            time_list = []
+            for t in time:
+                date,times = time.split()
+                day,weekday = date.split("/")
+                start_time,end_time = times.split("~")
+            manager_list.append
         return
 
 class RecruitScheduleManagementDetailView(APIView):
@@ -488,6 +545,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 
 class CircleOpenView(APIView):
+    '''
     def get(self,request):
         user_id = request.query_params.get('user_id', None)
         serializer = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id), many=True)    
@@ -500,6 +558,7 @@ class CircleOpenView(APIView):
         response = Response(d)
         response = add_cors_header(response)
         return response
+        '''
     
     def post(self,request):
         user_id = request.query_params.get('user_id', None)
@@ -514,70 +573,102 @@ import json
 from collections import OrderedDict
 class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동아리개설요청(list),지원이력(list)
     def get(self,request,user_id,format=None):
-        serializer1 = UserProfileSerializer(User.objects.get(user_id=user_id))
+        group_choice = {'g1':'학생','g2':'직장인','g3':'일반인'}
+        grader_choice = {"gr1":"1학년","gr2":"2학년","gr3":"3학년","gr4":"4학년"}
+        states_choice = {"s1":"재학","s2":"휴학","s3":"졸업"}
+        serializer1 = UserSerializer(User.objects.get(user_id=user_id))
         data1 = serializer1.data
+        print(data1["group"])
         edu = eval(data1["education"])
         dict_edu = dict(OrderedDict(edu))
         data1.pop('education')
         data1['education'] = dict_edu
+        data1["group"] = group_choice[data1["group"]]
+        data1["grader"] = grader_choice[data1["grader"]]
+        data1["states"] = states_choice[data1["states"]]
+        
+        print(data1)
         serializer2 = UserApplyListSerializer(user_apply_list.objects.get(user_id=user_id))
         data2 = serializer2.data
-        data2_ = serializer2.data["apply_list"]
-        data2["apply_list"] = eval(data2_)
+        data2_ = dict(OrderedDict(eval(serializer2.data["apply_list"])))
+        print(data2_)
+        applying = data2_["applying"]
+        applying_club_list = []
+        for cc_id in applying:
+            cdata = ClubSerializer(Club.objects.get(cc_id=cc_id)).data
+            club_dict = {"name":cdata["name"],"information":cdata["information"],"status":""}
+            applying_club_list.append(club_dict)
+        applied = data2_["applied"]
+        applied_club_list = []
+        for cc_id in applied:
+            cdata = ClubSerializer(Club.objects.get(cc_id=cc_id)).data
+            club_dict = {"name":cdata["name"],"information":cdata["information"]}
+            applied_club_list.append(club_dict)          
+        data2["applying_list"] = applying_club_list
+        data2["applied_list"] = applied_club_list
         data2.pop('user_id')
+        data2.pop("apply_list")
         serializer3 = ClubMemberSerializer(Club_member.objects.filter(),many=True)
         serializer4 = ClubSerializer
         clubs = []
-        data3_mypage = []
-        data5_mypage = []
-        data3 = {}
+        data3 = []
+        data5 = []
         for i in range(len(serializer3.data)):
             print(dict(OrderedDict(eval(serializer3.data[i]["member"]))))
             for o in dict(OrderedDict(eval(serializer3.data[i]["member"])))["owner"]:
                 if user_id == o:
                     c_id = serializer3.data[i]["club_id"]    
-                    datas = serializer4(Club.objects.get(cc_id=c_id))           
-                    data3_mypage.append([datas.data["name"],datas.data["information"],datas.data["self_image"],'owner'])
+                    datas = serializer4(Club.objects.get(cc_id=c_id))     
+                    data3.append({"name":datas.data["name"],"information":datas.data["information"],"image":datas.data["self_image"],"position":'owner'})
             for j in dict(OrderedDict(eval(serializer3.data[i]["member"])))["guest"]:
                 if user_id == j: 
                     c_id = serializer3.data[i]["club_id"]    
                     datas = serializer4(Club.objects.get(cc_id=c_id))           
-                    data3_mypage.append([datas.data["name"],datas.data["information"],datas.data["self_image"],'guest'])
-        data3["my_club"] = data3_mypage
+                    data3.append({"name":datas.data["name"],"information":datas.data["information"],"image":datas.data["self_image"],"position":'guest'})
         serializer5 = CreationClubSerializer(Creation_Club.objects.filter(created_id=user_id),many=True)
         approval_choice = {"a1":"미확인","a2":"승인","a3":"승인불가"}
         for i in serializer5.data:
             a = i["approval"] #approval_choice[a]
-            data5_mypage.append([i["name"],i["information"],approval_choice[a]])
-        data5 = {}
-        data5["clubs_on_approval_process"] = data5_mypage
-        data = [data1,data2,data3,data5]
-        response = Response(data)
+            data5.append({"name":i["name"],"information":i["information"],"approval_choice":approval_choice[a]})
+        print(data1,data2,data3,data5)
+        res = {}
+        res["profile"] = data1
+        res["applying_list"] = applying_club_list       
+        res["myclub"] = data3
+        res["clubs_on_approval_process"] = data5
+        res["applied_list"] = applied_club_list
+        response = Response(res)
         response = add_cors_header(response)
         return response
 
 
 class MypageEditView(APIView):
     def get(self, request, user_id):
-        serializer = UserProfileSerializer(User.objects.get(user_id=user_id))
+        group_choice = {'g1':'학생','g2':'직장인','g3':'일반인'}
+        grader_choice = {"gr1":"1학년","gr2":"2학년","gr3":"3학년","gr4":"4학년"}
+        states_choice = {"s1":"재학","s2":"휴학","s3":"졸업"}
+        serializer = UserSerializer(User.objects.get(user_id=user_id))
         datas = serializer.data
         edu = eval(datas["education"])
         dict_edu = dict(OrderedDict(edu))       
         datas.pop('education')
         datas['education'] = dict_edu
+        datas["group"] = group_choice[datas["group"]]
+        datas["grader"] = grader_choice[datas["grader"]]
+        datas["states"] = states_choice[datas["states"]]
         response = Response(datas)
         response = add_cors_header(response)
         return response
 
     def post(self, request, user_id):
-        serializer = UserProfileSerializer(User.objects.get(user_id=user_id),data=request.data)
+        serializer = UserSerializer(User.objects.get(user_id=user_id),data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)  
 
     def put(self, request, user_id):
-        serializer = UserProfileSerializer(User.objects.get(user_id=user_id),data=request.data)
+        serializer = UserSerializer(User.objects.get(user_id=user_id),data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
@@ -618,17 +709,13 @@ class MypageRecruitNoticeView(APIView): #내가 지원한 동아리중에서 클
 
 class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club리스트 가져오기
     def get(self, request, user_id):
+        states_choice = {"1","모집안함","2","모집중","3","서류 진행","4","면접 진행","5","회비 입금 대기 중"}
         serializer = UserCircleSerializer(user_circle.objects.filter(user_id=user_id),many=True)
         res = []
         
         for i in range(len(serializer.data)):
-            d = serializer.data[i]
-            c = serializer.data[i]['club_in']
-            e = {}
-            d.pop("club_in")
-            e["club_in"] = eval(c)
-            res.append([d,e])
-            
+            c = dict(OrderedDict(eval(serializer.data[i]["club_in"])))
+            res.append({"recruit_num":c["recruit_num"],"place":c["place"],"target":c["target"],"time":c["time"],"detail":c["detail"]})
         response = Response(res)
         response = add_cors_header(response)
         return response
