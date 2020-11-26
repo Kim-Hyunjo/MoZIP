@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, RouteComponentProps } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 import Button from '@material-ui/core/Button';
@@ -47,7 +47,7 @@ interface MyInform {
 //   club_in : string;
 // }
 
-const MyPageEdit = () => {
+const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
   // const[status, setStatus] = useState<Status>({user_id:0,states:'', club_in:''})
   // const [_academy, setAcademy] = useState<Academy[]>([]);
   const [inform, setInform] = useState<MyInform>({
