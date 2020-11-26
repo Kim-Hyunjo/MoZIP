@@ -112,23 +112,39 @@ const Circle = (
   };
 const [info, setinfo] = useState<any>([]);
 const getData = async() =>{
-  await axios.get( 'http://3.35.234.131:8000/list/art/2/' ).then((r)=>{
+  await axios.get('http://3.35.234.131:8000/list/academy/1/').then((r)=>{
     let res = r.data;
     console.log(res)
     setinfo(res)
+    setFaqs(res)
   })
 }
 useEffect(() => {
 getData()
 
 }, [])
+const foundationdates = Object.assign({},info.foundationdate)
+const foundationdates2 = Object.values(foundationdates)
+const value = foundationdates2.join('.')
+console.log(foundationdates2);
 
+// const reviews = info.map((info:string)=>{
+//   return(
+//     <div className="circle_review">
+//               <div className="reviewer">{info.name}</div>
+//               <div className="reviewDetail">
+//                 {info.content}
+//               </div>
+//               <div className="reviewDate">2020-09-19 17:00</div>
+//             </div>
+//   )
+// })
 return (
     <div className="circle" id="wrapper">
       <div className="circle_header">
         <h2>{info.name}</h2>
         <div className="small_title">{info.information}</div>
-  <div className="openDate">{info.foundationdate}</div>
+  <div className="openDate">{value}창립</div>
         <div className="hashtag">#학술</div>
         <div className="detailButton">
           <Link to={`${props.match.url}/detail`}>
@@ -154,7 +170,7 @@ return (
           <div className="small_title">동아리원 후기</div>
           <div className="circle_reviewList">
             <div className="circle_review">
-              <div className="reviewer">{info.foundationdate}</div>
+              <div className="reviewer"></div>
               <div className="reviewDetail">
                 TAVE 6기로 활동하였습니다. 최고의 동아리입니다. 글 길게 쓰면은
                 말풍선이 길어지지롱 히히ㅣ히힣히ㅣㅣㅣ히히ㅣ히ㅣ ㅎ ㅣㅎ ㅣㅎ
