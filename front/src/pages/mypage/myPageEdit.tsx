@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button from '@material-ui/core/Button';
 import { Dialog } from '@material-ui/core';
@@ -12,21 +12,25 @@ import './namecard.css';
 import axios from 'axios';
 import { DevelopUrl } from '../../http/HttpUrl';
 import { stringify } from 'querystring';
+import { setgroups } from 'process';
 
-interface MyInform{
+interface Education {
+  school: string;
+  major: string;
+}
+
+interface MyInform {
   group: string;
   name: string;
-  education: string;
-  grader : string;
-  states : string;
-  birthday : string;
-  telephone : string;
-  email : string;
-  address : string; 
-  self_image : string;
-  user_id : number;
-  school : string;
-  major : string;
+  grader: string;
+  states: string;
+  birthday: string;
+  telephone: string;
+  email: string;
+  address: string;
+  self_image: string;
+  user_id: number;
+  education: Education;
 }
 
 // interface Academy{
@@ -47,34 +51,44 @@ const MyPageEdit = () => {
   // const[status, setStatus] = useState<Status>({user_id:0,states:'', club_in:''})
   // const [_academy, setAcademy] = useState<Academy[]>([]);
   const [inform, setInform] = useState<MyInform>({
-  group: '',
-  name: '',
-  education: '',
-  grader : '',
-  states : '',
-  birthday : '',
-  telephone : '',
-  email : '',
-  address : '', 
-  self_image : '',
-  user_id : 0,
-  school : '',
-  major : '',
+    group: '',
+    name: '',
+    grader: '',
+    states: '',
+    birthday: '',
+    telephone: '',
+    email: '',
+    address: '',
+    self_image: '',
+    user_id: 0,
+    education: {
+      school: '',
+      major: '',
+    },
   })
 
   const getApi = async () => {
-    await axios.get('http://3.35.234.131:8000/mypage/1/edit/').then((r)=>{
+    await axios.get('http://3.35.234.131:8000/mypage/1/edit/').then((r) => {
       let res: MyInform = r.data;
       setInform(res);
+      setname(res.name);
+      setgroup(res.group);
+      setschool(res.education.school);
+      setmajor(res.education.major);
+      setgrade(res.grader);
+      setbirth(res.birthday);
+      setphoneNum(res.telephone);
+      setemail(res.email);
+      setaddress(res.address);
     })
   }
 
-useEffect(()=>{
-  getApi()
-},[])
+  useEffect(() => {
+    getApi()
+  }, [])
 
   const [name, setname] = useState('');
-  const [sort, setsort] = useState('');
+  const [group, setgroup] = useState('');
   const [school, setschool] = useState('');
   const [major, setmajor] = useState('');
   const [grade, setgrade] = useState('');
@@ -83,33 +97,7 @@ useEffect(()=>{
   const [email, setemail] = useState('');
   const [address, setaddress] = useState('');
 
-  const handleChangeName: any = (e: Event) => {
-    setname((e.currentTarget as any).value);
-  };
-  const handleChangeSort: any = (e: Event) => {
-    setsort((e.currentTarget as any).value);
-  };
-  const handleChangeSchool: any = (e: Event) => {
-    setschool((e.currentTarget as any).value);
-  };
-  const handleChangeMajor: any = (e: Event) => {
-    setmajor((e.currentTarget as any).value);
-  };
-  const handleChangeGrade: any = (e: Event) => {
-    setgrade((e.currentTarget as any).value);
-  };
-  const handleChangeBirth: any = (e: Event) => {
-    setbirth((e.currentTarget as any).value);
-  };
-  const handleChangePhoneNum: any = (e: Event) => {
-    setphoneNum((e.currentTarget as any).value);
-  };
-  const handleChangeEmail: any = (e: Event) => {
-    setemail((e.currentTarget as any).value);
-  };
-  const handleChangeAddress: any = (e: Event) => {
-    setaddress((e.currentTarget as any).value);
-  };
+  const [userId, setuserId] = useState('');
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [open, setOpen] = useState(false);
@@ -120,8 +108,21 @@ useEffect(()=>{
 
   const handleClose1 = () => {
     setOpen(false);
-    axios.post('https://skhu-pwk.firebaseio.com/todo1.json', {
+    axios.post(DevelopUrl + 'mypage/1/edit/', {
+      group: group,
       name: name,
+      grader: grade,
+      states: inform.states,
+      birthday: birth,
+      telephone: phoneNum,
+      email: email,
+      address: address,
+      self_image: inform.self_image,
+      user_id: inform.user_id,
+      education: {
+        school: school,
+        major: major,
+      },
     });
   };
   const handleClose2 = () => {
@@ -145,8 +146,12 @@ useEffect(()=>{
                   className="MyPageEdit"
                   placeholder="이름"
                   name="name"
-                  onChange={handleChangeName}
-                  value={inform.name}
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setname(e.target.value);
+                    }
+                  }
+                  value={name}
                 />
               </div>
               <div className="분류">
@@ -155,9 +160,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="분류"
-                  name="name"
-                  onChange={handleChangeSort}
-                  value={inform.group}
+                  name="group"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setgroup(e.target.value);
+                    }}
+                  value={group}
                 />
               </div>
               <div className="학교">
@@ -166,9 +174,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="학교"
-                  name="name"
-                  onChange={handleChangeSchool}
-                  value={inform.school}
+                  name="school"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setschool(e.target.value);
+                    }}
+                  value={school}
                 />
               </div>
               <div className="전공">
@@ -177,9 +188,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="전공"
-                  name="name"
-                  onChange={handleChangeMajor}
-                  value={inform.major}
+                  name="major"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setmajor(e.target.value);
+                    }}
+                  value={major}
                 />
               </div>
               <div className="학년">
@@ -188,9 +202,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="학년"
-                  name="name"
-                  onChange={handleChangeGrade}
-                  value={inform.grader}
+                  name="grader"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setgrade(e.target.value);
+                    }}
+                  value={grade}
                 />
               </div>
               <div className="생년월일">
@@ -199,9 +216,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="생년월일"
-                  name="name"
-                  onChange={handleChangeBirth}
-                  value={inform.birthday}
+                  name="birthday"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setbirth(e.target.value);
+                    }}
+                  value={birth}
                 />
               </div>
               <div className="전화번호">
@@ -210,9 +230,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="전화번호"
-                  name="name"
-                  onChange={handleChangePhoneNum}
-                  value={inform.telephone}
+                  name="telephone"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setphoneNum(e.target.value);
+                    }}
+                  value={phoneNum}
                 />
               </div>
               <div className="이메일">
@@ -221,9 +244,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="이메일"
-                  name="name"
-                  onChange={handleChangeEmail}
-                  value={inform.email}
+                  name="email"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setemail(e.target.value);
+                    }}
+                  value={email}
                 />
               </div>
               <div className="거주지">
@@ -232,9 +258,12 @@ useEffect(()=>{
                   type="text"
                   className="MyPageEdit"
                   placeholder="거주지"
-                  name="name"
-                  onChange={handleChangeAddress}
-                  value={inform.address}
+                  name="address"
+                  onChange={
+                    (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setaddress(e.target.value);
+                    }}
+                  value={address}
                 />
               </div>
             </form>
