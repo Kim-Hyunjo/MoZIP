@@ -524,9 +524,14 @@ GET:
 POST: (interview_group)면접조결과(조,날짜,시간,총인원,남은인원) 
 PUT:면접조
 *한그룹당 지원자인원,면접관 인원,면접시간은 back에서 들고 면접조 짜는데 쓰고 버린다.
+
+{"interviewee_per_group":3,
+"interviewer_per_group":2,
+"interviewtime":{"1":[12,17],"2":[13,18],"3":[9,13]}}
 '''
 class RecruitScheduleManagementView(APIView):
     def get(self,request,ci_id):
+        print(request.data)
         res = {}
         club_id = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=ci_id)).data["club_id"]
         serializer1 = RecruitFormatSerializer(recruit_format.objects.get(club_id=club_id)).data
@@ -541,13 +546,177 @@ class RecruitScheduleManagementView(APIView):
         for i in range(len(ms)):
             manager_list.append({"name":ms[i]["name"],"user_id":ms[i]["user_id"]})
         res["manager_list"] = manager_list
-        print(res)
         res = Response(res)
         add_cors_header(res)
         return res
     
-    def post(self,request,rf_id):
-        serializer1 = InterviewGroupSerializer(interview_group.objects.get(rf_id=rf_id))
+    def post(self,request,ci_id):
+        serializer = InterviewScheduleManagementSerializer(request.data).data
+        serializer_c = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=ci_id)).data
+        serializer_r = RecruitFormatSerializer(recruit_format.objects.get(club_id=serializer_c["club_id"])).data
+        run_time = serializer_r["run_time"]
+        rest_time = serializer_r["rest_time"]
+        M_interviewee = serializer["interviewee_per_group"]
+        M_interviewer = serializer["interviewer_per_group"]
+        interviewtime = serializer["interviewtime"]
+        T = 0
+        for val in interviewtime.values():
+            T += (val[1] - val[0]) * 60 // (run_time+rest_time)
+        N_interviewee = Pass_Fail.objects.filter(ci_id=ci_id, detail_type=1,pass_fail='합격').count()
+        serializer_im = InterviewManagerSerializer(interview_manager.objects.get(rf_id=serializer_r["rf_id"])).data["manager"]
+        N_interviewer = len(serializer_im)
+        posTime_interviewer = {}
+        for i in range(len(N_interviewer)):
+            st = serializer_im[i]["time"]
+            for s in st:
+                time_list = []
+                day,time = s.split()
+                year,month,date = day.split(".")
+                start,end = time.split("~")
+                time_list.append()
+            posTime_interviewer[serializer_im[i]["name"]] = ""
+        posTime_interviewee = {}
+        #functions
+        import random
+
+        class Node(object):
+            def __init__(self, name, time, left,idx):
+                self.name = name #면접자 이름
+                self.time = time #배정 시간
+                self.left = left #누적 낙오자 수
+                self.idx = idx #intervieweeList에서의 인덱스
+
+            def __str__ (self):
+                return '({}, {})'.format(self.name, self.time)
+                
+        #낙오된 사람의 수가 전체 인원 수의 20%넘으면 백트래킹 - 전체인원의 5% 넘지 않을 때 까지
+        def sort_by_posTimeCnt(posTime):
+            posTimeCnt = {}
+            for i in posTime.keys():
+                if len(posTime[i]) not in posTimeCnt.keys():
+                    posTimeCnt[len(posTime[i])] = list((i))
+                else:
+                    posTimeCnt[len(posTime[i])].append(i)
+            posTimeCnt = sorted(posTimeCnt.items())
+            intervieweeList_sorted = []
+            for i in range(len(posTimeCnt)):
+                intervieweeList_sorted.append(posTimeCnt[i][1])
+            return intervieweeList_sorted
+
+        def random_sequence(interviewees):
+            idxList = [i for i in range(len(interviewees))]
+            for i in range((len(interviewees))):
+                ranNum = random.randint(0,len(interviewees)-1)
+                interviewees[i],interviewees[ranNum] = interviewees[ranNum],interviewees[i]   
+            return idxList
+
+        def random_time(posTime):
+            ranTime = posTime[random.randint(0,len(posTime)-1)]
+            return ranTime
+
+        def print_visited(visited):
+            p = ''
+            for node in visited:
+                x = '.'.join([node.name,str(node.time)])
+                p = ' '.join([p,x])
+            return p
+
+        def search(intervieweeList,idx,visited,left,timetable):   
+            if idx >= N-LIMITED:
+                return list(visited)
+
+            name = intervieweeList[idx]
+            time = random_time(posTime[name])
+            if timetable[time-1] <= 0 :
+                left += 1
+            else:
+                node = Node(name,time,left,idx)
+                timetable[time-1] -= 1
+                visited.append(node)
+            if left > LIMITED:  
+                print('★idx:', idx,'len:',len(visited),'/visited:',print_visited(visited),'left:',left)
+                while len(visited) > 0:
+                    node = visited[-1]
+                    time = node.time
+                    visited.pop()
+                    timetable[time-1] += 1
+                    if node.left <= ACCEPTABLE:
+                        left = node.left
+                        idx = node.idx
+                        break
+                if len(visited) == 0:
+                    idx  -= 1    
+            else:
+                idx += 1       
+            print('idx:', idx,'len:',len(visited),'/visited:',print_visited(visited),'left:',left)
+            search(intervieweeList,idx,visited,left,timetable)
+
+        def left_add(lefts):
+            for name in lefts:
+                for time in posTime[name]:
+                    if timetable[time-1] > 0:
+                        timetable[time-1] -= 1
+                        if time in result.keys():
+                            result[time].append(name)
+                        elif time not in result.keys():
+                            result[time] = [name]
+                        break
+                        print(result)
+            return 
+        def left_list(visited,intervieweeList):
+            return list(set(intervieweeList).difference(set(node.name for node in visited)))
+
+        def final_left_list(result,intervieweeList):
+            final_name_list = set()
+            for names in list(result.values()):
+                for name in names:
+                    final_name_list.add(name)
+            return list(set(intervieweeList).difference(final_name_list))
+
+        def interview_search():          
+            for i in range(len(intervieweeList)):
+                idxList = random_sequence(intervieweeList[i])
+                for idx in idxList:
+                    intervieweeList_in_order.append(intervieweeList[i][idx])
+            print(intervieweeList_in_order)
+            search(intervieweeList_in_order,0,visited,0,timetable)           
+            for i in range(len(visited)):
+                if visited[i].time not in result.keys():
+                    result[visited[i].time] = [visited[i].name]
+                else:
+                    result[visited[i].time].append(visited[i].name)
+            left_add(left_list(visited,intervieweeList_in_order))
+            print(sorted(result.items()))
+            print(sorted(final_left_list(result,intervieweeList_in_order)))
+
+        def is_empty(timetable):
+            for time in timetable:
+                if time == M:
+                    return False
+            return True
+        #interviewer
+        posTime = {}
+        for i in range(N_interviewer):
+            name,timeNum = map(str, input().split())
+            posTime[name] = list(map(int,timeNum.split(',')))
+            for x in posTime[name]:
+                x -= 1
+
+        timetable = [M_interviewer] * T
+        LIMITED = 20 * N_interviewer / 100 
+        ACCEPTABLE = 10 * N_interviewer / 100 
+
+        while is_empty(timetable) == False:
+            timetable = [M_interviewer] * T
+            visited = []
+            intervieweeList_in_order = []
+            result = {}
+            intervieweeList = sort_by_posTimeCnt(posTime)
+            print('intervieweeList: ',intervieweeList)
+            interview_search()
+        #interviewee
+        serializer1 = InterviewGroupSerializer(interview_group.objects.get())
+
 class RecruitScheduleManagementStaffView(APIView):
     def get(self):
         serializer2 = InterviewManagerSerializer(interview_manager.objects.get(rf_id=rf_id))
@@ -562,6 +731,10 @@ class RecruitScheduleManagementStaffView(APIView):
                 day,weekday = date.split("/")
                 start_time,end_time = times.split("~")
             manager_list.append
+        return
+#interview_group에 방금 저장된 정보 GET
+class RecruitScheduleManagementView2(APIView):
+    def get(self):
         return
 
 class RecruitScheduleManagementDetailView(APIView):
@@ -622,20 +795,22 @@ class MypageView(APIView): #프로필,지원현황(list),내동아리(list),동�
         applying = data2_["applying"]
         applying_club_list = []
         for ci_id in applying:
-            cdata = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=ci_id)).data
+            cidata = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=ci_id)).data
             uc = UserCircleSerializer(user_circle.objects.filter(user_id=user_id),many=True).data
-            c = ClubSerializer(Club.objects.get(cc_id=cdata["club_id"])).data
+            c = ClubSerializer(Club.objects.get(cc_id=cidata["club_id"])).data
             for u in uc:
-                print(repr(dict(u["club_in"])))
-                if u["club_id"]["ci_id"] == ci_id:
+                u_dict = dict(OrderedDict(eval(u["club_in"])))
+                status = u["states"]  
+                if u_dict["ci_id"] == ci_id:
                     status = u["states"]            
-                club_dict = {"ci_id":ci_id,"name":c["name"],"information":c["information"],"status":uc["states"]}
+                club_dict = {"ci_id":ci_id,"name":c["name"],"information":c["information"],"status":status}
             applying_club_list.append(club_dict)
         applied = data2_["applied"]
         applied_club_list = []
-        for cc_id in applied:
-            cdata = ClubSerializer(Club.objects.get(cc_id=cc_id)).data
-            club_dict = {"name":cdata["name"],"information":cdata["information"]}
+        for ci_id in applied:
+            cidata = ClubIntroduceSerializer(Club_introduce.objects.get(ci_id=ci_id)).data
+            c = ClubSerializer(Club.objects.get(cc_id=cidata["club_id"])).data
+            club_dict = {"name":c["name"],"information":c["information"]}
             applied_club_list.append(club_dict)          
         data2["applying_list"] = applying_club_list
         data2["applied_list"] = applied_club_list

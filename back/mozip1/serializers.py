@@ -127,3 +127,8 @@ class PassFailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pass_Fail
         fields = ['Type','ci_id','user_id','pf_id','pass_fail','detail','detail_type']
+
+class InterviewScheduleManagementSerializer(serializers.Serializer):
+    interviewee_per_group = serializers.IntegerField()
+    interviewer_per_group = serializers.IntegerField()
+    interviewtime = serializers.JSONField()

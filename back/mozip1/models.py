@@ -146,7 +146,7 @@ class Pass_Fail(models.Model):
     pass_fail = models.CharField(max_length=10,choices=pass_fail_choices,default="1")
     detail = models.JSONField()
     pf_id = models.CharField(unique=True,primary_key=True,max_length=10)
-    detail_type = models.PositiveIntegerField(default=0)
+    detail_type = models.PositiveIntegerField(default=0) 
     objects = models.DjongoManager()
 
 class user_apply_list(models.Model):
@@ -176,6 +176,7 @@ class interview_group(models.Model):
     interviewer = models.JSONField()
     manager = models.JSONField()
     etc = models.JSONField()
+    fixed = models.BooleanField(default=False) #임시인지 확정된 값인지 저장
     objects = models.DjongoManager()
 
 
