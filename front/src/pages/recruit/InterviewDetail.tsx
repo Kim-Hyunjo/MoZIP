@@ -30,16 +30,8 @@ const InterviewDetail = () => {
     { date: '2020.10.03', count: '2일차' },
     { date: '2020.10.03', count: '3일차' },
   ];
-  const appply = [
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-    { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
-  ];
+  const appply = [{ time: "13:00", candidate: "한채은,한예송", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김철수,박철수", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김웅기,나웅기", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "이채은,김채은", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "홍길동,고길동", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "최희도,김희도", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김하연,권하연", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김동욱,양성봉", manager: "김스탭,권스탭" },]
+
   const appply2 = [
     { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
     { time: '13:00', candidate: '한채은,한예송', manager: '최우영,왕희도' },
@@ -93,8 +85,8 @@ const InterviewDetail = () => {
                         {info.time}
                         <span>{info.manager}</span>
                         <div>{info.candidate}</div>
-                        <Link to ="/recruit/interview/record">
-                        <button id="button4">면접보기</button></Link>
+                        <Link to="/recruit/interview/record">
+                          <button id="button4">면접보기</button></Link>
                       </li>
                     );
                   })}
@@ -103,8 +95,8 @@ const InterviewDetail = () => {
             </div>
           </div>
           <div className="interview_btns5">
-            <Link to ="/recruit/interview">
-            <button id="button5W">돌아가기</button></Link>
+            <Link to="/recruit/interview">
+              <button id="button5W">돌아가기</button></Link>
           </div>
         </form>
       </div>

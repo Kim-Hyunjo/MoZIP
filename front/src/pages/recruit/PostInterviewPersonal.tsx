@@ -24,27 +24,27 @@ const PostInterviewPersonal = () => {
   const [selfIntoduction, setSelfIntroduction] = useState<Question[]>([
     {
       id: 1,
-      question: '간단히 자기소개 부탁드립니다.',
-      answer: '저는 저입니다.',
-      score: 5,
+      question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.',
+      answer: 'TAVE가 킹왕짱이기 때문입니다.',
+      score: 0,
     },
     {
       id: 2,
-      question: '간단히 자기소개 부탁드립니다.',
-      answer: '저는 저입니다.',
-      score: 3,
+      question: '우리 동아리가 어떤 점이 마음에 들었어요?',
+      answer: '너무 멋진 사람들이 모여있어요.',
+      score: 0,
     },
     {
       id: 3,
-      question: '간단히 자기소개 부탁드립니다.',
-      answer: '저는 저입니다.',
-      score: 9,
+      question: '식사는 하셨나요?',
+      answer: '돈까스를 먹었어요.',
+      score: 0,
     },
     {
       id: 4,
-      question: '간단히 자기소개 부탁드립니다.',
-      answer: '저는 저입니다.',
-      score: 7,
+      question: '한국인은 밥심입니다. 알겠습니까?',
+      answer: '네네! 선장님!',
+      score: 0,
     },
   ]);
 
@@ -53,25 +53,25 @@ const PostInterviewPersonal = () => {
       id: 1,
       question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.',
       answer: 'TAVE가 킹왕짱이기 때문입니다.',
-      score: 5,
+      score: 0,
     },
     {
       id: 2,
-      question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.',
-      answer: 'TAVE가 킹왕짱이기 때문입니다.',
-      score: 3,
+      question: '우리 동아리가 어떤 점이 마음에 들었어요?',
+      answer: '너무 멋진 사람들이 모여있어요.',
+      score: 0,
     },
     {
       id: 3,
-      question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.',
-      answer: 'TAVE가 킹왕짱이기 때문입니다.',
-      score: 9,
+      question: '식사는 하셨나요?',
+      answer: '돈까스를 먹었어요.',
+      score: 0,
     },
     {
       id: 4,
-      question: '우리 동아리에 지원하게 된 동기를 말씀해 주세요.',
-      answer: 'TAVE가 킹왕짱이기 때문입니다.',
-      score: 7,
+      question: '한국인은 밥심입니다. 알겠습니까?',
+      answer: '네네! 선장님!',
+      score: 0,
     },
   ]);
 
@@ -169,14 +169,14 @@ const PostInterviewPersonal = () => {
           })}
         </div>
       </form>
-                   
+
       <div className="post_twoButtons">
         {/* <button id="button1" onClick={handleUpdate}>
           수정하기
         </button> */}
-        {toggle ? (<button  onClick={(event) => handleUpdate(event)} id="button1">저장하기</button>):
-         (<button onClick={(event) => handleUpdate(event)} id="button1">수정하기</button>)}  
-       
+        {toggle ? (<button onClick={(event) => handleUpdate(event)} id="button1">저장하기</button>) :
+          (<button onClick={(event) => handleUpdate(event)} id="button1">수정하기</button>)}
+
         <button id="button1_blue">돌아가기</button>
       </div>
     </div>

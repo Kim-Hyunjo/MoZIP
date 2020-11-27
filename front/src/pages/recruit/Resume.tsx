@@ -140,7 +140,7 @@ const Resume = () => {
       <h2>지원자 목록</h2>
       <form action="">
         <label htmlFor=""></label>
-        <button id="button4">통계 보기</button>
+        {/* <button id="button4">통계 보기</button> */}
         <div className="stateBox">
           <ul className="states">
             <li
@@ -201,6 +201,17 @@ const Resume = () => {
           <ul className="horizontal_people_list">
             {status === '전체'
               ? candidates.map((candidate) => {
+                return (
+                  <li key={candidate.id}>
+                    <ResumeCandidate
+                      candidate={candidate}
+                      onChangeCheck={handleChangeCheck}
+                    ></ResumeCandidate>
+                  </li>
+                );
+              })
+              : candidates.map((candidate) => {
+                if (candidate.status === status)
                   return (
                     <li key={candidate.id}>
                       <ResumeCandidate
@@ -209,18 +220,7 @@ const Resume = () => {
                       ></ResumeCandidate>
                     </li>
                   );
-                })
-              : candidates.map((candidate) => {
-                  if (candidate.status === status)
-                    return (
-                      <li key={candidate.id}>
-                        <ResumeCandidate
-                          candidate={candidate}
-                          onChangeCheck={handleChangeCheck}
-                        ></ResumeCandidate>
-                      </li>
-                    );
-                })}
+              })}
           </ul>
           <div className="changeButtons">
             *선택한 후 아래 버튼을 누르면 해당 인원이 이동합니다.

@@ -8,19 +8,19 @@ import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 const Resume3 = () => {
-    const manager = [{name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'},
-    {name:'최우영', select:'선택완료',timeSelect:'시간선택'}]
-    const division = [{group:'1조',date:'7월 10일', time:'오후 4~7시',total:'12'},{group:'2조',date:'7월 10일', time:'오후 4~7시',total:'12'},{group:'3조',date:'7월 10일', time:'오후 4~7시',total:'12'},{group:'4조',date:'7월 10일', time:'오후 4~7시',total:'12'},]
+    const manager = [{ name: '최우영', select: '선택완료', timeSelect: '시간선택' },
+    { name: '최우영', select: '선택완료', timeSelect: '시간선택' },
+    { name: '박웅기', select: '선택완료', timeSelect: '시간선택' },
+    { name: '왕희도', select: '선택완료', timeSelect: '시간선택' },
+    { name: '한채은', select: '선택완료', timeSelect: '시간선택' },
+    { name: '김정우', select: '선택완료', timeSelect: '시간선택' },
+    { name: '이하연', select: '선택완료', timeSelect: '시간선택' },
+    { name: '김현조', select: '선택완료', timeSelect: '시간선택' },
+    { name: '한예송', select: '선택완료', timeSelect: '시간선택' },
+    { name: '홍길동', select: '선택완료', timeSelect: '시간선택' },
+    { name: '이순신', select: '선택완료', timeSelect: '시간선택' },
+    { name: '김철수', select: '선택완료', timeSelect: '시간선택' }]
+    const division = [{ group: '1조', date: '7월 10일', time: '오후 4~7시', total: '12' }, { group: '2조', date: '7월 10일', time: '오후 4~7시', total: '12' }, { group: '3조', date: '7월 10일', time: '오후 4~7시', total: '12' }, { group: '4조', date: '7월 10일', time: '오후 4~7시', total: '12' },]
     return (
         <div className="resume">
             <div>
@@ -31,62 +31,62 @@ const Resume3 = () => {
                 <div className="setting">
                     <div className="title">면접 인원 관리</div>
                     <label htmlFor="">한 그룹 당 지원자 인원 : </label>
-                    <input type="select"/> 명 <br></br>
+                    <input type="select" /> 명 <br></br>
                     <label htmlFor="">한 그룹 당 면접관 인원 : </label>
-                    <input type="select"/> 명 <br></br>
+                    <input type="select" /> 명 <br></br>
                     <label htmlFor="">한 그룹 당 면접 시간 : 25분
                     </label>
                 </div>
                 <div className="setting">
                     <div className="title">면접 일시</div>
-                     {/* <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
+                    {/* <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
                      <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div>
                      <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong><input type="select" maxLength={2} /> 시 ~<input type="select"maxLength={2} /> 시</div> */}
-                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
-                     <Select className="resume_choosetime" defaultValue="시">
-                      <option aria-label="hour" value="16" />
-                      <option value={16}>16</option>
-                      <option value={17}>17</option>
-                      <option value={18}>18</option>  
-                      <option value={19}>19</option>
-                    </Select> 시 ~
+                    <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일" /><strong>2020년 7월 18일 수요일</strong>
+                        <Select className="resume_choosetime" defaultValue="시">
+                            <option aria-label="hour" value="16" />
+                            <option value={16}>16</option>
+                            <option value={17}>17</option>
+                            <option value={18}>18</option>
+                            <option value={19}>19</option>
+                        </Select> 시 ~
                     <Select className="resume_choosetime" defaultValue="시">
-                      <option aria-label="hour" value="16" />
-                      <option value={16}>16</option>
-                      <option value={17}>17</option>
-                      <option value={18}>18</option>  
-                      <option value={19}>19</option>
-                    </Select>  시</div>
-                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
-                     <Select className="resume_choosetime" defaultValue="시">
-                      <option aria-label="hour" value="16" />
-                      <option value={16}>16</option>
-                      <option value={17}>17</option>
-                      <option value={18}>18</option>  
-                      <option value={19}>19</option>
-                    </Select>  시 ~
+                            <option aria-label="hour" value="16" />
+                            <option value={16}>16</option>
+                            <option value={17}>17</option>
+                            <option value={18}>18</option>
+                            <option value={19}>19</option>
+                        </Select>  시</div>
+                    <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일" /><strong>2020년 7월 18일 수요일</strong>
+                        <Select className="resume_choosetime" defaultValue="시">
+                            <option aria-label="hour" value="16" />
+                            <option value={16}>16</option>
+                            <option value={17}>17</option>
+                            <option value={18}>18</option>
+                            <option value={19}>19</option>
+                        </Select>  시 ~
                     <Select className="resume_choosetime" defaultValue="시">
-                      <option aria-label="hour" value="16" />
-                      <option value={16}>16</option>
-                      <option value={17}>17</option>
-                      <option value={18}>18</option>  
-                      <option value={19}>19</option>
-                    </Select>  시</div>
-                     <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일"/><strong>2020년 7월 18일 수요일</strong>
-                     <Select className="resume_choosetime" defaultValue="시">
-                      <option aria-label="hour" value="16" />
-                      <option value={16}>16</option>
-                      <option value={17}>17</option>
-                      <option value={18}>18</option>  
-                      <option value={19}>19</option>
-                    </Select>  시 ~
+                            <option aria-label="hour" value="16" />
+                            <option value={16}>16</option>
+                            <option value={17}>17</option>
+                            <option value={18}>18</option>
+                            <option value={19}>19</option>
+                        </Select>  시</div>
+                    <div className="interviewDate"><input type="checkbox" name="first" value="2020년 7월 18일 수요일" /><strong>2020년 7월 18일 수요일</strong>
+                        <Select className="resume_choosetime" defaultValue="시">
+                            <option aria-label="hour" value="16" />
+                            <option value={16}>16</option>
+                            <option value={17}>17</option>
+                            <option value={18}>18</option>
+                            <option value={19}>19</option>
+                        </Select>  시 ~
                     <Select className="resume_choosetime" defaultValue="시">
-                      <option aria-label="hour" value="16" />
-                      <option value={16}>16</option>
-                      <option value={17}>17</option>
-                      <option value={18}>18</option>  
-                      <option value={19}>19</option>
-                    </Select>  시</div>
+                            <option aria-label="hour" value="16" />
+                            <option value={16}>16</option>
+                            <option value={17}>17</option>
+                            <option value={18}>18</option>
+                            <option value={19}>19</option>
+                        </Select>  시</div>
                 </div>
                 <div className="width1000">
                     <div className="title">면접 가능한 운영진</div>
@@ -96,14 +96,14 @@ const Resume3 = () => {
                     </div>
                     <div>
                         <ul className="adminList">
-                            {manager.map((info)=>{
-                                return(
+                            {manager.map((info) => {
+                                return (
                                     <li className="tiny_gray_namecard">
-                                     <div className="tiny_name">{info.name}</div>
-                                    <div className="tiny_status">{info.select}</div>
-                                    <Link to ="/recruit/schedule/management/staff">
-                                    <button id="buttonSelect">{info.timeSelect}</button></Link>
-                                </li>
+                                        <div className="tiny_name">{info.name}</div>
+                                        <div className="tiny_status">{info.select}</div>
+                                        <Link to="/recruit/schedule/management/staff">
+                                            <button id="buttonSelect">{info.timeSelect}</button></Link>
+                                    </li>
                                 )
                             })}
                         </ul>
@@ -117,15 +117,15 @@ const Resume3 = () => {
                 <div>
                     <div className="title">면접 조 결과</div>
                     <ul>
-                        {division.map((info)=>{
+                        {division.map((info) => {
                             <li className="tiny_gray_namecard">
-                             <div className="tiny_name">{info.group}</div>
-                             <div className="tiny_status">총 {info.total}명</div>
-                             <p>{info.date}<br></br>{info.time}
-                             </p>
-                         </li>
+                                <div className="tiny_name">{info.group}</div>
+                                <div className="tiny_status">총 {info.total}명</div>
+                                <p>{info.date}<br></br>{info.time}
+                                </p>
+                            </li>
                         })}
-                        
+
                     </ul>
                     <div className="twoButtons">
                         <button id="button1_blue">임시저장</button>
@@ -137,7 +137,7 @@ const Resume3 = () => {
                     <p>남은 인원은 '자세히'에 들어가 직접 시간을 지정해주세요.</p>
                 </div>
             </div>
-            <Link to ="/recruit/resume"><button id="button_red">면접 그룹 등록하기</button></Link>
+            <Link to="/recruit/resume"><button id="button_red">면접 그룹 등록하기</button></Link>
         </div>
     )
 }

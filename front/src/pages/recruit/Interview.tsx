@@ -15,33 +15,33 @@ const Interview = () => {
       id: 2,
       when: '2',
       personnel: '12',
-      date: '7월 10일',
+      date: '7월 11일',
       time: '4~7',
-      school: '동국대학교',
+      school: '테이브대학교',
     },
     {
       id: 3,
       when: '3',
       personnel: '12',
-      date: '7월 10일',
+      date: '7월 12일',
       time: '4~7',
-      school: '동국대학교',
+      school: '서국대학교',
     },
     {
       id: 4,
       when: '4',
       personnel: '12',
-      date: '7월 10일',
+      date: '7월 13일',
       time: '4~7',
-      school: '동국대학교',
+      school: '연세대학교',
     },
     {
       id: 5,
       when: '5',
       personnel: '1',
-      date: '7월 10일',
+      date: '7월 14일',
       time: '4~7',
-      school: '동국대학교',
+      school: '이화여자대학교',
     },
   ];
 
@@ -53,10 +53,10 @@ const Interview = () => {
           <span className="tiny_status">총 {item.personnel}명</span>
         </div>
         <p>{item.date}<br></br>
-        {item.time} 시<br></br>
-        {item.school}</p>
-        <Link to ="/recruit/interview/detail/1">
-        <button id="buttonSelect">자세히</button></Link>
+          {item.time} 시<br></br>
+          {item.school}</p>
+        <Link to="/recruit/interview/detail/1">
+          <button id="buttonSelect">자세히</button></Link>
       </div>
     );
   });
@@ -65,8 +65,8 @@ const Interview = () => {
     <div className="interview">
       <h2>면접 상세</h2>
       <div>
-        <Link to ="/recruit/interview/commonquestion">
-        <button id="button_red">면접 기본 질문 작성하기</button></Link>
+        <Link to="/recruit/interview/commonquestion">
+          <button id="button_red">면접 기본 질문 작성하기</button></Link>
       </div>
 
       <div>
@@ -74,8 +74,8 @@ const Interview = () => {
         <div className="adminList">{interviewFormList}</div>
       </div>
       <div className="adminButton">
-        <Link to ="/recruit/interview/postprocessing">
-        <button id="button10">합격자 관리하기</button></Link>
+        <Link to="/recruit/interview/postprocessing">
+          <button id="button10">합격자 관리하기</button></Link>
       </div>
     </div>
   );
