@@ -941,16 +941,16 @@ class RecruitProcessFormView(APIView):
         Recruit_basic = RecruitFormatSerializer(recruit_format.objects.filter(club_id=club_id),many=True)
         data1 = Recruit_basic.data
 
-        Multiple_choice = eval(data1["Multiple_choice"])
+        Multiple_choice = eval(data1["Multiple_choice"][0])
         dict_Multiple_choice = dict(OrderedDict(Multiple_choice))
         datas.pop('Multiple_choice')
         data1['Multiple_choice'] = dict_Multiple_choice
-        Short_answer = eval(data1["Short_answer"])
+        Short_answer = eval(data1["Short_answer"][0])
         dict_Short_answer = dict(OrderedDict(Short_answer))
         datas.pop('Short_answer')
         data1['Short_answer'] = dict_Short_answer
 
-        long_answer = eval(data1["long_answer"])
+        long_answer = eval(data1["long_answer"][0])
         dict_long_answer = dict(OrderedDict(long_answer))
         datas.pop('long_answer')
         data1['long_answer'] = dict_long_answer
