@@ -23,7 +23,6 @@ import mypageStatus from './pages/mypage/mypageStatus';
 import myPageNotice from './pages/mypage/myPageNotice';
 import Use from './pages/about/Use';
 import Open from './pages/circle/Open';
-import myPageIntroduction from './pages/mypage/introduction/myPageIntroduction';
 import CircleOpenSuccess from './pages/circle/CircleOpenSuccess';
 import CircleOpenApproval from './pages/circle/CircleOpenApproval';
 import CircleOpenReject from './pages/circle/CircleOpenReject';
@@ -61,6 +60,7 @@ import logo from './images/logo@2x.png';
 import Test from './Test/Test';
 import words from './images/words.png';
 import Intro from './pages/about/Intro';
+import myPageIntroduction from './pages/mypage/introduction/myPageIntroduction';
 
 function App() {
   const cookies = new Cookies();
@@ -174,8 +174,6 @@ function App() {
             <Route exact path="/posts" component={TestList} />
             <Route exact path="/rt" component={RedirectTest} />
             {/* mypage */}
-            <Route exact path="/mypage/:user_id" component={mypage} />
-            <Route exact path="/mypage/edit/:user_id" component={MyPageEdit} />
             <Route exact path="/mypage/status" component={mypageStatus} />
             <Route
               exact
@@ -187,6 +185,8 @@ function App() {
               path="/mypage/introduction"
               component={myPageIntroduction}
             />
+            <Route exact path="/mypage/edit/:user_id" component={MyPageEdit} />
+            <Route exact path="/mypage/:user_id" component={mypage} />
             <Route exact path="/about/use" component={Use}></Route>
             {/* circle */}
             <Route exact path="/circle/open" component={Open}></Route>
