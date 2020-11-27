@@ -14,7 +14,7 @@ import imgB from '../images/card_user.png';
 import imgC from '../images/banner1_words@2x.png';
 import imgD from '../images/howitworks@2x.png';
 import imgE from '../images/keyservice@2x.png';
-import imgF from '../images/banner2@2x.png';
+import imgF from '../images/banner2_words@2x.png';
 import icon_academy from '../images/icon_academy@2x.png';
 import icon_art from '../images/icon_art@2x.png';
 import icon_networking from '../images/icon_networking@2x.png';
@@ -195,10 +195,11 @@ const List = (props: RouteComponentProps<{}>) => {
           alt='key services' />
       </div>
       <div className="home_mid5_wrapper">
-        <img
-          className="img_keys"
-          src={imgF}
-          alt='banner' />
+        <div className="home_banner2">
+          <img
+            className="img_keys"
+            src={imgF}
+            alt='banner' /></div>
       </div>
     </div>
   );
