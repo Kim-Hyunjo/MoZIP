@@ -935,7 +935,7 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
 
 
 class RecruitProcessFormView(APIView):
-       def get(self, request,club_id):
+    def get(self, request,club_id):
         Type_choice ={"1":"면접전형","2":"서류전형","3":"면접+서류전형"}
         club_id = -club_id
         Recruit_basic = RecruitFormatSerializer(recruit_format.objects.filter(club_id=club_id),many=True)
