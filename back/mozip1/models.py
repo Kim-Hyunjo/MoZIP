@@ -67,6 +67,7 @@ class Club_review(models.Model):
 
 class Club_FAQ(models.Model):
     FAQ = models.JSONField()
+    user_id = models.PositiveIntegerField()
     club_id = models.IntegerField()
     objects = models.DjongoManager()
 

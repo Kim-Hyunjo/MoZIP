@@ -35,7 +35,7 @@ class ClubReviewSerializer(serializers.HyperlinkedModelSerializer):
 class ClubFAQSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Club_FAQ
-        fields = ['FAQ', 'club_id']
+        fields = ['FAQ', 'club_id','user_id']
 
 class ClubIntroduceSerializer(serializers.ModelSerializer):
     class Meta:
