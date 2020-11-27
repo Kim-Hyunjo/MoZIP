@@ -942,9 +942,11 @@ class RecruitProcessFormView(APIView):
         data1 = Recruit_basic.data
 
         Multiple_choice = eval(data1["Multiple_choice"])
+        '''
         dict_Multiple_choice = dict(OrderedDict(Multiple_choice))
         datas.pop('Multiple_choice')
-        data1['Multiple_choice'] = dict_Multiple_choice
+        '''
+        data1['Multiple_choice'] = Multiple_choice
 
         Short_answer = eval(data1["Short_answer"])
         dict_Short_answer = dict(OrderedDict(Short_answer))
