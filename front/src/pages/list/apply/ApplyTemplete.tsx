@@ -205,16 +205,16 @@ const ApplyTemplete = ({ history }: any) => {
         <div className="resumeList_header">자기소개함</div>
         <ul>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            지원 동기/이유<p>복사하기</p>
           </li>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            자기 소개(성격)<p>복사하기</p>
           </li>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            공모전/대회 경력<p>복사하기</p>
           </li>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            각오<p>복사하기</p>
           </li>
         </ul>
       </div>
