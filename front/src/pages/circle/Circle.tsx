@@ -17,46 +17,13 @@ const Circle = (
 ) => {
   const [toggle, setToggle] = useState<boolean>(true);
   const [faqs, setFaqs] = useState<FAQ[]>([
-    { id: 0, question: '지원 동기/이유', answer: 'asdasdasd' },
+    { id: 0, question: 'TAVE에서는 주로 무슨 활동을 하나요?', answer: '본인의 흥미에 맞는 공부를 원하는 사람들과 함께 할 수 있습니다.' },
     {
       id: 1,
       question:
-        '대학 입학 후 현재까지 한 활동과 느낀점을 중심으로 자신을 소개해주세요.',
-      answer: '하이하이',
+        '활동 시기는 어떻게 되나요?',
+      answer: '반년마다 새로운 기수를 모집 중이며, 한 기수는 반년간 전반기, 후반기로 나누어 활동을 진행합니다. 다음 기수를 뽑았더라도 계속 활동을 하고 싶으시다면 OB로 지속적으로 활동하시는 것도 가능합니다 :)',
     },
-    { id: 2, question: '자기 소개(성격)', answer: '하이하이' },
-    { id: 3, question: '취미/특기/관심사', answer: '하이하이' },
-    {
-      id: 4,
-      question: '동아리 활동과 관련하여 지금까지 한 활동',
-      answer: '하이하이',
-    },
-    {
-      id: 5,
-      question: '단체 생활을 한 경험, 느낀점, 단체에서의 역할',
-      answer: '하이하이',
-    },
-    {
-      id: 6,
-      question: '타인과 갈등 발생했던 상황에서 성공/실패한 경험 느낀점',
-      answer: '하이하이',
-    },
-    { id: 7, question: '공모전/대회 경력', answer: '하이하이' },
-    { id: 8, question: '자신에게 가장 의미 있었던 경험', answer: '하이하이' },
-    { id: 9, question: '동아리에서 하고 싶은 활동', answer: '하이하이' },
-    { id: 10, question: '동아리 활동을 통해 얻고 싶은 점', answer: '하이하이' },
-    {
-      id: 11,
-      question: '본인이 동아리에 도움이 될 수 있는 점',
-      answer: '하이하이',
-    },
-    {
-      id: 12,
-      question: '동아리에서 본인을 뽑아야 하는 이유',
-      answer: '하이하이',
-    },
-    { id: 13, question: '향후 학업 계획', answer: '하이하이' },
-    { id: 14, question: '각오', answer: '하이하이' },
   ]);
   const [id, setId] = useState<number>(15);
   const [newQuestion, setNewQuestion] = useState<string>('');
@@ -112,7 +79,7 @@ const Circle = (
   };
 const [info, setinfo] = useState<any>([]);
 const getData = async() =>{
-  await axios.get('http://3.35.234.131:8000/list/academy/1/').then((r)=>{
+  await axios.get('http://localhost:8000/list/academy/1/').then((r)=>{
     let res = r.data;
     console.log(res)
     setinfo(res)
@@ -172,27 +139,9 @@ return (
             <div className="circle_review">
               <div className="reviewer"></div>
               <div className="reviewDetail">
-                TAVE 6기로 활동하였습니다. 최고의 동아리입니다. 글 길게 쓰면은
-                말풍선이 길어지지롱 히히ㅣ히힣히ㅣㅣㅣ히히ㅣ히ㅣ ㅎ ㅣㅎ ㅣㅎ
-                ㅣㅎ히 히 hello hi my mame dfsdj a dfid fsdf wef grigrgjowijg
-                owjgowiejowijg oojweg kjflsjfl oh jflsdjfl sdf sfj df fjsf lfjs
-                flsd ff lsdfj sf lf ldfdflkd fdf sdf sdlfj sdf sdlfsldfldsjf sdf
-                djflsdkf fdsfs ff wef fw fwef wef ew f hr jr wr g e fwef w
-                fjlsf여기가 끝이야
-              </div>
-              <div className="reviewDate">2020-09-19 17:00</div>
-            </div>
-            <div className="circle_review">
-              <div className="reviewer">나는야테이비</div>
-              <div className="reviewDetail">
-                TAVE 6기로 활동하였습니다. 최고의 동아리입니다.
-              </div>
-              <div className="reviewDate">2020-09-19 17:00</div>
-            </div>
-            <div className="circle_review">
-              <div className="reviewer">나는야테이비</div>
-              <div className="reviewDetail">
-                TAVE 6기로 활동하였습니다. 최고의 동아리입니다.
+                TAVE 6기로 활동하였습니다. 정말 많은 것을 배우고 느낄 수 있었습니다. <br></br>특히 너무 좋은 조원들과
+                재미있게 스터디와 프로젝트를 진행할 수 있어서 너무나도 값진 경험이었습니다. <br></br>
+                지원을 고민 중이시라면 망설이지 말고 지원하세요!
               </div>
               <div className="reviewDate">2020-09-19 17:00</div>
             </div>

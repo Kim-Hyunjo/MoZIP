@@ -27,7 +27,7 @@ interface Question {
 const myPageIntroduction = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [questions, setQuestions] = useState<Question[]>([
-    { id: 0, title: '지원 동기/이유', content: 'asdasdasd' },
+    { id: 0, title: '지원 동기/이유', content: 'TAVE가 최고의 동아리라는 것이 지구 반대편까지 소문이 났다고 들었습니다.' },
     {
       id: 1,
       title:
