@@ -16,7 +16,7 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
     { day: '2일차', date: '2020년 11월 29일', time: ' 오후 4시~7시', site: '히히대학교', total: "총 8명" },
     { day: '3일차', date: '2020년 11월 30일', time: ' 오후 5시~7시', site: '호호대학교', total: "총 8명" },
     { day: '4일차', date: '2020년 12월 1일', time: ' 오후 5시~7시', site: '헤헤대학교', total: "총 8명" },]
-    const schedule = [{ date: "2020.11.28", count: '1일차' }, { date: "2020.11.29", count: '2일차' }, { date: "2020.11.30", count: '3일차' },{ date: "2020.12.1", count: '4일차' }];
+    const schedule = [{ date: "2020.11.28", count: '1일차' }, { date: "2020.11.29", count: '2일차' }, { date: "2020.11.30", count: '3일차' }, { date: "2020.12.1", count: '4일차' }];
     const apply = [{ time: "16:00", candidate: "한채은,한예송", manager: "김스탭,권스탭" }, { time: "16:30", candidate: "김철수,박철수", manager: "김스탭,권스탭" }, { time: "17:00", candidate: "김웅기,나웅기", manager: "김스탭,권스탭" }, { time: "18:00", candidate: "이채은,김채은", manager: "김스탭,권스탭" },]
 
     let dayInform;
@@ -96,7 +96,7 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
 
                                     <div className="intervieweeInform">
                                         <div className="display_horiz interview_group_wrap"><h3>{item.day} 대상자</h3>
-                                            <span>총 {(apply.length)*2}명</span>
+                                            <span>총 {(apply.length) * 2}명</span>
                                             <button id="button1">수정하기</button></div>
                                         <ul className="intervieweeGroup">
                                             {apply.map((info) => {
@@ -181,7 +181,7 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                     <div className="interview_leftover">
                         <h2>남은 인원:</h2>
                         <div>
-                            <div className="tiny_gray_namecard display_horiz2">
+                            <div className="tiny_gray_namecard display_horiz2 move_leftover_up">
                                 <h4>김남음</h4>
                                 <div className="clubImage">
                                     <img
