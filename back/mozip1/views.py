@@ -337,6 +337,7 @@ class ListApply2View(APIView):
     def get(self, request, cc_id, user_id):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
+        '''
         datas = serializer1.data[0]  
         datas["short_answer"] = eval(datas["Short_answer"])
         datas["Long_answer"] = eval(datas["long_answer"])
@@ -346,11 +347,12 @@ class ListApply2View(APIView):
         datas.pop("Multiple_choice")
         datas.pop("Short_answer")
         datas.pop("long_answer")
+        '''
         data2 = serializer2.data[0]
         data2["RecordQ"] = eval(data2["recordQ"])
         data2.pop("recordQ")
         res = {}
-        res["recruit_format"] = datas
+        #res["recruit_format"] = datas
         res["user_record"] = data2       
         return add_cors_header(Response(res))
         #return Response(serializer2.data)
