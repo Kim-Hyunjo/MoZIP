@@ -17,13 +17,25 @@ const Circle = (
 ) => {
   const [toggle, setToggle] = useState<boolean>(true);
   const [faqs, setFaqs] = useState<FAQ[]>([
-    { id: 0, question: 'TAVE에서는 주로 무슨 활동을 하나요?', answer: '본인의 흥미에 맞는 공부를 원하는 사람들과 함께 할 수 있습니다.' },
+    { id: 0, question: '동아리 인원수는 어느 정도 인가요?', answer: '모집인원은 50명 입니다.' },
     {
       id: 1,
       question:
-        '활동 시기는 어떻게 되나요?',
-      answer: '반년마다 새로운 기수를 모집 중이며, 한 기수는 반년간 전반기, 후반기로 나누어 활동을 진행합니다. 다음 기수를 뽑았더라도 계속 활동을 하고 싶으시다면 OB로 지속적으로 활동하시는 것도 가능합니다 :)',
+        '활동 지역에 대해서 알고 싶습니다. ',
+      answer: '분야마다 다르지만 활동지역은 서울 내 임의 장소에서 실시될 예정입니다.',
     },
+    { id: 2, question: '활동 기간은 언제까지 인가요?', answer: '활동기간은 8월에서 11월로 총 4개월입니다.' },
+    {
+      id: 3,
+      question: '스터디를 직접 만들어서 진행할 수 있나요?',
+      answer: '인원만 충족되면 가능합니다.',
+    },
+    {
+      id: 4,
+      question: '모임 일정은 어떻게 되나요?',
+      answer: '매주 토요일 2~5시 입니다.',
+    },
+   
   ]);
   const [id, setId] = useState<number>(15);
   const [newQuestion, setNewQuestion] = useState<string>('');
@@ -137,7 +149,7 @@ return (
           <div className="small_title">동아리원 후기</div>
           <div className="circle_reviewList">
             <div className="circle_review">
-              <div className="reviewer"></div>
+              <div className="reviewer">홍길동</div>
               <div className="reviewDetail">
                 TAVE 6기로 활동하였습니다. 정말 많은 것을 배우고 느낄 수 있었습니다. <br></br>특히 너무 좋은 조원들과
                 재미있게 스터디와 프로젝트를 진행할 수 있어서 너무나도 값진 경험이었습니다. <br></br>
@@ -146,7 +158,7 @@ return (
               <div className="reviewDate">2020-09-19 17:00</div>
             </div>
             <div className="circle_review">
-              <div className="reviewer">나는야테이비</div>
+              <div className="reviewer">홍길동</div>
               <div className="reviewDetail">
                 TAVE 6기로 활동하였습니다. 최고의 동아리입니다.
               </div>
