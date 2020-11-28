@@ -8,24 +8,30 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
+import person1 from '../images2/member2@2x.png';
+import person2 from '../images2/member3@2x.png';
+import person3 from '../images2/member4@2x.png';
+import person4 from '../images2/member5@2x.png';
+import person5 from '../images2/member6@2x.png';
+
 const Resume3 = () => {
     const [toggle, setToggle] = useState<boolean>(false);
     const manager = [
-    { name: '최우영', select: '선택완료', timeSelect: '시간선택' },
-    { name: '박웅기', select: '선택완료', timeSelect: '시간선택' },
-    { name: '왕희도', select: '선택완료', timeSelect: '시간선택' },
-    { name: '한채은', select: '선택완료', timeSelect: '시간선택' },
-    { name: '김정우', select: '선택완료', timeSelect: '시간선택' },
-    { name: '이하연', select: '선택완료', timeSelect: '시간선택' },
-    { name: '김현조', select: '선택완료', timeSelect: '시간선택' },
-    { name: '한예송', select: '선택완료', timeSelect: '시간선택' },
-    { name: '홍길동', select: '선택완료', timeSelect: '시간선택' },
-    { name: '이순신', select: '선택완료', timeSelect: '시간선택' },
-    { name: '김철수', select: '선택완료', timeSelect: '시간선택' }]
+        { name: '최우영', select: '선택완료', timeSelect: '시간선택' },
+        { name: '박웅기', select: '선택완료', timeSelect: '시간선택' },
+        { name: '왕희도', select: '선택완료', timeSelect: '시간선택' },
+        { name: '한채은', select: '선택완료', timeSelect: '시간선택' },
+        { name: '김정우', select: '선택완료', timeSelect: '시간선택' },
+        { name: '이하연', select: '선택완료', timeSelect: '시간선택' },
+        { name: '김현조', select: '선택완료', timeSelect: '시간선택' },
+        { name: '한예송', select: '선택완료', timeSelect: '시간선택' },
+        { name: '홍길동', select: '선택완료', timeSelect: '시간선택' },
+        { name: '이순신', select: '선택완료', timeSelect: '시간선택' },
+        { name: '김철수', select: '선택완료', timeSelect: '시간선택' }]
     const division = [
-        { group: '1조', date: '11월 28일', time: '오후 4~7시', total: '8' }, 
-        { group: '2조', date: '11월 29일', time: '오후 4~7시', total: '8' }, 
-        { group: '3조', date: '11월 30일', time: '오후 4~7시', total: '8' }, 
+        { group: '1조', date: '11월 28일', time: '오후 4~7시', total: '8' },
+        { group: '2조', date: '11월 29일', time: '오후 4~7시', total: '8' },
+        { group: '3조', date: '11월 30일', time: '오후 4~7시', total: '8' },
         { group: '4조', date: '12월 1일', time: '오후 4~7시', total: '8' },]
     return (
         <div className="resume">
@@ -118,14 +124,14 @@ const Resume3 = () => {
                         <button id="button1_blue">저장</button>
                         {/* <button id="button1">수정</button>  */}
                     </div>
-                    <button onClick={()=>setToggle(!toggle)}  id="button10">면접 그룹 나누기</button>
+                    <button onClick={() => setToggle(!toggle)} id="button10">면접 그룹 나누기</button>
                 </div>
-                
-                
+
+
                 <div>
                     {toggle ? (
                         <div>
-                        <div className="title">면접 조 결과</div>
+                            <div className="title">면접 조 결과</div>
                             <ul>
                                 <li className="tiny_gray_namecard">
                                     <div className="tiny_name">{division[0].group}</div>
@@ -154,52 +160,62 @@ const Resume3 = () => {
                             </div>
                         </div>
                     ) : (
-                        <div>
-                            
-                        </div>
+                            <div>
+
+                            </div>
                         )}
-                    
+
                 </div>
                 {toggle ? (
-                <div className="result">
-                    <div className="title">남은 인원: 5명</div>
-                    <p>남은 인원은 '자세히'에 들어가 직접 시간을 지정해주세요.</p>
-                    <div className="interview_leftover">
+                    <div className="result">
+                        <div className="title">남은 인원: 5명</div>
+                        <p>남은 인원은 '자세히'에 들어가 직접 시간을 지정해주세요.</p>
+                        <div className="interview_leftover leftover_givespace">
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>김남음</h4>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person1}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>박남음</h4>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person2}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>이남음</h4>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person3}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>오남음</h4>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person4}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>권남음</h4>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person5}
+                                        alt='profile image' />
                                 </div>
                             </div>
                         </div>
-                </div>) : (<div></div>)}
-                
+                    </div>) : (<div></div>)}
+                {toggle ? (<Link to="/recruit/resume"><button className="btn_submit_interview_group" id="button_red">면접 그룹 등록하기</button></Link>) : (<div></div>)}
             </div>
-            {toggle ? (<Link to="/recruit/resume"><button id="button_red">면접 그룹 등록하기</button></Link>) : (<div></div>)}
+            {/* {toggle ? (<Link to="/recruit/resume"><button className="btn_submit_interview_group" id="button_red">면접 그룹 등록하기</button></Link>) : (<div></div>)} */}
         </div>
     )
 }
