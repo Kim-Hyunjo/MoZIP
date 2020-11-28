@@ -59,16 +59,13 @@ const Record = () => {
               <div className="stateName">한채은</div>
             </li>
             <li>
-              <div className="stateName">한채은</div>
-            </li>
-            <li>
-              <div className="stateName">한채은</div>
+              <div className="stateName">한예송</div>
             </li>
           </ul>
 
-          <div className="interviewDate">면접 일시 2020-09-19 13:00</div>
+          <div className="interviewDate">면접 일시 2020-11-28 16:00</div>
           <div className="interviewer">면접관 최우영, 왕희도</div>
-          <div className="paperScore">서류 총점 : 10점</div>
+          <div className="paperScore">서류 총점 : 39점</div>
           <div className="gray_namecard">
             <div>
               <span>프로필 사진</span>
@@ -97,7 +94,7 @@ const Record = () => {
                         <div className="resumeQuestion">{info.question}</div>
                         <div className="resumeAnswer">{info.answer}</div>
                         <div className="answerScore">
-                          <span>5점</span>
+                          <span>10점</span>
                         </div>
                       </li>
                     </div>

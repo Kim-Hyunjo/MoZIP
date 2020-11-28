@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React, { Fragment, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -8,7 +9,8 @@ import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 const Resume3 = () => {
-    const manager = [{ name: '최우영', select: '선택완료', timeSelect: '시간선택' },
+    const [toggle, setToggle] = useState<boolean>(false);
+    const manager = [
     { name: '최우영', select: '선택완료', timeSelect: '시간선택' },
     { name: '박웅기', select: '선택완료', timeSelect: '시간선택' },
     { name: '왕희도', select: '선택완료', timeSelect: '시간선택' },
@@ -20,7 +22,11 @@ const Resume3 = () => {
     { name: '홍길동', select: '선택완료', timeSelect: '시간선택' },
     { name: '이순신', select: '선택완료', timeSelect: '시간선택' },
     { name: '김철수', select: '선택완료', timeSelect: '시간선택' }]
-    const division = [{ group: '1조', date: '7월 10일', time: '오후 4~7시', total: '12' }, { group: '2조', date: '7월 10일', time: '오후 4~7시', total: '12' }, { group: '3조', date: '7월 10일', time: '오후 4~7시', total: '12' }, { group: '4조', date: '7월 10일', time: '오후 4~7시', total: '12' },]
+    const division = [
+        { group: '1조', date: '11월 28일', time: '오후 4~7시', total: '8' }, 
+        { group: '2조', date: '11월 29일', time: '오후 4~7시', total: '8' }, 
+        { group: '3조', date: '11월 30일', time: '오후 4~7시', total: '8' }, 
+        { group: '4조', date: '12월 1일', time: '오후 4~7시', total: '8' },]
     return (
         <div className="resume">
             <div>
@@ -110,34 +116,90 @@ const Resume3 = () => {
                     </div>
                     <div className="twoButtons">
                         <button id="button1_blue">저장</button>
-                        <button id="button1">수정</button>
+                        {/* <button id="button1">수정</button>  */}
                     </div>
-                    <button id="button10">면접 그룹 나누기</button>
+                    <button onClick={()=>setToggle(!toggle)}  id="button10">면접 그룹 나누기</button>
                 </div>
+                
+                
                 <div>
-                    <div className="title">면접 조 결과</div>
-                    <ul>
-                        {division.map((info) => {
-                            <li className="tiny_gray_namecard">
-                                <div className="tiny_name">{info.group}</div>
-                                <div className="tiny_status">총 {info.total}명</div>
-                                <p>{info.date}<br></br>{info.time}
-                                </p>
-                            </li>
-                        })}
-
-                    </ul>
-                    <div className="twoButtons">
-                        <button id="button1_blue">임시저장</button>
-                        <Link to="/recruit/schedule/management/detail"><button id="button1">자세히</button></Link>
-                    </div>
+                    {toggle ? (
+                        <div>
+                        <div className="title">면접 조 결과</div>
+                            <ul>
+                                <li className="tiny_gray_namecard">
+                                    <div className="tiny_name">{division[0].group}</div>
+                                    <div className="tiny_status">총 {division[0].total}명</div>
+                                    <p>{division[0].date}<br></br>{division[0].time}</p>
+                                </li>
+                                <li className="tiny_gray_namecard">
+                                    <div className="tiny_name">{division[1].group}</div>
+                                    <div className="tiny_status">총 {division[1].total}명</div>
+                                    <p>{division[1].date}<br></br>{division[1].time}</p>
+                                </li>
+                                <li className="tiny_gray_namecard">
+                                    <div className="tiny_name">{division[2].group}</div>
+                                    <div className="tiny_status">총 {division[2].total}명</div>
+                                    <p>{division[2].date}<br></br>{division[2].time}</p>
+                                </li>
+                                <li className="tiny_gray_namecard">
+                                    <div className="tiny_name">{division[3].group}</div>
+                                    <div className="tiny_status">총 {division[3].total}명</div>
+                                    <p>{division[3].date}<br></br>{division[3].time}</p>
+                                </li>
+                            </ul>
+                            <div className="twoButtons">
+                                <button id="button1_blue">임시저장</button>
+                                <Link to="/recruit/schedule/management/detail"><button id="button1">자세히</button></Link>
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            
+                        </div>
+                        )}
+                    
                 </div>
+                {toggle ? (
                 <div className="result">
-                    <div className="title">남은 인원: 0명</div>
+                    <div className="title">남은 인원: 5명</div>
                     <p>남은 인원은 '자세히'에 들어가 직접 시간을 지정해주세요.</p>
-                </div>
+                    <div className="interview_leftover">
+                            <div className="tiny_gray_namecard display_horiz2">
+                                <h4>김남음</h4>
+                                <div className="clubImage">
+                                    <img src="http://placehold.it/100x100" />
+                                </div>
+                            </div>
+                            <div className="tiny_gray_namecard display_horiz2">
+                                <h4>박남음</h4>
+                                <div className="clubImage">
+                                    <img src="http://placehold.it/100x100" />
+                                </div>
+                            </div>
+                            <div className="tiny_gray_namecard display_horiz2">
+                                <h4>이남음</h4>
+                                <div className="clubImage">
+                                    <img src="http://placehold.it/100x100" />
+                                </div>
+                            </div>
+                            <div className="tiny_gray_namecard display_horiz2">
+                                <h4>오남음</h4>
+                                <div className="clubImage">
+                                    <img src="http://placehold.it/100x100" />
+                                </div>
+                            </div>
+                            <div className="tiny_gray_namecard display_horiz2">
+                                <h4>권남음</h4>
+                                <div className="clubImage">
+                                    <img src="http://placehold.it/100x100" />
+                                </div>
+                            </div>
+                        </div>
+                </div>) : (<div></div>)}
+                
             </div>
-            <Link to="/recruit/resume"><button id="button_red">면접 그룹 등록하기</button></Link>
+            {toggle ? (<Link to="/recruit/resume"><button id="button_red">면접 그룹 등록하기</button></Link>) : (<div></div>)}
         </div>
     )
 }
