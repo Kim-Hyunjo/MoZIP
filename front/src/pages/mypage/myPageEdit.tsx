@@ -68,7 +68,7 @@ const MyPageEdit = (props: RouteComponentProps<{ user_id: string }>) => {
   })
 
   const getApi = async () => {
-    await axios.get('http://3.35.234.131:8000/mypage/1/edit/').then((r) => {
+    await axios.get('http://127.0.0.1:8000/mypage/1/edit/').then((r) => {
       let res: MyInform = r.data;
       setInform(res);
       setname(res.name);
