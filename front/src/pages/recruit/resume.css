@@ -272,3 +272,43 @@
   width: 56px;
   text-align: center;
 }
+
+/*adding images*/
+.profile_image {
+  width: 150px;
+  height: 150px;
+}
+.profile_image img{
+  width: 150px;
+  height: 150px;
+
+  margin: 16px 12px;
+}
+.profile_description{
+  margin: 16px;
+  padding:20px;
+}
+.clubImage100{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+.clubImage100 img{
+  width: 100px;
+  height: 100px;
+}
+.interview_leftover .tiny_gray_namecard{
+  height: 200px;
+  margin-bottom: -200px;
+}
+.interview_leftover .tiny_gray_namecard:nth-child(1){
+ transform: translate(0px, -116px);
+}
+.record_profileimg{
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+.record_personalinfo {
+  padding: 20px;
+}
