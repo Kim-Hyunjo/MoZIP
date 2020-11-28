@@ -4,6 +4,8 @@ import SelfIntroduction from '../SelfIntroduction';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import Resume2Score from './Resume2Score';
 
+import profile from '../images2/member7@2x.png';
+
 interface Question {
   id: number;
   question: string;
@@ -82,9 +84,12 @@ const Resume2 = (props: RouteComponentProps<{ member_id: string }>) => {
         점수 총점 : {sum}점
       </div>
       <div className="gray_namecard">
-        <div>
-          <span>프로필 사진</span>
-          <div className="right_side">
+        <div className="display_horiz">
+          <div className="profile_image">
+            <img
+              src={profile}
+              alt='profile image' /></div>
+          <div className="right_side profile_description">
             <ul>
               <li className="name">{info[0].name}</li>
               <li>

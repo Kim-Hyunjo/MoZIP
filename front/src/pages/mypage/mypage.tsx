@@ -5,6 +5,12 @@ import './namecard.css';
 import './button.css';
 import { DevelopUrl } from '../../http/HttpUrl';
 
+import profile from '../images2/member1@2x.png';
+import club1 from '../images2/club1@2x.png';
+import club2 from '../images2/club2@2x.png';
+import club3 from '../images2/club3@2x.png';
+import club4 from '../images2/club4@2x.png';
+
 interface myInform {
   profile: Profile;
   applying_list: ApplyingList[];
@@ -126,7 +132,9 @@ const Mypage = (props: RouteComponentProps<{ user_id: string }>) => {
       </div>
       <div className="big_namecard">
         <div className="profileImage">
-          <img src="http://placehold.it/180x180" />
+          <img
+            src={profile}
+            alt='profile image' />
         </div>
         <div className="right_side">
           <div className="name">{personalInfo.name}</div>
@@ -162,7 +170,9 @@ const Mypage = (props: RouteComponentProps<{ user_id: string }>) => {
                     {item.information}
                   </div>
                   <div className="clubImage">
-                    <img src="http://placehold.it/120x120" />
+                    <img
+                      src={club1}
+                      alt='club image' />
                   </div>
                   <Link to="/mypage/:circle_id/notice">
                     <button id="button2">최종 결과 확인</button></Link>
@@ -194,7 +204,9 @@ const Mypage = (props: RouteComponentProps<{ user_id: string }>) => {
                       {item.information}
                     </div>
                     <div className="clubImage150">
-                      <img src="http://placehold.it/150x150" />
+                      <img
+                        src={club2}
+                        alt='club image' />
                     </div>
                   </Link>
                 </li>
@@ -221,7 +233,10 @@ const Mypage = (props: RouteComponentProps<{ user_id: string }>) => {
                     {item.information}
                   </div>
                   <div className="clubImage150">
-                    <img src="http://placehold.it/150x150" />
+
+                    <img
+                      src={club3}
+                      alt='club image' />
                   </div>
                 </li>
               );
@@ -244,7 +259,9 @@ const Mypage = (props: RouteComponentProps<{ user_id: string }>) => {
                     {item.information}
                   </div>
                   <div className="clubImage150">
-                    <img src="http://placehold.it/150x150" />
+                    <img
+                      src={club4}
+                      alt='club image' />
                   </div>
                 </li>
               );

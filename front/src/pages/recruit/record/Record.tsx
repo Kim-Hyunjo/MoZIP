@@ -2,6 +2,8 @@ import React from 'react';
 import '../resume.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import profile from '../images3/member7@2x.png';
+
 const Record = () => {
   const info = [
     {
@@ -53,26 +55,31 @@ const Record = () => {
       <h4>지원자의 면접 답변을 실시간으로 작성해보세요.</h4>
       <form action="">
         <label htmlFor=""></label>
-        <div className="stateBox">
-          <ul className="states">
-            <li>
-              <div className="stateName">한채은</div>
-            </li>
-            <li>
-              <div className="stateName">한채은</div>
-            </li>
-            <li>
-              <div className="stateName">한채은</div>
-            </li>
-          </ul>
+        {/* <div className="stateBox"> */}
+        <ul className="states">
+          <li>
+            <div className="stateName">한채은</div>
+          </li>
+          <li>
+            <div className="stateName">한채은</div>
+          </li>
+          <li>
+            <div className="stateName">한채은</div>
+          </li>
+        </ul>
+        {/* <div className="record_blankspace"></div> */}
 
+        <div className="stateBox_record">
           <div className="interviewDate">면접 일시 2020-09-19 13:00</div>
           <div className="interviewer">면접관 최우영, 왕희도</div>
           <div className="paperScore">서류 총점 : 10점</div>
           <div className="gray_namecard">
-            <div>
-              <span>프로필 사진</span>
-              <div className="right_side">
+            <div className="display_horiz">
+              <img
+                className="record_profileimg"
+                src={profile}
+                alt='profile image' />
+              <div className="right_side record_personalinfo">
                 <ul>
                   <li className="name">{info[0].name}</li>
                   <li>
@@ -117,7 +124,7 @@ const Record = () => {
                   <div className="interviewAnswer">
                     <input type="text"></input>
                   </div>
-                  <div>
+                  <div className="interviewScore_radio">
                     {[...Array(info.maxScore)].map((n, index) => {
                       return (
                         <span>
@@ -177,14 +184,16 @@ const Record = () => {
               </div>
             </div> */}
           </div>
+
+          <div className="twoButtons">
+            <Link to="/recruit/interview/detail/1">
+              <button id="button1_blue">저장</button></Link>
+            <button id="button1">임시 저장</button>
+          </div>
         </div>
       </form>
-      <div className="twoButtons">
-        <Link to ="/recruit/interview/detail/1">
-        <button id="button1_blue">저장</button></Link>
-        <button id="button1">임시 저장</button>
-      </div>
     </div>
+
   );
 };
 

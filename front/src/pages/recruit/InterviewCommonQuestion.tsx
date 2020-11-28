@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Circle from '../circle/Circle';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+
 interface Question {
   id: number;
   question: string;
@@ -35,6 +36,21 @@ const InterviewCommonQuestion = () => {
     return (
       <div className="interviewQuestion" key={index}>
         <div className="small_title">질문 {index + 1}.</div>
+        <button
+          id="button_x"
+          onClick={() => {
+            // let q: Question[] = Object.assign([], questions);
+            // q.filter((info) => info.id !== item.id);
+            let q: Question[] = [];
+            questions.map((info) => {
+              if (info.id !== item.id) {
+                q.push(info);
+              }
+            });
+            setQuestions(q);
+          }}
+        >
+        </button>
         <input type="text" value={item.question}></input>
         <div className="maxScore">
           최대 부여 점수
@@ -61,22 +77,7 @@ const InterviewCommonQuestion = () => {
           </select>
         </div>
 
-        <button
-          id="button_x"
-          onClick={() => {
-            // let q: Question[] = Object.assign([], questions);
-            // q.filter((info) => info.id !== item.id);
-            let q: Question[] = [];
-            questions.map((info) => {
-              if (info.id !== item.id) {
-                q.push(info);
-              }
-            });
-            setQuestions(q);
-          }}
-        >
-          x
-        </button>
+
       </div>
     );
   });
@@ -90,34 +91,17 @@ const InterviewCommonQuestion = () => {
         <div>
           <div className="interviewQuestionList">{interviewFormList}
             <div className="interviewQuestion">
-              <div className="small_title">추가 질문</div>
+              <div className="small_title"> </div>
               <input
+                className="interview_input2"
                 type="text"
                 value={question}
                 onChange={(e) => {
                   setQuestion(e.target.value);
                 }}
               ></input>
-              <div className="maxScore">
-                최대 부여 점수
-                <select
-                  itemType="number"
-                  value={score}
-                  onChange={(e) => {
-                    setScore((e.target.value as any) as number);
-                  }}
-                >
-                  {scoreList.map((item2) => {
-                    return (
-                      <option key={item2} value={item2}>
-                        {item2}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
               <button
-                id = "button1"
+                id="button1"
                 onClick={(e) => {
                   let q: Question[] = Object.assign([], questions);
                   let info: Question = {
@@ -136,11 +120,30 @@ const InterviewCommonQuestion = () => {
               >
                 질문 추가
               </button>
+              <div className="maxScore maxScore_choose">
+                최대 부여 점수
+                <select
+                  itemType="number"
+                  value={score}
+                  onChange={(e) => {
+                    setScore((e.target.value as any) as number);
+                  }}
+                >
+                  {scoreList.map((item2) => {
+                    return (
+                      <option key={item2} value={item2}>
+                        {item2}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+
             </div>
           </div>
         </div>
-        <Link to ="/recruit/interview">
-        <button id="button4">저장</button></Link>
+        <Link to="/recruit/interview">
+          <button id="button4">저장</button></Link>
       </div>
     </div>
   );
