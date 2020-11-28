@@ -399,12 +399,13 @@
 }
 .interviewQuestionList .small_title {
   margin: 0 auto;
-  width: 100px;
+  width: 72px;
+  max-width: 100px;
   float: left;
   transform: translate(0%, 46%);
 }
 .interviewQuestion input[type='text'] {
-  margin-top: 10px;
+  margin-top: -10px;
   padding: 5px 10px;
   width: 600px;
   height: 30px;
@@ -412,22 +413,37 @@
 }
 .interviewQuestion .maxScore {
   font-size: 18px;
-  transform: translate(13%, 60%);
+  transform: translate(16%, 60%);
 }
 .interviewQuestion select {
   font-size: 18px;
   margin-left: 10px;
 }
 .interviewQuestion #button_x {
-  transform: translate(350%, -310%);
+  /* transform: translate(350%, -310%); */
+  margin: 6px;
+  margin-top: 16px;
+  margin-right: 20px;
   border-color: red;
   color: red;
 }
 .interview #button4 {
-  transform: translate(580%, 30%);
+  /* transform: translate(580%, 30%); */
+  margin: 32px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
-.interviewQuestion #button1 {
-  transform: translate(0%, -60%);
+.interview .interviewQuestionList .interview_input2 {
+  margin-top: 32px;
+}
+.interviewQuestionList #button1 {
+  margin: 20px;
+  margin-bottom: 0px;
+}
+.interview .interviewQuestionList .maxScore_choose {
+  transform: translate(0%, 60%);
 }
 /*surely used in schedule2*/
 .schedule_cards #button1:nth-child(1) {
@@ -451,18 +467,23 @@
   font-size: 24px;
   margin-bottom: 0;
 }
-.interview_group_wrap {
+.intervieweeInform .interview_group_wrap {
+  margin-bottom: 20px;
 }
 .intervieweeInform .display_horiz h3 {
   margin-right: 20px;
 }
 .intervieweeGroup {
-  width: 560px;
+  width: 600px;
+  margin: 0;
+}
+.intervieweeGroup li{
+  width: 240px;
   margin: 0;
 }
 .intervieweeGroup #button4 {
   margin: 0;
-  transform: translate(135%, -87%);
+  transform: translate(175%, -87%);
 }
 .intervieweeInform .display_horiz span {
   margin-right: 200px;
@@ -477,6 +498,7 @@
   padding: 16px;
   position: relative;
 }
+
 .intervieweeGroup .tiny_gray_namecard span {
   font-size: 16px;
   position: absolute;
@@ -537,18 +559,22 @@
 .record {
   width: 1000px;
 }
+.record .states li {
+  margin-right: 12px;
+}
 .record .interviewDate {
   clear: both;
   font-size: 25px;
   padding: 40px 100px;
 }
-.record .stateBox {
-  margin-top: 15px;
+.record .stateBox_record {
+  margin-top: 32px;
   align-items: center;
   width: 1000px;
   height: auto;
   border: 1px solid;
   border-color: #707070;
+  transform: translate(0px, 62px);
 }
 .record .interviewer {
   display: flex;
@@ -573,6 +599,10 @@
 }
 .record .small_gray_namecard {
   width: 700px;
+}
+.record .small_gray_namecard .answerScore {
+  float: right;
+  transform: translate(10%, -380%);
 }
 .record .small_gray_namecard .answerScore_ {
   float: right;
@@ -608,6 +638,14 @@
 .record .interviewAnswer input {
   width: 500px;
   height: 200px;
+}
+.record .interviewScore_radio {
+  margin-left: 36%;
+  margin-top: 20px;
+}
+.record .interviewScore_radio input{
+  margin: 4px;
+  margin-left: 8px;
 }
 .record #button_plus {
   margin: 0 auto;

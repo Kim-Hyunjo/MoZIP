@@ -42,6 +42,8 @@
   border-radius: 300px;
   float: left;
   transform: translate(18%, 28%);
+  width: 180px;
+  height: 180px;
 }
 .warning {
   min-width: 70%;
@@ -56,6 +58,8 @@
   margin: 0 auto;
   display: inherit;
   margin-top: 5px;
+  width: 120px;
+  height: 120px;
 }
 .clubImage150 img {
   border-radius: 200px;
@@ -63,6 +67,8 @@
   margin: 0 auto;
   display: inherit;
   margin-top: 15px;
+  width: 150px;
+  height: 150px;
 }
 /*mypage edit*/
 .MyPageEditButton #button4 {

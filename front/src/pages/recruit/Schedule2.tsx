@@ -3,6 +3,12 @@ import { BrowserRouter as Router, Route, Link, RouteComponentProps } from 'react
 // import Apply from '../list/apply/Apply';
 import './recruit.css';
 
+import person1 from '../images2/member2@2x.png';
+import person2 from '../images2/member3@2x.png';
+import person3 from '../images2/member4@2x.png';
+import person4 from '../images2/member5@2x.png';
+import person5 from '../images2/member6@2x.png';
+
 const Schedule2 = (props: RouteComponentProps<{}>) => {
     const [edit, setEdit] = useState<boolean>(false);
     // let _temp : boolean[];
@@ -182,7 +188,9 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                     회원
                             </span>
                                 <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                    <img
+                                        src={person1}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
@@ -190,8 +198,10 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                 <span>
                                     회원
                             </span>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person2}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
@@ -199,8 +209,10 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                 <span>
                                     회원
                             </span>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person3}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
@@ -208,8 +220,10 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                 <span>
                                     회원
                             </span>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person4}
+                                        alt='profile image' />
                                 </div>
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
@@ -217,8 +231,10 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                 <span>
                                     회원
                             </span>
-                                <div className="clubImage">
-                                    <img src="http://placehold.it/100x100" />
+                                <div className="clubImage100">
+                                    <img
+                                        src={person5}
+                                        alt='profile image' />
                                 </div>
                             </div>
                         </div>
@@ -228,8 +244,8 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                         <Link to="/recruit/schedule/management"><button id="button5B" >저장</button></Link>
                     </div>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 

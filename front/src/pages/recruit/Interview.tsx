@@ -48,7 +48,7 @@ const Interview = () => {
   const interviewFormList = interviewList.map((item) => {
     return (
       <div className="tiny_gray_namecard" key={item.id}>
-        <div>
+        <div >
           <span className="tiny_name">{item.when}일차</span>
           <span className="tiny_status">총 {item.personnel}명</span>
         </div>

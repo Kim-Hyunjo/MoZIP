@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PostPersonalSelfItem from './PostPersonalSelfItem';
 import './resume.css';
+import profile from '../images2/member7@2x.png';
 
 interface Question {
   id: number;
@@ -128,9 +129,12 @@ const PostInterviewPersonal = () => {
         <label htmlFor=""></label>
         <div className="paperScore">점수 총점 : {totalScore}점</div>
         <div className="gray_namecard">
-          <div>
-            <span>프로필 사진</span>
-            <div className="right_side">
+          <div className="display_horiz">
+            <img
+              className="record_profileimg"
+              src={profile}
+              alt='profile image' />
+            <div className="right_side record_personalinfo">
               <ul>
                 <li className="name">{info[0].name}</li>
                 <li>
