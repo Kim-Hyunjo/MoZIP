@@ -98,7 +98,7 @@ const Mypage = (props: RouteComponentProps<{ user_id: string }>) => {
     }],
   })
   const getApi = async () => {
-    await axios.get(`http://3.35.234.131:8000/mypage/1/`).then((r) => {
+    await axios.get(`http://127.0.0.1:8000/mypage/1/`).then((r) => {
       let res: myInform = r.data;
       setInform(res);
     })

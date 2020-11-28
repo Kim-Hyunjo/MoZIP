@@ -22,7 +22,7 @@ const ListApplySuccess = () => {
       </div>
 
       <div className="mypageStorageButton">
-        <Link to="/mypage">
+        <Link to="/mypage/1">
           <button id="button10">My page로 돌아가기</button>
         </Link>
       </div>

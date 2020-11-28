@@ -337,12 +337,25 @@ class ListApply2View(APIView):
     def get(self, request, cc_id, user_id):
         serializer1 = RecruitFormatSerializer(recruit_format.objects.filter(club_id=-cc_id), many=True)
         serializer2 = UserRecordQSerializer(user_recordQ.objects.filter(user_id=user_id), many=True)
-        datas = serializer1.data[0]
-        datas["document"] = eval(datas["document"])
-
-        return Response(datas)
-        #return Response(datas["document"])
-        #return Response(serializer1.data + serializer2.data)
+        '''
+        datas = serializer1.data[0]  
+        datas["short_answer"] = eval(datas["Short_answer"])
+        datas["Long_answer"] = eval(datas["long_answer"])
+        datas["multiple_choice"] = eval(datas["Multiple_choice"])
+        datas.pop("run_time")
+        datas.pop("rest_time")
+        datas.pop("Multiple_choice")
+        datas.pop("Short_answer")
+        datas.pop("long_answer")
+        '''
+        data2 = serializer2.data[0]
+        data2["RecordQ"] = eval(data2["recordQ"])
+        data2.pop("recordQ")
+        res = {}
+        #res["recruit_format"] = datas
+        res["user_record"] = data2       
+        return add_cors_header(Response(res))
+        #return Response(serializer2.data)
     def post(self, request, cc_id, user_id):
         serializer = RecruitFormatSerializer(recruit_format.objects.filter(club_id=cc_id), data=request.data)
         if serializer.is_valid():
@@ -475,12 +488,39 @@ class RecruitApplicantsView(APIView):
         response = Response(users)
         response = add_cors_header(response)
         return response
-
 class RecruitProcessFormView(APIView):
-    def get(self, request):
-        model = recruit_format
-        serializer = RecruitFormatSerializer(recruit_format.objects.all(), many=True)
-        return Response(serializer.data)
+    def get(self, request,club_id):
+        Type_choice ={"1":"면접전형","2":"서류전형","3":"면접+서류전형"}
+        club_id = -club_id
+        Recruit_basic = RecruitFormatSerializer(recruit_format.objects.filter(club_id=club_id),many=True)
+        data1 = Recruit_basic.data
+
+
+
+        Multiple_choice = eval(data1["Multiple_choice"][0])
+        dict_Multiple_choice = dict(OrderedDict(Multiple_choice))
+        datas.pop('Multiple_choice')
+        data1['Multiple_choice'] = dict_Multiple_choice
+        Short_answer = eval(data1["Short_answer"])
+        dict_Short_answer = dict(OrderedDict(Short_answer))
+        datas.pop('Short_answer')
+        data1['Short_answer'] = dict_Short_answer
+
+        long_answer = eval(data1["long_answer"])
+        dict_long_answer = dict(OrderedDict(long_answer))
+        datas.pop('long_answer')
+        data1['long_answer'] = dict_long_answer
+
+        approval_info = eval(data1["approval_info"])
+        time = eval(data1["time"])
+        data1["approval_info"] = approval_info
+        data1["time"] = time
+        data1["Type"] = Type_choice[data1["Type"]]
+        response = Response(data1)
+        response = add_cors_header(response)
+        return response
+
+
     def post(self, request):
         serializer = RecruitFormatSerializer(data=request.data)
         if serializer.is_valid():
@@ -497,7 +537,7 @@ class RecruitResumeView(APIView): #서류전형 지원자목록
         pass
 
 class RecruitResumeDetailView(APIView):
-    def get(self,request,user_id,ci_id):
+    def get(self,request,user_id,club_id):
         has_permission = []
         serializer1 = UserSerializer(User.objects.get(user_id=user_id))
         data1 = serializer1.data
@@ -505,9 +545,9 @@ class RecruitResumeDetailView(APIView):
         dict_edu = dict(OrderedDict(edu))
         data1.pop('education')
         data1['education'] = dict_edu
-        serializer2 = RecruitFormatSerializer(recruit_format.objects.get(club_id=ci_id, user_id=user_id))
+        serializer2 = RecruitFormatSerializer(recruit_format.objects.get(club_id=-club_id, user_id=user_id))
         data2 = serializer2.data
-        return
+        return Response(data2)
     
     def post(self,request,user_id,ci_id):
         serializer1 = PassFailSerializer(Pass_Fail.objects.get(ci_id=ci_id))
@@ -561,24 +601,15 @@ class RecruitScheduleManagementView(APIView):
         interviewtime = serializer["interviewtime"]
         T = 0
         for val in interviewtime.values():
-            T += (val[1] - val[0]) * 60 // (run_time+rest_time)
-        N_interviewee = Pass_Fail.objects.filter(ci_id=ci_id, detail_type=1,pass_fail='합격').count()
-        serializer_im = InterviewManagerSerializer(interview_manager.objects.get(rf_id=serializer_r["rf_id"])).data["manager"]
-        N_interviewer = len(serializer_im)
-        posTime_interviewer = {}
-        for i in range(len(N_interviewer)):
-            st = serializer_im[i]["time"]
-            for s in st:
-                time_list = []
-                day,time = s.split()
-                year,month,date = day.split(".")
-                start,end = time.split("~")
-                time_list.append()
-            posTime_interviewer[serializer_im[i]["name"]] = ""
-        posTime_interviewee = {}
+            T += (val[1] - val[0]) * 60 // (run_time+rest_time) 
+        serializer_pt = InterviewPostimeSerializer(Interview_Postime.objects.get(rf_id=serializer_r["rf_id"])).data
+        posTime_interviewer = serializer_pt["interiviewers"]
+        posTime_interviewee = serializer_pt["interviewees"]
+        N_interviewees = len(posTime_interviewee.keys())
+        N_interviewers = len(posTime_interviewer.keys())
+        real_time = serializer_pt["times"]     
         #functions
         import random
-
         class Node(object):
             def __init__(self, name, time, left,idx):
                 self.name = name #면접자 이름
@@ -695,13 +726,6 @@ class RecruitScheduleManagementView(APIView):
                     return False
             return True
         #interviewer
-        posTime = {}
-        for i in range(N_interviewer):
-            name,timeNum = map(str, input().split())
-            posTime[name] = list(map(int,timeNum.split(',')))
-            for x in posTime[name]:
-                x -= 1
-
         timetable = [M_interviewer] * T
         LIMITED = 20 * N_interviewer / 100 
         ACCEPTABLE = 10 * N_interviewer / 100 
@@ -711,11 +735,29 @@ class RecruitScheduleManagementView(APIView):
             visited = []
             intervieweeList_in_order = []
             result = {}
-            intervieweeList = sort_by_posTimeCnt(posTime)
-            print('intervieweeList: ',intervieweeList)
+            intervieweeList = sort_by_posTimeCnt(posTime_interviewer)
+            print('interviewerList: ',intervieweeList)
             interview_search()
         #interviewee
         serializer1 = InterviewGroupSerializer(interview_group.objects.get())
+
+        timetable = [M_interviewer] * T
+        LIMITED = 20 * N_interviewer / 100 
+        ACCEPTABLE = 10 * N_interviewer / 100 
+
+        timetable = [M_interviewer] * T
+        visited = []
+        intervieweeList_in_order = []
+        result = {}
+        intervieweeList = sort_by_posTimeCnt(posTime_interviewee)
+        print('intervieweeList: ',intervieweeList)
+        interview_search()
+
+#interview_group에 방금 저장된 정보 GET
+class RecruitScheduleManagementView2(APIView):
+    def get(self):
+        return
+
 
 class RecruitScheduleManagementStaffView(APIView):
     def get(self):
@@ -731,10 +773,6 @@ class RecruitScheduleManagementStaffView(APIView):
                 day,weekday = date.split("/")
                 start_time,end_time = times.split("~")
             manager_list.append
-        return
-#interview_group에 방금 저장된 정보 GET
-class RecruitScheduleManagementView2(APIView):
-    def get(self):
         return
 
 class RecruitScheduleManagementDetailView(APIView):
@@ -933,7 +971,7 @@ class MypageStatusView(APIView): #user_id로 user_circle모델 쿼리해서 club
         response = add_cors_header(response)
         return response
 
-
+'''
 class RecruitProcessFormView(APIView):
     def get(self, request,club_id):
         Type_choice ={"1":"면접전형","2":"서류전형","3":"면접+서류전형"}
@@ -964,16 +1002,15 @@ class RecruitProcessFormView(APIView):
         response = add_cors_header(response)
         return response
 
-
     def post(self, request):
         serializer = RecruitFormatSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+'''
 class InterviewManagerView(APIView):
-    def get(self, reuest):
+    def get(self, request):
         model = interview_manager.objects.all()
         serializer = InterviewManagerSerializer(model,many=True)
         return Response(serializer.data)

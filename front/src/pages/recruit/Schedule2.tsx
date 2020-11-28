@@ -12,13 +12,12 @@ import person5 from '../images2/member6@2x.png';
 const Schedule2 = (props: RouteComponentProps<{}>) => {
     const [edit, setEdit] = useState<boolean>(false);
     // let _temp : boolean[];
-    const day = [{ day: '1일차', date: '2020년 7월 10일', time: ' 오후 4시~7시', site: '동국대학교', total: "총 16명" },
-    { day: '2일차', date: '2020년 7월 12일', time: ' 오후 4시~7시', site: '히히대학교', total: "총 12명" },
-    { day: '3일차', date: '2020년 7월 13일', time: ' 오후 5시~7시', site: '호호대학교', total: "총 12명" }]
-    const schedule = [{ date: "2020.10.03", count: '1일차' }, { date: "2020.10.03", count: '2일차' }, { date: "2020.10.03", count: '3일차' }];
-    const apply = [{ time: "13:00", candidate: "한채은,한예송", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김철수,박철수", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김웅기,나웅기", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "이채은,김채은", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "홍길동,고길동", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "최희도,김희도", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김하연,권하연", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김동욱,양성봉", manager: "김스탭,권스탭" },]
-    const appply2 = [{ time: "13:00", candidate: "한채은,한예송", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김철수,박철수", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김웅기,나웅기", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "이채은,김채은", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "홍길동,고길동", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "최희도,김희도", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김하연,권하연", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김동욱,양성봉", manager: "김스탭,권스탭" },]
-    const appply3 = [{ time: "13:00", candidate: "한채은,한예송", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김철수,박철수", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김웅기,나웅기", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "이채은,김채은", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "홍길동,고길동", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "최희도,김희도", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김하연,권하연", manager: "김스탭,권스탭" }, { time: "13:00", candidate: "김동욱,양성봉", manager: "김스탭,권스탭" },]
+    const day = [{ day: '1일차', date: '2020년 11월 28일', time: ' 오후 4시~7시', site: '동국대학교', total: "총 8명" },
+    { day: '2일차', date: '2020년 11월 29일', time: ' 오후 4시~7시', site: '히히대학교', total: "총 8명" },
+    { day: '3일차', date: '2020년 11월 30일', time: ' 오후 5시~7시', site: '호호대학교', total: "총 8명" },
+    { day: '4일차', date: '2020년 12월 1일', time: ' 오후 5시~7시', site: '헤헤대학교', total: "총 8명" },]
+    const schedule = [{ date: "2020.11.28", count: '1일차' }, { date: "2020.11.29", count: '2일차' }, { date: "2020.11.30", count: '3일차' },{ date: "2020.12.1", count: '4일차' }];
+    const apply = [{ time: "16:00", candidate: "한채은,한예송", manager: "김스탭,권스탭" }, { time: "16:30", candidate: "김철수,박철수", manager: "김스탭,권스탭" }, { time: "17:00", candidate: "김웅기,나웅기", manager: "김스탭,권스탭" }, { time: "18:00", candidate: "이채은,김채은", manager: "김스탭,권스탭" },]
 
     let dayInform;
     // const handleClick= async(event : Event)  => {
@@ -78,9 +77,9 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                                             <div>
                                                 <div className="tiny_gray_namecard tiny_gray_namecard_edit">
                                                     날짜 : <input type="text" defaultValue={item.date}></input><br></br>
-                                시간 : <input type="text" defaultValue={item.time}></input><br></br>
-                                위치 : <input type="text" defaultValue={item.site}></input><br></br>
-                                인원 : <input type="text" defaultValue={item.total}></input><br></br>
+                                                    시간 : <input type="text" defaultValue={item.time}></input><br></br>
+                                                    위치 : <input type="text" defaultValue={item.site}></input><br></br>
+                                                    인원 : <input type="text" defaultValue={item.total}></input><br></br>
                                                 </div></div>
                                         ) : (
                                                 <div>
@@ -97,7 +96,7 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
 
                                     <div className="intervieweeInform">
                                         <div className="display_horiz interview_group_wrap"><h3>{item.day} 대상자</h3>
-                                            <span>총 {apply.length}명</span>
+                                            <span>총 {(apply.length)*2}명</span>
                                             <button id="button1">수정하기</button></div>
                                         <ul className="intervieweeGroup">
                                             {apply.map((info) => {
@@ -184,9 +183,6 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                         <div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>김남음</h4>
-                                <span>
-                                    회원
-                            </span>
                                 <div className="clubImage">
                                     <img
                                         src={person1}
@@ -195,9 +191,6 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>박남음</h4>
-                                <span>
-                                    회원
-                            </span>
                                 <div className="clubImage100">
                                     <img
                                         src={person2}
@@ -206,9 +199,6 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>이남음</h4>
-                                <span>
-                                    회원
-                            </span>
                                 <div className="clubImage100">
                                     <img
                                         src={person3}
@@ -217,9 +207,6 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>오남음</h4>
-                                <span>
-                                    회원
-                            </span>
                                 <div className="clubImage100">
                                     <img
                                         src={person4}
@@ -228,9 +215,6 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                             </div>
                             <div className="tiny_gray_namecard display_horiz2">
                                 <h4>권남음</h4>
-                                <span>
-                                    회원
-                            </span>
                                 <div className="clubImage100">
                                     <img
                                         src={person5}
@@ -241,7 +225,7 @@ const Schedule2 = (props: RouteComponentProps<{}>) => {
                     </div>
                     <div className="interview_btns5">
                         <Link to="/recruit/schedule/management"><button id="button5W" >돌아가기</button></Link>
-                        <Link to="/recruit/schedule/management"><button id="button5B" >저장</button></Link>
+                        <Link to="/recruit/resume"><button id="button5B" >저장</button></Link>
                     </div>
                 </form>
             </div >

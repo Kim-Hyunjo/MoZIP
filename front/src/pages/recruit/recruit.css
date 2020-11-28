@@ -267,12 +267,15 @@
 .applicants .user_namecard {
   width: 130px;
 }
+.applicants .clubImage {
+  margin-top: 20px;
+}
 
 /*schedule*/
 .schedule {
   width: 1000px;
 }
-.schedule .middle_title{
+.schedule .middle_title {
   margin: 20px;
   margin-left: 70px;
 }
@@ -448,7 +451,7 @@
 /*surely used in schedule2*/
 .schedule_cards #button1:nth-child(1) {
   background: #fff;
-  color: #0C5AC6;
+  color: #0c5ac6;
   font-size: 20px;
   padding: 8px;
   width: 220px;
@@ -456,10 +459,10 @@
   border-radius: 16px;
   margin-left: 88px;
   margin-top: 12px;
-  margin-bottom:20px;
+  margin-bottom: 20px;
   /* float: right; */
 }
-.button_editscheduleinfo{
+.button_editscheduleinfo {
   margin: 28px;
   margin-left: 64px;
 }
@@ -608,10 +611,10 @@
   float: right;
   transform: translate(10%, -220%);
 }
-.record .small_gray_namecard .answerScore_ input{
+.record .small_gray_namecard .answerScore_ input {
   margin-right: 6px;
 }
-.answerScore2{
+.answerScore2 {
   float: right;
   transform: translate(32%, -132%);
 }
@@ -740,42 +743,42 @@
   transform: translate(0%, -20%);
   display: flex;
 }
-.final .twoButtons #button1{
+.final .twoButtons #button1 {
   margin-top: 0px;
 }
 .finalPerson:nth-child(1) .twoButtons {
   margin-top: -26px;
 }
-.btn_deposit_g{
+.btn_deposit_g {
   width: 88px;
   height: 36px;
   border: 1px solid;
   border-radius: 12px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background: #00A116;
-  border: 1px solid #00A116;
+  background: #00a116;
+  border: 1px solid #00a116;
   color: #fff;
   margin-right: 20px;
 }
-.btn_deposit_r{
+.btn_deposit_r {
   width: 88px;
   height: 36px;
   border: 1px solid;
   border-radius: 12px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background: #C60C0C;
-  border: 1px solid #C60C0C;
+  background: #c60c0c;
+  border: 1px solid #c60c0c;
   color: #fff;
   margin-right: 20px;
 }
-.btn_deposit_y{
+.btn_deposit_y {
   width: 88px;
   height: 36px;
   border: 1px solid;
   border-radius: 12px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
-  background: #D9AB00;
-  border: 1px solid #D9AB00;
+  background: #d9ab00;
+  border: 1px solid #d9ab00;
   color: #fff;
   margin-right: 20px;
 }

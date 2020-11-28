@@ -1,5 +1,6 @@
+import { BrowserRouter as Router, Route, Link, RouteComponentProps } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './apply.css';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,6 +8,22 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
+
+
+
+interface Apply2{
+  user_record : UserRecord,
+}
+
+interface UserRecord{
+  user_id : number,
+  RecordQ : Answer[],
+}
+
+interface Answer{
+  Q1 : string,
+  A1 : string,
+}
 
 const ApplyTemplete = ({ history }: any) => {
   const [motivation, setmotivation] = useState('');
@@ -53,6 +70,49 @@ const ApplyTemplete = ({ history }: any) => {
     history.goBack();
   };
 
+
+  const copyMessage = (val: string) =>{
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
+
+
+
+  const [_apply, setApply2] = useState<Apply2>({
+    user_record:{
+      user_id: 1,
+      RecordQ: [{
+        Q1 : "지원 동기/이유",
+        A1 : "TAVE가 최고의 동아리라는 것이 지구 반대편까지 소문이 났다고 들었습니다.",
+      },
+      {
+        Q1 : "자기소개(성격)",
+        A1 : "저는 성격 좋은 테이비입니다.",
+    },
+      {
+        Q1 : "각오",
+        A1 : "파이팅~!~!~",
+    }]
+    }
+  })
+  const getApi = async () => {
+    await axios.get(`http://127.0.0.1:8000/list/academy/1/apply2/1/`).then((r) => {
+      let res: Apply2 = r.data;
+      setApply2(res);
+    })
+  }
+  useEffect(() => {
+    getApi()
+  }, [])
 
 
   const renderSubmit = () => {
@@ -204,18 +264,33 @@ const ApplyTemplete = ({ history }: any) => {
       <div className="resumeList">
         <div className="resumeList_header">자기소개함</div>
         <ul>
+          {/* {_apply.user_record.RecordQ.map((item)=>{
+            <li>
+              {item.Q1}<button onClick={()=>copyMessage(item.A1)} value="click to copy" >복사하기</button>
+            </li>
+          })} */}
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            {_apply.user_record.RecordQ[0].Q1}<button id="copy" onClick={()=>copyMessage(_apply.user_record.RecordQ[0].A1)} value="click to copy" >복사하기</button>
           </li>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            {_apply.user_record.RecordQ[1].Q1}<button id="copy" onClick={()=>copyMessage(_apply.user_record.RecordQ[1].A1)} value="click to copy" >복사하기</button>
           </li>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            {_apply.user_record.RecordQ[2].Q1}<button id="copy" onClick={()=>copyMessage(_apply.user_record.RecordQ[2].A1)} value="click to copy" >복사하기</button>
+          </li>
+          
+          {/* <li>
+            {_apply.user_record.RecordQ}
           </li>
           <li>
-            지원 동기를 말씀해주세요<p>복사하기</p>
+            자기 소개(성격)<p>복사하기</p>
           </li>
+          <li>
+            공모전/대회 경력<p>복사하기</p>
+          </li>
+          <li>
+            각오<p>복사하기</p>
+          </li> */}
         </ul>
       </div>
       </div>

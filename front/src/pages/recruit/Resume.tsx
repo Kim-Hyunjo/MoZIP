@@ -22,8 +22,8 @@ const Resume = () => {
       name: '한채은',
       group: '1조',
       time: '13:00',
-      score: 10,
-      status: '보류',
+      score: 39,
+      status: '합격',
       isChecked: false,
     },
     {
@@ -31,62 +31,62 @@ const Resume = () => {
       name: '박웅기',
       group: '1조',
       time: '13:00',
-      score: 10,
+      score: 37,
       status: '합격',
       isChecked: false,
     },
     {
       id: 3,
       name: '권수지',
-      group: '1조',
-      time: '13:00',
-      score: 10,
-      status: '미결정',
+      group: '2조',
+      time: '13:30',
+      score: 37,
+      status: '합격',
       isChecked: false,
     },
     {
       id: 4,
       name: '왕희도',
-      group: '1조',
-      time: '13:00',
-      score: 10,
-      status: '불합격',
+      group: '2조',
+      time: '13:30',
+      score: 36,
+      status: '보류',
       isChecked: false,
     },
     {
       id: 5,
       name: '김정우',
-      group: '1조',
-      time: '13:00',
-      score: 10,
+      group: '3조',
+      time: '14:00',
+      score: 36,
       status: '보류',
       isChecked: false,
     },
     {
       id: 6,
       name: '이하연',
-      group: '1조',
-      time: '13:00',
-      score: 10,
+      group: '3조',
+      time: '14:00',
+      score: 36,
       status: '미결정',
       isChecked: false,
     },
     {
       id: 7,
       name: '김현조',
-      group: '1조',
-      time: '13:00',
-      score: 10,
+      group: '4조',
+      time: '14:30',
+      score: 35,
       status: '불합격',
       isChecked: false,
     },
     {
       id: 8,
       name: '한예송',
-      group: '1조',
-      time: '13:00',
-      score: 10,
-      status: '합격',
+      group: '4조',
+      time: '14:30',
+      score: 35,
+      status: '불합격',
       isChecked: false,
     },
   ]);
@@ -140,7 +140,7 @@ const Resume = () => {
       <h2>지원자 목록</h2>
       <form action="">
         <label htmlFor=""></label>
-        {/* <button id="button4">통계 보기</button> */}
+        <Link to ="/mypage/status"><button id="button4">돌아가기</button></Link>
         <div className="stateBox">
           <ul className="states">
             <li
@@ -197,7 +197,7 @@ const Resume = () => {
             </li>
           </ul>
 
-          <div className="stateUsers">{'총 100명'}</div>
+          <div className="stateUsers">{'총 8명'}</div>
           <ul className="horizontal_people_list">
             {status === '전체'
               ? candidates.map((candidate) => {

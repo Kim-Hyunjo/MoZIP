@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Resume2Score = ({ question, onUpdate }: Props) => {
-  const [score, setScore] = useState<number>(0);
+  const [score, setScore] = useState<number>(question.score);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
