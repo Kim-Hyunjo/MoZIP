@@ -29,57 +29,57 @@
   font-weight: 500;
   line-height: 60px;
 }
-.stateName_all_none{
+.stateName_all_none {
   background: #fff;
-  color:#000;
+  color: #000;
 }
-.stateName_yet_none{
+.stateName_yet_none {
   background: #fff;
   color: #818181;
 }
-.stateName_pass_none{
+.stateName_pass_none {
   background: #fff;
-  color:#00A116;
+  color: #00a116;
 }
-.stateName_nonpass_none{
+.stateName_nonpass_none {
   background: #fff;
-  color:#C60C0C;
+  color: #c60c0c;
 }
-.stateName_keep_none{
+.stateName_keep_none {
   background: #fff;
-  color:#D9AB00;
+  color: #d9ab00;
 }
-.stateName_all{
+.stateName_all {
   background: #000;
   color: #fff;
 }
-.stateName_yet{
-  background:  #818181;
-  color:#fff;
-}
-.stateName_pass{
-  background:#00A116;
+.stateName_yet {
+  background: #818181;
   color: #fff;
 }
-.stateName_nonpass{
-  background: #C60C0C;
-  color:#fff;
+.stateName_pass {
+  background: #00a116;
+  color: #fff;
 }
-.stateName_keep{
-  background:#D9AB00;
+.stateName_nonpass {
+  background: #c60c0c;
+  color: #fff;
+}
+.stateName_keep {
+  background: #d9ab00;
   color: #fff;
 }
 .stateName_pass_w {
-  color:#00A116;
+  color: #00a116;
 }
 .stateName_nonpass_w {
-  color:  #C60C0C;
+  color: #c60c0c;
 }
-.stateName_keep_w{
-  color: #D9AB00;
+.stateName_keep_w {
+  color: #d9ab00;
 }
-.stateName_yet_w{
-  color:  #818181;
+.stateName_yet_w {
+  color: #818181;
 }
 .stateUsers {
   font-size: 24px;
@@ -257,7 +257,7 @@
   width: 320px;
   height: 64px;
   font-size: 22px;
-  margin-top: 50px;
+  transform: translate(0, 30px);
 }
 .resume_choosetime {
   margin-left: 15px;
