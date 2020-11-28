@@ -121,8 +121,8 @@ console.log(foundationdates2);
 return (
     <div className="circle" id="wrapper">
       <div className="circle_header">
-        <h2>{info.name}</h2>
-        <div className="small_title">{info.information}</div>
+        <h2>TAVE</h2>
+        <div className="small_title">4차 산업 혁명 동아리</div>
   <div className="openDate">{value}창립</div>
         <div className="hashtag">#학술</div>
         <div className="detailButton">
